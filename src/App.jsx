@@ -184,52 +184,124 @@ const profileResults = [
   {
     number: "01",
     label: "ERP SYSTEMS",
-    title: "One operational source of truth.",
-    description: "Production, purchasing, inventory and reporting aligned in one reliable flow.",
+    title: "The operational core.",
+    description: "Connect sales, production, purchasing, inventory, finance and reporting within one structured platform.",
   },
   {
     number: "02",
     label: "CRM",
-    title: "Customer context that stays connected.",
-    description: "Leads, conversations and follow-up organized from first contact to long-term relationship.",
+    title: "Customer relationships, organized.",
+    description: "Bring leads, conversations, tasks and follow-ups together so every interaction has context and continuity.",
   },
   {
     number: "03",
     label: "POS",
-    title: "Commerce without blind spots.",
-    description: "Sales, payments and stock connected across physical and digital touchpoints.",
+    title: "Sales connected end to end.",
+    description: "Unify products, payments, inventory and customer data across physical and digital sales channels.",
   },
   {
     number: "04",
-    label: "WEB PLATFORMS",
-    title: "Journeys designed to convert.",
-    description: "Clear discovery, stronger conversion paths and service flows connected to the business.",
+    label: "APP AND WEBS",
+    title: "More than an interface.",
+    description: "Create clear, responsive platforms that guide users, support business goals and connect with the tools behind the experience.",
   },
   {
     number: "05",
     label: "AUTOMATION",
-    title: "Less repetition. More momentum.",
-    description: "Reliable workflows that remove manual steps and keep operations moving.",
+    title: "Manual work, reduced.",
+    description: "Automate repetitive steps, connect information between tools and keep processes moving with fewer errors and delays.",
   },
   {
     number: "06",
     label: "AI INTEGRATION",
-    title: "Intelligence inside the workflow.",
-    description: "Copilots and assisted decisions embedded where teams already work.",
+    title: "AI inside the workflow.",
+    description: "Embed copilots, intelligent assistance and context-aware actions into the systems teams already use.",
   },
 ];
 
-function ProfilePage() {
+const profileFaqs = [
+  {
+    question: "What can we build together?",
+    answer: "From connected ERP, CRM and POS platforms to responsive apps, web experiences, automated workflows and practical AI layers built around the way your business operates.",
+  },
+  {
+    question: "Which teams are the best fit for this work?",
+    answer: "Growing businesses and operational teams that need clearer systems, better-connected information and digital products that can evolve with their processes.",
+  },
+  {
+    question: "How does an idea become a working system?",
+    answer: "We map the operation, identify the highest-impact opportunity, shape the experience and build in focused stages—testing each connection before expanding the system.",
+  },
+];
+
+function ResultsMap({ isVisible }) {
   return (
-    <main className="profile-page" id="inicio">
+    <section className="results-section" aria-labelledby="results-title">
+      <header className="results-intro">
+        <div className="results-intro-heading">
+          <p className="eyebrow" aria-label="What I create"><span className="availability-dot loading-dot" /><TypewriterText text="WHAT I CREATE" threshold={0.2} /></p>
+          <h2 id="results-title">Built to work<br /><em>as one.</em></h2>
+        </div>
+        <p>I connect platforms, workflows and AI to make everyday operations clearer, faster and easier to manage.</p>
+      </header>
+
+      <div className={`capabilities-map${isVisible ? " is-visible" : ""}`}>
+        <svg className="capabilities-connectors" viewBox="0 0 1200 522" preserveAspectRatio="none" aria-hidden="true">
+          <g className="capabilities-connector-paths">
+            <path pathLength="1" d="M600 0V82" />
+            <path pathLength="1" d="M200 82H1000" />
+            <path pathLength="1" d="M200 82V108" />
+            <path pathLength="1" d="M600 82V108" />
+            <path pathLength="1" d="M1000 82V108" />
+            <path pathLength="1" d="M400 82V324" />
+            <path pathLength="1" d="M800 82V324" />
+            <path pathLength="1" d="M200 324H1000" />
+            <path pathLength="1" d="M200 324V348" />
+            <path pathLength="1" d="M600 324V348" />
+            <path pathLength="1" d="M1000 324V348" />
+          </g>
+          <g className="capabilities-connector-nodes">
+            <circle cx="600" cy="82" r="4" />
+            <circle cx="200" cy="108" r="3.5" />
+            <circle cx="600" cy="108" r="3.5" />
+            <circle cx="1000" cy="108" r="3.5" />
+            <circle cx="200" cy="348" r="3.5" />
+            <circle cx="600" cy="348" r="3.5" />
+            <circle cx="1000" cy="348" r="3.5" />
+          </g>
+        </svg>
+
+        {profileResults.map((result, index) => (
+          <article className="capability-item" data-number={result.number} style={{ "--capability-delay": `${3.18 + Math.floor(index / 3) * 0.62 + (index % 3) * 0.14}s` }} key={result.number}>
+            <span className="capability-rule" aria-hidden="true" />
+            <p className="capability-index"><span className="capability-number">{result.number}</span><span className="capability-label">{result.label}</span></p>
+            <h3>{result.title}</h3>
+            <p>{result.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProfilePage() {
+  const [connectionsVisible, setConnectionsVisible] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setConnectionsVisible(true));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  return (
+    <main className={`profile-page${connectionsVisible ? " connections-visible" : ""}`} id="inicio">
       <section className="about-section about-page" aria-labelledby="profile-title">
         <article className="about-copy">
           <p className="eyebrow" aria-label="Profile"><span className="availability-dot loading-dot" /><TypewriterText text="PROFILE" /></p>
-          <h1 id="profile-title">Ideas into systems.</h1>
-          <p>
+          <h1 id="profile-title">Ideas into <span>systems.</span></h1>
+          <p className="profile-lead">
             I’m Diego Franco, an AI Solutions Engineer who helps businesses turn complex operations
-            into clear, connected digital products. I combine product strategy, UX/UI design and
-            applied AI to build practical solutions that drive clarity, efficiency and measurable impact.
+            into clear, connected digital products. By combining product strategy, UX/UI design and
+            applied AI, I build practical solutions that drive clarity, efficiency and measurable impact.
           </p>
           <SoftButton href="/#contacto" primary>Let’s talk <Arrow /></SoftButton>
           <div className="about-details" aria-label="Áreas de trabajo">
@@ -249,8 +321,7 @@ function ProfilePage() {
 
             <g className="profile-circuit profile-circuit-right">
               <path pathLength="1" d="M560 153H720V320H813V352" />
-              <path pathLength="1" d="M813 482V600H680" />
-              <path pathLength="1" d="M710 620V664" />
+              <path pathLength="1" d="M813 482V600H710V664" />
             </g>
 
             <g className="profile-grid-nodes">
@@ -260,6 +331,7 @@ function ProfilePage() {
               <circle cx="720" cy="153" r="7.5" style={{ "--node-delay": ".68s" }} />
               <circle cx="813" cy="320" r="7.5" style={{ "--node-delay": ".98s" }} />
               <circle cx="813" cy="600" r="7.5" style={{ "--node-delay": "1.28s" }} />
+              <circle cx="710" cy="600" r="7.5" style={{ "--node-delay": "1.42s" }} />
             </g>
           </svg>
 
@@ -289,30 +361,56 @@ function ProfilePage() {
             <span className="profile-signature-line" />
             <span className="profile-signature-dot" />
             <span className="profile-signature-label">
-              <TypewriterText text="DIEGO FRANCO · AI SOLUTIONS ENGINEER" threshold={0.25} rootMargin="0px" />
+              <TypewriterText text="STRATEGY, DESIGN & TECHNOLOGY" threshold={0.25} rootMargin="0px" />
             </span>
             <span className="profile-signature-line" />
           </p>
         </div>
       </section>
 
-      <section className="results-section" aria-labelledby="results-title">
-        <div className="results-intro">
-          <p className="eyebrow" aria-label="Results"><span className="availability-dot" /><TypewriterText text="RESULTS" threshold={0.2} /></p>
-          <h2 id="results-title">Connected systems.<br /><em>Measurable outcomes.</em></h2>
-          <p>I design every layer to turn operational complexity into faster execution, clearer decisions and experiences that work as one.</p>
+      <div className="profile-system-handoff">
+        <svg className="profile-system-handoff-lines profile-system-handoff-desktop" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path pathLength="1" d="M908 0V50H600" />
+          <path pathLength="1" d="M600 50V120" />
+          <circle cx="908" cy="50" r="3.5" />
+          <circle cx="600" cy="50" r="3.5" />
+        </svg>
+        <svg className="profile-system-handoff-lines profile-system-handoff-mobile" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path pathLength="1" d="M612 0V52H-23V120" />
+          <circle cx="612" cy="52" r="3.5" />
+        </svg>
+        <div className="profile-connector-resources" aria-label="Profile resources">
+          <div className="profile-connector-resource" aria-disabled="true">
+            <span className="profile-connector-resource-node" aria-hidden="true" />
+            <span className="profile-connector-resource-label">Download CV</span>
+            <Arrow diagonal />
+          </div>
+          <div className="profile-connector-resource" aria-disabled="true">
+            <span className="profile-connector-resource-node" aria-hidden="true" />
+            <span className="profile-connector-resource-label">LinkedIn</span>
+            <Arrow diagonal />
+          </div>
         </div>
+      </div>
 
-        <div className="results-grid">
-          {profileResults.map((result) => (
-            <article className="result-card" key={result.number}>
-              <div className="result-card-top">
-                <span className="result-card-label">{result.label}</span>
-                <span>{result.number}</span>
-              </div>
-              <h3>{result.title}</h3>
-              <p>{result.description}</p>
-            </article>
+      <ResultsMap isVisible={connectionsVisible} />
+
+      <section className="profile-faq" aria-labelledby="profile-faq-title">
+        <header className="profile-faq-header">
+          <p className="eyebrow" id="profile-faq-title" aria-label="FAQ">
+            <span className="availability-dot loading-dot" />
+            <TypewriterText text="FAQ" threshold={0.2} />
+          </p>
+        </header>
+        <div className="profile-faq-list">
+          {profileFaqs.map((faq) => (
+            <details className="profile-faq-item" key={faq.question}>
+              <summary>
+                <span className="profile-faq-plus" aria-hidden="true" />
+                <span>{faq.question}</span>
+              </summary>
+              <p>{faq.answer}</p>
+            </details>
           ))}
         </div>
       </section>
