@@ -447,7 +447,7 @@ function App() {
           <a href="/#contacto">Contact</a>
         </nav>
 
-        <SoftButton href="https://github.com/dfeph91-creator" external>
+        <SoftButton href="https://github.com/diegofrancoe" external>
           GitHub <Arrow diagonal />
         </SoftButton>
       </header>
@@ -558,7 +558,7 @@ function App() {
           </div>
           <div className="contact-actions">
             <p>Available for digital products, business systems, AI automation and connected experiences.</p>
-            <SoftButton href="https://github.com/dfeph91-creator" primary external>
+            <SoftButton href="https://github.com/diegofrancoe" primary external>
               Get in touch <Arrow diagonal />
             </SoftButton>
           </div>
