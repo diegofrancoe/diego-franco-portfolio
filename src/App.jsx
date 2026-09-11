@@ -1100,7 +1100,7 @@ function CenizaCrmPreview({ detail, language, label }) {
     { title: "Reportes", benefit: "Lectura ejecutiva", text: "Resume resultados comerciales, operativos, financieros, de inventario y documentos en un mismo período para comparar, exportar y decidir.", src: "/case-ceniza-laptop-reports.png", alt: "Resumen ejecutivo y tabla de reportes del CRM de Ceniza", scale: "1", position: "center top" },
     { title: "Finanzas", benefit: "Trazabilidad financiera", text: "Conecta ingresos, costos, cuentas por cobrar y pagar, movimientos, recaudo y rentabilidad con la cotización u operación que originó cada valor.", src: "/case-ceniza-laptop-finance.png", alt: "Indicadores y movimientos de la página financiera del CRM de Ceniza", scale: "1", position: "center bottom" },
     { title: "Página web", benefit: "Entrada conectada", text: "Presenta los servicios y equipos de Ceniza y convierte el interés del visitante en una solicitud con contexto que continúa dentro del CRM.", src: "/case-ceniza-laptop-website.png", alt: "Página web pública de Ceniza conectada con el CRM", scale: "1", position: "center top" },
-    { title: "Asistente IA", benefit: "Decisiones en contexto", text: "Lee la página activa, prioriza alertas, resume la operación y prepara el siguiente paso sin separar la asistencia del trabajo diario.", src: "/case-ceniza-laptop-assistant.png", alt: "Asistente de IA de Ceniza abierto sobre el dashboard del CRM", scale: "1", position: "center top" },
+    { title: "Asistente IA", benefit: "Decisiones en contexto", text: "Lee la página activa, prioriza alertas, resume la operación y prepara el siguiente paso sin separar la asistencia del trabajo diario.", src: "/case-ceniza-laptop-assistant-chat.png", alt: "Vista completa del Asistente de IA de Ceniza", scale: "1", position: "center top", fit: "fill" },
   ] : [
     { title: "Dashboard", benefit: "Business control", text: "Brings together indicators, recent clients, upcoming milestones, opportunities, deliveries, inventory and financial performance to reveal where the business needs action.", src: "/case-ceniza-laptop-dashboard.png", alt: "Operational indicators and panels in the Ceniza CRM dashboard", scale: "1", position: "center bottom" },
     { title: "Agenda", benefit: "Clear priorities", text: "Centralizes the calendar, tasks, collections, deliveries, owners and alerts so every priority has a date and a clear next step.", src: "/case-ceniza-laptop-agenda.png", alt: "Operating calendar in the Ceniza CRM agenda", scale: "1", position: "center bottom" },
@@ -1110,7 +1110,7 @@ function CenizaCrmPreview({ detail, language, label }) {
     { title: "Reports", benefit: "Executive view", text: "Summarizes commercial, operational, financial, inventory and document results for the same period so the team can compare, export and decide.", src: "/case-ceniza-laptop-reports.png", alt: "Executive summary and report table in the Ceniza CRM", scale: "1", position: "center top" },
     { title: "Finance", benefit: "Financial traceability", text: "Connects revenue, costs, receivables, payables, movements, collections and profitability to the quote or operation behind every amount.", src: "/case-ceniza-laptop-finance.png", alt: "Indicators and movements on the Ceniza CRM finance page", scale: "1", position: "center bottom" },
     { title: "Website", benefit: "Connected entry point", text: "Presents Ceniza's services and equipment, then turns visitor interest into a contextual request that continues inside the CRM.", src: "/case-ceniza-laptop-website.png", alt: "Public Ceniza website connected with the CRM", scale: "1", position: "center top" },
-    { title: "AI Assistant", benefit: "Contextual decisions", text: "Reads the active page, prioritizes alerts, summarizes the operation and prepares the next step without separating assistance from daily work.", src: "/case-ceniza-laptop-assistant.png", alt: "Ceniza AI Assistant open over the CRM dashboard", scale: "1", position: "center top" },
+    { title: "AI Assistant", benefit: "Contextual decisions", text: "Reads the active page, prioritizes alerts, summarizes the operation and prepares the next step without separating assistance from daily work.", src: "/case-ceniza-laptop-assistant-chat.png", alt: "Full-screen Ceniza AI Assistant view", scale: "1", position: "center top", fit: "fill" },
   ];
 
   return (
@@ -1128,6 +1128,7 @@ function CenizaCrmPreview({ detail, language, label }) {
                 style={{
                   "--screen-scale": screen.scale,
                   "--screen-position": screen.position,
+                  "--screen-fit": screen.fit || "contain",
                 }}
               >
                 <div className="ceniza-crm-flow-screen">
