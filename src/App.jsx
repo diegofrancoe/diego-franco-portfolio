@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
-import { LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuFileText, LuSparkles, LuTarget, LuTrendingUp, LuUsers } from "react-icons/lu";
-import { SiMake, SiN8N, SiNextdotjs, SiReact, SiSupabase, SiTypescript, SiVercel } from "react-icons/si";
+import { LuArrowDown, LuArrowRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuDatabase, LuFileText, LuGlobe, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
+import { SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMeta, SiN8N, SiNextdotjs, SiReact, SiStripe, SiSupabase, SiTiktok, SiTypescript, SiVercel, SiWhatsapp } from "react-icons/si";
 
 const projects = [
   {
@@ -373,6 +373,15 @@ function TypewriterText({ text, threshold = 0.75, rootMargin = "0px 0px -12% 0px
   );
 }
 
+function CenizaEyebrow({ text, className = "case-label", dot = false, threshold = 0.55 }) {
+  return (
+    <p className={`${className} ceniza-section-eyebrow`} aria-label={text}>
+      {dot ? <span className="availability-dot loading-dot" /> : null}
+      <TypewriterText text={text} threshold={threshold} rootMargin="0px 0px -7% 0px" />
+    </p>
+  );
+}
+
 const projectVisualAssets = {
   naval: "/project-naval-n-v3.png",
   forty: "/project-40-4-v3.png",
@@ -441,9 +450,9 @@ const caseStudyDetails = {
       { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.png", label: "Asistente Ceniza", benefit: "Prioritizes alerts, summarizes the operation and prepares actions with the same desktop context." },
     ],
     assistantLabel: "ASISTENTE CENIZA · AI INSIDE THE CRM",
-    assistantTitle: "From business context to the next action—inside the CRM.",
+    assistantTitle: "CRM context becomes clearer, more timely decisions.",
     assistantCopy:
-      "The assistant reads the full operation, identifies what deserves attention and turns each signal into a traceable recommendation the team can review and confirm.",
+      "Asistente Ceniza connects clients, agenda, quotes, inventory and finance to detect risks, explain what matters and prepare a next step the team can review before acting.",
     assistantCapabilities: [
       { title: "Sees the full context", text: "Connects clients, agenda, quotes, operations, inventory and finance." },
       { title: "Prepares the next step", text: "Turns risks and opportunities into a controlled action." },
@@ -463,10 +472,10 @@ const caseStudyDetails = {
     ],
     predictionNote: "Product direction: the decision logic and interaction are defined in the system. A learned forecasting model will only be presented as production-ready after it has sufficient historical data and measurable evaluation results.",
     assistantStatus: "REAL INTERFACE · CONNECTED TO THE CRM",
-    webLabel: "PUBLIC WEBSITE · SUPPORTING ROLE",
-    webTitle: "The website explains the offer and captures a better starting point.",
+    webLabel: "WEBSITE DESIGNED + BUILT · CONNECTED TO THE CRM",
+    webTitle: "From discovering the catalog to starting a rental or production.",
     webCopy:
-      "The public experience presents the studio, equipment catalog, production combos and portfolio. Its role is focused: help a potential client understand the offer and send enough context for the team to continue inside the CRM.",
+      "I also designed and built Ceniza’s public website so clients can understand the offer before contacting the team. They can browse equipment and bundles, open detailed product pages, see completed projects and choose between renting equipment or producing a project. A WhatsApp conversation or form submission reaches the CRM with the source, need and selected equipment already attached.",
     automationTitle: "AI turns shared context into action, prediction and decisions.",
     automationLabel: "AI INTEGRATION · ONE OPERATING CONTEXT",
     automationCopy:
@@ -632,9 +641,9 @@ const caseStudyDetailsEs = {
       { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.png", label: "Asistente Ceniza", benefit: "Prioriza alertas, resume la operación y prepara acciones con el mismo contexto del escritorio." },
     ],
     assistantLabel: "ASISTENTE CENIZA · IA DENTRO DEL CRM",
-    assistantTitle: "Del contexto del negocio a la siguiente acción, dentro del CRM.",
+    assistantTitle: "El contexto del CRM se convierte en decisiones más claras.",
     assistantCopy:
-      "El asistente lee la operación completa, identifica qué merece atención y convierte cada señal en una recomendación trazable que el equipo puede revisar y confirmar.",
+      "El Asistente Ceniza conecta clientes, agenda, cotizaciones, inventario y finanzas para detectar riesgos, explicar qué importa y preparar un siguiente paso que el equipo revisa antes de actuar.",
     assistantCapabilities: [
       { title: "Ve el contexto completo", text: "Conecta clientes, agenda, cotizaciones, operación, inventario y finanzas." },
       { title: "Prepara el siguiente paso", text: "Convierte riesgos y oportunidades en una acción controlada." },
@@ -654,10 +663,10 @@ const caseStudyDetailsEs = {
     ],
     predictionNote: "Dirección del producto: la lógica de decisión y la interacción están definidas en el sistema. Un modelo de pronóstico aprendido solo se presentará como listo para producción cuando cuente con suficiente historial y resultados de evaluación medibles.",
     assistantStatus: "INTERFAZ REAL · CONECTADA AL CRM",
-    webLabel: "SITIO WEB PÚBLICO · ROL DE SOPORTE",
-    webTitle: "La web explica la oferta y captura un mejor punto de partida.",
+    webLabel: "SITIO WEB DISEÑADO + DESARROLLADO · CONECTADO AL CRM",
+    webTitle: "De descubrir el catálogo a iniciar una renta o producción.",
     webCopy:
-      "La experiencia pública presenta el estudio, el catálogo de equipos, los combos de producción y el portafolio. Su función es concreta: ayudar a entender la oferta y enviar suficiente contexto para que el equipo continúe dentro del CRM.",
+      "También diseñé y desarrollé la web pública de Ceniza para que cada cliente entienda la oferta antes de hablar con el equipo. Puede recorrer equipos y combos, abrir fichas detalladas, ver proyectos realizados y decidir entre rentar equipos o producir un proyecto. La conversación por WhatsApp o el envío del formulario llega al CRM con el origen, la necesidad y los equipos elegidos ya conectados.",
     automationTitle: "La IA convierte el contexto compartido en acción, predicción y decisiones.",
     automationLabel: "INTEGRACIÓN DE IA · UN SOLO CONTEXTO OPERATIVO",
     automationCopy:
@@ -1151,12 +1160,47 @@ function CenizaCrmPreview({ detail, language, label }) {
   );
 }
 
+function CenizaDecisionStrip({ language }) {
+  return (
+    <section className="ceniza-decision-strip" aria-labelledby="ceniza-decision-strip-title">
+      <header>
+        <CenizaEyebrow text={language === "es" ? "INTELIGENCIA FINANCIERA + COMERCIAL" : "FINANCIAL + COMMERCIAL INTELLIGENCE"} />
+        <h3 id="ceniza-decision-strip-title">{language === "es" ? "Datos conectados para anticipar, invertir mejor y reducir costos." : "Connected data to anticipate, invest better and reduce costs."}</h3>
+        <p>{language === "es" ? "Al relacionar cada lead con su canal, cotización, operación y pago, el CRM revela qué genera negocio rentable, dónde se pierde tiempo y qué oportunidades tienen mayor probabilidad de cierre." : "By linking every lead to its channel, quote, operation and payment, the CRM reveals what generates profitable business, where time is lost and which opportunities are most likely to close."}</p>
+      </header>
+
+      <ul>
+        <li>
+          <span>ROI</span>
+          <strong>{language === "es" ? "Retorno por canal" : "Return by channel"}</strong>
+          <p>{language === "es" ? "Compara ingresos atribuibles con la inversión para priorizar los canales que sí generan valor." : "Compares attributable revenue with investment to prioritize the channels that generate value."}</p>
+        </li>
+        <li>
+          <span>{language === "es" ? "MARGEN" : "MARGIN"}</span>
+          <strong>{language === "es" ? "Rentabilidad real" : "Real profitability"}</strong>
+          <p>{language === "es" ? "Cruza ingresos y costos por operación para identificar servicios, alquileres y proyectos rentables." : "Matches revenue and costs by operation to identify profitable services, rentals and projects."}</p>
+        </li>
+        <li>
+          <span>CAC</span>
+          <strong>{language === "es" ? "Costo de adquisición" : "Acquisition cost"}</strong>
+          <p>{language === "es" ? "Relaciona la inversión comercial con los nuevos clientes y muestra cuánto cuesta crecer." : "Connects commercial investment to new clients and shows how much growth costs."}</p>
+        </li>
+        <li>
+          <span>{language === "es" ? "CONVERSIÓN" : "CONVERSION"}</span>
+          <strong>{language === "es" ? "Pipeline predecible" : "Predictable pipeline"}</strong>
+          <p>{language === "es" ? "Mide el avance de lead a oportunidad y cierre para proyectar ventas y flujo de caja." : "Measures progress from lead to opportunity and close to forecast sales and cash flow."}</p>
+        </li>
+      </ul>
+    </section>
+  );
+}
+
 function CenizaConnectionFlow({ language, embedded = false }) {
   const content = language === "es" ? {
     label: "INTEGRACIÓN DE IA · UN SOLO CONTEXTO OPERATIVO",
     title: "La IA convierte el contexto en acción y mejores decisiones.",
     embeddedLabel: "CÓMO FUNCIONA",
-    embeddedTitle: "Una misma señal recorre toda la operación.",
+    embeddedTitle: "Un mismo flujo conecta toda la operación.",
     copy: "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, prioriza la agenda, prepara cotizaciones y ejecuta acciones dentro de la operación. Al mismo tiempo vigila inventario y finanzas, actualiza el dashboard y detecta patrones para anticipar riesgos, generar predicciones y recomendar la siguiente mejor decisión.",
     nodes: [
       { position: "intake", icon: LuSparkles, title: "Asistente IA", meta: "Lee las señales" },
@@ -1172,7 +1216,7 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     label: "AI INTEGRATION · ONE OPERATING CONTEXT",
     title: "AI turns context into action and better decisions.",
     embeddedLabel: "HOW IT WORKS",
-    embeddedTitle: "One signal moves through the whole operation.",
+    embeddedTitle: "One workflow connects the whole operation.",
     copy: "Asistente Ceniza works across the complete record: it understands the client, prioritizes the agenda, prepares quotes and executes actions inside the operation. At the same time, it monitors inventory and finance, updates the dashboard and detects patterns to anticipate risks, generate predictions and recommend the next best decision.",
     nodes: [
       { position: "intake", icon: LuSparkles, title: "AI assistant", meta: "Reads the signals" },
@@ -1212,12 +1256,11 @@ function CenizaConnectionFlow({ language, embedded = false }) {
             <path d="M1050 284C1070 284 1045 190 1065 190" />
           </svg>
           <ol>
-            {content.nodes.map((node, index) => {
+            {content.nodes.map((node) => {
               const Icon = node.icon;
               return (
                 <li className={`ceniza-connection-node node-${node.position}`} key={node.position}>
                   <span className="ceniza-connection-icon" aria-hidden="true"><Icon /></span>
-                  <small>{index + 1}</small>
                   <strong>{node.title}</strong>
                   <p>{node.meta}</p>
                 </li>
@@ -1333,66 +1376,231 @@ function CenizaMobileAgenda({ language }) {
   );
 }
 
-function CenizaAssistantPreview({ detail, language }) {
-  return (
-    <>
-      <section className="ceniza-assistant-section" aria-labelledby="ceniza-assistant-title">
-        <header className="ceniza-section-header">
-          <p className="case-label">{detail.assistantLabel}</p>
-          <div>
-            <h2 id="ceniza-assistant-title">{detail.assistantTitle}</h2>
-            <p>{detail.assistantCopy}</p>
-          </div>
-        </header>
-        <CenizaConnectionFlow language={language} embedded />
-        <div className="ceniza-assistant-summary">
-          <section className="is-capabilities" aria-labelledby="ceniza-assistant-does-title">
-            <p className="case-label">{language === "es" ? "QUÉ ACTIVA" : "WHAT IT ENABLES"}</p>
-            <h3 id="ceniza-assistant-does-title">{language === "es" ? "Ve, prioriza y prepara." : "Sees, prioritizes and prepares."}</h3>
-            <ol>
-              {detail.assistantCapabilities.map((capability, index) => (
-                <li key={capability.title}>
-                  <span>{index + 1}</span>
-                  <div><strong>{capability.title}</strong><p>{capability.text}</p></div>
-                </li>
-              ))}
-            </ol>
-          </section>
-          <section className="is-benefits" aria-labelledby="ceniza-assistant-benefits-title">
-            <p className="case-label">{detail.assistantBenefitsLabel}</p>
-            <h3 id="ceniza-assistant-benefits-title">{language === "es" ? "Decidir antes, no reaccionar tarde." : "Decide earlier instead of reacting late."}</h3>
-            <ol>
-              {detail.assistantBenefits.map((benefit, index) => (
-                <li key={benefit.title}>
-                  <span>{index + 1}</span>
-                  <div><strong>{benefit.title}</strong><p>{benefit.text}</p></div>
-                </li>
-              ))}
-            </ol>
-          </section>
-        </div>
-      </section>
+function CenizaAssistantConversation({ language }) {
+  const isEs = language === "es";
 
-      <section className="ceniza-assistant-proof" aria-labelledby="ceniza-assistant-proof-title">
-        <header className="ceniza-assistant-proof-header">
+  return (
+    <div className="ceniza-conversation-phone" aria-label={isEs ? "Conversación de ejemplo con el Asistente Ceniza" : "Example conversation with Asistente Ceniza"}>
+      <span className="ceniza-conversation-speaker" aria-hidden="true" />
+      <div className="ceniza-conversation-screen">
+        <header>
+          <span aria-hidden="true"><LuSparkles /></span>
           <div>
-            <p className="case-label">{language === "es" ? "INTERFAZ REAL · ASISTENCIA EN CONTEXTO" : "REAL INTERFACE · IN-CONTEXT ASSISTANCE"}</p>
-            <h2 id="ceniza-assistant-proof-title">{language === "es" ? "La recomendación aparece donde ocurre el trabajo." : "The recommendation appears where the work happens."}</h2>
+            <strong>Asistente Ceniza</strong>
+            <small>{isEs ? "CONECTADO AL CRM" : "CONNECTED TO THE CRM"}</small>
           </div>
-          <p>{language === "es" ? "Dentro del dashboard, el asistente resume alertas, explica por qué importan y deja la siguiente acción lista para confirmar, sin abrir otra herramienta." : "Inside the dashboard, the assistant summarizes alerts, explains why they matter and leaves the next action ready to confirm—without opening another tool."}</p>
+          <i aria-hidden="true">•••</i>
         </header>
-        <figure className="ceniza-assistant-figure">
-          <div className="ceniza-real-screen">
-            <img
-              src="/case-ceniza-assistant-desktop.png"
-              alt={language === "es" ? "Interfaz real del Asistente Ceniza sobre el dashboard del CRM" : "Real Asistente Ceniza interface over the CRM dashboard"}
-              loading="lazy"
-              decoding="async"
-            />
+        <div className="ceniza-conversation-context">
+          <small>{isEs ? "CONTEXTO ACTIVO" : "ACTIVE CONTEXT"}</small>
+          <strong>{isEs ? "Dashboard · Operación de hoy" : "Dashboard · Today's operation"}</strong>
+        </div>
+        <div className="ceniza-conversation-thread">
+          <p className="is-user">{isEs ? "¿Qué está pendiente hoy y cómo va la rentabilidad del negocio?" : "What is still pending today, and how profitable is the business?"}</p>
+          <article className="is-assistant">
+            <span aria-hidden="true"><LuSparkles /></span>
+            <div className="ceniza-conversation-answer">
+              <strong className="ceniza-conversation-answer-title">{isEs ? "Hoy hay 4 prioridades" : "There are 4 priorities today"}</strong>
+              <ul className="ceniza-conversation-priorities">
+                <li><b>{isEs ? "Entrega" : "Delivery"}</b><span>{isEs ? "Cerrar Lumen House" : "Close Lumen House"}</span></li>
+                <li><b>{isEs ? "Inventario" : "Inventory"}</b><span>{isEs ? "Recibir la Sony FX6" : "Receive the Sony FX6"}</span></li>
+                <li><b>{isEs ? "Cobro" : "Payment"}</b><span>{isEs ? "Confirmar el vencido" : "Confirm the overdue payment"}</span></li>
+                <li><b>{isEs ? "Reserva" : "Booking"}</b><span>{isEs ? "Aprobar la de mañana" : "Approve tomorrow's booking"}</span></li>
+              </ul>
+              <div className="ceniza-conversation-metrics" aria-label={isEs ? "Indicadores de rentabilidad" : "Profitability indicators"}>
+                <span><b>$1,14 M</b><small>{isEs ? "recaudado" : "collected"}</small></span>
+                <span><b>$875 K</b><small>{isEs ? "costos" : "costs"}</small></span>
+                <span><b>23 %</b><small>{isEs ? "margen" : "margin"}</small></span>
+              </div>
+              <small>{isEs ? "Datos: agenda + operaciones + inventario + finanzas" : "Data: agenda + operations + inventory + finance"}</small>
+            </div>
+          </article>
+          <p className="is-user">{isEs ? "¿Qué debemos atender primero?" : "What should we handle first?"}</p>
+          <article className="is-assistant is-action">
+            <span aria-hidden="true"><LuSparkles /></span>
+            <div>
+              <strong className="ceniza-conversation-answer-title">{isEs ? "Atendería primero este cruce" : "I would resolve this conflict first"}</strong>
+              <ol className="ceniza-conversation-recommendation">
+                <li>{isEs ? "Cerrar la entrega de Lumen House." : "Close the Lumen House delivery."}</li>
+                <li>{isEs ? "Confirmar la devolución de la Sony FX6." : "Confirm the Sony FX6 return."}</li>
+              </ol>
+              <p className="ceniza-conversation-result">{isEs ? "Así liberamos el equipo para mañana y evitamos aplazar el cobro." : "This releases the equipment for tomorrow and prevents the payment from slipping."}</p>
+              <span className="ceniza-conversation-impact">{isEs ? "Impacto: protege la reserva, el flujo de caja y el margen" : "Impact: protects the booking, cash flow and margin"}</span>
+              <span className="ceniza-conversation-action">{isEs ? "Ver plan de hoy" : "View today's plan"}<b>→</b></span>
+            </div>
+          </article>
+        </div>
+        <div className="ceniza-conversation-composer">
+          <span>{isEs ? "Pregunta o pide una acción…" : "Ask or request an action…"}</span>
+          <b aria-hidden="true">↑</b>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CenizaAssistantPreview({ detail, language }) {
+  const isEs = language === "es";
+
+  return (
+    <section className="ceniza-assistant-section" aria-labelledby="ceniza-assistant-title">
+      <header className="ceniza-section-header">
+        <CenizaEyebrow text={detail.assistantLabel} />
+        <div>
+          <h2 id="ceniza-assistant-title">{detail.assistantTitle}</h2>
+          <p>{detail.assistantCopy}</p>
+        </div>
+      </header>
+
+      <div className="ceniza-assistant-unified">
+        <div className="ceniza-assistant-flow-column">
+          <CenizaConnectionFlow language={language} embedded />
+          <div className="ceniza-assistant-value-line">
+            <div>
+              <small>{isEs ? "QUÉ HACE" : "WHAT IT DOES"}</small>
+              <ul>
+                <li><strong>{isEs ? "Conecta la operación" : "Connects the operation"}</strong><span>{isEs ? "Combina clientes, agenda, inventario y finanzas." : "Combines clients, agenda, inventory and finance."}</span></li>
+                <li><strong>{isEs ? "Predice riesgos" : "Predicts risks"}</strong><span>{isEs ? "Anticipa cruces, retrasos y presión de caja." : "Anticipates conflicts, delays and cash pressure."}</span></li>
+                <li><strong>{isEs ? "Prepara el siguiente paso" : "Prepares the next step"}</strong><span>{isEs ? "Sugiere una acción y un responsable para confirmarla." : "Suggests an action and an owner to confirm it."}</span></li>
+              </ul>
+            </div>
+            <div>
+              <small>{isEs ? "BENEFICIOS" : "BENEFITS"}</small>
+              <ul>
+                <li><strong>{isEs ? "Ahorra tiempo operativo" : "Saves operating time"}</strong><span>{isEs ? "Resume lo importante sin reconstruir cada caso." : "Summarizes what matters without rebuilding every case."}</span></li>
+                <li><strong>{isEs ? "Protege reservas e ingresos" : "Protects bookings and revenue"}</strong><span>{isEs ? "Reduce conflictos de equipos y cobros aplazados." : "Reduces equipment conflicts and delayed payments."}</span></li>
+                <li><strong>{isEs ? "Mejora rentabilidad y control" : "Improves profitability and control"}</strong><span>{isEs ? "Relaciona decisiones con caja, costos y margen." : "Connects decisions with cash flow, costs and margin."}</span></li>
+              </ul>
+            </div>
           </div>
-        </figure>
-      </section>
-    </>
+        </div>
+
+        <aside className="ceniza-assistant-phone-column" aria-labelledby="ceniza-conversation-title">
+          <div className="ceniza-assistant-phone-copy">
+            <p className="case-label">{isEs ? "DECISIONES CON CONTEXTO" : "DECISIONS WITH CONTEXT"}</p>
+            <h3 id="ceniza-conversation-title">{isEs ? "Pregunta por el negocio. Recibe un plan listo para actuar." : "Ask about the business. Get a plan ready to act on."}</h3>
+          </div>
+          <CenizaAssistantConversation language={language} />
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+function CenizaAutomationBridge({ language }) {
+  const isEs = language === "es";
+  const automations = [
+    {
+      layout: "converge",
+      eyebrow: isEs ? "CAPTACIÓN MULTICANAL" : "MULTICHANNEL CAPTURE",
+      title: isEs ? "Cada lead entra al CRM con su origen y necesidad." : "Every lead enters the CRM with its source and need.",
+      description: isEs
+        ? "Conectado ahora: web y formulario, WhatsApp, correo, Instagram y Meta Ads. TikTok Ads queda como canal opcional."
+        : "Connected now: website and form, WhatsApp, email, Instagram and Meta Ads. TikTok Ads remains optional.",
+      nodes: [
+        { icon: LuGlobe, label: isEs ? "Web + formulario" : "Web + form", service: "web" },
+        { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
+        { icon: SiGmail, label: isEs ? "Correo" : "Email", service: "gmail" },
+        { icon: SiInstagram, label: "Instagram", service: "instagram" },
+        { icon: SiMeta, label: "Meta Ads", service: "meta" },
+        { icon: SiTiktok, label: "TikTok Ads", service: "tiktok", optional: true },
+      ],
+      destination: { icon: LuDatabase, label: "CRM", service: "crm", featured: true },
+    },
+    {
+      layout: "hub",
+      eyebrow: isEs ? "OPERACIÓN SINCRONIZADA" : "SYNCHRONIZED OPERATIONS",
+      title: isEs ? "Cada producción mantiene agenda, archivos y conversaciones sincronizados." : "Every production keeps its calendar, files and conversations synchronized.",
+      description: isEs
+        ? "Conectado al CRM: Google Calendar, Drive, correo y WhatsApp. Stripe, Google Maps y Siigo son integraciones opcionales."
+        : "Connected to the CRM: Google Calendar, Drive, email and WhatsApp. Stripe, Google Maps and Siigo are optional integrations.",
+      hub: { icon: LuDatabase, label: "CRM", service: "crm", featured: true },
+      nodes: [
+        { icon: SiGooglecalendar, label: "Calendar", service: "calendar" },
+        { icon: SiGoogledrive, label: "Drive", service: "drive" },
+        { icon: SiGmail, label: isEs ? "Correo" : "Email", service: "gmail" },
+        { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
+      ],
+      optionalNodes: [
+        { icon: SiStripe, label: "Stripe", service: "stripe", optional: true },
+        { icon: SiGooglemaps, label: "Google Maps", service: "maps", optional: true },
+        { wordmark: "siigo", label: "Siigo", service: "siigo", optional: true },
+      ],
+    },
+    {
+      layout: "sequence",
+      eyebrow: isEs ? "ASISTENTE CENIZA" : "ASISTENTE CENIZA",
+      title: isEs ? "La IA convierte el contexto del CRM en una acción revisable." : "AI turns CRM context into a reviewable action.",
+      description: isEs
+        ? "Analiza la operación, propone el siguiente paso y espera la aprobación del equipo."
+        : "It analyzes operations, proposes the next step and waits for team approval.",
+      nodes: [
+        { icon: LuDatabase, label: isEs ? "Contexto CRM" : "CRM context", service: "crm" },
+        { icon: LuSparkles, label: isEs ? "Asistente IA" : "AI assistant", service: "assistant", featured: true },
+        { icon: LuTarget, label: isEs ? "Acción sugerida" : "Suggested action", service: "action" },
+        { icon: LuUserCheck, label: isEs ? "Revisar + confirmar" : "Review + confirm", service: "review" },
+      ],
+    },
+  ];
+
+  const renderNode = (node, className = "") => {
+    const Icon = node.icon;
+    return (
+      <div className={`ceniza-mini-flow-node is-${node.service}${node.featured ? " is-featured" : ""}${node.optional ? " is-optional" : ""}${className ? ` ${className}` : ""}`} key={node.label}>
+        <span aria-hidden="true">{Icon ? <Icon /> : <b className="ceniza-integration-wordmark">{node.wordmark}</b>}</span>
+        <strong>{node.label}</strong>
+        {node.optional && <small>{isEs ? "OPCIONAL" : "OPTIONAL"}</small>}
+      </div>
+    );
+  };
+
+  return (
+    <section id="automatizaciones" className="ceniza-automation-bridge" aria-labelledby="ceniza-automation-title">
+      <header className="ceniza-automation-bridge-header">
+        <CenizaEyebrow text={isEs ? "AUTOMATIZACIONES + INTEGRACIONES CRM" : "CRM AUTOMATIONS + INTEGRATIONS"} />
+        <div>
+          <h2 id="ceniza-automation-title">{isEs ? "Automatizaciones que conectan cada lead con la operación." : "Automations that connect every lead with operations."}</h2>
+          <p>{isEs ? "Cada contacto conserva su origen, avanza por el CRM y activa el seguimiento sin duplicar información." : "Every contact keeps its source, moves through the CRM and activates follow-up without duplicating information."}</p>
+        </div>
+      </header>
+
+      <div className="ceniza-automation-map-grid">
+        {automations.map((automation) => (
+          <article className="ceniza-automation-map" key={automation.eyebrow}>
+            <h3>{automation.title}</h3>
+            <p>{automation.description}</p>
+
+            {automation.layout === "converge" && (
+              <div className="ceniza-converging-flow" aria-label={automation.eyebrow}>
+                <div className="ceniza-flow-source-grid">{automation.nodes.map((node) => renderNode(node))}</div>
+                <div className="ceniza-flow-merge" aria-hidden="true"><span /><LuArrowRight /></div>
+                <div className="ceniza-flow-destination">{renderNode(automation.destination)}</div>
+              </div>
+            )}
+
+            {automation.layout === "hub" && (
+              <div className="ceniza-hub-flow" aria-label={automation.eyebrow}>
+                <div className="ceniza-hub-core">{renderNode(automation.hub)}</div>
+                <div className="ceniza-hub-connector" aria-hidden="true"><span /><LuArrowDown /></div>
+                <div className="ceniza-hub-services">{automation.nodes.map((node) => renderNode(node))}</div>
+                <div className="ceniza-optional-services">{automation.optionalNodes.map((node) => renderNode(node))}</div>
+              </div>
+            )}
+
+            {automation.layout === "sequence" && (
+              <div className="ceniza-mini-flow is-sequence" aria-label={automation.eyebrow}>
+                {automation.nodes.map((node, index) => (
+                  <div className="ceniza-mini-flow-step" key={node.label}>
+                    {renderNode(node)}
+                    {index < automation.nodes.length - 1 && <LuArrowRight className="ceniza-mini-flow-arrow" aria-hidden="true" />}
+                  </div>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -1430,6 +1638,55 @@ function CenizaAutomation({ detail }) {
   );
 }
 
+function CenizaSecurity({ language }) {
+  const [isLocked, setIsLocked] = useState(false);
+  const toggleLock = () => setIsLocked((locked) => !locked);
+
+  return (
+    <section className="ceniza-security-section" aria-labelledby="ceniza-security-title">
+      <div
+        className={`ceniza-security-visual${isLocked ? " is-locked" : ""}`}
+        role="img"
+        tabIndex="0"
+        aria-label={language === "es" ? `Candado ${isLocked ? "cerrado" : "abierto"}. Cada nueva pasada del cursor cambia su estado.` : `${isLocked ? "Closed" : "Open"} padlock. Each new hover changes its state.`}
+        onMouseEnter={toggleLock}
+        onPointerDown={(event) => {
+          if (event.pointerType !== "mouse") toggleLock();
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleLock();
+          }
+        }}
+      >
+        <div className="ceniza-lock-animation" aria-hidden="true">
+          <img className="ceniza-lock-image is-open" src="/ceniza-lock-open.png" alt="" />
+          <img className="ceniza-lock-image is-closed" src="/ceniza-lock-closed.png" alt="" />
+        </div>
+        <span className="ceniza-lock-status">
+          {language === "es" ? (isLocked ? "ACCESO PROTEGIDO" : "ACCESO DISPONIBLE") : (isLocked ? "ACCESS PROTECTED" : "ACCESS READY")}
+        </span>
+      </div>
+
+      <div className="ceniza-security-content">
+        <header>
+          <CenizaEyebrow text={language === "es" ? "SEGURIDAD + CONTROL DE ACCESO" : "SECURITY + ACCESS CONTROL"} />
+          <h2 id="ceniza-security-title">{language === "es" ? "La información del negocio, protegida en cada acceso." : "Business information, protected at every access point."}</h2>
+          <p>{language === "es" ? "Cada persona ingresa con su propia cuenta y ve únicamente los datos que corresponden a su organización y rol. La autenticación protege las credenciales y cada cambio conserva responsable y trazabilidad." : "Each person signs in with their own account and only sees the data allowed by their organization and role. Authentication protects credentials, while every change preserves ownership and traceability."}</p>
+        </header>
+
+        <ul className="ceniza-security-pillars">
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Acceso individual" : "Individual access"}</strong><p>{language === "es" ? "Una cuenta y permisos propios para cada usuario." : "A dedicated account and permissions for every user."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Contraseñas protegidas" : "Protected passwords"}</strong><p>{language === "es" ? "Autenticación segura sin exponer credenciales." : "Secure authentication without exposing credentials."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Datos por organización" : "Organization data"}</strong><p>{language === "es" ? "Cada rol consulta o modifica solo lo autorizado." : "Each role only views or changes authorized information."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Acciones trazables" : "Traceable actions"}</strong><p>{language === "es" ? "Cada cambio conserva contexto y responsable." : "Every change preserves context and ownership."}</p></div></li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function CenizaCaseContent({ project, detail, language }) {
   const text = copy[language];
 
@@ -1437,39 +1694,85 @@ function CenizaCaseContent({ project, detail, language }) {
     <>
       <section className="ceniza-crm-section" aria-labelledby="ceniza-crm-title">
         <header className="ceniza-section-header">
-          <p className="case-label">{detail.currentLabel}</p>
-          <div>
-            <h2 id="ceniza-crm-title">{detail.crmTitle}</h2>
-            <p>{detail.crmCopy}</p>
+          <CenizaEyebrow text={detail.currentLabel} />
+          <div className="ceniza-crm-heading-row">
+            <div className="ceniza-crm-heading-copy">
+              <h2 id="ceniza-crm-title">{detail.crmTitle}</h2>
+              <p>{detail.crmCopy}</p>
+            </div>
+            <a className="ceniza-section-link is-demo" href={detail.demoUrl} target="_blank" rel="noreferrer">
+              <span>{detail.demoLabel}</span><span aria-hidden="true">↗</span>
+            </a>
           </div>
         </header>
         <CenizaCrmPreview detail={detail} language={language} label={language === "es" ? "PÁGINAS DEL CRM" : "CRM PAGES"} />
         <CenizaResponsiveCrm detail={detail} language={language} />
       </section>
 
+      <CenizaDecisionStrip language={language} />
+
+      <CenizaAutomationBridge language={language} />
+
       <CenizaAssistantPreview detail={detail} language={language} />
 
-      <section className="ceniza-web-section" aria-labelledby="ceniza-web-title">
-        <header className="ceniza-section-header">
-          <p className="case-label">{detail.webLabel}</p>
-          <div>
-            <h2 id="ceniza-web-title">{detail.webTitle}</h2>
-            <p>{detail.webCopy}</p>
+      <section id="ceniza-web" className="ceniza-web-section" aria-labelledby="ceniza-web-title">
+        <div className="ceniza-web-story">
+          <div className="ceniza-web-story-copy">
+            <CenizaEyebrow text={language === "es" ? "SITIO WEB + EXPERIENCIA RESPONSIVE" : "WEBSITE + RESPONSIVE EXPERIENCE"} />
+            <div className="ceniza-web-copy-body">
+              <h2 id="ceniza-web-title">
+                {language === "es" ? "Una web que guía al cliente y lleva cada solicitud al CRM." : "A website that guides the client and sends every inquiry to the CRM."}
+              </h2>
+              <p>{language === "es" ? "El sitio web funciona como la primera capa del CRM: conecta el catálogo, las fichas de equipos y los proyectos con la captación comercial. Cuando una persona escribe por WhatsApp o completa el formulario, el sistema conserva la página de origen, el servicio consultado y sus datos de contacto. El equipo recibe un lead más completo y puede preparar la cotización sin reconstruir la conversación." : "The website works as the first layer of the CRM, connecting the catalog, equipment pages and projects with lead capture. When someone writes through WhatsApp or submits the form, the system preserves the source page, the service viewed and their contact details. The team receives a more complete lead and can prepare the quote without rebuilding the conversation."}</p>
+
+              <ul className="ceniza-web-capabilities" aria-label={language === "es" ? "Capacidades de la página web" : "Website capabilities"}>
+                <li>{language === "es" ? "Diseño web" : "Web design"}</li>
+                <li>UX/UI</li>
+                <li>{language === "es" ? "Conexión CRM" : "CRM connection"}</li>
+              </ul>
+
+              <a className="ceniza-section-link is-website ceniza-web-bridge-link" href="https://www.cenizaproducciones.com/" target="_blank" rel="noreferrer">
+                <span>{language === "es" ? "Ver página web" : "View website"}</span><span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
-        </header>
-        <figure className="editorial-desktop-showcase ceniza-web-desktop">
-          <figcaption><span>{text.desktopExperience}</span><span>WEB · 01</span></figcaption>
-          <div className="desktop-browser-frame">
-            <div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>{detail.desktopUrl}</i></div>
-            <img src={detail.desktopImage} alt={`${project.name}: ${text.desktopAlt}`} loading="lazy" decoding="async" />
-          </div>
-        </figure>
+
+          <figure className="ceniza-web-composition">
+            <img className="ceniza-web-device-scene" src="/case-ceniza-web-device-scene-transparent.png" alt={language === "es" ? "Combo Creator Pro de Ceniza en computador y contacto por WhatsApp o formulario en celular" : "Ceniza Creator Pro bundle on desktop and WhatsApp or form contact on mobile"} loading="lazy" decoding="async" />
+          </figure>
+
+          <ol className="ceniza-web-paths" aria-label={language === "es" ? "Recorrido de la página web" : "Website journey"}>
+            <li>
+              <span>1</span>
+              <div><strong>{language === "es" ? "Explorar" : "Explore"}</strong><p>{language === "es" ? "Equipos, combos y proyectos reales." : "Equipment, bundles and real projects."}</p></div>
+            </li>
+            <li>
+              <span>2</span>
+              <div><strong>{language === "es" ? "Elegir" : "Choose"}</strong><p>{language === "es" ? "Alquiler o producción completa." : "Rental or full production."}</p></div>
+            </li>
+            <li>
+              <span>3</span>
+              <div><strong>{language === "es" ? "Solicitar" : "Request"}</strong><p>{language === "es" ? "WhatsApp o formulario integrado." : "Integrated WhatsApp or form."}</p></div>
+            </li>
+            <li>
+              <span>4</span>
+              <div><strong>{language === "es" ? "Continuar" : "Continue"}</strong><p>{language === "es" ? "Lead con contexto dentro del CRM." : "A contextual lead inside the CRM."}</p></div>
+            </li>
+          </ol>
+        </div>
       </section>
 
+      <CenizaSecurity language={language} />
+
       <section className="editorial-case-outcome ceniza-case-outcome">
-        <p className="case-label">{text.outcome}</p>
-        <h2>{detail.outcomeTitle}</h2>
-        <p>{project.outcome}</p>
+        <CenizaEyebrow text={text.outcome} threshold={0.4} />
+        <div className="ceniza-outcome-summary">
+          <h2>{language === "es" ? "La ventaja no fue tener más datos, sino decidir antes." : "The advantage was not having more data, but deciding sooner."}</h2>
+          <p>{language === "es" ? "Ceniza pasó de información dispersa a una operación conectada: la web capta cada solicitud con contexto, el CRM ordena el seguimiento y la IA ayuda a anticipar riesgos, proteger ingresos y actuar con mayor claridad." : "Ceniza moved from scattered information to a connected operation: the website captures every inquiry with context, the CRM organizes follow-up and AI helps anticipate risks, protect revenue and act with greater clarity."}</p>
+        </div>
+        <a className="ceniza-section-link is-outcome" href="/#contacto">
+          <span>{text.getInTouch}</span><span aria-hidden="true">↗</span>
+        </a>
       </section>
     </>
   );
@@ -1493,7 +1796,11 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
       </a>
       <section className="editorial-case-hero" aria-labelledby="case-title">
         <div className="editorial-case-copy">
-          <p className="eyebrow"><span className="availability-dot loading-dot" />{text.caseStudy} · {project.number}</p>
+          {project.visual === "ceniza" ? (
+            <CenizaEyebrow text={`${text.caseStudy} · CENIZA`} className="eyebrow" dot threshold={0.25} />
+          ) : (
+            <p className="eyebrow"><span className="availability-dot loading-dot" />{text.caseStudy} · {project.number}</p>
+          )}
           <h1 id="case-title">{detail.title}</h1>
           <p>{project.description}</p>
           <ul className="editorial-case-tags" aria-label={text.projectScope}>
@@ -1507,14 +1814,6 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
         </div>
       </section>
 
-      {project.visual === "ceniza" ? (
-        <div className="ceniza-demo-placement">
-          <a className="ceniza-demo-button" href={detail.demoUrl} target="_blank" rel="noreferrer">
-            <span>{detail.demoLabel}</span><span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      ) : null}
-
       <section className="editorial-case-intro" aria-labelledby="case-overview-title">
         <dl className="case-facts">
           <div><dt>{text.project}</dt><dd>{project.name}</dd></div>
@@ -1522,7 +1821,7 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
           <div><dt>{text.myRole}</dt><dd>{project.role}</dd></div>
         </dl>
         <div>
-          <p className="case-label">{text.theProject}</p>
+          {project.visual === "ceniza" ? <CenizaEyebrow text={text.theProject} /> : <p className="case-label">{text.theProject}</p>}
           <h2 id="case-overview-title">{detail.introTitle}</h2>
           <p>{detail.intro}</p>
         </div>
@@ -1588,7 +1887,9 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
       </>)}
 
       <a className="case-next" href={nextProject.path} onClick={(event) => onNavigate(event, nextProject.path)}>
-        <span>{text.nextCase} · {nextProject.number}</span>
+        <span aria-label={project.visual === "ceniza" ? text.nextCase : `${text.nextCase} · ${nextProject.number}`}>
+          {project.visual === "ceniza" ? <TypewriterText text={text.nextCase} threshold={0.35} rootMargin="0px 0px -7% 0px" /> : `${text.nextCase} · ${nextProject.number}`}
+        </span>
         <strong>{nextProject.name}</strong>
         <Arrow />
       </a>
