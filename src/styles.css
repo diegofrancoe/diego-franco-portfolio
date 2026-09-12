@@ -661,13 +661,13 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 .ceniza-crm-heading-copy { max-width: 900px; }
 .ceniza-crm-section .ceniza-section-header h2 { max-width: 760px; font-size: clamp(2.15rem, 3.25vw, 3.8rem); line-height: .98; }
 .ceniza-crm-section .ceniza-crm-heading-copy > p { max-width: 680px; margin: 0; color: #5c6059; font-size: .96rem; line-height: 1.75; text-wrap: pretty; }
-.ceniza-crm-heading-row .ceniza-section-link.is-demo { min-width: 210px; margin: 0 0 3px; justify-self: end; }
-.ceniza-section-link { min-width: 250px; width: max-content; min-height: 52px; margin-top: 24px; padding: 0 24px; display: inline-flex; gap: 32px; align-items: center; justify-content: space-between; color: #24251f; border: 1px solid rgba(255,255,255,.72); border-radius: 999px; background: #f6f3eb; box-shadow: 7px 9px 16px rgba(116,110,89,.22), -5px -5px 12px rgba(255,255,255,.86), inset 0 0 0 1px rgba(255,255,255,.42); font-family: var(--sans); font-size: .88rem; font-weight: 700; letter-spacing: -.015em; line-height: 1; text-decoration: none; transition: transform 180ms ease, color 180ms ease, background 180ms ease, box-shadow 180ms ease; }
+.ceniza-crm-heading-row .ceniza-section-link.is-demo { min-width: 232px; margin: 0 0 3px; justify-self: end; }
+.ceniza-section-link { min-width: 260px; width: max-content; min-height: 46px; margin-top: 24px; padding: 0 27px; display: inline-flex; gap: 36px; align-items: center; justify-content: space-between; color: #24251f; border: 1px solid rgba(190,149,11,.34); border-radius: 999px; background: rgba(248,226,137,.72); box-shadow: 7px 9px 16px rgba(116,110,89,.2), -5px -5px 12px rgba(255,255,255,.82), inset 1px 1px 0 rgba(255,255,255,.58); font-family: var(--sans); font-size: .88rem; font-weight: 700; letter-spacing: -.015em; line-height: 1; text-decoration: none; transition: transform 180ms ease, color 180ms ease, background 180ms ease, box-shadow 180ms ease; }
 .ceniza-section-link > span:last-child { transition: transform 180ms ease; }
 .ceniza-section-link:hover { transform: translateY(-3px); box-shadow: 10px 13px 22px rgba(116,110,89,.25), -6px -6px 14px rgba(255,255,255,.92), inset 0 0 0 1px rgba(255,255,255,.52); }
 .ceniza-section-link:hover > span:last-child { transform: translate(2px, -2px); }
 .ceniza-section-link:active { transform: translateY(0); box-shadow: 3px 4px 8px rgba(116,110,89,.2), -2px -2px 6px rgba(255,255,255,.82), inset 2px 2px 5px rgba(116,110,89,.08); }
-.ceniza-section-link.is-demo, .ceniza-section-link.is-website { color: #24251f; border-color: rgba(255,255,255,.72); background: #f6f3eb; }
+.ceniza-section-link.is-demo, .ceniza-section-link.is-website { color: #24251f; border-color: rgba(190,149,11,.34); background: rgba(248,226,137,.72); }
 .ceniza-crm-figure { margin: clamp(36px, 4.4vw, 58px) 0 0; }
 .ceniza-crm-figure > figcaption { margin-bottom: 17px; display: flex; justify-content: space-between; color: #676b64; font-family: var(--mono); font-size: .58rem; font-weight: 650; letter-spacing: .075em; text-transform: uppercase; }
 .ceniza-crm-flow-grid { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(38px, 4vw, 58px) clamp(16px, 1.7vw, 24px); list-style: none; }
@@ -957,8 +957,8 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 .ceniza-web-paths li > span { width: 24px; height: 24px; display: grid; place-items: center; color: #9b7900; border: 1px solid rgba(155,121,0,.34); border-radius: 50%; font-family: var(--mono); font-size: .55rem; font-weight: 750; letter-spacing: 0; }
 .ceniza-web-paths strong { display: block; color: #282923; font-size: .82rem; line-height: 1.18; text-wrap: balance; }
 .ceniza-web-paths p { max-width: 210px; margin: 4px 0 0; color: #696b64; font-size: .62rem; line-height: 1.35; text-wrap: pretty; }
-.ceniza-section-link.is-website { min-width: 178px; margin-top: 16px; padding: 12px 17px; gap: 20px; font-size: .75rem; }
-.ceniza-web-bridge-link { min-width: 178px; width: 178px; margin: 30px 0 0; align-self: flex-start; position: static; transform: none; }
+.ceniza-section-link.is-website { min-width: 198px; margin-top: 16px; padding: 0 21px; gap: 24px; font-size: .75rem; }
+.ceniza-web-bridge-link { min-width: 198px; width: 198px; margin: 30px 0 0; align-self: flex-start; position: static; transform: none; }
 .ceniza-web-composition { width: 116%; min-width: 0; margin: -34px 0 -28px -12%; align-self: start; position: relative; }
 .ceniza-web-device-scene { width: 100%; display: block; border-radius: 0; background: transparent; filter: saturate(1.02) contrast(1.01) drop-shadow(10px 18px 18px rgba(70,63,40,.1)); }
 
@@ -1012,8 +1012,8 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 .ceniza-outcome-summary { max-width: 760px; }
 .ceniza-case-outcome .ceniza-outcome-summary h2 { max-width: 820px; margin: 0 0 22px; font-size: clamp(2.65rem, 3.8vw, 4.25rem); line-height: .97; letter-spacing: -.055em; text-wrap: balance; }
 .ceniza-outcome-summary > p { max-width: 680px; margin: 0; color: #60645d; font-size: .9rem; line-height: 1.65; text-wrap: pretty; }
-.ceniza-section-link.is-outcome { min-width: 205px; min-height: 58px; margin: 0; align-self: center; justify-self: end; border-color: rgba(255,240,169,.82); background: #f1d34f; box-shadow: 8px 11px 20px rgba(150,119,16,.25), -5px -5px 12px rgba(255,255,255,.82), inset 0 0 0 1px rgba(255,255,255,.38); }
-.ceniza-section-link.is-outcome:hover { background: #f5d94f; box-shadow: 11px 14px 24px rgba(150,119,16,.28), -6px -6px 14px rgba(255,255,255,.88), inset 0 0 0 1px rgba(255,255,255,.48); }
+.ceniza-section-link.is-outcome { min-width: 220px; min-height: 46px; margin: 0; align-self: center; justify-self: end; border-color: rgba(190,149,11,.34); background: rgba(248,226,137,.72); box-shadow: 8px 11px 20px rgba(150,119,16,.18), -5px -5px 12px rgba(255,255,255,.82), inset 1px 1px 0 rgba(255,255,255,.58); }
+.ceniza-section-link.is-outcome:hover { background: rgba(250,228,137,.86); box-shadow: 11px 14px 24px rgba(150,119,16,.22), -6px -6px 14px rgba(255,255,255,.88), inset 1px 1px 0 rgba(255,255,255,.66); }
 .case-study-ceniza .typewriter-text.is-typing::after { color: #9b7900; }
 
 @keyframes case-visual-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(.7deg); } }
