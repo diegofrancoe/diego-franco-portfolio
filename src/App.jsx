@@ -1165,32 +1165,77 @@ function CenizaDecisionStrip({ language }) {
     <section className="ceniza-decision-strip" aria-labelledby="ceniza-decision-strip-title">
       <header>
         <CenizaEyebrow text={language === "es" ? "INTELIGENCIA FINANCIERA + COMERCIAL" : "FINANCIAL + COMMERCIAL INTELLIGENCE"} />
-        <h3 id="ceniza-decision-strip-title">{language === "es" ? "Datos conectados para anticipar, invertir mejor y reducir costos." : "Connected data to anticipate, invest better and reduce costs."}</h3>
-        <p>{language === "es" ? "Al relacionar cada lead con su canal, cotización, operación y pago, el CRM revela qué genera negocio rentable, dónde se pierde tiempo y qué oportunidades tienen mayor probabilidad de cierre." : "By linking every lead to its channel, quote, operation and payment, the CRM reveals what generates profitable business, where time is lost and which opportunities are most likely to close."}</p>
+        <h3 id="ceniza-decision-strip-title">{language === "es" ? "Datos conectados para medir hoy y anticipar lo que viene." : "Connected data to measure today and anticipate what comes next."}</h3>
+        <p>{language === "es" ? "Con RAG, el asistente consulta el CRM para gestionar leads, seguimiento, agenda, cotizaciones, rentas, pagos y reportes desde un mismo contexto." : "With RAG, the assistant consults the CRM to manage leads, follow-up, scheduling, quotes, rentals, payments and reports from one shared context."}</p>
       </header>
 
       <ul>
         <li>
           <span>ROI</span>
           <strong>{language === "es" ? "Retorno por canal" : "Return by channel"}</strong>
-          <p>{language === "es" ? "Compara ingresos atribuibles con la inversión para priorizar los canales que sí generan valor." : "Compares attributable revenue with investment to prioritize the channels that generate value."}</p>
         </li>
         <li>
           <span>{language === "es" ? "MARGEN" : "MARGIN"}</span>
-          <strong>{language === "es" ? "Rentabilidad real" : "Real profitability"}</strong>
-          <p>{language === "es" ? "Cruza ingresos y costos por operación para identificar servicios, alquileres y proyectos rentables." : "Matches revenue and costs by operation to identify profitable services, rentals and projects."}</p>
+          <strong>{language === "es" ? "Rentabilidad por operación" : "Profitability by operation"}</strong>
         </li>
         <li>
           <span>CAC</span>
           <strong>{language === "es" ? "Costo de adquisición" : "Acquisition cost"}</strong>
-          <p>{language === "es" ? "Relaciona la inversión comercial con los nuevos clientes y muestra cuánto cuesta crecer." : "Connects commercial investment to new clients and shows how much growth costs."}</p>
         </li>
         <li>
           <span>{language === "es" ? "CONVERSIÓN" : "CONVERSION"}</span>
-          <strong>{language === "es" ? "Pipeline predecible" : "Predictable pipeline"}</strong>
-          <p>{language === "es" ? "Mide el avance de lead a oportunidad y cierre para proyectar ventas y flujo de caja." : "Measures progress from lead to opportunity and close to forecast sales and cash flow."}</p>
+          <strong>{language === "es" ? "Conversión por etapa" : "Conversion by stage"}</strong>
+        </li>
+        <li>
+          <span>{language === "es" ? "VELOCIDAD" : "VELOCITY"}</span>
+          <strong>{language === "es" ? "Tiempo de respuesta" : "Response time"}</strong>
+        </li>
+        <li>
+          <span>{language === "es" ? "CAJA" : "CASH FLOW"}</span>
+          <strong>{language === "es" ? "Ingresos y compromisos" : "Revenue and commitments"}</strong>
         </li>
       </ul>
+
+      <div className="ceniza-decision-charts" aria-label={language === "es" ? "Visualizaciones disponibles en los reportes" : "Visualizations available in reports"}>
+        <figure className="ceniza-decision-report">
+          <figcaption>
+            <span>ROI + CAC</span>
+            <strong>{language === "es" ? "Origen de las oportunidades" : "Opportunity sources"}</strong>
+            <p>{language === "es" ? "Leads, inversión e ingresos por canal." : "Leads, investment and revenue by channel."}</p>
+          </figcaption>
+          <div className="ceniza-report-pie" role="img" aria-label={language === "es" ? "Gráfica de torta para comparar canales comerciales" : "Pie chart for comparing commercial channels"}>
+            <span>ROI</span>
+          </div>
+          <ul className="ceniza-report-legend" aria-label={language === "es" ? "Canales del reporte" : "Report channels"}>
+            <li>{language === "es" ? "Web" : "Website"}</li>
+            <li>WhatsApp</li>
+            <li>{language === "es" ? "Referidos" : "Referrals"}</li>
+            <li>Ads</li>
+          </ul>
+        </figure>
+
+        <figure className="ceniza-decision-report is-pipeline">
+          <figcaption>
+            <span>{language === "es" ? "CONVERSIÓN + VELOCIDAD" : "CONVERSION + VELOCITY"}</span>
+            <strong>{language === "es" ? "Del lead al cierre" : "From lead to close"}</strong>
+            <p>{language === "es" ? "Volumen y respuesta entre etapas." : "Volume and response across stages."}</p>
+          </figcaption>
+          <div className="ceniza-report-bars" role="img" aria-label={language === "es" ? "Gráfica de etapas desde lead hasta cierre" : "Chart of stages from lead to close"}>
+            <span><i style={{ "--bar-height": "92%" }} /><small>Lead</small></span>
+            <span><i style={{ "--bar-height": "72%" }} /><small>{language === "es" ? "Oportunidad" : "Opportunity"}</small></span>
+            <span><i style={{ "--bar-height": "54%" }} /><small>{language === "es" ? "Cotización" : "Quote"}</small></span>
+            <span><i style={{ "--bar-height": "38%" }} /><small>{language === "es" ? "Cierre" : "Close"}</small></span>
+          </div>
+        </figure>
+      </div>
+
+      <aside className="ceniza-decision-future" aria-label={language === "es" ? "Próxima evolución" : "Next evolution"}>
+        <span>{language === "es" ? "PRÓXIMA EVOLUCIÓN" : "NEXT EVOLUTION"}</span>
+        <div>
+          <strong>{language === "es" ? "Más historial para incorporar predicciones confiables." : "More history to incorporate reliable predictions."}</strong>
+          <p>{language === "es" ? "Cierre, demanda y riesgo financiero." : "Close probability, demand and financial risk."}</p>
+        </div>
+      </aside>
     </section>
   );
 }
@@ -1201,7 +1246,7 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     title: "La IA convierte el contexto en acción y mejores decisiones.",
     embeddedLabel: "CÓMO FUNCIONA",
     embeddedTitle: "Un mismo flujo conecta toda la operación.",
-    copy: "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, prioriza la agenda, prepara cotizaciones y ejecuta acciones dentro de la operación. Al mismo tiempo vigila inventario y finanzas, actualiza el dashboard y detecta patrones para anticipar riesgos, generar predicciones y recomendar la siguiente mejor decisión.",
+    copy: "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, prioriza la agenda, prepara cotizaciones y ejecuta acciones dentro de la operación. Al mismo tiempo consulta inventario y finanzas, actualiza el dashboard y cruza señales para detectar riesgos y recomendar una siguiente acción revisable.",
     nodes: [
       { position: "intake", icon: LuSparkles, title: "Asistente IA", meta: "Lee las señales" },
       { position: "client", icon: LuUsers, title: "Cliente", meta: "Contexto e historial" },
@@ -1217,7 +1262,7 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     title: "AI turns context into action and better decisions.",
     embeddedLabel: "HOW IT WORKS",
     embeddedTitle: "One workflow connects the whole operation.",
-    copy: "Asistente Ceniza works across the complete record: it understands the client, prioritizes the agenda, prepares quotes and executes actions inside the operation. At the same time, it monitors inventory and finance, updates the dashboard and detects patterns to anticipate risks, generate predictions and recommend the next best decision.",
+    copy: "Asistente Ceniza works across the complete record: it understands the client, prioritizes the agenda, prepares quotes and executes actions inside the operation. At the same time, it consults inventory and finance, updates the dashboard and connects signals to detect risks and recommend a reviewable next action.",
     nodes: [
       { position: "intake", icon: LuSparkles, title: "AI assistant", meta: "Reads the signals" },
       { position: "client", icon: LuUsers, title: "Client", meta: "Context and history" },
@@ -1460,7 +1505,7 @@ function CenizaAssistantPreview({ detail, language }) {
               <small>{isEs ? "QUÉ HACE" : "WHAT IT DOES"}</small>
               <ul>
                 <li><strong>{isEs ? "Conecta la operación" : "Connects the operation"}</strong><span>{isEs ? "Combina clientes, agenda, inventario y finanzas." : "Combines clients, agenda, inventory and finance."}</span></li>
-                <li><strong>{isEs ? "Predice riesgos" : "Predicts risks"}</strong><span>{isEs ? "Anticipa cruces, retrasos y presión de caja." : "Anticipates conflicts, delays and cash pressure."}</span></li>
+                <li><strong>{isEs ? "Detecta riesgos" : "Detects risks"}</strong><span>{isEs ? "Señala cruces, retrasos y presión de caja usando el contexto disponible." : "Flags conflicts, delays and cash pressure using the available context."}</span></li>
                 <li><strong>{isEs ? "Prepara el siguiente paso" : "Prepares the next step"}</strong><span>{isEs ? "Sugiere una acción y un responsable para confirmarla." : "Suggests an action and an owner to confirm it."}</span></li>
               </ul>
             </div>
@@ -1638,6 +1683,48 @@ function CenizaAutomation({ detail }) {
   );
 }
 
+function CenizaAdoptionStrip({ language }) {
+  return (
+    <section className="ceniza-adoption-strip" aria-labelledby="ceniza-adoption-title">
+      <header>
+        <CenizaEyebrow text={language === "es" ? "ONBOARDING INTERNO + RELEVO ASISTIDO" : "IN-APP ONBOARDING + ASSISTED HANDOFF"} />
+        <h2 id="ceniza-adoption-title">
+          {language === "es" ? "Aprender y retomar, desde el mismo CRM." : "Learn and pick up where others left off, inside the CRM."}
+        </h2>
+        <p>
+          {language === "es" ? "Desde su perfil, cada persona abre Demos del CRM y recorre la plataforma desde el principio. En el Asistente Ceniza puede pedir el contexto de lo que estaba en curso y saber qué debe hacer ahora." : "From their profile, each person opens CRM Demos and explores the platform from the beginning. In Asistente Ceniza, they can request the context of ongoing work and see what to do next."}
+        </p>
+      </header>
+
+      <div className="ceniza-adoption-demo" aria-label={language === "es" ? "Ficha de perfil con Demos del CRM y chat del Asistente Ceniza" : "Profile card with CRM Demos and Asistente Ceniza chat"}>
+        <figure className="ceniza-adoption-isolated-card is-profile">
+          <div className="ceniza-adoption-card-crop">
+            <img
+              src="/ceniza-profile-card-v4.png"
+              alt={language === "es" ? "Ficha de Laura Gómez con el botón Demos del CRM" : "Laura Gómez profile card with the CRM Demos button"}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>{language === "es" ? "Demo guiado desde el perfil." : "Guided demo from the profile."}</figcaption>
+        </figure>
+
+        <figure className="ceniza-adoption-isolated-card is-assistant">
+          <div className="ceniza-adoption-card-crop">
+            <img
+              src="/ceniza-assistant-card-v4.png"
+              alt={language === "es" ? "Chat del Asistente Ceniza con feedback y siguiente paso" : "Asistente Ceniza chat with feedback and next step"}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>{language === "es" ? "Feedback y siguiente paso en el chat." : "Feedback and next step in the chat."}</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
 function CenizaSecurity({ language }) {
   const [isLocked, setIsLocked] = useState(false);
   const toggleLock = () => setIsLocked((locked) => !locked);
@@ -1671,16 +1758,16 @@ function CenizaSecurity({ language }) {
 
       <div className="ceniza-security-content">
         <header>
-          <CenizaEyebrow text={language === "es" ? "SEGURIDAD + CONTROL DE ACCESO" : "SECURITY + ACCESS CONTROL"} />
-          <h2 id="ceniza-security-title">{language === "es" ? "La información del negocio, protegida en cada acceso." : "Business information, protected at every access point."}</h2>
-          <p>{language === "es" ? "Cada persona ingresa con su propia cuenta y ve únicamente los datos que corresponden a su organización y rol. La autenticación protege las credenciales y cada cambio conserva responsable y trazabilidad." : "Each person signs in with their own account and only sees the data allowed by their organization and role. Authentication protects credentials, while every change preserves ownership and traceability."}</p>
+          <CenizaEyebrow text={language === "es" ? "SEGURIDAD + TRAZABILIDAD DE DATOS" : "SECURITY + DATA TRACEABILITY"} />
+          <h2 id="ceniza-security-title">{language === "es" ? "La información, protegida desde que entra hasta que sale." : "Information protected from the moment it enters until it leaves."}</h2>
+          <p>{language === "es" ? "Cada dato conserva origen, responsable y contexto dentro del CRM. Los permisos limitan quién puede consultarlo o modificarlo, mientras sus cambios y usos mantienen una trazabilidad clara." : "Every data point retains its source, owner and context inside the CRM. Permissions limit who can view or change it, while its changes and uses maintain a clear audit trail."}</p>
         </header>
 
         <ul className="ceniza-security-pillars">
-          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Acceso individual" : "Individual access"}</strong><p>{language === "es" ? "Una cuenta y permisos propios para cada usuario." : "A dedicated account and permissions for every user."}</p></div></li>
-          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Contraseñas protegidas" : "Protected passwords"}</strong><p>{language === "es" ? "Autenticación segura sin exponer credenciales." : "Secure authentication without exposing credentials."}</p></div></li>
-          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Datos por organización" : "Organization data"}</strong><p>{language === "es" ? "Cada rol consulta o modifica solo lo autorizado." : "Each role only views or changes authorized information."}</p></div></li>
-          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Acciones trazables" : "Traceable actions"}</strong><p>{language === "es" ? "Cada cambio conserva contexto y responsable." : "Every change preserves context and ownership."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Acceso por rol" : "Role-based access"}</strong><p>{language === "es" ? "Cada persona ve y modifica únicamente lo autorizado." : "Each person only sees and changes authorized information."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Entradas con contexto" : "Context-rich inputs"}</strong><p>{language === "es" ? "Leads, formularios y registros conservan su origen." : "Leads, forms and records retain their source."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Salidas controladas" : "Controlled outputs"}</strong><p>{language === "es" ? "Reportes y acciones usan solo la información permitida." : "Reports and actions only use permitted information."}</p></div></li>
+          <li><span aria-hidden="true" /><div><strong>{language === "es" ? "Historial trazable" : "Traceable history"}</strong><p>{language === "es" ? "Cada cambio conserva responsable, fecha y contexto." : "Every change retains its owner, date and context."}</p></div></li>
         </ul>
       </div>
     </section>
@@ -1761,6 +1848,8 @@ function CenizaCaseContent({ project, detail, language }) {
           </ol>
         </div>
       </section>
+
+      <CenizaAdoptionStrip language={language} />
 
       <CenizaSecurity language={language} />
 
