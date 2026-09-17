@@ -260,10 +260,8 @@ em { color: #64bd97; font-family: inherit; font-style: normal; font-weight: 600;
 .capability-item { position: relative; z-index: 1; min-width: 0; min-height: 190px; padding: 24px 26px 22px; overflow: hidden; border: 1px solid rgba(83,181,137,.44); border-radius: 34px; background: #d9f3e5; box-shadow: 0 12px 28px rgba(63,117,87,.12), inset 0 1px 0 rgba(255,255,255,.62); opacity: 0; transform: translateY(12px); transition: opacity .34s ease var(--capability-delay), transform .34s ease var(--capability-delay), border-color 220ms ease, background 220ms ease, box-shadow 220ms ease; }
 .capabilities-map.is-visible .capability-item { opacity: 1; transform: translateY(0); }
 .capabilities-map.is-visible .capability-item:hover { transform: translateY(-3px); border-color: rgba(61,158,115,.58); background: #d0efde; box-shadow: 0 16px 32px rgba(63,117,87,.16), inset 0 1px 0 rgba(255,255,255,.68); transition-delay: 0s; }
-.capability-rule { position: absolute; z-index: 1; left: 26px; top: 62px; width: clamp(72px, 23%, 112px); height: var(--connector-width); background: var(--connector-line); opacity: 0; transform: scaleX(0); transform-origin: left; }
-.capabilities-map.is-visible .capability-rule { animation: profile-signature-line-reveal 1.05s cubic-bezier(.4,0,.2,1) .12s forwards; }
 .capability-item::after { display: none; }
-.capability-item > *:not(.capability-rule) { position: relative; z-index: 1; }
+.capability-item > * { position: relative; z-index: 1; }
 .capability-item > .capability-index, .capability-item > h3, .capability-item > p:last-child { opacity: 0; transform: translateY(6px); transition: opacity .34s ease, transform .34s ease; }
 .capabilities-map.is-visible .capability-item > .capability-index { opacity: 1; transform: translateY(0); transition-delay: calc(var(--capability-delay) + .09s); }
 .capabilities-map.is-visible .capability-item > h3 { opacity: 1; transform: translateY(0); transition-delay: calc(var(--capability-delay) + .16s); }
@@ -271,7 +269,7 @@ em { color: #64bd97; font-family: inherit; font-style: normal; font-weight: 600;
 .capability-index { margin: 0; display: flex; align-items: center; gap: 11px; color: #277354; font-family: var(--mono); font-size: clamp(.7rem, .76vw, .8rem); font-weight: 750; letter-spacing: .055em; line-height: 1.2; }
 .capability-number { flex: 0 0 auto; color: #277354; background: transparent; font-size: .9em; letter-spacing: .02em; }
 .capability-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.capability-item h3 { margin: 31px 0 9px; color: var(--ink); font-size: clamp(1.08rem, 1.28vw, 1.34rem); font-weight: 650; letter-spacing: -.035em; line-height: 1.1; text-wrap: balance; }
+.capability-item h3 { margin: 20px 0 9px; color: var(--ink); font-size: clamp(1.08rem, 1.28vw, 1.34rem); font-weight: 650; letter-spacing: -.035em; line-height: 1.1; text-wrap: balance; }
 .capability-item > p:last-child { max-width: 510px; margin: 0; color: #62685f; font-size: clamp(.7rem, .76vw, .81rem); line-height: 1.5; text-wrap: pretty; }
 .results-map { position: relative; width: 100%; max-width: 1320px; min-height: 480px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(190px, 1fr)); grid-template-areas: "card1 card2 card3" "card4 card5 card6"; gap: 100px 18px; align-items: stretch; }
 .results-map-connectors { position: absolute; z-index: 1; left: 0; right: 0; top: -72px; width: 100%; height: calc(100% + 72px); overflow: visible; fill: none; stroke: var(--connector-line); stroke-width: var(--connector-width); stroke-linecap: square; stroke-linejoin: miter; pointer-events: none; }
@@ -2620,5 +2618,7 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   .contact-page-process article + article { border-top: 1px solid rgba(255,255,255,.12); border-left: 0; }
   .contact-page-process strong { margin-top: 24px; }
 }
+
+.capability-item h3 { margin-top: 20px; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; } }

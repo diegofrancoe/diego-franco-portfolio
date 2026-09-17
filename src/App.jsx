@@ -1178,7 +1178,6 @@ function ResultsMap({ isVisible, language }) {
 
         {results.map((result, index) => (
           <article className="capability-item" data-number={result.number} style={{ "--capability-delay": `${1.3 + Math.floor(index / 2) * 0.5 + (index % 2) * 0.12}s` }} key={result.number}>
-            <span className="capability-rule" aria-hidden="true" />
             <p className="capability-index"><span className="capability-number">{result.number}</span><span className="capability-label">{result.label}</span></p>
             <h3>{result.title}</h3>
             <p>{result.description}</p>
