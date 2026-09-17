@@ -1,16 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
-import { LuArrowDown, LuArrowRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuDatabase, LuFileText, LuGlobe, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
-import { SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMeta, SiN8N, SiNextdotjs, SiReact, SiStripe, SiSupabase, SiTiktok, SiTypescript, SiVercel, SiWhatsapp } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { LuArrowRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
+import { SiDropbox, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, SiZoom } from "react-icons/si";
+
+const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
+const CONTACT_WHATSAPP_NUMBER = "573113964114";
+const CONTACT_LINKEDIN = "https://www.linkedin.com/in/diego-franco-338433364/";
+const CONTACT_CV_URL = "/Diego_Franco_CV.pdf";
+const CONTACT_WHATSAPP_MESSAGE = "Hola Diego 👋, vi tu portafolio y me gustaría conversar contigo sobre una idea o una oportunidad de trabajo. ¿Te cuento un poco más?";
+const CONTACT_WHATSAPP_URL = CONTACT_WHATSAPP_NUMBER
+  ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`
+  : "";
 
 const projects = [
   {
     number: "01",
     name: "Ceniza",
-    type: "AI-POWERED OPERATIONAL CRM",
+    type: "FULL STACK · CRM + AI",
     description:
       "A CRM-first system that keeps clients, quotes, productions, rentals, inventory and finance in one operational view — supported by Asistente Ceniza.",
-    tags: ["AI SOLUTIONS ENGINEERING", "CRM SYSTEM", "OPERATIONS", "AUTOMATION"],
+    tags: ["CRM", "APPLIED AI", "AUTOMATION"],
     path: "/proyectos/ceniza",
     visual: "ceniza",
     headline: "Every client, quote and operation in one place.",
@@ -39,10 +49,10 @@ const projects = [
   {
     number: "02",
     name: "40+",
-    type: "COMMERCE EXPERIENCE + AUTOMATION",
+    type: "E-COMMERCE · AUTOMATION",
     description:
       "A responsive product journey that explains the ritual, prepares WhatsApp-assisted orders and automates experience capture and e-book delivery.",
-    tags: ["COMMERCE", "MAKE AUTOMATION", "MOBILE UX", "UX/UI"],
+    tags: ["E-COMMERCE", "UX/UI", "MAKE"],
     path: "/proyectos/40-plus",
     visual: "forty",
     headline: "A simpler path from product interest to action.",
@@ -71,10 +81,10 @@ const projects = [
   {
     number: "03",
     name: "Naval",
-    type: "B2B WEBSITE + ERP",
+    type: "FULL STACK · ERP + B2B",
     description:
       "A B2B catalog and ERP demonstration designed to bring product demand, production, purchasing, inventory, quality and reporting into one operating model.",
-    tags: ["ERP", "OPERATIONS", "B2B WEBSITE", "SYSTEM DESIGN"],
+    tags: ["ERP", "B2B", "OPERATIONS"],
     path: "/proyectos/naval",
     visual: "naval",
     headline: "One operational core for a connected business.",
@@ -104,10 +114,10 @@ const projects = [
 
 const projectTranslationsEs = {
   ceniza: {
-    type: "CRM OPERATIVO POTENCIADO CON IA",
+    type: "FULL STACK · CRM + IA",
     description:
       "Un sistema centrado en el CRM que reúne clientes, cotizaciones, producciones, alquileres, inventario y finanzas en una vista operativa, con el apoyo del Asistente Ceniza.",
-    tags: ["AI SOLUTIONS ENGINEERING", "SISTEMA CRM", "OPERACIONES", "AUTOMATIZACIÓN"],
+    tags: ["CRM", "IA APLICADA", "AUTOMATIZACIÓN"],
     headline: "Cada cliente, cotización y operación en un solo lugar.",
     industry: "Producción creativa + alquiler de equipos",
     role: "AI Solutions Engineer · Producto y UX/UI · CRM · Datos · Automatización",
@@ -115,10 +125,10 @@ const projectTranslationsEs = {
       "El producto final conecta el recorrido comercial y operativo en un sistema responsive, con contexto compartido, asistencia de IA controlada y trazabilidad desde la oportunidad hasta el seguimiento financiero.",
   },
   forty: {
-    type: "EXPERIENCIA DE COMERCIO + AUTOMATIZACIÓN",
+    type: "E-COMMERCE · AUTOMATIZACIÓN",
     description:
       "Un recorrido adaptable que explica el ritual, prepara pedidos asistidos por WhatsApp y automatiza la captura de experiencias y la entrega del e-book.",
-    tags: ["COMERCIO", "AUTOMATIZACIÓN MAKE", "UX MÓVIL", "UX/UI"],
+    tags: ["E-COMMERCE", "UX/UI", "MAKE"],
     headline: "Un camino más simple del interés a la acción.",
     industry: "Bienestar + venta directa al consumidor",
     role: "Estrategia web · UX/UI · Experiencia adaptable",
@@ -126,10 +136,10 @@ const projectTranslationsEs = {
       "Un recorrido digital funcional que ayuda a entender 40+, preparar un pedido en WhatsApp y recibir contenido útil mediante un flujo automatizado y con consentimiento.",
   },
   naval: {
-    type: "SITIO B2B + ERP",
+    type: "FULL STACK · ERP + B2B",
     description:
       "Un catálogo B2B y una demostración de ERP diseñados para reunir demanda, producción, compras, inventario, calidad e informes dentro de un mismo modelo operativo.",
-    tags: ["ERP", "OPERACIONES", "SITIO B2B", "DISEÑO DE SISTEMAS"],
+    tags: ["ERP", "B2B", "OPERACIONES"],
     headline: "Un núcleo operativo para un negocio conectado.",
     industry: "Manufactura + operaciones B2B",
     role: "Diseño de sistemas · UX/UI de ERP · Arquitectura operativa",
@@ -150,11 +160,11 @@ const copy = {
     spanish: "Spanish",
     roleTitle: "AI SOLUTIONS ENGINEER",
     portfolio: "PORTFOLIO",
-    heroLines: ["I turn disconnected", "operations into business", "systems that"],
-    heroAccent: "work.",
+    heroLines: ["Building intelligent business systems", "where operations, data and AI", ""],
+    heroAccent: "work together.",
     heroDescription:
-      "I design CRM, ERP and web products that centralize information, automate repetitive work and help teams act with clearer context.",
-    viewCases: "View case studies",
+      "I combine full-stack engineering and AI to analyze each operation and build the right solution: applications, LLM-powered agents, databases and automations that eliminate repetitive work. I deliver scalable systems that connect information, improve processes and support better decisions.",
+    viewCases: "Explore my projects",
     heroFooter: "Systems Design · AI Integration · Automation · API Integration · UX/UI",
     howIWork: "How I Work",
     process: "DISCOVER → DESIGN → BUILD → INTEGRATE",
@@ -182,8 +192,8 @@ const copy = {
     profileResources: "Profile resources",
     downloadCv: "Download CV",
     whatICreate: "WHAT I CREATE",
-    resultsTitle: <>Built to work<br /><em>as one.</em></>,
-    resultsCopy: "I connect platforms, workflows and AI to make everyday operations clearer, faster and easier to manage.",
+    resultsTitle: <>I build solutions<br /><em>end to end.</em></>,
+    resultsCopy: "As an AI Solutions Engineer, I connect product, code, data, automation and AI to turn business needs into complete, measurable systems ready to scale.",
     faq: "FAQ",
     allProjects: "All projects",
     caseStudy: "Case study",
@@ -218,11 +228,11 @@ const copy = {
     spanish: "Español",
     roleTitle: "INGENIERO DE SOLUCIONES DE IA",
     portfolio: "PORTAFOLIO",
-    heroLines: ["Convierto operaciones", "desconectadas en sistemas", "de negocio que"],
-    heroAccent: "funcionan.",
+    heroLines: ["Construyo sistemas empresariales inteligentes", "donde operaciones, datos e IA", ""],
+    heroAccent: "funcionan juntos.",
     heroDescription:
-      "Diseño productos CRM, ERP y web que centralizan la información, automatizan el trabajo repetitivo y ayudan a los equipos a actuar con mayor contexto.",
-    viewCases: "Ver casos de estudio",
+      "Combino ingeniería full stack e IA para analizar cada operación y construir la solución adecuada: aplicaciones, agentes con LLM, bases de datos y automatizaciones que eliminan tareas repetitivas. Entrego sistemas escalables que conectan información, mejoran procesos y ayudan a tomar mejores decisiones.",
+    viewCases: "Explorar mis proyectos",
     heroFooter: "Diseño de sistemas · Integración de IA · Automatización · Integración API · UX/UI",
     howIWork: "Cómo trabajo",
     process: "DESCUBRIR → DISEÑAR → CONSTRUIR → INTEGRAR",
@@ -250,8 +260,8 @@ const copy = {
     profileResources: "Recursos del perfil",
     downloadCv: "Descargar CV",
     whatICreate: "LO QUE CONSTRUYO",
-    resultsTitle: <>Construido para funcionar<br /><em>como uno solo.</em></>,
-    resultsCopy: "Conecto plataformas, flujos de trabajo e IA para que las operaciones diarias sean más claras, rápidas y fáciles de gestionar.",
+    resultsTitle: <>Construyo soluciones<br /><em>de principio a fin.</em></>,
+    resultsCopy: "Como AI Solutions Engineer, conecto producto, código, datos, automatización e IA para convertir necesidades del negocio en sistemas completos, medibles y listos para crecer.",
     faq: "PREGUNTAS FRECUENTES",
     allProjects: "Todos los proyectos",
     caseStudy: "Caso de estudio",
@@ -282,16 +292,16 @@ function localizeProject(project, language) {
 }
 
 const workflowTools = [
-  { name: "Codex", icon: BsOpenai, color: "#111111", slug: "codex" },
-  { name: "Figma", icon: FigmaBrandMark, color: "#F24E1E", slug: "figma" },
+  { name: "OpenAI", icon: BsOpenai, color: "#10A37F", slug: "openai" },
+  { name: "React", icon: SiReact, color: "#149ECA", slug: "react" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6", slug: "typescript" },
   { name: "Next.js", icon: SiNextdotjs, color: "#111111", slug: "next" },
-  { name: "React", icon: SiReact, color: "#149ECA", slug: "react" },
+  { name: "Vercel", icon: SiVercel, color: "#111111", slug: "vercel" },
+  { name: "PostgreSQL / SQL", icon: SiPostgresql, color: "#336791", slug: "postgresql" },
   { name: "Supabase", icon: SiSupabase, color: "#3ECF8E", slug: "supabase" },
-  { name: "OpenAI", icon: BsOpenai, color: "#10A37F", slug: "openai" },
+  { name: "Figma", icon: FigmaBrandMark, color: "#F24E1E", slug: "figma" },
   { name: "n8n", icon: SiN8N, color: "#EA4B71", slug: "n8n" },
   { name: "Make", icon: SiMake, color: "#6D00CC", slug: "make" },
-  { name: "Vercel", icon: SiVercel, color: "#111111", slug: "vercel" },
 ];
 
 function FigmaBrandMark() {
@@ -306,11 +316,12 @@ function Arrow({ diagonal = false }) {
   return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
 }
 
-function SoftButton({ children, href, primary = false, external = false }) {
+function SoftButton({ children, href, primary = false, external = false, onClick }) {
   return (
     <a
       className={`soft-button${primary ? " primary" : ""}`}
       href={href}
+      onClick={onClick}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
     >
@@ -400,24 +411,24 @@ const caseStudyDetails = {
     dark: "#080808",
     wash: "#eee7d5",
     demoUrl: "https://ceniza-crm.vercel.app/",
-    demoLabel: "Try the demo",
+    demoLabel: "Live Demo",
     title: <>The operation,<br />visible in <em>one place.</em></>,
     introTitle: "A digital product built around Ceniza's real operation.",
     intro:
       "The project involved designing and building a custom CRM for Ceniza Producciones, a creative studio that also rents production equipment. It turns requests from email, WhatsApp and the website into organized work, helping the team manage clients, quotes, productions, rentals and resources without losing context.",
     story: [
       {
-        label: "WHAT I ANALYZED",
+        label: "PROBLEMS",
         title: "Scattered information. Delayed decisions.",
         text: "Requests, dates, equipment and payments were separated, without clear ownership or priorities.",
       },
       {
-        label: "WHAT I CONTRIBUTED",
+        label: "SYSTEM",
         title: "One connected operating model.",
         text: "I unified clients, agenda, quotes, operations, inventory and finance so the dashboard and AI share the same context.",
       },
       {
-        label: "FINAL PRODUCT",
+        label: "VALUE",
         title: "A CRM for operating and deciding.",
         text: "The team manages opportunities, work, resources and financial results from one responsive application.",
       },
@@ -567,9 +578,9 @@ const caseStudyDetails = {
     desktopUrl: "productosnaval.com",
     desktopImage: "/case-naval-desktop.png",
     mobileImages: [
-      { src: "/case-naval-mobile-1.png", label: "Company" },
-      { src: "/case-naval-mobile-2.png", label: "Catalog" },
-      { src: "/case-naval-mobile-3.png", label: "Product" },
+      { src: "/case-naval-app-login-real.png", label: "Secure login" },
+      { src: "/case-naval-app-dashboard-juan.png", label: "Dashboard" },
+      { src: "/case-naval-app-assistant.png", label: "Naval Assistant" },
     ],
     designTitle: "Public clarity on one side; operational structure on the other.",
     designCopy:
@@ -591,24 +602,24 @@ const caseStudyDetails = {
 
 const caseStudyDetailsEs = {
   ceniza: {
-    demoLabel: "Probar demo",
+    demoLabel: "Live Demo",
     title: <>La operación,<br />visible en <em>un solo lugar.</em></>,
     introTitle: "Un producto digital construido alrededor de la operación real de Ceniza.",
     intro:
       "El proyecto consistió en diseñar y construir un CRM a la medida para Ceniza Producciones, un estudio creativo que también alquila equipos de producción. Convierte las solicitudes que llegan por correo, WhatsApp y la web en trabajo organizado, para que el equipo gestione clientes, cotizaciones, producciones, alquileres y recursos sin perder contexto.",
     story: [
       {
-        label: "LO QUE ANALICÉ",
+        label: "PROBLEMAS",
         title: "Información dispersa. Decisiones tardías.",
         text: "Solicitudes, fechas, equipos y pagos estaban separados, sin responsables ni prioridades claras.",
       },
       {
-        label: "LO QUE APORTÉ",
+        label: "SISTEMA",
         title: "Un modelo operativo conectado.",
         text: "Unifiqué clientes, agenda, cotizaciones, operación, inventario y finanzas para que el dashboard y la IA compartan contexto.",
       },
       {
-        label: "PRODUCTO FINAL",
+        label: "EL VALOR",
         title: "Un CRM para operar y decidir.",
         text: "El equipo gestiona oportunidades, trabajo, recursos y resultados financieros desde una sola aplicación responsive.",
       },
@@ -746,9 +757,9 @@ const caseStudyDetailsEs = {
       { label: "EL VALOR", title: "Un camino concreto hacia una única fuente de verdad.", text: "Los equipos pueden validar el modelo operativo antes de reemplazar los datos demo por persistencia segura e integraciones reales." },
     ],
     mobileImages: [
-      { src: "/case-naval-mobile-1.png", label: "Empresa" },
-      { src: "/case-naval-mobile-2.png", label: "Catálogo" },
-      { src: "/case-naval-mobile-3.png", label: "Producto" },
+      { src: "/case-naval-app-login-real.png", label: "Acceso seguro" },
+      { src: "/case-naval-app-dashboard-juan.png", label: "Dashboard" },
+      { src: "/case-naval-app-assistant.png", label: "Asistente Naval" },
     ],
     designTitle: "Claridad pública por un lado; estructura operativa por el otro.",
     designCopy:
@@ -771,6 +782,257 @@ const caseStudyDetailsEs = {
 function localizeCaseDetail(detail, visual, language) {
   return language === "es" ? { ...detail, ...caseStudyDetailsEs[visual] } : detail;
 }
+
+const expandedCaseDetails = {
+  en: {
+    forty: {
+      systemLabel: "DIGITAL PRODUCT · E-COMMERCE + UX/UI",
+      systemTitle: "A product experience designed around how people understand, choose and act.",
+      systemCopy: "40+ combines product strategy, information architecture, interface design and responsive development in one coherent journey. The experience explains the value of the product, reduces uncertainty and turns intent into a practical next step.",
+      galleryLabel: "PRODUCT DESIGN SYSTEM",
+      galleryCount: "06 VIEWS · ONE EXPERIENCE",
+      screens: [
+        { category: "Product strategy", title: "Conversion architecture", benefit: "A purposeful journey", text: "Content, education and calls to action follow the questions a customer asks before deciding.", variant: "map" },
+        { category: "E-commerce", title: "Product discovery", benefit: "Clear first impression", text: "The product, its promise and the next action stay visible without competing for attention.", variant: "website", image: "/case-40plus-desktop.png" },
+        { category: "UX", title: "Guided product detail", benefit: "Less uncertainty", text: "Benefits, format, use and practical information are ordered around a confident purchase decision.", variant: "product" },
+        { category: "UI", title: "Responsive visual system", benefit: "A consistent brand", text: "Typography, color, spacing and components preserve the same personality on every screen.", variant: "system" },
+        { category: "Conversion", title: "WhatsApp-assisted order", benefit: "A realistic checkout", text: "The customer prepares the order before continuing with the sales team in a contextual conversation.", variant: "checkout" },
+        { category: "Automation", title: "Experience follow-up", benefit: "Useful continuity", text: "A validated form triggers the e-book, an internal notification and an organized customer record.", variant: "automation" },
+      ],
+      metrics: [
+        { value: "UX", label: "Decision journey", note: "Content and interactions are organized around the questions that precede a purchase." },
+        { value: "UI", label: "Visual product system", note: "Reusable components preserve hierarchy and brand confidence across breakpoints." },
+        { value: "D2C", label: "Human-assisted commerce", note: "The digital experience supports the real WhatsApp-based sales model." },
+        { value: "MAKE", label: "Connected follow-up", note: "Forms, delivery and internal records continue through an automated workflow." },
+      ],
+      mobileLabel: "RESPONSIVE PRODUCT EXPERIENCE",
+      mobileTitle: "The complete journey, designed for the phone first.",
+      mobileCopy: "The mobile version keeps the product, proof, content and calls to action legible and comfortable. It is not a reduced desktop page; it is the same decision journey adapted to a smaller screen.",
+      mobileImages: [
+        { src: "/case-40plus-mobile-1.png", label: "Home", benefit: "Brand promise and primary action without visual noise." },
+        { src: "/case-40plus-mobile-2.png", label: "Product", benefit: "Practical information arranged for quick comparison." },
+        { src: "/case-40plus-mobile-3.png", label: "Daily ritual", benefit: "Educational content that makes the product easier to adopt." },
+      ],
+      benefitsLabel: "PRODUCT VALUE",
+      benefitsTitle: "Design is doing the commercial work before the conversation begins.",
+      benefits: [
+        { title: "Clearer positioning", text: "The customer understands what the product is, who it is for and why it belongs in a daily routine." },
+        { title: "Lower friction", text: "The path from discovery to WhatsApp keeps the selected product and intent visible." },
+        { title: "Responsive confidence", text: "The brand, hierarchy and calls to action retain their strength on mobile." },
+        { title: "Automated continuity", text: "Experience capture, content delivery and internal follow-up stop being isolated manual tasks." },
+      ],
+      automationLabel: "AUTOMATION · FROM INTEREST TO FOLLOW-UP",
+      automationTitle: "The customer journey continues after the click.",
+      automationCopy: "The website prepares the context, WhatsApp supports the purchase and Make coordinates the follow-up without removing the human relationship from the process.",
+      automationSteps: [
+        { icon: "01", title: "Discover", meta: "Content · campaign" },
+        { icon: "02", title: "Understand", meta: "Product · ritual" },
+        { icon: "03", title: "Choose", meta: "Prepared order" },
+        { icon: "04", title: "Continue", meta: "WhatsApp" },
+        { icon: "05", title: "Automate", meta: "Make · email" },
+        { icon: "06", title: "Follow up", meta: "Record · next step" },
+      ],
+      webLabel: "WEB PRODUCT · DESIGNED + BUILT",
+      webTitle: "A product website where brand, education and conversion feel like one experience.",
+      webCopy: "The desktop experience gives the visual identity room to breathe while maintaining a direct commercial path. Product storytelling, practical information and action are part of the same system rather than separate landing-page blocks.",
+      capabilities: ["Product design", "UX/UI", "Responsive web", "Automation"],
+      outcomeTitle: "40+ turns product interest into an understandable journey, a realistic purchase action and a follow-up the business can maintain.",
+      outcomeCopy: "The result is not only a polished website. It is a web product designed around the way the brand sells, the way customers decide and the repetitive work that can be automated responsibly.",
+    },
+    naval: {
+      systemLabel: "ERP · CONNECTED BUSINESS OPERATION",
+      systemTitle: "Commercial demand and internal execution inside the same operating model.",
+      systemCopy: "Naval connects the public B2B experience with an ERP structure for sales, production, purchasing, finance and reporting. Each area works with the same product, order and customer context, while the assistant helps turn operational signals into a reviewable next step.",
+      galleryLabel: "REAL ERP INTERFACES · NAVAL REPOSITORY",
+      galleryCount: "15 VIEWS · NAVBAR ORDER",
+      screens: [
+        { category: "Commercial · 01", title: "Sales pipeline", benefit: "Demand visibility", text: "Opportunities, customers, owners and next actions organized by stage and expected value.", variant: "pipeline", image: "/case-naval-erp-commercial-opportunities.png" },
+        { category: "Commercial · 02", title: "Commercial quotations", benefit: "Commercial continuity", text: "Proposals, validity dates, customers, owners, amounts and status remain organized inside the ERP.", variant: "table", image: "/case-naval-erp-commercial-quotes.png" },
+        { category: "Production · 01", title: "Tanks and capacity", benefit: "Visual production control", text: "The plan, active tanks, line capacity and cost per litre can be read together without leaving production.", variant: "timeline", image: "/case-naval-erp-production-overview.png" },
+        { category: "Production · 02", title: "Production orders", benefit: "Controlled execution", text: "Materials, progress, inspections and deviations remain connected to each production order.", variant: "quality", image: "/case-naval-erp-production-orders.png" },
+        { category: "Purchasing · 01", title: "Purchase order detail", benefit: "Clear, traceable document", text: "Supplier, delivery, approval status, inputs and totals are organized in one complete ERP workspace.", variant: "requests", image: "/case-naval-erp-purchases-order-redesign-v2.png" },
+        { category: "Purchasing · 02", title: "Supplier management", benefit: "Traceable purchasing", text: "Contacts, categories, payment terms, delivery status and recent purchases remain visible by supplier.", variant: "supplier", image: "/case-naval-erp-purchases-suppliers.png" },
+        { category: "Transport · 01", title: "Routes and deliveries", benefit: "Transport visibility", text: "Active routes, delivery status and evidence keep the final part of each order visible.", variant: "transport", image: "/case-naval-erp-transport-v1.png" },
+        { category: "Transport · 02", title: "Dispatch list", benefit: "Simple follow-up", text: "Scheduled, in-transit and completed dispatches are managed in a focused operational list.", variant: "transport-table", image: "/case-naval-erp-transport-v2.png" },
+        { category: "Finance · 01", title: "Receivables", benefit: "Cash control", text: "Due dates, collections and commitments connect back to the order that generated them.", variant: "finance", image: "/case-naval-erp-finance-receivables.png" },
+        { category: "Finance · 02", title: "Cost and profitability", benefit: "Margin visibility", text: "Materials, production cost, revenue and expected margin can be compared before closing the period.", variant: "bars", image: "/case-naval-erp-finance-costs.png" },
+        { category: "Reports · 01", title: "Integrated analysis", benefit: "One business view", text: "Commercial, production, purchasing and financial indicators share the same reporting period.", variant: "dashboard", image: "/case-naval-erp-reports-integral.png" },
+        { category: "Reports · 02", title: "Alerts and controls", benefit: "Measurable operation", text: "Teams compare plan versus result and trace each deviation to its source record.", variant: "report", image: "/case-naval-erp-reports-alerts.png" },
+        { category: "Settings · 01", title: "System settings", benefit: "Governed access", text: "Users, roles, permissions, integrations and audit rules are managed from one place.", variant: "settings", image: "/case-naval-erp-settings-v1.png" },
+        { category: "AI · 01", title: "Naval assistant", benefit: "Contextual decisions", text: "The demonstrative assistant summarizes risks, explains the evidence and prepares an action for human confirmation.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.png" },
+        { category: "Web · 01", title: "B2B website", benefit: "Connected demand", text: "Product discovery by line or sector becomes a qualified request ready for commercial follow-up.", variant: "website", image: "/case-naval-desktop.png" },
+      ],
+      metrics: [
+        { value: "7", label: "Connected specialties", note: "Commercial, production, transport, purchasing, finance, reports and AI share one operating model." },
+        { value: "15", label: "Focused system views", note: "Two views per operating area, followed by reports, settings, the assistant and the B2B website." },
+        { value: "ERP", label: "Single operational core", note: "Products, customers, orders, materials, costs and results retain their relationships." },
+        { value: "AI", label: "Assisted decisions", note: "The prototype demonstrates contextual recommendations, evidence and human confirmation before any action." },
+      ],
+      mobileLabel: "NAVAL ERP · MOBILE APP VISION",
+      mobileTitle: "Naval ERP, ready to operate from anywhere.",
+      mobileCopy: "The mobile concept adapts the ERP to short, high-value actions: secure access, an operational summary and contextual assistance. It is designed as an app experience—not a compressed desktop interface.",
+      mobileImages: [
+        { src: "/case-naval-app-login-real.png", label: "Secure login", benefit: "Real credential access to Naval's business ecosystem." },
+        { src: "/case-naval-app-dashboard-juan.png", label: "Operational dashboard", benefit: "KPIs, priorities and production progress adapted to quick review." },
+        { src: "/case-naval-app-assistant.png", label: "Naval Assistant", benefit: "Evidence, alerts and a reviewable next action in one conversation." },
+      ],
+      benefitsLabel: "OPERATIONAL VALUE",
+      benefitsTitle: "The ERP is useful because every area continues the same story.",
+      benefits: [
+        { title: "Commercial continuity", text: "A request can become a quote and order without losing the customer, product or negotiated conditions." },
+        { title: "Production control", text: "Plans, materials, progress and quality checks stay tied to real demand." },
+        { title: "Financial traceability", text: "Purchases, costs, collections and margins point back to the operation that generated them." },
+        { title: "Actionable reporting", text: "Reports explain the state of the business and reveal the record behind every deviation." },
+      ],
+      automationLabel: "CONNECTED FLOW · DEMAND TO DECISION",
+      automationTitle: "Information advances once and supports every specialty.",
+      automationCopy: "The model connects customer demand with planning, supply, execution and financial control. The assistant works on top of that shared context and always leaves the final action visible to the team.",
+      automationSteps: [
+        { icon: "01", title: "Demand", meta: "Web · sales" },
+        { icon: "02", title: "Commercial", meta: "Quote · order" },
+        { icon: "03", title: "Plan", meta: "Production · materials" },
+        { icon: "04", title: "Supply", meta: "Purchases · receipts" },
+        { icon: "05", title: "Control", meta: "Finance · reports" },
+        { icon: "AI", title: "Decide", meta: "Evidence · action" },
+      ],
+      assistantLabel: "NAVAL ASSISTANT · AI INSIDE THE ERP",
+      assistantTitle: "Ask about the operation and receive a plan grounded in business data.",
+      assistantCopy: "The current prototype demonstrates how sales, production, purchasing and finance can be read together to explain a constraint and prepare a controlled next action. The interface is ready for a verified model and authorized data connection; it does not present the demo as a live AI integration.",
+      assistantQuestions: ["Which orders are at risk this week?", "What material is blocking production?", "Which collection protects cash flow first?"],
+      assistantImage: "/case-naval-erp-assistant-fullscreen.png",
+      webLabel: "B2B WEBSITE · PRODUCT DEMAND",
+      webTitle: "A public catalog that helps the right customer find the right product.",
+      webCopy: "The website organizes Naval's offer by product line and business sector. It gives hotels, restaurants, schools and distributors enough technical and commercial context to start a better-qualified conversation.",
+      capabilities: ["B2B catalog", "Product UX", "Responsive web", "ERP connection"],
+      outcomeTitle: "Naval makes a complex operation understandable from the first product search to the final business report.",
+      outcomeCopy: "The result is a clear product direction: a useful B2B experience, a structured ERP model and an AI assistant designed to work with shared operational context rather than as an isolated chatbot.",
+    },
+  },
+  es: {
+    forty: {
+      systemLabel: "PRODUCTO DIGITAL · E-COMMERCE + UX/UI",
+      systemTitle: "Una experiencia de producto diseñada alrededor de cómo las personas entienden, eligen y actúan.",
+      systemCopy: "40+ combina estrategia de producto, arquitectura de información, diseño de interfaz y desarrollo responsive dentro de un mismo recorrido. La experiencia explica el valor del producto, reduce dudas y convierte la intención en un siguiente paso práctico.",
+      galleryLabel: "SISTEMA DE DISEÑO DEL PRODUCTO",
+      galleryCount: "06 VISTAS · UNA SOLA EXPERIENCIA",
+      screens: [
+        { category: "Estrategia de producto", title: "Arquitectura de conversión", benefit: "Un recorrido con propósito", text: "El contenido, la educación y los llamados a la acción siguen las preguntas que aparecen antes de decidir.", variant: "map" },
+        { category: "E-commerce", title: "Descubrimiento del producto", benefit: "Primera impresión clara", text: "El producto, su promesa y la siguiente acción permanecen visibles sin competir por atención.", variant: "website", image: "/case-40plus-desktop.png" },
+        { category: "UX", title: "Ficha de producto guiada", benefit: "Menos incertidumbre", text: "Beneficios, formato, uso e información práctica se ordenan alrededor de una decisión segura.", variant: "product" },
+        { category: "UI", title: "Sistema visual responsive", benefit: "Una marca consistente", text: "Tipografía, color, espaciado y componentes conservan la misma personalidad en cada pantalla.", variant: "system" },
+        { category: "Conversión", title: "Pedido asistido por WhatsApp", benefit: "Un checkout realista", text: "La persona prepara el pedido antes de continuar con el equipo comercial en una conversación con contexto.", variant: "checkout" },
+        { category: "Automatización", title: "Seguimiento de experiencia", benefit: "Continuidad útil", text: "Un formulario validado activa el e-book, la notificación interna y un registro organizado del cliente.", variant: "automation" },
+      ],
+      metrics: [
+        { value: "UX", label: "Recorrido de decisión", note: "El contenido y las interacciones responden las preguntas que anteceden una compra." },
+        { value: "UI", label: "Sistema visual de producto", note: "Los componentes reutilizables mantienen jerarquía y confianza entre dispositivos." },
+        { value: "D2C", label: "Comercio asistido", note: "La experiencia digital respeta el modelo real de venta apoyado por WhatsApp." },
+        { value: "MAKE", label: "Seguimiento conectado", note: "Formulario, entrega y registro interno continúan mediante un flujo automatizado." },
+      ],
+      mobileLabel: "EXPERIENCIA DE PRODUCTO RESPONSIVE",
+      mobileTitle: "El recorrido completo, diseñado primero para el celular.",
+      mobileCopy: "La versión móvil mantiene legibles y cómodos el producto, la prueba, el contenido y los llamados a la acción. No es una página de escritorio reducida: es el mismo recorrido de decisión adaptado a una pantalla menor.",
+      mobileImages: [
+        { src: "/case-40plus-mobile-1.png", label: "Inicio", benefit: "Promesa de marca y acción principal sin ruido visual." },
+        { src: "/case-40plus-mobile-2.png", label: "Producto", benefit: "Información práctica ordenada para comparar con rapidez." },
+        { src: "/case-40plus-mobile-3.png", label: "Ritual diario", benefit: "Contenido educativo que facilita adoptar el producto." },
+      ],
+      benefitsLabel: "VALOR DEL PRODUCTO",
+      benefitsTitle: "El diseño hace el trabajo comercial antes de iniciar la conversación.",
+      benefits: [
+        { title: "Posicionamiento claro", text: "La persona entiende qué es el producto, para quién es y por qué puede integrarlo a su rutina." },
+        { title: "Menos fricción", text: "El recorrido hacia WhatsApp conserva el producto elegido y la intención de compra." },
+        { title: "Confianza responsive", text: "La marca, la jerarquía y los llamados a la acción mantienen su fuerza en celular." },
+        { title: "Continuidad automatizada", text: "La captura de experiencias, la entrega de contenido y el seguimiento dejan de ser tareas manuales aisladas." },
+      ],
+      automationLabel: "AUTOMATIZACIÓN · DEL INTERÉS AL SEGUIMIENTO",
+      automationTitle: "El recorrido del cliente continúa después del clic.",
+      automationCopy: "La web prepara el contexto, WhatsApp acompaña la compra y Make coordina el seguimiento sin eliminar la relación humana del proceso.",
+      automationSteps: [
+        { icon: "01", title: "Descubrir", meta: "Contenido · campaña" },
+        { icon: "02", title: "Entender", meta: "Producto · ritual" },
+        { icon: "03", title: "Elegir", meta: "Pedido preparado" },
+        { icon: "04", title: "Continuar", meta: "WhatsApp" },
+        { icon: "05", title: "Automatizar", meta: "Make · correo" },
+        { icon: "06", title: "Seguimiento", meta: "Registro · acción" },
+      ],
+      webLabel: "PRODUCTO WEB · DISEÑADO + DESARROLLADO",
+      webTitle: "Una web donde marca, educación y conversión se sienten como una sola experiencia.",
+      webCopy: "La experiencia de escritorio le da espacio a la identidad visual sin perder un camino comercial directo. La historia del producto, la información práctica y la acción forman parte del mismo sistema, no de bloques aislados de una landing.",
+      capabilities: ["Diseño de producto", "UX/UI", "Web responsive", "Automatización"],
+      outcomeTitle: "40+ convierte el interés en un recorrido comprensible, una acción de compra realista y un seguimiento que el negocio puede sostener.",
+      outcomeCopy: "El resultado no es solamente una página bonita. Es un producto web diseñado alrededor de cómo vende la marca, cómo decide el cliente y qué trabajo repetitivo puede automatizarse de forma responsable.",
+    },
+    naval: {
+      systemLabel: "ERP · OPERACIÓN EMPRESARIAL CONECTADA",
+      systemTitle: "La demanda comercial y la ejecución interna dentro del mismo modelo operativo.",
+      systemCopy: "Naval conecta la experiencia B2B pública con una estructura ERP para comercial, producción, compras, finanzas y reportes. Cada área trabaja con el mismo contexto de producto, pedido y cliente, mientras el asistente convierte señales operativas en una siguiente acción revisable.",
+      galleryLabel: "INTERFACES REALES · REPOSITORIO NAVAL",
+      galleryCount: "15 VISTAS · ORDEN DEL NAVBAR",
+      screens: [
+        { category: "Comercial · 01", title: "Pipeline de ventas", benefit: "Visibilidad de la demanda", text: "Oportunidades, clientes, responsables y siguientes acciones organizados por etapa y valor esperado.", variant: "pipeline", image: "/case-naval-erp-commercial-opportunities.png" },
+        { category: "Comercial · 02", title: "Cotizaciones comerciales", benefit: "Continuidad comercial", text: "Propuestas, vigencias, clientes, responsables, valores y estados permanecen organizados dentro del ERP.", variant: "table", image: "/case-naval-erp-commercial-quotes.png" },
+        { category: "Producción · 01", title: "Tanques y capacidad", benefit: "Control visual de producción", text: "El plan, los tanques activos, la capacidad de las líneas y el costo por litro se leen juntos sin salir de producción.", variant: "timeline", image: "/case-naval-erp-production-overview.png" },
+        { category: "Producción · 02", title: "Órdenes de producción", benefit: "Ejecución controlada", text: "Materiales, avance, inspecciones y novedades permanecen conectados con cada orden de producción.", variant: "quality", image: "/case-naval-erp-production-orders.png" },
+        { category: "Compras · 01", title: "Orden de compra en detalle", benefit: "Documento claro y trazable", text: "Proveedor, entrega, aprobaciones, insumos y totales quedan organizados en una sola vista del ERP.", variant: "requests", image: "/case-naval-erp-purchases-order-redesign-v2.png" },
+        { category: "Compras · 02", title: "Gestión de proveedores", benefit: "Compra trazable", text: "Contactos, categorías, condiciones de pago, estado de entrega y compras recientes permanecen visibles por proveedor.", variant: "supplier", image: "/case-naval-erp-purchases-suppliers.png" },
+        { category: "Transporte · 01", title: "Rutas y entregas", benefit: "Visibilidad del transporte", text: "Rutas activas, estado de entrega y evidencias mantienen visible la última parte de cada pedido.", variant: "transport", image: "/case-naval-erp-transport-v1.png" },
+        { category: "Transporte · 02", title: "Listado de despachos", benefit: "Seguimiento simple", text: "Los despachos programados, en ruta y completados se gestionan desde una lista operativa enfocada.", variant: "transport-table", image: "/case-naval-erp-transport-v2.png" },
+        { category: "Finanzas · 01", title: "Cuentas por cobrar", benefit: "Control de caja", text: "Vencimientos, recaudos y compromisos regresan al pedido que originó cada movimiento.", variant: "finance", image: "/case-naval-erp-finance-receivables.png" },
+        { category: "Finanzas · 02", title: "Costos y rentabilidad", benefit: "Visibilidad del margen", text: "Materiales, costo productivo, ingresos y margen esperado pueden compararse antes del cierre.", variant: "bars", image: "/case-naval-erp-finance-costs.png" },
+        { category: "Reportes · 01", title: "Análisis integral", benefit: "Una vista del negocio", text: "Indicadores comerciales, productivos, de compras y financieros comparten el mismo período.", variant: "dashboard", image: "/case-naval-erp-reports-integral.png" },
+        { category: "Reportes · 02", title: "Alertas y controles", benefit: "Operación medible", text: "Los equipos comparan plan contra resultado y rastrean cada desviación hasta su registro de origen.", variant: "report", image: "/case-naval-erp-reports-alerts.png" },
+        { category: "Configuración · 01", title: "Configuración del sistema", benefit: "Acceso gobernado", text: "Usuarios, roles, permisos, integraciones y reglas de auditoría se administran desde un solo lugar.", variant: "settings", image: "/case-naval-erp-settings-v1.png" },
+        { category: "IA · 01", title: "Asistente Naval", benefit: "Decisiones con contexto", text: "El asistente demostrativo resume riesgos, explica la evidencia y prepara una acción para confirmación humana.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.png" },
+        { category: "Web · 01", title: "Página B2B", benefit: "Demanda conectada", text: "El descubrimiento por línea o sector se convierte en una solicitud calificada para el equipo comercial.", variant: "website", image: "/case-naval-desktop.png" },
+      ],
+      metrics: [
+        { value: "7", label: "Especialidades conectadas", note: "Comercial, producción, transporte, compras, finanzas, reportes e IA comparten un modelo operativo." },
+        { value: "15", label: "Vistas enfocadas", note: "Dos vistas por área operativa, seguidas de reportes, configuración, el asistente y la web B2B." },
+        { value: "ERP", label: "Núcleo operativo único", note: "Productos, clientes, pedidos, materiales, costos y resultados conservan sus relaciones." },
+        { value: "IA", label: "Decisiones asistidas", note: "El prototipo demuestra recomendaciones con contexto, evidencia y confirmación humana antes de cualquier acción." },
+      ],
+      mobileLabel: "ERP NAVAL · VISIÓN DE APP MÓVIL",
+      mobileTitle: "El ERP de Naval, listo para operar desde cualquier lugar.",
+      mobileCopy: "El concepto móvil adapta el ERP a acciones cortas y de alto valor: acceso seguro, resumen operativo y asistencia con contexto. Está diseñado como experiencia de app, no como una interfaz de escritorio comprimida.",
+      mobileImages: [
+        { src: "/case-naval-app-login-real.png", label: "Acceso seguro", benefit: "Acceso real con credenciales al ecosistema empresarial de Naval." },
+        { src: "/case-naval-app-dashboard-juan.png", label: "Dashboard operativo", benefit: "Indicadores, prioridades y avance productivo adaptados para consulta rápida." },
+        { src: "/case-naval-app-assistant.png", label: "Asistente Naval", benefit: "Evidencia, alertas y una siguiente acción revisable en la conversación." },
+      ],
+      benefitsLabel: "VALOR OPERATIVO",
+      benefitsTitle: "El ERP es útil porque cada área continúa la misma historia.",
+      benefits: [
+        { title: "Continuidad comercial", text: "Una solicitud avanza a cotización y pedido sin perder cliente, producto ni condiciones negociadas." },
+        { title: "Control de producción", text: "Planes, materiales, avances y controles de calidad permanecen ligados a la demanda real." },
+        { title: "Trazabilidad financiera", text: "Compras, costos, recaudos y márgenes regresan a la operación que los produjo." },
+        { title: "Reportes accionables", text: "Los informes explican el estado del negocio y revelan el registro detrás de cada desviación." },
+      ],
+      automationLabel: "FLUJO CONECTADO · DE LA DEMANDA A LA DECISIÓN",
+      automationTitle: "La información avanza una sola vez y sirve a cada especialidad.",
+      automationCopy: "El modelo conecta la demanda del cliente con planeación, abastecimiento, ejecución y control financiero. El asistente trabaja sobre ese contexto compartido y siempre deja la acción final visible para el equipo.",
+      automationSteps: [
+        { icon: "01", title: "Demanda", meta: "Web · ventas" },
+        { icon: "02", title: "Comercial", meta: "Cotización · pedido" },
+        { icon: "03", title: "Planear", meta: "Producción · materiales" },
+        { icon: "04", title: "Abastecer", meta: "Compras · recepción" },
+        { icon: "05", title: "Controlar", meta: "Finanzas · reportes" },
+        { icon: "IA", title: "Decidir", meta: "Evidencia · acción" },
+      ],
+      assistantLabel: "ASISTENTE NAVAL · IA DENTRO DEL ERP",
+      assistantTitle: "Pregunta por la operación y recibe un plan sustentado en datos del negocio.",
+      assistantCopy: "El prototipo actual demuestra cómo comercial, producción, compras y finanzas pueden leerse en conjunto para explicar una restricción y preparar la siguiente acción controlada. La interfaz está lista para conectar un modelo verificado y datos autorizados; la demo no se presenta como una integración de IA activa.",
+      assistantQuestions: ["¿Qué pedidos están en riesgo esta semana?", "¿Qué material está bloqueando producción?", "¿Qué cobro protege primero el flujo de caja?"],
+      assistantImage: "/case-naval-erp-assistant-fullscreen.png",
+      webLabel: "PÁGINA B2B · DEMANDA DE PRODUCTO",
+      webTitle: "Un catálogo público que ayuda al cliente correcto a encontrar el producto correcto.",
+      webCopy: "La página organiza la oferta de Naval por línea de producto y sector empresarial. Entrega a hoteles, restaurantes, colegios y distribuidores suficiente contexto técnico y comercial para iniciar una conversación mejor calificada.",
+      capabilities: ["Catálogo B2B", "UX de producto", "Web responsive", "Conexión ERP"],
+      outcomeTitle: "Naval hace comprensible una operación compleja desde la primera búsqueda de producto hasta el reporte final del negocio.",
+      outcomeCopy: "El resultado es una dirección de producto clara: una experiencia B2B útil, un modelo ERP estructurado y un asistente de IA diseñado para trabajar con contexto operativo compartido, no como un chatbot aislado.",
+    },
+  },
+};
 
 function ProjectVisual({ visual }) {
   const folderContents = (
@@ -796,40 +1058,28 @@ function ProjectVisual({ visual }) {
 
 const profileResults = [
   {
-    number: "01",
-    label: "ERP SYSTEMS",
-    title: "The operational core.",
-    description: "Connect sales, production, purchasing, inventory, finance and reporting within one structured platform.",
+    number: "1",
+    label: "FULL STACK",
+    title: "From business problem to working product.",
+    description: "I design the architecture, experience, frontend, backend, APIs and data needed to deliver a maintainable solution ready to deploy.",
   },
   {
-    number: "02",
-    label: "CRM",
-    title: "Customer relationships, organized.",
-    description: "Bring leads, conversations, tasks and follow-ups together so every interaction has context and continuity.",
+    number: "2",
+    label: "APPS AND WEBS",
+    title: "Clear, connected and responsive experiences.",
+    description: "I build apps and websites that turn complex processes into simple journeys and integrate with CRM, ERP and external services.",
   },
   {
-    number: "03",
-    label: "POS",
-    title: "Sales connected end to end.",
-    description: "Unify products, payments, inventory and customer data across physical and digital sales channels.",
-  },
-  {
-    number: "04",
-    label: "APP AND WEBS",
-    title: "More than an interface.",
-    description: "Create clear, responsive platforms that guide users, support business goals and connect with the tools behind the experience.",
-  },
-  {
-    number: "05",
+    number: "3",
     label: "AUTOMATION",
-    title: "Manual work, reduced.",
-    description: "Automate repetitive steps, connect information between tools and keep processes moving with fewer errors and delays.",
+    title: "Less repetitive work. More momentum.",
+    description: "I connect tools and automate workflows, validations, alerts and data handoffs to reduce delays, errors and manual work.",
   },
   {
-    number: "06",
-    label: "AI INTEGRATION",
-    title: "AI inside the workflow.",
-    description: "Embed intelligent assistants and context-aware actions into the systems teams already use.",
+    number: "4",
+    label: "AI ACROSS THE SYSTEM",
+    title: "AI with context, control and purpose.",
+    description: "I integrate assistants, RAG and intelligent actions that use business data, recommend next steps and preserve permissions, human review and traceability.",
   },
 ];
 
@@ -850,40 +1100,28 @@ const profileFaqs = [
 
 const profileResultsEs = [
   {
-    number: "01",
-    label: "SISTEMAS ERP",
-    title: "El núcleo operativo.",
-    description: "Conecta ventas, producción, compras, inventario, finanzas e informes dentro de una plataforma estructurada.",
+    number: "1",
+    label: "FULL STACK",
+    title: "Del problema al producto funcionando.",
+    description: "Diseño arquitectura, experiencia, frontend, backend, APIs y datos para llevar una necesidad del negocio hasta una solución desplegable y mantenible.",
   },
   {
-    number: "02",
-    label: "CRM",
-    title: "Relaciones con clientes, organizadas.",
-    description: "Reúne contactos, conversaciones, tareas y seguimientos para que cada interacción conserve contexto y continuidad.",
+    number: "2",
+    label: "APPS Y WEBS",
+    title: "Experiencias claras, conectadas y responsive.",
+    description: "Creo apps y sitios web que convierten procesos complejos en recorridos simples y se integran con CRM, ERP y servicios externos.",
   },
   {
-    number: "03",
-    label: "POS",
-    title: "Ventas conectadas de principio a fin.",
-    description: "Unifica productos, pagos, inventario y datos de clientes en los canales de venta físicos y digitales.",
-  },
-  {
-    number: "04",
-    label: "APPS Y SITIOS WEB",
-    title: "Más que una interfaz.",
-    description: "Crea plataformas claras y adaptables que guían a los usuarios, apoyan los objetivos del negocio y se conectan con las herramientas detrás de la experiencia.",
-  },
-  {
-    number: "05",
+    number: "3",
     label: "AUTOMATIZACIÓN",
-    title: "Menos trabajo manual.",
-    description: "Automatiza pasos repetitivos, conecta información entre herramientas y mantiene los procesos en movimiento con menos errores y demoras.",
+    title: "Menos tareas repetitivas. Más operación.",
+    description: "Conecto herramientas y automatizo flujos, validaciones, alertas y traspasos de información para reducir tiempos, errores y trabajo manual.",
   },
   {
-    number: "06",
-    label: "INTEGRACIÓN DE IA",
-    title: "IA dentro del flujo de trabajo.",
-    description: "Integra asistentes inteligentes y acciones sensibles al contexto dentro de los sistemas que los equipos ya utilizan.",
+    number: "4",
+    label: "IA APLICADA EN TODO EL SISTEMA",
+    title: "IA con contexto, control y propósito.",
+    description: "Integro asistentes, RAG y acciones inteligentes que consultan datos, recomiendan el siguiente paso y mantienen permisos, revisión humana y trazabilidad.",
   },
 ];
 
@@ -917,33 +1155,29 @@ function ResultsMap({ isVisible, language }) {
       </header>
 
       <div className={`capabilities-map${isVisible ? " is-visible" : ""}`}>
-        <svg className="capabilities-connectors" viewBox="0 0 1200 522" preserveAspectRatio="none" aria-hidden="true">
+        <svg className="capabilities-connectors" viewBox="0 0 1200 570" preserveAspectRatio="none" aria-hidden="true">
           <g className="capabilities-connector-paths">
             <path pathLength="1" d="M600 0V82" />
-            <path pathLength="1" d="M200 82H1000" />
-            <path pathLength="1" d="M200 82V108" />
-            <path pathLength="1" d="M600 82V108" />
-            <path pathLength="1" d="M1000 82V108" />
-            <path pathLength="1" d="M400 82V324" />
-            <path pathLength="1" d="M800 82V324" />
-            <path pathLength="1" d="M200 324H1000" />
-            <path pathLength="1" d="M200 324V348" />
-            <path pathLength="1" d="M600 324V348" />
-            <path pathLength="1" d="M1000 324V348" />
+            <path pathLength="1" d="M300 82H900" />
+            <path pathLength="1" d="M300 82V108" />
+            <path pathLength="1" d="M900 82V108" />
+            <path pathLength="1" d="M600 82V354" />
+            <path pathLength="1" d="M300 354H900" />
+            <path pathLength="1" d="M300 354V380" />
+            <path pathLength="1" d="M900 354V380" />
           </g>
           <g className="capabilities-connector-nodes">
             <circle cx="600" cy="82" r="4" />
-            <circle cx="200" cy="108" r="3.5" />
-            <circle cx="600" cy="108" r="3.5" />
-            <circle cx="1000" cy="108" r="3.5" />
-            <circle cx="200" cy="348" r="3.5" />
-            <circle cx="600" cy="348" r="3.5" />
-            <circle cx="1000" cy="348" r="3.5" />
+            <circle cx="300" cy="108" r="3.5" />
+            <circle cx="900" cy="108" r="3.5" />
+            <circle cx="600" cy="354" r="4" />
+            <circle cx="300" cy="380" r="3.5" />
+            <circle cx="900" cy="380" r="3.5" />
           </g>
         </svg>
 
         {results.map((result, index) => (
-          <article className="capability-item" data-number={result.number} style={{ "--capability-delay": `${3.18 + Math.floor(index / 3) * 0.62 + (index % 3) * 0.14}s` }} key={result.number}>
+          <article className="capability-item" data-number={result.number} style={{ "--capability-delay": `${1.3 + Math.floor(index / 2) * 0.5 + (index % 2) * 0.12}s` }} key={result.number}>
             <span className="capability-rule" aria-hidden="true" />
             <p className="capability-index"><span className="capability-number">{result.number}</span><span className="capability-label">{result.label}</span></p>
             <h3>{result.title}</h3>
@@ -957,12 +1191,25 @@ function ResultsMap({ isVisible, language }) {
 
 function ProfilePage({ language }) {
   const [connectionsVisible, setConnectionsVisible] = useState(false);
+  const handoffRef = useRef(null);
   const text = copy[language];
   const faqs = language === "es" ? profileFaqsEs : profileFaqs;
 
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => setConnectionsVisible(true));
-    return () => window.cancelAnimationFrame(frame);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setConnectionsVisible(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setConnectionsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
+
+    if (handoffRef.current) observer.observe(handoffRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -972,7 +1219,7 @@ function ProfilePage({ language }) {
           <p className="eyebrow" aria-label={text.profile}><span className="availability-dot loading-dot" /><TypewriterText text={text.profile} /></p>
           <h1 id="profile-title">{text.profileTitle}</h1>
           <p className="profile-lead">{text.profileLead}</p>
-          <SoftButton href="/#contacto" primary>{text.letsTalk} <Arrow /></SoftButton>
+          <SoftButton href={CONTACT_WHATSAPP_URL} primary external>{text.letsTalk} <Arrow diagonal /></SoftButton>
         </article>
 
         <div className="profile-visual" aria-label={text.profileVisual}>
@@ -1024,7 +1271,7 @@ function ProfilePage({ language }) {
         </div>
       </section>
 
-      <div className="profile-system-handoff">
+      <div className="profile-system-handoff" ref={handoffRef}>
         <svg className="profile-system-handoff-lines profile-system-handoff-desktop" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path pathLength="1" d="M918 -18V50H600V150" />
           <circle cx="918" cy="50" r="3.5" />
@@ -1035,16 +1282,16 @@ function ProfilePage({ language }) {
           <circle cx="612" cy="52" r="3.5" />
         </svg>
         <div className="profile-connector-resources" aria-label={text.profileResources}>
-          <div className="profile-connector-resource" aria-disabled="true">
+          <a className="profile-connector-resource" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
             <span className="profile-connector-resource-node" aria-hidden="true" />
             <span className="profile-connector-resource-label">{text.downloadCv}</span>
             <Arrow diagonal />
-          </div>
-          <div className="profile-connector-resource" aria-disabled="true">
+          </a>
+          <a className="profile-connector-resource" href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
             <span className="profile-connector-resource-node" aria-hidden="true" />
             <span className="profile-connector-resource-label">LinkedIn</span>
             <Arrow diagonal />
-          </div>
+          </a>
         </div>
       </div>
 
@@ -1536,12 +1783,13 @@ function CenizaAutomationBridge({ language }) {
   const isEs = language === "es";
   const automations = [
     {
-      layout: "converge",
+      layout: "capture",
+      number: "01",
       eyebrow: isEs ? "CAPTACIÓN MULTICANAL" : "MULTICHANNEL CAPTURE",
-      title: isEs ? "Cada lead entra al CRM con su origen y necesidad." : "Every lead enters the CRM with its source and need.",
+      title: isEs ? "Cada solicitud llega ordenada y lista para continuar." : "Every request arrives organized and ready to continue.",
       description: isEs
-        ? "Conectado ahora: web y formulario, WhatsApp, correo, Instagram y Meta Ads. TikTok Ads queda como canal opcional."
-        : "Connected now: website and form, WhatsApp, email, Instagram and Meta Ads. TikTok Ads remains optional.",
+        ? "El sistema reúne los canales, identifica el origen y convierte la solicitud en un lead con responsable y siguiente tarea."
+        : "The system brings channels together, identifies the source and turns each request into a lead with an owner and next task.",
       nodes: [
         { icon: LuGlobe, label: isEs ? "Web + formulario" : "Web + form", service: "web" },
         { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
@@ -1550,40 +1798,66 @@ function CenizaAutomationBridge({ language }) {
         { icon: SiMeta, label: "Meta Ads", service: "meta" },
         { icon: SiTiktok, label: "TikTok Ads", service: "tiktok", optional: true },
       ],
-      destination: { icon: LuDatabase, label: "CRM", service: "crm", featured: true },
+      process: { icon: LuFileText, label: isEs ? "Validar + clasificar" : "Validate + classify", meta: isEs ? "Origen · contacto · necesidad" : "Source · contact · need", service: "process" },
+      destination: { icon: LuDatabase, label: "CRM", meta: isEs ? "Lead, responsable y siguiente paso" : "Lead, owner and next step", service: "crm", featured: true },
     },
     {
-      layout: "hub",
-      eyebrow: isEs ? "OPERACIÓN SINCRONIZADA" : "SYNCHRONIZED OPERATIONS",
-      title: isEs ? "Cada producción mantiene agenda, archivos y conversaciones sincronizados." : "Every production keeps its calendar, files and conversations synchronized.",
+      layout: "catalog",
+      number: "02",
+      eyebrow: isEs ? "ECOSISTEMA DE INTEGRACIONES" : "INTEGRATION ECOSYSTEM",
+      title: isEs ? "El CRM puede sumar las aplicaciones que la operación necesite." : "The CRM can add the applications the operation needs.",
       description: isEs
-        ? "Conectado al CRM: Google Calendar, Drive, correo y WhatsApp. Stripe, Google Maps y Siigo son integraciones opcionales."
-        : "Connected to the CRM: Google Calendar, Drive, email and WhatsApp. Stripe, Google Maps and Siigo are optional integrations.",
-      hub: { icon: LuDatabase, label: "CRM", service: "crm", featured: true },
-      nodes: [
-        { icon: SiGooglecalendar, label: "Calendar", service: "calendar" },
-        { icon: SiGoogledrive, label: "Drive", service: "drive" },
-        { icon: SiGmail, label: isEs ? "Correo" : "Email", service: "gmail" },
-        { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
-      ],
-      optionalNodes: [
-        { icon: SiStripe, label: "Stripe", service: "stripe", optional: true },
-        { icon: SiGooglemaps, label: "Google Maps", service: "maps", optional: true },
-        { wordmark: "siigo", label: "Siigo", service: "siigo", optional: true },
+        ? "Agenda, archivos, conversaciones, pagos y contabilidad se conectan por módulos, según el proceso de Ceniza."
+        : "Calendar, files, conversations, payments and accounting connect in modules according to Ceniza's process.",
+      groups: [
+        {
+          label: isEs ? "ORGANIZAR" : "ORGANIZE",
+          nodes: [
+            { icon: SiGooglecalendar, label: "Calendar", service: "calendar" },
+            { icon: SiGoogledrive, label: "Drive", service: "drive" },
+            { icon: SiDropbox, label: "Dropbox", service: "dropbox" },
+          ],
+        },
+        {
+          label: isEs ? "COMUNICAR" : "COMMUNICATE",
+          nodes: [
+            { icon: SiGmail, label: isEs ? "Correo" : "Email", service: "gmail" },
+            { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
+            { icon: SiZoom, label: "Zoom", service: "zoom" },
+          ],
+        },
+        {
+          label: isEs ? "FINANZAS" : "FINANCE",
+          nodes: [
+            { icon: SiStripe, label: "Stripe", service: "stripe", optional: true },
+            { icon: SiMercadopago, label: "Mercado Pago", service: "mercadopago", optional: true },
+            { wordmark: "siigo", label: "Siigo", service: "siigo", optional: true },
+          ],
+        },
       ],
     },
     {
       layout: "sequence",
+      number: "03",
       eyebrow: isEs ? "ASISTENTE CENIZA" : "ASISTENTE CENIZA",
-      title: isEs ? "La IA convierte el contexto del CRM en una acción revisable." : "AI turns CRM context into a reviewable action.",
+      title: isEs ? "Del CRM a Supabase, y de la IA a una acción trazable." : "From CRM to Supabase, and from AI to a traceable action.",
       description: isEs
-        ? "Analiza la operación, propone el siguiente paso y espera la aprobación del equipo."
-        : "It analyzes operations, proposes the next step and waits for team approval.",
+        ? "El CRM activa la consulta; los datos y permisos forman el contexto; la IA propone el siguiente paso y lo devuelve al sistema con validación e historial."
+        : "The CRM triggers the query; data and permissions form the context; AI proposes the next step and returns it to the system with validation and history.",
       nodes: [
-        { icon: LuDatabase, label: isEs ? "Contexto CRM" : "CRM context", service: "crm" },
-        { icon: LuSparkles, label: isEs ? "Asistente IA" : "AI assistant", service: "assistant", featured: true },
-        { icon: LuTarget, label: isEs ? "Acción sugerida" : "Suggested action", service: "action" },
-        { icon: LuUserCheck, label: isEs ? "Revisar + confirmar" : "Review + confirm", service: "review" },
+        { icon: LuDatabase, label: isEs ? "Evento CRM" : "CRM event", meta: isEs ? "Lead · tarea · operación" : "Lead · task · operation", service: "crm-input" },
+        { icon: SiSupabase, label: "Supabase", meta: isEs ? "PostgreSQL · SQL · permisos" : "PostgreSQL · SQL · permissions", service: "supabase" },
+        { icon: LuBoxes, label: isEs ? "RAG + contexto" : "RAG + context", meta: isEs ? "Recupera información" : "Retrieves information", service: "rag" },
+        { icon: LuSparkles, label: isEs ? "Inteligencia IA" : "AI intelligence", meta: isEs ? "Analiza + propone" : "Analyzes + proposes", service: "intelligence", featured: true },
+        { icon: LuUserCheck, label: isEs ? "Validación" : "Validation", meta: isEs ? "Revisión humana" : "Human review", service: "review" },
+        { icon: LuDatabase, label: isEs ? "CRM actualizado" : "Updated CRM", meta: isEs ? "Acción + historial" : "Action + history", service: "crm-output" },
+      ],
+      toolsLabel: isEs ? "STACK TÉCNICO DEL FLUJO" : "FLOW TECH STACK",
+      tools: [
+        { icon: SiSupabase, label: "Supabase", service: "supabase" },
+        { icon: SiPostgresql, label: "PostgreSQL", service: "postgresql" },
+        { icon: BsOpenai, label: "OpenAI", service: "openai" },
+        { icon: SiN8N, label: "n8n", service: "n8n" },
       ],
     },
   ];
@@ -1594,6 +1868,7 @@ function CenizaAutomationBridge({ language }) {
       <div className={`ceniza-mini-flow-node is-${node.service}${node.featured ? " is-featured" : ""}${node.optional ? " is-optional" : ""}${className ? ` ${className}` : ""}`} key={node.label}>
         <span aria-hidden="true">{Icon ? <Icon /> : <b className="ceniza-integration-wordmark">{node.wordmark}</b>}</span>
         <strong>{node.label}</strong>
+        {node.meta && <small className="ceniza-node-meta">{node.meta}</small>}
         {node.optional && <small>{isEs ? "OPCIONAL" : "OPTIONAL"}</small>}
       </div>
     );
@@ -1611,35 +1886,51 @@ function CenizaAutomationBridge({ language }) {
 
       <div className="ceniza-automation-map-grid">
         {automations.map((automation) => (
-          <article className="ceniza-automation-map" key={automation.eyebrow}>
+          <article className={`ceniza-automation-map is-${automation.layout}`} key={automation.eyebrow}>
+            <CenizaEyebrow text={`${isEs ? "FLUJO" : "FLOW"} ${automation.number} · ${automation.eyebrow}`} className="ceniza-flow-eyebrow" threshold={0.7} />
             <h3>{automation.title}</h3>
             <p>{automation.description}</p>
 
-            {automation.layout === "converge" && (
-              <div className="ceniza-converging-flow" aria-label={automation.eyebrow}>
+            {automation.layout === "capture" && (
+              <div className="ceniza-capture-flow" aria-label={automation.eyebrow}>
                 <div className="ceniza-flow-source-grid">{automation.nodes.map((node) => renderNode(node))}</div>
                 <div className="ceniza-flow-merge" aria-hidden="true"><span /><LuArrowRight /></div>
+                <div className="ceniza-capture-process">{renderNode(automation.process)}</div>
+                <LuArrowRight className="ceniza-capture-next" aria-hidden="true" />
                 <div className="ceniza-flow-destination">{renderNode(automation.destination)}</div>
               </div>
             )}
 
-            {automation.layout === "hub" && (
-              <div className="ceniza-hub-flow" aria-label={automation.eyebrow}>
-                <div className="ceniza-hub-core">{renderNode(automation.hub)}</div>
-                <div className="ceniza-hub-connector" aria-hidden="true"><span /><LuArrowDown /></div>
-                <div className="ceniza-hub-services">{automation.nodes.map((node) => renderNode(node))}</div>
-                <div className="ceniza-optional-services">{automation.optionalNodes.map((node) => renderNode(node))}</div>
+            {automation.layout === "catalog" && (
+              <div className="ceniza-app-catalog" aria-label={automation.eyebrow}>
+                {automation.groups.map((group) => (
+                  <div className="ceniza-app-group" key={group.label}>
+                    <small>{group.label}</small>
+                    <div>{group.nodes.map((node) => renderNode(node))}</div>
+                  </div>
+                ))}
               </div>
             )}
 
             {automation.layout === "sequence" && (
-              <div className="ceniza-mini-flow is-sequence" aria-label={automation.eyebrow}>
-                {automation.nodes.map((node, index) => (
-                  <div className="ceniza-mini-flow-step" key={node.label}>
-                    {renderNode(node)}
-                    {index < automation.nodes.length - 1 && <LuArrowRight className="ceniza-mini-flow-arrow" aria-hidden="true" />}
+              <div className="ceniza-sequence-system">
+                <div className="ceniza-mini-flow is-sequence" aria-label={automation.eyebrow}>
+                  {automation.nodes.map((node, index) => (
+                    <div className="ceniza-mini-flow-step" key={node.label}>
+                      {renderNode(node)}
+                      {index < automation.nodes.length - 1 && <LuArrowRight className="ceniza-mini-flow-arrow" aria-hidden="true" />}
+                    </div>
+                  ))}
+                </div>
+                <div className="ceniza-sequence-tools" aria-label={automation.toolsLabel}>
+                  <small>{automation.toolsLabel}</small>
+                  <div>
+                    {automation.tools.map((tool) => {
+                      const ToolIcon = tool.icon;
+                      return <span className={`is-${tool.service}`} key={tool.label}><ToolIcon aria-hidden="true" />{tool.label}</span>;
+                    })}
                   </div>
-                ))}
+                </div>
               </div>
             )}
           </article>
@@ -1649,20 +1940,497 @@ function CenizaAutomationBridge({ language }) {
   );
 }
 
-function CaseNarrative({ detail, language }) {
+function CaseNarrative({ detail, language, compact = false }) {
   if (!detail.story) return null;
 
+  const isCompact = compact || Boolean(detail.predictionEvidence);
+
   return (
-    <section className={`case-narrative${detail.predictionEvidence ? " is-ceniza" : ""}`} aria-label={language === "es" ? "Narrativa del proyecto" : "Project narrative"}>
+    <section className={`case-narrative${isCompact ? " is-ceniza" : ""}`} aria-label={language === "es" ? "Narrativa del proyecto" : "Project narrative"}>
       {detail.story.map((item, index) => (
         <article key={item.label}>
-          <span>{detail.predictionEvidence ? index + 1 : String(index + 1).padStart(2, "0")}</span>
+          <span>{isCompact ? index + 1 : String(index + 1).padStart(2, "0")}</span>
           <p className="case-label">{item.label}</p>
           <h2>{item.title}</h2>
           <p>{item.text}</p>
         </article>
       ))}
     </section>
+  );
+}
+
+function ExpandedScreenVisual({ screen, project }) {
+  if (screen.image) {
+    if (screen.crop === "assistant-panel") {
+      return (
+        <div className="expanded-real-assistant" aria-label={`${project.name}: ${screen.title}`}>
+          <div className="expanded-real-assistant-window">
+            <img src={screen.image} alt={`${project.name}: ${screen.title}`} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      );
+    }
+    return <img className="expanded-screen-image" src={screen.image} alt={`${project.name}: ${screen.title}`} loading="lazy" decoding="async" />;
+  }
+
+  const rows = ["A", "B", "C", "D"];
+  return (
+    <div className={`expanded-ui-mock is-${screen.variant}`} aria-hidden="true">
+      <header>
+        <span>{project.name}</span>
+        <small>{screen.category}</small>
+        <i>•••</i>
+      </header>
+      {screen.variant === "assistant" ? (
+        <div className="expanded-mock-chat">
+          <p>¿Qué requiere atención?</p>
+          <article><LuSparkles /><span><strong>Prioridad detectada</strong><small>Contexto · evidencia · siguiente acción</small></span></article>
+          <p>Preparar plan →</p>
+        </div>
+      ) : screen.variant === "timeline" || screen.variant === "automation" || screen.variant === "map" ? (
+        <div className="expanded-mock-flow">
+          {rows.map((row, index) => <span key={row}><b>{String(index + 1).padStart(2, "0")}</b><i /><small>{row}</small></span>)}
+        </div>
+      ) : screen.variant === "bars" || screen.variant === "dashboard" || screen.variant === "report" ? (
+        <div className="expanded-mock-dashboard">
+          <div className="expanded-mock-stats"><span><b>84%</b><small>avance</small></span><span><b>12</b><small>alertas</small></span><span><b>+18</b><small>acciones</small></span></div>
+          <div className="expanded-mock-bars">{[48, 72, 58, 86, 67, 92].map((height, index) => <i key={index} style={{ "--mock-height": `${height}%` }} />)}</div>
+        </div>
+      ) : screen.variant === "product" || screen.variant === "checkout" || screen.variant === "system" ? (
+        <div className="expanded-mock-product">
+          <div className="expanded-mock-product-visual"><span>{project.visual === "forty" ? "40+" : "N"}</span></div>
+          <div><small>{screen.category}</small><strong>{screen.title}</strong><p>Información clara para continuar</p><button type="button" tabIndex="-1">Continuar →</button></div>
+        </div>
+      ) : (
+        <div className="expanded-mock-table">
+          <div className="expanded-mock-stats"><span><b>24</b><small>activos</small></span><span><b>08</b><small>en curso</small></span><span><b>03</b><small>alertas</small></span></div>
+          {rows.map((row, index) => <span key={row}><i /><b>{screen.title}</b><small>{index % 2 ? "EN PROCESO" : "LISTO"}</small></span>)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ExpandedSystemPreview({ project, content, language }) {
+  return (
+    <section className="ceniza-crm-section expanded-system-section" aria-labelledby={`${project.visual}-system-title`}>
+      <header className="ceniza-section-header">
+        <CenizaEyebrow text={content.systemLabel} />
+        <div className="ceniza-crm-heading-row">
+          <div className="ceniza-crm-heading-copy">
+            <h2 id={`${project.visual}-system-title`}>{content.systemTitle}</h2>
+            <p>{content.systemCopy}</p>
+          </div>
+        </div>
+      </header>
+
+      <figure className="ceniza-crm-figure expanded-system-gallery">
+        <figcaption><span>{content.galleryLabel}</span><span>{content.galleryCount}</span></figcaption>
+        <ol className="ceniza-crm-flow-grid">
+          {content.screens.map((screen, index) => (
+            <li className="ceniza-crm-flow-card" key={`${screen.category}-${screen.title}`}>
+              <div className="ceniza-crm-flow-screen"><ExpandedScreenVisual screen={screen} project={project} /></div>
+              <span className="ceniza-crm-laptop-base" aria-hidden="true" />
+              <div className="ceniza-crm-flow-caption">
+                <span>{index + 1}</span>
+                <div><em>{screen.benefit}</em><strong>{screen.title}</strong><small>{screen.text}</small></div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </figure>
+
+      <div className="ceniza-metrics">
+        {content.metrics.map((metric) => (
+          <article key={metric.label}><strong>{metric.value}</strong><h3>{metric.label}</h3><p>{metric.note}</p></article>
+        ))}
+      </div>
+
+      <div className="ceniza-responsive-crm" aria-labelledby={`${project.visual}-mobile-title`}>
+        <header className="ceniza-responsive-header">
+          <p className="case-label">{content.mobileLabel}</p>
+          <h3 id={`${project.visual}-mobile-title`}>{content.mobileTitle}</h3>
+          <p>{content.mobileCopy}</p>
+        </header>
+        <div className="ceniza-crm-phone-row expanded-phone-row">
+          {content.mobileImages.map((screen) => (
+            <figure key={screen.src}>
+              <div className="ceniza-crm-phone"><span className="mobile-speaker" aria-hidden="true" /><img src={screen.src} alt={`${screen.label} · ${project.name}`} loading="lazy" decoding="async" /></div>
+              <figcaption><strong>{screen.label}</strong><small>{screen.benefit}</small></figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExpandedBenefits({ project, content }) {
+  return (
+    <section className="ceniza-benefits expanded-benefits" aria-labelledby={`${project.visual}-benefits-title`}>
+      <header><CenizaEyebrow text={content.benefitsLabel} /><h2 id={`${project.visual}-benefits-title`}>{content.benefitsTitle}</h2></header>
+      <div className="ceniza-benefit-grid">
+        {content.benefits.map((benefit, index) => (
+          <article key={benefit.title}><span>{project.visual === "naval" ? index + 1 : String(index + 1).padStart(2, "0")}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function NavalProductionSection({ language }) {
+  const icons = [LuShoppingCart, LuFlaskConical, LuBoxes, LuFactory, LuShieldCheck, LuPackageCheck];
+  const steps = language === "es"
+    ? [
+      ["Demanda", "Pedidos y proyección"],
+      ["Fórmula", "Versión y cantidades"],
+      ["Materiales", "Disponibilidad y lote"],
+      ["Producción", "Orden, tanque y avance"],
+      ["Calidad", "Control y liberación"],
+      ["Inventario", "Producto terminado"],
+    ]
+    : [
+      ["Demand", "Orders and forecast"],
+      ["Formula", "Version and quantities"],
+      ["Materials", "Availability and lot"],
+      ["Production", "Order, tank and progress"],
+      ["Quality", "Control and release"],
+      ["Inventory", "Finished product"],
+    ];
+
+  return (
+    <section className="naval-production-section" aria-labelledby="naval-production-title">
+      <header className="ceniza-section-header">
+        <CenizaEyebrow text={language === "es" ? "DISEÑO DE PRODUCTO EN PROGRESO · PRODUCCIÓN" : "PRODUCT DESIGN IN PROGRESS · PRODUCTION"} />
+        <div>
+          <h2 id="naval-production-title">{language === "es" ? "La producción deja de ser una isla y se convierte en el centro trazable de la operación." : "Production stops being an island and becomes the traceable center of the operation."}</h2>
+          <p>{language === "es" ? "El módulo continúa en desarrollo. Estas vistas parten de la estructura real del ERP y muestran la dirección prevista para conectar demanda, fórmula, materiales, orden, tanque, calidad e inventario." : "This module is still in development. These views build on the real ERP structure and show the intended direction for connecting demand, formulas, materials, orders, tanks, quality and inventory."}</p>
+        </div>
+      </header>
+
+      <ol className="naval-production-flow">
+        {steps.map(([title, meta], index) => {
+          const StepIcon = icons[index] || LuClipboardList;
+          return <li key={title}>
+            <b aria-hidden="true"><StepIcon /></b>
+            <div><strong>{title}</strong><small>{meta}</small></div>
+            {index < steps.length - 1 ? <i aria-hidden="true"><LuArrowRight /></i> : null}
+          </li>;
+        })}
+      </ol>
+
+      <div className="naval-production-proof">
+        <figure>
+          <img src="/case-naval-production-order-detail-v2.png" alt={language === "es" ? "Orden de producción abierta con avance, materiales, calidad y trazabilidad" : "Open production order with progress, materials, quality and traceability"} loading="lazy" decoding="async" />
+          <figcaption><small>{language === "es" ? "CONCEPTO FUNCIONAL · EN DESARROLLO" : "FUNCTIONAL CONCEPT · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Una orden abierta, de la fórmula a la liberación." : "An open order, from formula to release."}</strong><span>{language === "es" ? "Propuesta de evolución para reunir avance, consumos, lote, tanque, calidad y novedades dentro de la misma operación." : "Proposed evolution for bringing progress, consumption, lot, tank, quality and exceptions into the same operation."}</span></figcaption>
+        </figure>
+        <figure>
+          <img src="/case-naval-production-tanks.png" alt={language === "es" ? "Control de tanques, capacidad, lotes y producto en Naval" : "Naval tanks, capacity, lots and product control"} loading="lazy" decoding="async" />
+          <figcaption><small>{language === "es" ? "VISTA PROPUESTA · EN DESARROLLO" : "PROPOSED VIEW · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Cada tanque muestra qué produce y cuánto puede recibir." : "Every tank shows what it produces and the capacity it can receive."}</strong><span>{language === "es" ? "Dirección de diseño para consultar volumen, producto, lote, ocupación, programación y calidad sin cambiar de módulo." : "Design direction for reviewing volume, product, lot, utilization, schedule and quality without changing modules."}</span></figcaption>
+        </figure>
+        <figure>
+          <img src="/case-naval-finished-product-v2.png" alt={language === "es" ? "Propuesta de producto terminado, calidad y liberación de lote" : "Proposed finished-product, quality and lot-release view"} loading="lazy" decoding="async" />
+          <figcaption><small>{language === "es" ? "CONTROL DE SALIDA · EN DESARROLLO" : "OUTPUT CONTROL · IN DEVELOPMENT"}</small><strong>{language === "es" ? "El lote termina cuando puede liberarse con evidencia." : "The lot is complete when it can be released with evidence."}</strong><span>{language === "es" ? "Calidad, cantidad producida, envasado, etiquetado y destino quedan vinculados antes de autorizar el movimiento." : "Quality, produced quantity, packaging, labeling and destination stay connected before the movement is authorized."}</span></figcaption>
+        </figure>
+        <figure>
+          <img src="/case-naval-inventory-kardex-v2.png" alt={language === "es" ? "Propuesta de Kardex y trazabilidad de inventario" : "Proposed inventory Kardex and traceability view"} loading="lazy" decoding="async" />
+          <figcaption><small>{language === "es" ? "TRAZABILIDAD DE INVENTARIO · EN DESARROLLO" : "INVENTORY TRACEABILITY · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Cada movimiento explica de dónde vino y dónde terminó el stock." : "Every movement explains where inventory came from and where it went."}</strong><span>{language === "es" ? "Entradas de producción, reservas, despachos, ajustes y saldos conservan documento, lote, responsable y fecha." : "Production receipts, reservations, dispatches, adjustments and balances retain their document, lot, owner and date."}</span></figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+function NavalFinancialIntelligence({ language }) {
+  const indicators = language === "es"
+    ? [["CARTERA", "Vencimientos y recaudos"], ["PAGOS", "Compromisos y proveedores"], ["COSTO", "Materia prima + producción"], ["MARGEN", "Rentabilidad por pedido"], ["CAJA", "Entradas y salidas"], ["ALERTA", "Desviación que requiere acción"]]
+    : [["RECEIVABLES", "Due dates and collections"], ["PAYMENTS", "Commitments and suppliers"], ["COST", "Materials + production"], ["MARGIN", "Profitability by order"], ["CASH FLOW", "Inflows and outflows"], ["ALERT", "Deviation that needs action"]];
+
+  return (
+    <section className="ceniza-decision-strip naval-finance-section" aria-labelledby="naval-finance-title">
+      <header>
+        <CenizaEyebrow text={language === "es" ? "INTELIGENCIA FINANCIERA + OPERATIVA" : "FINANCIAL + OPERATIONAL INTELLIGENCE"} />
+        <h3 id="naval-finance-title">{language === "es" ? "Del lote y el pedido al costo, el margen y la caja." : "From lot and order to cost, margin and cash flow."}</h3>
+        <p>{language === "es" ? "La capa financiera no vive aparte: conserva la relación entre venta, compra, producción y resultado para que cada cifra pueda rastrearse hasta su operación." : "The finance layer does not live separately: it preserves the relationship between sales, purchasing, production and results so every number can be traced back to its operation."}</p>
+      </header>
+      <div className="naval-finance-content">
+        <figure>
+          <img src="/case-naval-financial-report-v1.png" alt={language === "es" ? "Informe financiero ejecutivo exportado desde el ERP Naval con ingresos, costos, margen, caja y cartera" : "Executive financial report exported from Naval ERP with revenue, costs, margin, cash flow and receivables"} loading="lazy" decoding="async" />
+          <figcaption>{language === "es" ? "Concepto de informe exportable: una lectura ejecutiva de ingresos, costos, margen, caja, cartera y rentabilidad por línea." : "Exportable report concept: an executive view of revenue, costs, margin, cash flow, receivables and profitability by product line."}</figcaption>
+        </figure>
+        <ul>
+          {indicators.map(([label, title]) => <li key={label}><span>{label}</span><strong>{title}</strong></li>)}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function NavalAutomationBridge({ content, language }) {
+  const flows = language === "es"
+    ? [
+      { number: "1", label: "CAPTACIÓN B2B + CHATBOT", title: "De la página a una oportunidad con contexto.", description: "La web y el chatbot identifican sector, producto e intención antes de entregar la conversación al equipo comercial.", nodes: [
+        { icon: LuGlobe, label: "Página B2B", meta: "Producto · sector", tone: "web" },
+        { icon: LuSparkles, label: "Chatbot", meta: "Necesidad", tone: "assistant" },
+        { icon: LuTarget, label: "Calificar", meta: "Intención · datos", tone: "qualify" },
+        { icon: LuTrendingUp, label: "Oportunidad", meta: "Responsable", tone: "opportunity" },
+        { icon: LuFileText, label: "Cotización", meta: "Siguiente paso", tone: "quote" },
+      ] },
+      { number: "2", label: "PRODUCCIÓN + TRANSPORTE", title: "Del pedido confirmado a una entrega trazable.", description: "Planeación, materiales, producción, calidad, despacho y evidencia continúan el mismo pedido.", nodes: [
+        { icon: LuShoppingCart, label: "Pedido", meta: "Demanda confirmada", tone: "order" },
+        { icon: LuCalendarCheck, label: "Planificar", meta: "Capacidad · fecha", tone: "plan" },
+        { icon: LuFactory, label: "Producir", meta: "Lote · tanque", tone: "production" },
+        { icon: LuShieldCheck, label: "Calidad", meta: "Control · liberar", tone: "quality" },
+        { icon: LuPackageCheck, label: "Despachar", meta: "Pedido listo", tone: "dispatch" },
+        { icon: SiGooglemaps, label: "Entregar", meta: "Ruta · evidencia", tone: "delivery" },
+      ] },
+      { number: "3", label: "ASISTENTE NAVAL + CONTROL HUMANO", title: "De una señal operativa a una acción revisable.", description: "El asistente consulta el contexto autorizado, explica la evidencia y devuelve la decisión al ERP con validación humana.", nodes: [
+        { icon: LuDatabase, label: "Evento ERP", meta: "Alerta · operación", tone: "erp" },
+        { icon: SiPostgresql, label: "PostgreSQL", meta: "Datos autorizados", tone: "data" },
+        { icon: LuBoxes, label: "RAG + contexto", meta: "Recupera evidencia", tone: "rag" },
+        { icon: BsOpenai, label: "Asistente IA", meta: "Explica · propone", tone: "ai", featured: true },
+        { icon: LuUserCheck, label: "Validación", meta: "Revisión humana", tone: "review" },
+        { icon: LuDatabase, label: "ERP actualizado", meta: "Acción · historial", tone: "updated" },
+      ] },
+    ]
+    : [
+      { number: "1", label: "B2B CAPTURE + CHATBOT", title: "From the website to a contextual opportunity.", description: "The website and chatbot identify sector, product and intent before handing the conversation to sales.", nodes: [
+        { icon: LuGlobe, label: "B2B website", meta: "Product · sector", tone: "web" },
+        { icon: LuSparkles, label: "Chatbot", meta: "Need", tone: "assistant" },
+        { icon: LuTarget, label: "Qualify", meta: "Intent · data", tone: "qualify" },
+        { icon: LuTrendingUp, label: "Opportunity", meta: "Owner", tone: "opportunity" },
+        { icon: LuFileText, label: "Quote", meta: "Next step", tone: "quote" },
+      ] },
+      { number: "2", label: "PRODUCTION + TRANSPORT", title: "From confirmed order to traceable delivery.", description: "Planning, materials, production, quality, dispatch and evidence continue the same order.", nodes: [
+        { icon: LuShoppingCart, label: "Order", meta: "Confirmed demand", tone: "order" },
+        { icon: LuCalendarCheck, label: "Plan", meta: "Capacity · date", tone: "plan" },
+        { icon: LuFactory, label: "Produce", meta: "Lot · tank", tone: "production" },
+        { icon: LuShieldCheck, label: "Quality", meta: "Control · release", tone: "quality" },
+        { icon: LuPackageCheck, label: "Dispatch", meta: "Order ready", tone: "dispatch" },
+        { icon: SiGooglemaps, label: "Deliver", meta: "Route · evidence", tone: "delivery" },
+      ] },
+      { number: "3", label: "NAVAL ASSISTANT + HUMAN CONTROL", title: "From an operating signal to a reviewable action.", description: "The assistant reads authorized context, explains evidence and returns the decision to the ERP after human validation.", nodes: [
+        { icon: LuDatabase, label: "ERP event", meta: "Alert · operation", tone: "erp" },
+        { icon: SiPostgresql, label: "PostgreSQL", meta: "Authorized data", tone: "data" },
+        { icon: LuBoxes, label: "RAG + context", meta: "Retrieves evidence", tone: "rag" },
+        { icon: BsOpenai, label: "AI assistant", meta: "Explains · proposes", tone: "ai", featured: true },
+        { icon: LuUserCheck, label: "Validation", meta: "Human review", tone: "review" },
+        { icon: LuDatabase, label: "ERP updated", meta: "Action · history", tone: "updated" },
+      ] },
+    ];
+
+  const toolGroups = [
+    { label: language === "es" ? "AUTOMATIZAR" : "AUTOMATE", tools: [[SiN8N, "n8n"], [SiMake, "Make"], [LuGlobe, "API + webhooks"]] },
+    { label: language === "es" ? "DATOS" : "DATA", tools: [[SiPostgresql, "PostgreSQL"], [SiSupabase, "Supabase"], [SiGoogledrive, "Drive"]] },
+    { label: language === "es" ? "CONVERSAR" : "CONVERSE", tools: [[LuSparkles, "Chatbot web"], [SiWhatsapp, "WhatsApp"], [SiGmail, "Correo"]] },
+    { label: language === "es" ? "OPERAR" : "OPERATE", tools: [[LuBoxes, "ERP modules"], [SiGooglemaps, "Maps + rutas"], [BsOpenai, "Asistente IA"]] },
+  ];
+
+  return (
+    <section className="ceniza-automation-bridge expanded-automation naval-automation" aria-labelledby="naval-automation-title">
+      <header className="ceniza-automation-bridge-header">
+        <CenizaEyebrow text={content.automationLabel} />
+        <div><h2 id="naval-automation-title">{content.automationTitle}</h2><p>{content.automationCopy}</p></div>
+      </header>
+      <div className="naval-automation-map-grid">
+        {flows.map((flow) => (
+          <article className={`naval-mini-flow is-flow-${flow.number}`} key={flow.number}>
+            <header><small>{language === "es" ? "FLUJO" : "FLOW"} {flow.number} · {flow.label}</small><h3>{flow.title}</h3><p>{flow.description}</p></header>
+            <ol className="naval-open-flow">
+              {flow.nodes.map((node, index) => {
+                const Icon = node.icon;
+                return <li className={`is-${node.tone}${node.featured ? " is-featured" : ""}`} key={node.label}>
+                  <span aria-hidden="true"><Icon /></span><strong>{node.label}</strong><small>{node.meta}</small>
+                  {index < flow.nodes.length - 1 ? <LuArrowRight aria-hidden="true" /> : null}
+                </li>;
+              })}
+            </ol>
+          </article>
+        ))}
+      </div>
+      <div className="naval-automation-ecosystem">
+        <header><span>{language === "es" ? "ECOSISTEMA DE INTEGRACIONES" : "INTEGRATION ECOSYSTEM"}</span><h3>{language === "es" ? "Herramientas conectadas según el proceso, no como silos." : "Tools connected around the process, not as silos."}</h3></header>
+        <div>
+          {toolGroups.map((group) => <section key={group.label}><small>{group.label}</small><ul>{group.tools.map(([Icon, label]) => <li key={label}><Icon aria-hidden="true" /><span>{label}</span></li>)}</ul></section>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExpandedAutomation({ project, content }) {
+  return (
+    <section className="ceniza-automation-bridge expanded-automation" aria-labelledby={`${project.visual}-automation-title`}>
+      <header className="ceniza-automation-bridge-header">
+        <CenizaEyebrow text={content.automationLabel} />
+        <div><h2 id={`${project.visual}-automation-title`}>{content.automationTitle}</h2><p>{content.automationCopy}</p></div>
+      </header>
+      <ol className="expanded-automation-track">
+        {content.automationSteps.map((step, index) => (
+          <li key={step.title}>
+            <span>{step.icon}</span><strong>{step.title}</strong><small>{step.meta}</small>
+            {index < content.automationSteps.length - 1 ? <LuArrowRight aria-hidden="true" /> : null}
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+function ExpandedAssistant({ project, content, language }) {
+  if (!content.assistantTitle) return null;
+  return (
+    <section className="ceniza-assistant-section expanded-assistant" aria-labelledby={`${project.visual}-assistant-title`}>
+      <header className="ceniza-section-header">
+        <CenizaEyebrow text={content.assistantLabel} />
+        <div><h2 id={`${project.visual}-assistant-title`}>{content.assistantTitle}</h2><p>{content.assistantCopy}</p></div>
+      </header>
+      <div className="expanded-assistant-layout">
+        {content.assistantImage ? (
+          <figure className="expanded-assistant-proof">
+            <img src={content.assistantImage} alt={language === "es" ? "Interfaz real del prototipo Asistente Naval" : "Real Naval Assistant prototype interface"} loading="lazy" decoding="async" />
+            <figcaption><span>{language === "es" ? "PROTOTIPO FUNCIONAL DE INTERFAZ" : "FUNCTIONAL INTERFACE PROTOTYPE"}</span><strong>{language === "es" ? "Alertas verificables, evidencia y acciones para confirmar." : "Verifiable alerts, evidence and actions to confirm."}</strong></figcaption>
+          </figure>
+        ) : null}
+        <div className="expanded-assistant-dialogue">
+          <div className="expanded-assistant-questions">
+            <p className="case-label">{language === "es" ? "PREGUNTAS SOBRE LA OPERACIÓN" : "QUESTIONS ABOUT THE OPERATION"}</p>
+            {content.assistantQuestions.map((question) => <p key={question}>{question}<span>↗</span></p>)}
+          </div>
+          <div className="expanded-assistant-answer">
+            <span aria-hidden="true"><LuSparkles /></span>
+            <div>
+              <small>{language === "es" ? "RESPUESTA CON CONTEXTO" : "CONTEXTUAL RESPONSE"}</small>
+              <h3>{language === "es" ? "Hay una orden que requiere atención antes de liberar el siguiente lote." : "One order needs attention before the next batch is released."}</h3>
+              <ul>
+                <li>{language === "es" ? "Cruza ventas, disponibilidad y producción." : "Connects sales, availability and production."}</li>
+                <li>{language === "es" ? "Explica el impacto financiero y operativo." : "Explains the financial and operating impact."}</li>
+                <li>{language === "es" ? "Prepara la acción para revisión humana." : "Prepares the action for human review."}</li>
+              </ul>
+              <button type="button" tabIndex="-1">{language === "es" ? "Revisar plan" : "Review plan"} →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExpandedWebSection({ project, content, language }) {
+  const image = project.visual === "forty" ? "/case-40plus-desktop.png" : "/case-naval-desktop.png";
+  return (
+    <section className="ceniza-web-section expanded-web-section" aria-labelledby={`${project.visual}-web-title`}>
+      {project.visual === "naval" ? <CenizaEyebrow text={content.webLabel} /> : null}
+      <div className="expanded-web-grid">
+        <div className="ceniza-web-story-copy">
+          {project.visual !== "naval" ? <CenizaEyebrow text={content.webLabel} /> : null}
+          <div className="ceniza-web-copy-body">
+            <h2 id={`${project.visual}-web-title`}>{content.webTitle}</h2>
+            <p>{content.webCopy}</p>
+            <ul className="ceniza-web-capabilities" aria-label={language === "es" ? "Capacidades del producto web" : "Web product capabilities"}>
+              {content.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
+            </ul>
+          </div>
+        </div>
+        <figure className="expanded-web-preview">
+          <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>{project.visual === "forty" ? "cuarentamas.com" : "productosnaval.com"}</i></div><img src={image} alt={`${project.name}: ${language === "es" ? "página web" : "website"}`} loading="lazy" decoding="async" /></div>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+function NavalAdoptionStrip({ language }) {
+  const cards = language === "es"
+    ? [
+      ["01", "Acceso por perfil", "Cada rol inicia en los módulos y acciones que necesita para operar."],
+      ["02", "Contexto compartido", "Clientes, pedidos, lotes y costos conservan relaciones visibles entre equipos."],
+      ["03", "Asistencia dentro del flujo", "La persona consulta riesgos y recibe evidencia sin abandonar el ERP."],
+      ["04", "Relevo controlado", "Alertas, aprobaciones e historial permiten retomar el trabajo sin reconstruirlo."],
+    ]
+    : [
+      ["01", "Profile-based access", "Each role starts in the modules and actions needed for their work."],
+      ["02", "Shared context", "Customers, orders, lots and costs keep visible relationships across teams."],
+      ["03", "In-flow assistance", "People review risks and evidence without leaving the ERP."],
+      ["04", "Controlled handoff", "Alerts, approvals and history let the next person continue without rebuilding context."],
+    ];
+
+  return (
+    <section className="naval-adoption-strip" aria-labelledby="naval-adoption-title">
+      <header>
+        <CenizaEyebrow text={language === "es" ? "ADOPCIÓN · PERFILES + CONTEXTO + RELEVO" : "ADOPTION · PROFILES + CONTEXT + HANDOFF"} />
+        <h2 id="naval-adoption-title">{language === "es" ? "Un ERP se adopta cuando cada persona entiende qué ver, qué hacer y qué dejar listo." : "An ERP gets adopted when each person understands what to see, what to do and what to leave ready."}</h2>
+      </header>
+      <div>
+        {cards.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+      </div>
+    </section>
+  );
+}
+
+function NavalSecuritySection({ language }) {
+  const pillars = language === "es"
+    ? [
+      ["Roles y permisos", "El prototipo ya modela perfiles y alcances; producción requiere autenticación real y autorización persistente."],
+      ["Auditoría y aprobaciones", "Cada cambio sensible debe conservar responsable, fecha, estado y evidencia antes de ejecutarse."],
+      ["Datos protegidos", "La evolución productiva necesita PostgreSQL, cifrado, backups y políticas por fila o por dominio."],
+      ["IA con límites", "Solo datos autorizados entran al contexto; toda acción sensible mantiene revisión humana y trazabilidad."],
+    ]
+    : [
+      ["Roles and permissions", "The prototype already models profiles and scope; production requires real authentication and persistent authorization."],
+      ["Audit and approvals", "Every sensitive change should keep owner, date, status and evidence before execution."],
+      ["Protected data", "Production evolution needs PostgreSQL, encryption, backups and row- or domain-level policies."],
+      ["Bounded AI", "Only authorized data enters context; every sensitive action keeps human review and traceability."],
+    ];
+
+  return (
+    <section className="ceniza-security-section naval-security-section" aria-labelledby="naval-security-title">
+      <figure className="naval-security-proof">
+        <div className="desktop-browser-frame">
+          <div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>naval / administración / auditoría</i></div>
+          <img src="/case-naval-erp-security-audit.png" alt={language === "es" ? "Bitácora de auditoría del prototipo ERP Naval" : "Audit log in the Naval ERP prototype"} loading="lazy" decoding="async" />
+        </div>
+        <div className="naval-security-secondary">
+          <img src="/case-naval-erp-security-users.png" alt={language === "es" ? "Vista de usuarios y roles del prototipo ERP Naval" : "Users and roles view in the Naval ERP prototype"} loading="lazy" decoding="async" />
+          <span>{language === "es" ? "USUARIOS + ROLES" : "USERS + ROLES"}</span>
+        </div>
+        <figcaption>{language === "es" ? "La interfaz demuestra roles, auditoría y aprobaciones; la protección productiva se plantea como la siguiente capa técnica." : "The interface demonstrates roles, audit and approvals; production-grade protection is framed as the next technical layer."}</figcaption>
+      </figure>
+
+      <div className="ceniza-security-content">
+        <header>
+          <CenizaEyebrow text={language === "es" ? "PROTECCIÓN DE DATOS + TRAZABILIDAD" : "DATA PROTECTION + TRACEABILITY"} />
+          <h2 id="naval-security-title">{language === "es" ? "Controlar quién ve, quién cambia y cómo la IA usa la información." : "Control who sees, who changes and how AI uses the information."}</h2>
+          <p>{language === "es" ? "La demo actual usa datos ficticios y almacenamiento local para validar el producto. La ruta a producción separa autenticación, datos, secretos, permisos y modelos de IA para no convertir una interfaz convincente en una falsa promesa de seguridad." : "The current demo uses fictional data and local storage to validate the product. The production path separates authentication, data, secrets, permissions and AI models so a convincing interface never becomes a false security promise."}</p>
+        </header>
+        <ul className="ceniza-security-pillars">
+          {pillars.map(([title, text]) => <li key={title}><span aria-hidden="true" /><div><strong>{title}</strong><p>{text}</p></div></li>)}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+function ExpandedCaseContent({ project, language }) {
+  const text = copy[language];
+  const content = expandedCaseDetails[language][project.visual];
+  return (
+    <>
+      <ExpandedSystemPreview project={project} content={content} language={language} />
+      {project.visual === "naval" ? <NavalProductionSection language={language} /> : null}
+      {project.visual === "naval" ? <NavalFinancialIntelligence language={language} /> : null}
+      <ExpandedBenefits project={project} content={content} />
+      {project.visual === "naval" ? <NavalAutomationBridge content={content} language={language} /> : <ExpandedAutomation project={project} content={content} />}
+      <ExpandedAssistant project={project} content={content} language={language} />
+      <ExpandedWebSection project={project} content={content} language={language} />
+      {project.visual === "naval" ? <NavalAdoptionStrip language={language} /> : null}
+      {project.visual === "naval" ? <NavalSecuritySection language={language} /> : null}
+      <section className="editorial-case-outcome ceniza-case-outcome expanded-case-outcome">
+        <CenizaEyebrow text={text.outcome} threshold={0.4} />
+        <div className="ceniza-outcome-summary"><h2>{content.outcomeTitle}</h2><p>{content.outcomeCopy}</p></div>
+        <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer"><span>{text.getInTouch}</span><span aria-hidden="true">↗</span></a>
+      </section>
+    </>
   );
 }
 
@@ -1859,7 +2627,7 @@ function CenizaCaseContent({ project, detail, language }) {
           <h2>{language === "es" ? "La ventaja no fue tener más datos, sino decidir antes." : "The advantage was not having more data, but deciding sooner."}</h2>
           <p>{language === "es" ? "Ceniza pasó de información dispersa a una operación conectada: la web capta cada solicitud con contexto, el CRM ordena el seguimiento y la IA ayuda a anticipar riesgos, proteger ingresos y actuar con mayor claridad." : "Ceniza moved from scattered information to a connected operation: the website captures every inquiry with context, the CRM organizes follow-up and AI helps anticipate risks, protect revenue and act with greater clarity."}</p>
         </div>
-        <a className="ceniza-section-link is-outcome" href="/#contacto">
+        <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer">
           <span>{text.getInTouch}</span><span aria-hidden="true">↗</span>
         </a>
       </section>
@@ -1888,7 +2656,7 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
           {project.visual === "ceniza" ? (
             <CenizaEyebrow text={`${text.caseStudy} · CENIZA`} className="eyebrow" dot threshold={0.25} />
           ) : (
-            <p className="eyebrow"><span className="availability-dot loading-dot" />{text.caseStudy} · {project.number}</p>
+            <p className="eyebrow"><span className="availability-dot loading-dot" />{text.caseStudy} · {project.visual === "naval" ? "NAVAL" : project.number}</p>
           )}
           <h1 id="case-title">{detail.title}</h1>
           <p>{project.description}</p>
@@ -1921,58 +2689,8 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
         <CenizaCaseContent project={project} detail={detail} language={language} />
       </>
       ) : (<>
-      <CaseNarrative detail={detail} language={language} />
-
-      <figure className="editorial-desktop-showcase">
-        <figcaption><span>{text.desktopExperience}</span><span>01 / 02</span></figcaption>
-        <div className="desktop-browser-frame">
-          <div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>{detail.desktopUrl}</i></div>
-          <img src={detail.desktopImage} alt={`${project.name}: ${text.desktopAlt}`} loading="lazy" decoding="async" />
-        </div>
-      </figure>
-
-      <section className="editorial-mobile-showcase" aria-labelledby="case-mobile-title">
-        <header>
-          <p className="case-label">{text.responsiveExperience} · 02 / 02</p>
-          <h2 id="case-mobile-title">{text.mobileTitle}</h2>
-        </header>
-        <div className="editorial-phone-row">
-          {detail.mobileImages.map((screen) => (
-            <figure key={screen.src}>
-              <div className="editorial-phone-frame">
-                <span className="mobile-speaker" aria-hidden="true" />
-                <img src={screen.src} alt={`${screen.label} de ${project.name} ${text.mobileAlt}`} loading="lazy" decoding="async" />
-              </div>
-              <figcaption>{screen.label}</figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      <section className="editorial-case-design" aria-labelledby="case-design-title">
-        <div className="editorial-design-copy">
-          <p className="case-label">{text.designLogic}</p>
-          <h2 id="case-design-title">{detail.designTitle}</h2>
-          <p>{detail.designCopy}</p>
-        </div>
-        <ul className="editorial-design-notes" aria-label={text.keyDecisions}>
-          {detail.notes.map((note, index) => <li key={note}><span>{String(index + 1).padStart(2, "0")}</span>{note}</li>)}
-        </ul>
-      </section>
-
-      <section className="editorial-workflow-section" aria-labelledby="case-workflow-title">
-        <header>
-          <p className="eyebrow"><span className="availability-dot" />{text.connectedWorkflow}</p>
-          <h2 id="case-workflow-title">{detail.workflowTitle}</h2>
-        </header>
-        <CaseWorkflow project={project} detail={detail} language={language} />
-      </section>
-
-      <section className="editorial-case-outcome">
-        <p className="case-label">{text.outcome}</p>
-        <h2>{detail.outcomeTitle}</h2>
-        <p>{project.outcome}</p>
-      </section>
+        <CaseNarrative detail={detail} language={language} compact={project.visual === "naval"} />
+        <ExpandedCaseContent project={project} language={language} />
       </>)}
 
       <a className="case-next" href={nextProject.path} onClick={(event) => onNavigate(event, nextProject.path)}>
@@ -1986,11 +2704,121 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
   );
 }
 
+function ContactPage({ language }) {
+  const isEs = language === "es";
+
+  function prepareEmail(event) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = form.get("name")?.toString().trim() || (isEs ? "Una persona interesada" : "A potential collaborator");
+    const senderEmail = form.get("email")?.toString().trim() || "";
+    const projectType = form.get("projectType")?.toString().trim() || "";
+    const message = form.get("message")?.toString().trim() || "";
+    const subject = isEs ? `Nuevo proyecto · ${projectType || "Conversemos"}` : `New project · ${projectType || "Let's talk"}`;
+    const body = isEs
+      ? `Hola Diego,\n\nSoy ${name}. Vi tu portafolio y me gustaría conversar sobre ${projectType || "un proyecto"}.\n\n${message}\n\nMi correo: ${senderEmail}\n\nQuedo atento/a.`
+      : `Hi Diego,\n\nI'm ${name}. I saw your portfolio and would like to talk about ${projectType || "a project"}.\n\n${message}\n\nMy email: ${senderEmail}\n\nLooking forward to hearing from you.`;
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  return (
+    <main className="contact-page" aria-labelledby="contact-page-title">
+      <section className="contact-page-hero">
+        <div className="contact-page-intro">
+          <p className="eyebrow"><span className="availability-dot loading-dot" />{isEs ? "HABLEMOS DE TU IDEA" : "LET'S TALK ABOUT YOUR IDEA"}</p>
+          <h1 id="contact-page-title">{isEs ? <>Convirtamos una necesidad<br /><em>en un sistema que funcione.</em></> : <>Let’s turn a real need<br /><em>into a system that works.</em></>}</h1>
+          <p>{isEs ? "Cuéntame brevemente qué quieres mejorar, conectar o automatizar. Te responderé con preguntas concretas para entender el siguiente paso." : "Tell me briefly what you want to improve, connect or automate. I’ll reply with focused questions to understand the next step."}</p>
+
+          <div className="contact-methods" aria-label={isEs ? "Canales de contacto" : "Contact channels"}>
+            <a className="contact-method" href={`mailto:${CONTACT_EMAIL}`}>
+              <span aria-hidden="true"><SiGmail /></span>
+              <div><small>{isEs ? "CORREO DIRECTO" : "DIRECT EMAIL"}</small><strong>{CONTACT_EMAIL}</strong></div>
+              <Arrow diagonal />
+            </a>
+            {CONTACT_WHATSAPP_URL ? (
+              <a className="contact-method is-whatsapp" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer">
+                <span aria-hidden="true"><SiWhatsapp /></span>
+                <div><small>WHATSAPP</small><strong>{isEs ? "Abrir conversación" : "Start a conversation"}</strong></div>
+                <Arrow diagonal />
+              </a>
+            ) : (
+              <div className="contact-method is-whatsapp is-pending" aria-label={isEs ? "WhatsApp pendiente de configurar" : "WhatsApp pending configuration"}>
+                <span aria-hidden="true"><SiWhatsapp /></span>
+                <div><small>WHATSAPP</small><strong>{isEs ? "Número por confirmar" : "Number to be confirmed"}</strong></div>
+                <span aria-hidden="true">—</span>
+              </div>
+            )}
+            <a className="contact-method is-linkedin" href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
+              <span aria-hidden="true"><FaLinkedinIn /></span>
+              <div><small>LINKEDIN</small><strong>{isEs ? "Conectemos profesionalmente" : "Let’s connect professionally"}</strong></div>
+              <Arrow diagonal />
+            </a>
+            <a className="contact-method is-cv" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
+              <span aria-hidden="true"><LuFileText /></span>
+              <div><small>{isEs ? "PERFIL PROFESIONAL" : "PROFESSIONAL PROFILE"}</small><strong>{isEs ? "Descargar CV" : "Download CV"}</strong></div>
+              <Arrow diagonal />
+            </a>
+          </div>
+        </div>
+
+        <form className="contact-form" onSubmit={prepareEmail}>
+          <header>
+            <span>01</span>
+            <div><small>{isEs ? "MENSAJE BREVE" : "SHORT MESSAGE"}</small><h2>{isEs ? "¿Qué podemos construir juntos?" : "What can we build together?"}</h2></div>
+          </header>
+
+          <div className="contact-form-grid">
+            <label>
+              <span>{isEs ? "Tu nombre" : "Your name"}</span>
+              <input name="name" type="text" autoComplete="name" placeholder={isEs ? "¿Cómo te llamas?" : "What’s your name?"} required />
+            </label>
+            <label>
+              <span>{isEs ? "Tu correo" : "Your email"}</span>
+              <input name="email" type="email" autoComplete="email" placeholder="tu@empresa.com" required />
+            </label>
+            <label className="is-wide">
+              <span>{isEs ? "¿En qué te puedo ayudar?" : "How can I help?"}</span>
+              <select name="projectType" defaultValue="" required>
+                <option value="" disabled>{isEs ? "Selecciona una opción" : "Choose an option"}</option>
+                <option>{isEs ? "Producto digital o aplicación" : "Digital product or application"}</option>
+                <option>{isEs ? "Sistema CRM o ERP" : "CRM or ERP system"}</option>
+                <option>{isEs ? "Automatización e integración" : "Automation and integration"}</option>
+                <option>{isEs ? "IA aplicada al negocio" : "Applied AI for business"}</option>
+                <option>{isEs ? "Quiero explorar una idea" : "I want to explore an idea"}</option>
+              </select>
+            </label>
+            <label className="is-wide">
+              <span>{isEs ? "Cuéntame un poco" : "Tell me a little more"}</span>
+              <textarea name="message" rows="4" placeholder={isEs ? "¿Qué sucede hoy y qué te gustaría mejorar?" : "What happens today, and what would you like to improve?"} required />
+            </label>
+          </div>
+
+          <footer>
+            <p>{isEs ? "El botón abre tu aplicación de correo con la información organizada y lista para enviar." : "The button opens your email app with the information organized and ready to send."}</p>
+            <button className="contact-submit" type="submit">{isEs ? "Preparar mensaje" : "Prepare message"}<Arrow /></button>
+          </footer>
+        </form>
+      </section>
+
+      <section className="contact-page-process" aria-label={isEs ? "Proceso de contacto" : "Contact process"}>
+        <article><span>1</span><strong>{isEs ? "Me cuentas el contexto" : "You share the context"}</strong><p>{isEs ? "Un mensaje corto es suficiente para comenzar." : "A short message is enough to get started."}</p></article>
+        <article><span>2</span><strong>{isEs ? "Aclaro el problema" : "I clarify the problem"}</strong><p>{isEs ? "Revisamos usuarios, operación y resultado esperado." : "We review users, operations and the expected outcome."}</p></article>
+        <article><span>3</span><strong>{isEs ? "Definimos el siguiente paso" : "We define the next step"}</strong><p>{isEs ? "Te propongo una ruta concreta, sin hacerla más compleja de lo necesario." : "I propose a concrete path without making it more complex than necessary."}</p></article>
+      </section>
+    </main>
+  );
+}
+
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
   const [language, setLanguage] = useState(() => window.localStorage.getItem("portfolio-language") === "es" ? "es" : "en");
   const text = copy[language];
-  const localizedProjects = projects.map((project) => localizeProject(project, language));
+  const projectOrder = { ceniza: 0, naval: 1, forty: 2 };
+  const localizedProjects = projects
+    .map((project) => localizeProject(project, language))
+    .sort((a, b) => projectOrder[a.visual] - projectOrder[b.visual])
+    .map((project, index) => ({ ...project, number: String(index + 1).padStart(2, "0") }));
 
   useEffect(() => {
     const handleNavigation = () => setCurrentPath(window.location.pathname);
@@ -2007,6 +2835,8 @@ function App() {
       ? `${activeProject.name} · ${text.documentCase} | Diego Franco`
       : currentPath === "/perfil"
         ? text.documentProfile
+        : currentPath === "/contacto"
+          ? `${text.navContact} | Diego Franco`
         : text.documentPortfolio;
   }, [activeProject, currentPath, language, text]);
 
@@ -2034,7 +2864,7 @@ function App() {
         <nav aria-label={text.mainNavigation}>
           <a href="/#trabajo">{text.navProjects}</a>
           <a href="/perfil" onClick={(event) => navigate(event, "/perfil")}>{text.navAbout}</a>
-          <a href="/#contacto">{text.navContact}</a>
+          <a href="/contacto" onClick={(event) => navigate(event, "/contacto")}>{text.navContact}</a>
         </nav>
 
         <div className="site-nav-actions">
@@ -2049,7 +2879,7 @@ function App() {
         </div>
       </header>
 
-      {currentPath === "/perfil" ? <ProfilePage language={language} /> : activeProject ? (
+      {currentPath === "/perfil" ? <ProfilePage language={language} /> : currentPath === "/contacto" ? <ContactPage language={language} /> : activeProject ? (
         <ProjectDetailPage project={activeProject} projectsList={localizedProjects} onNavigate={navigate} language={language} />
       ) : <main id="inicio">
         <section className="hero-panel" aria-labelledby="hero-title">
@@ -2067,7 +2897,7 @@ function App() {
               <p>{text.heroDescription}</p>
             </div>
             <div className="hero-actions">
-              <SoftButton href="#trabajo" primary>
+              <SoftButton href="/proyectos/ceniza" primary onClick={(event) => navigate(event, "/proyectos/ceniza")}>
                 {text.viewCases} <Arrow />
               </SoftButton>
             </div>
@@ -2122,7 +2952,6 @@ function App() {
                   <span>{project.number}</span>
                   <p>{project.type}</p>
                 </div>
-                <p className="project-description">{project.description}</p>
                 <div className="project-footer">
                   <ul aria-label={text.disciplines}>
                     {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
@@ -2160,7 +2989,7 @@ function App() {
           </div>
           <div className="contact-actions">
             <p>{text.contactCopy}</p>
-            <SoftButton href="https://github.com/diegofrancoe" primary external>
+            <SoftButton href={CONTACT_WHATSAPP_URL} primary external>
               {text.getInTouch} <Arrow diagonal />
             </SoftButton>
           </div>
