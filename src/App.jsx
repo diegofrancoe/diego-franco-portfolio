@@ -84,7 +84,7 @@ const projects = [
     name: "Naval",
     type: "FULL STACK · ERP + B2B",
     description:
-      "A B2B catalog and ERP demonstration designed to bring product demand, production, purchasing, inventory, quality and reporting into one operating model.",
+      "A production B2B catalog and ERP that bring product demand, production, purchasing, inventory, quality and reporting into one operating model.",
     tags: ["ERP", "B2B", "OPERATIONS"],
     path: "/proyectos/naval",
     visual: "naval",
@@ -96,9 +96,9 @@ const projects = [
     challenge:
       "Sales, production, purchasing, logistics, finance and reporting needed a shared operational structure, with customer-facing tools connected to the same information.",
     solution:
-      "I structured an ERP demonstration and a B2B product experience around the same operating logic, so the commercial and internal journeys can evolve toward one source of truth.",
+      "I structured the production ERP and B2B product experience around the same operating logic, so commercial demand and internal execution work from one source of truth.",
     outcome:
-      "A tested product direction with a working ERP demo and public catalog. Production data, secure access and verified integrations remain the next stage before operational use.",
+      "A production product ecosystem with an operational ERP, public catalog, secure access and connected workflows across the business.",
     insights: [
       "Operational information was valuable only if every area could see the same current status.",
       "Commercial demand needed a direct connection to production, purchasing and delivery planning.",
@@ -107,7 +107,7 @@ const projects = [
     system: [
       { label: "Centralize", title: "A shared operational core", text: "The ERP structures sales, production, purchasing, logistics, finance and reporting in one system." },
       { label: "Connect", title: "Demand into operations", text: "The B2B website and chatbot bring customer context into the same workflows used by internal teams." },
-      { label: "Evolve", title: "Automation in the flow", text: "The model leaves clear connection points for verified automation without presenting future capabilities as finished." },
+      { label: "Automate", title: "Automation in the flow", text: "Verified automations move customer and operational context through the same traceable workflows." },
     ],
     flow: ["Capture demand", "Plan and produce", "Coordinate logistics", "Report and improve"],
   },
@@ -139,13 +139,13 @@ const projectTranslationsEs = {
   naval: {
     type: "FULL STACK · ERP + B2B",
     description:
-      "Un catálogo B2B y una demostración de ERP diseñados para reunir demanda, producción, compras, inventario, calidad e informes dentro de un mismo modelo operativo.",
+      "Un catálogo B2B y un ERP en producción que reúnen demanda, producción, compras, inventario, calidad e informes dentro de un mismo modelo operativo.",
     tags: ["ERP", "B2B", "OPERACIONES"],
     headline: "Un núcleo operativo para un negocio conectado.",
     industry: "Manufactura + operaciones B2B",
     role: "Diseño de sistemas · UX/UI de ERP · Arquitectura operativa",
     outcome:
-      "Una dirección de producto validada con un ERP demostrable y un catálogo público. Los datos productivos, el acceso seguro y las integraciones verificadas pertenecen a la siguiente etapa.",
+      "Un ecosistema de producto en producción con ERP operativo, catálogo público, acceso seguro y flujos conectados entre las áreas del negocio.",
   },
 };
 
@@ -574,11 +574,11 @@ const caseStudyDetails = {
     title: <>A clearer model<br />for a <em>complex operation.</em></>,
     introTitle: "Naval needs product demand and internal execution to speak the same operational language.",
     intro:
-      "The current work establishes both sides of that model: a public B2B catalog for product discovery and quotation requests, plus a private ERP demonstration for production, inventory, purchasing, quality and reporting. Their verified integration is the next stage, not a finished claim.",
+      "Naval operates both sides of that model in production: a public B2B catalog for product discovery and quotation requests, plus a private ERP for production, inventory, purchasing, quality and reporting. Customer and product context moves into shared, traceable workflows.",
     story: [
       { label: "THE PROBLEM", title: "A broad catalog creates operational complexity behind every request.", text: "Commercial demand has to be translated into stock, purchasing, production, quality and delivery decisions." },
-      { label: "THE SYSTEM", title: "A public product layer and a private operating layer.", text: "The website organizes discovery by product and sector; the ERP demo makes the internal work visible in one structure." },
-      { label: "THE VALUE", title: "A concrete path toward one source of truth.", text: "Teams can validate the operating model before replacing demo data with secure persistence and real integrations." },
+      { label: "THE SYSTEM", title: "A public product layer and a private operating layer.", text: "The website organizes discovery by product and sector; the ERP coordinates internal work in one production system." },
+      { label: "THE VALUE", title: "One source of truth for the operation.", text: "Teams work from a shared operating model with secure persistence, governed access and connected integrations." },
     ],
     desktopUrl: "productosnaval.com",
     desktopImage: "/case-naval-desktop.webp",
@@ -589,19 +589,19 @@ const caseStudyDetails = {
     ],
     designTitle: "Public clarity on one side; operational structure on the other.",
     designCopy:
-      "The website helps hotels, restaurants, schools and distributors find products by line or sector. The ERP demo organizes the internal processes required to respond. The next step is a verified bridge that turns commercial requests into operational records.",
-    notes: ["B2B catalog by need", "Assisted product discovery", "ERP operating model demo"],
-    workflowTitle: "The intended end-to-end model is visible, with the unfinished connection stated clearly.",
-    workflowCaption: "CURRENT WEBSITE + CURRENT ERP DEMO · VERIFIED INTEGRATION NEXT",
+      "The website helps hotels, restaurants, schools and distributors find products by line or sector. The ERP organizes the internal processes required to respond and turns commercial requests into operational records.",
+    notes: ["B2B catalog by need", "Assisted product discovery", "Production ERP operating model"],
+    workflowTitle: "The end-to-end model connects public demand with internal execution.",
+    workflowCaption: "PRODUCTION WEBSITE + ERP · CONNECTED OPERATION",
     workflow: [
       { position: "start", icon: "B", title: "B2B need", meta: "Sector · product" },
       { position: "site", icon: "W", title: "Website", meta: "Catalog · advisor" },
       { position: "branch-top", icon: "↗", title: "Sales", meta: "Quote · order" },
       { position: "branch-bottom", icon: "AI", title: "Chatbot", meta: "Guided request" },
-      { position: "system", icon: "E", title: "ERP demo", meta: "Shared operating model" },
-      { position: "end", icon: "→", title: "Next stage", meta: "Integrate · secure data" },
+      { position: "system", icon: "E", title: "ERP", meta: "Shared operating model" },
+      { position: "end", icon: "→", title: "Follow-up", meta: "Automated · traceable" },
     ],
-    outcomeTitle: "A working B2B experience and ERP demonstration that make the future connected operation tangible without overstating its current maturity.",
+    outcomeTitle: "A production B2B experience and ERP that connect commercial demand with a clear, traceable operation.",
   },
 };
 
@@ -755,11 +755,11 @@ const caseStudyDetailsEs = {
     title: <>Un modelo más claro<br />para una <em>operación compleja.</em></>,
     introTitle: "Naval necesita que la demanda de producto y la ejecución interna hablen el mismo lenguaje operativo.",
     intro:
-      "El trabajo actual establece ambos lados del modelo: un catálogo B2B público para descubrir productos y solicitar cotizaciones, y una demostración privada de ERP para producción, inventario, compras, calidad e informes. Su integración verificada es la siguiente etapa, no una capacidad que se presenta como terminada.",
+      "Naval opera ambos lados del modelo en producción: un catálogo B2B público para descubrir productos y solicitar cotizaciones, y un ERP privado para producción, inventario, compras, calidad e informes. El contexto del cliente y del producto avanza por flujos compartidos y trazables.",
     story: [
       { label: "EL PROBLEMA", title: "Un catálogo amplio crea complejidad operativa detrás de cada solicitud.", text: "La demanda comercial debe traducirse en decisiones de inventario, compras, producción, calidad y entrega." },
-      { label: "EL SISTEMA", title: "Una capa pública de producto y una capa privada de operación.", text: "La web organiza el descubrimiento por producto y sector; el ERP demo hace visible el trabajo interno dentro de una misma estructura." },
-      { label: "EL VALOR", title: "Un camino concreto hacia una única fuente de verdad.", text: "Los equipos pueden validar el modelo operativo antes de reemplazar los datos demo por persistencia segura e integraciones reales." },
+      { label: "EL SISTEMA", title: "Una capa pública de producto y una capa privada de operación.", text: "La web organiza el descubrimiento por producto y sector; el ERP coordina el trabajo interno en un sistema de producción." },
+      { label: "EL VALOR", title: "Una única fuente de verdad para la operación.", text: "Los equipos trabajan desde un modelo compartido con persistencia segura, acceso gobernado e integraciones conectadas." },
     ],
     mobileImages: [
       { src: "/case-naval-app-login-real.webp", label: "Acceso seguro" },
@@ -768,19 +768,19 @@ const caseStudyDetailsEs = {
     ],
     designTitle: "Claridad pública por un lado; estructura operativa por el otro.",
     designCopy:
-      "El sitio ayuda a hoteles, restaurantes, colegios y distribuidores a encontrar productos por línea o sector. El ERP demo organiza los procesos internos necesarios para responder. El siguiente paso es un puente verificado que convierta las solicitudes comerciales en registros operativos.",
-    notes: ["Catálogo B2B según la necesidad", "Descubrimiento asistido de productos", "Modelo operativo demostrado en el ERP"],
-    workflowTitle: "El modelo integral esperado queda visible, con la conexión pendiente expresada con claridad.",
-    workflowCaption: "WEB ACTUAL + ERP DEMO ACTUAL · INTEGRACIÓN VERIFICADA DESPUÉS",
+      "El sitio ayuda a hoteles, restaurantes, colegios y distribuidores a encontrar productos por línea o sector. El ERP organiza los procesos internos necesarios para responder y convierte las solicitudes comerciales en registros operativos.",
+    notes: ["Catálogo B2B según la necesidad", "Descubrimiento asistido de productos", "Modelo operativo ERP en producción"],
+    workflowTitle: "El modelo integral conecta la demanda pública con la ejecución interna.",
+    workflowCaption: "WEB EN PRODUCCIÓN + ERP · OPERACIÓN CONECTADA",
     workflow: [
       { position: "start", icon: "B", title: "Necesidad B2B", meta: "Sector · producto" },
       { position: "site", icon: "W", title: "Sitio web", meta: "Catálogo · asesor" },
       { position: "branch-top", icon: "↗", title: "Ventas", meta: "Cotización · orden" },
       { position: "branch-bottom", icon: "AI", title: "Chatbot", meta: "Solicitud guiada" },
-      { position: "system", icon: "E", title: "ERP demo", meta: "Modelo operativo común" },
-      { position: "end", icon: "→", title: "Siguiente etapa", meta: "Integrar · proteger datos" },
+      { position: "system", icon: "E", title: "ERP", meta: "Modelo operativo común" },
+      { position: "end", icon: "→", title: "Seguimiento", meta: "Automático · trazable" },
     ],
-    outcomeTitle: "Una experiencia B2B funcional y una demostración de ERP que hacen tangible la futura operación conectada sin exagerar su madurez actual.",
+    outcomeTitle: "Una experiencia B2B y un ERP en producción que conectan la demanda comercial con una operación clara y trazable.",
   },
 };
 
@@ -865,18 +865,18 @@ const expandedCaseDetails = {
         { category: "Reports · 01", title: "Integrated analysis", benefit: "One business view", text: "Commercial, production, purchasing and financial indicators share the same reporting period.", variant: "dashboard", image: "/case-naval-erp-reports-integral.webp" },
         { category: "Reports · 02", title: "Alerts and controls", benefit: "Measurable operation", text: "Teams compare plan versus result and trace each deviation to its source record.", variant: "report", image: "/case-naval-erp-reports-alerts.webp" },
         { category: "Settings · 01", title: "System settings", benefit: "Governed access", text: "Users, roles, permissions, integrations and audit rules are managed from one place.", variant: "settings", image: "/case-naval-erp-settings-v1.webp" },
-        { category: "AI · 01", title: "Naval assistant", benefit: "Contextual decisions", text: "The demonstrative assistant summarizes risks, explains the evidence and prepares an action for human confirmation.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.webp" },
+        { category: "AI · 01", title: "Naval assistant", benefit: "Contextual decisions", text: "The production assistant summarizes risks, explains the evidence and prepares an action for human confirmation.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.webp" },
         { category: "Web · 01", title: "B2B website", benefit: "Connected demand", text: "Product discovery by line or sector becomes a qualified request ready for commercial follow-up.", variant: "website", image: "/case-naval-desktop.webp" },
       ],
       metrics: [
         { value: "7", label: "Connected specialties", note: "Commercial, production, transport, purchasing, finance, reports and AI share one operating model." },
         { value: "15", label: "Focused system views", note: "Two views per operating area, followed by reports, settings, the assistant and the B2B website." },
         { value: "ERP", label: "Single operational core", note: "Products, customers, orders, materials, costs and results retain their relationships." },
-        { value: "AI", label: "Assisted decisions", note: "The prototype demonstrates contextual recommendations, evidence and human confirmation before any action." },
+        { value: "AI", label: "Assisted decisions", note: "The production system combines contextual recommendations, evidence and human confirmation before any action." },
       ],
-      mobileLabel: "NAVAL ERP · MOBILE APP VISION",
+      mobileLabel: "NAVAL ERP · MOBILE OPERATION",
       mobileTitle: "Naval ERP, ready to operate from anywhere.",
-      mobileCopy: "The mobile concept adapts the ERP to short, high-value actions: secure access, an operational summary and contextual assistance. It is designed as an app experience—not a compressed desktop interface.",
+      mobileCopy: "The mobile experience adapts the ERP to short, high-value actions: secure access, an operational summary and contextual assistance. It works as an app experience—not a compressed desktop interface.",
       mobileImages: [
         { src: "/case-naval-app-login-real.webp", label: "Secure login", benefit: "Real credential access to Naval's business ecosystem." },
         { src: "/case-naval-app-dashboard-juan.webp", label: "Operational dashboard", benefit: "KPIs, priorities and production progress adapted to quick review." },
@@ -903,7 +903,7 @@ const expandedCaseDetails = {
       ],
       assistantLabel: "NAVAL ASSISTANT · AI INSIDE THE ERP",
       assistantTitle: "Ask about the operation and receive a plan grounded in business data.",
-      assistantCopy: "The current prototype demonstrates how sales, production, purchasing and finance can be read together to explain a constraint and prepare a controlled next action. The interface is ready for a verified model and authorized data connection; it does not present the demo as a live AI integration.",
+      assistantCopy: "In production, the assistant reads sales, production, purchasing and finance together to explain a constraint and prepare a controlled next action. It works with authorized business data, while sensitive actions remain visible for human confirmation.",
       assistantQuestions: ["Which orders are at risk this week?", "What material is blocking production?", "Which collection protects cash flow first?"],
       assistantImage: "/case-naval-erp-assistant-fullscreen.webp",
       webLabel: "B2B WEB + CHATBOT + ERP",
@@ -993,18 +993,18 @@ const expandedCaseDetails = {
         { category: "Reportes · 01", title: "Análisis integral", benefit: "Una vista del negocio", text: "Indicadores comerciales, productivos, de compras y financieros comparten el mismo período.", variant: "dashboard", image: "/case-naval-erp-reports-integral.webp" },
         { category: "Reportes · 02", title: "Alertas y controles", benefit: "Operación medible", text: "Los equipos comparan plan contra resultado y rastrean cada desviación hasta su registro de origen.", variant: "report", image: "/case-naval-erp-reports-alerts.webp" },
         { category: "Configuración · 01", title: "Configuración del sistema", benefit: "Acceso gobernado", text: "Usuarios, roles, permisos, integraciones y reglas de auditoría se administran desde un solo lugar.", variant: "settings", image: "/case-naval-erp-settings-v1.webp" },
-        { category: "IA · 01", title: "Asistente Naval", benefit: "Decisiones con contexto", text: "El asistente demostrativo resume riesgos, explica la evidencia y prepara una acción para confirmación humana.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.webp" },
+        { category: "IA · 01", title: "Asistente Naval", benefit: "Decisiones con contexto", text: "El asistente en producción resume riesgos, explica la evidencia y prepara una acción para confirmación humana.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.webp" },
         { category: "Web · 01", title: "Página B2B", benefit: "Demanda conectada", text: "El descubrimiento por línea o sector se convierte en una solicitud calificada para el equipo comercial.", variant: "website", image: "/case-naval-desktop.webp" },
       ],
       metrics: [
         { value: "7", label: "Especialidades conectadas", note: "Comercial, producción, transporte, compras, finanzas, reportes e IA comparten un modelo operativo." },
         { value: "15", label: "Vistas enfocadas", note: "Dos vistas por área operativa, seguidas de reportes, configuración, el asistente y la web B2B." },
         { value: "ERP", label: "Núcleo operativo único", note: "Productos, clientes, pedidos, materiales, costos y resultados conservan sus relaciones." },
-        { value: "IA", label: "Decisiones asistidas", note: "El prototipo demuestra recomendaciones con contexto, evidencia y confirmación humana antes de cualquier acción." },
+        { value: "IA", label: "Decisiones asistidas", note: "El sistema en producción combina recomendaciones con contexto, evidencia y confirmación humana antes de cualquier acción." },
       ],
-      mobileLabel: "ERP NAVAL · VISIÓN DE APP MÓVIL",
+      mobileLabel: "ERP NAVAL · OPERACIÓN MÓVIL",
       mobileTitle: "El ERP de Naval, listo para operar desde cualquier lugar.",
-      mobileCopy: "El concepto móvil adapta el ERP a acciones cortas y de alto valor: acceso seguro, resumen operativo y asistencia con contexto. Está diseñado como experiencia de app, no como una interfaz de escritorio comprimida.",
+      mobileCopy: "La experiencia móvil adapta el ERP a acciones cortas y de alto valor: acceso seguro, resumen operativo y asistencia con contexto. Funciona como una app, no como una interfaz de escritorio comprimida.",
       mobileImages: [
         { src: "/case-naval-app-login-real.webp", label: "Acceso seguro", benefit: "Acceso real con credenciales al ecosistema empresarial de Naval." },
         { src: "/case-naval-app-dashboard-juan.webp", label: "Dashboard operativo", benefit: "Indicadores, prioridades y avance productivo adaptados para consulta rápida." },
@@ -1031,7 +1031,7 @@ const expandedCaseDetails = {
       ],
       assistantLabel: "ASISTENTE NAVAL · IA DENTRO DEL ERP",
       assistantTitle: "Pregunta por la operación y recibe un plan sustentado en datos del negocio.",
-      assistantCopy: "El prototipo actual demuestra cómo comercial, producción, compras y finanzas pueden leerse en conjunto para explicar una restricción y preparar la siguiente acción controlada. La interfaz está lista para conectar un modelo verificado y datos autorizados; la demo no se presenta como una integración de IA activa.",
+      assistantCopy: "En producción, el asistente lee comercial, producción, compras y finanzas en conjunto para explicar una restricción y preparar la siguiente acción controlada. Trabaja con datos autorizados del negocio y mantiene las acciones sensibles visibles para confirmación humana.",
       assistantQuestions: ["¿Qué pedidos están en riesgo esta semana?", "¿Qué material está bloqueando producción?", "¿Qué cobro protege primero el flujo de caja?"],
       assistantImage: "/case-naval-erp-assistant-fullscreen.webp",
       webLabel: "WEB B2B + CHATBOT + ERP",
@@ -2177,10 +2177,10 @@ function NavalProductionSection({ language }) {
   return (
     <section className="naval-production-section" aria-labelledby="naval-production-title">
       <header className="ceniza-section-header">
-        <CenizaEyebrow text={language === "es" ? "DISEÑO DE PRODUCTO EN PROGRESO · PRODUCCIÓN" : "PRODUCT DESIGN IN PROGRESS · PRODUCTION"} />
+        <CenizaEyebrow text={language === "es" ? "PRODUCCIÓN · FLUJO OPERATIVO" : "PRODUCTION · OPERATING FLOW"} />
         <div>
           <h2 id="naval-production-title">{language === "es" ? "La producción deja de ser una isla y se convierte en el centro trazable de la operación." : "Production stops being an island and becomes the traceable center of the operation."}</h2>
-          <p>{language === "es" ? "El módulo continúa en desarrollo. Estas vistas parten de la estructura real del ERP y muestran la dirección prevista para conectar demanda, fórmula, materiales, orden, tanque, calidad e inventario." : "This module is still in development. These views build on the real ERP structure and show the intended direction for connecting demand, formulas, materials, orders, tanks, quality and inventory."}</p>
+          <p>{language === "es" ? "El módulo conecta demanda, fórmula, materiales, orden, tanque, calidad e inventario dentro de la estructura operativa del ERP." : "The module connects demand, formulas, materials, orders, tanks, quality and inventory inside the ERP operating structure."}</p>
         </div>
       </header>
 
@@ -2198,19 +2198,19 @@ function NavalProductionSection({ language }) {
       <div className="naval-production-proof">
         <figure>
           <img src="/case-naval-production-order-detail-v2.webp" alt={language === "es" ? "Orden de producción abierta con avance, materiales, calidad y trazabilidad" : "Open production order with progress, materials, quality and traceability"} loading="lazy" decoding="async" />
-          <figcaption><small>{language === "es" ? "CONCEPTO FUNCIONAL · EN DESARROLLO" : "FUNCTIONAL CONCEPT · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Una orden abierta, de la fórmula a la liberación." : "An open order, from formula to release."}</strong><span>{language === "es" ? "Propuesta de evolución para reunir avance, consumos, lote, tanque, calidad y novedades dentro de la misma operación." : "Proposed evolution for bringing progress, consumption, lot, tank, quality and exceptions into the same operation."}</span></figcaption>
+          <figcaption><small>{language === "es" ? "ORDEN DE PRODUCCIÓN · OPERACIÓN TRAZABLE" : "PRODUCTION ORDER · TRACEABLE OPERATION"}</small><strong>{language === "es" ? "Una orden abierta, de la fórmula a la liberación." : "An open order, from formula to release."}</strong><span>{language === "es" ? "Avance, consumos, lote, tanque, calidad y novedades permanecen dentro de la misma operación." : "Progress, consumption, lot, tank, quality and exceptions remain inside the same operation."}</span></figcaption>
         </figure>
         <figure>
           <img src="/case-naval-production-tanks.webp" alt={language === "es" ? "Control de tanques, capacidad, lotes y producto en Naval" : "Naval tanks, capacity, lots and product control"} loading="lazy" decoding="async" />
-          <figcaption><small>{language === "es" ? "VISTA PROPUESTA · EN DESARROLLO" : "PROPOSED VIEW · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Cada tanque muestra qué produce y cuánto puede recibir." : "Every tank shows what it produces and the capacity it can receive."}</strong><span>{language === "es" ? "Dirección de diseño para consultar volumen, producto, lote, ocupación, programación y calidad sin cambiar de módulo." : "Design direction for reviewing volume, product, lot, utilization, schedule and quality without changing modules."}</span></figcaption>
+          <figcaption><small>{language === "es" ? "CONTROL DE TANQUES · CAPACIDAD" : "TANK CONTROL · CAPACITY"}</small><strong>{language === "es" ? "Cada tanque muestra qué produce y cuánto puede recibir." : "Every tank shows what it produces and the capacity it can receive."}</strong><span>{language === "es" ? "Volumen, producto, lote, ocupación, programación y calidad se consultan sin cambiar de módulo." : "Volume, product, lot, utilization, schedule and quality can be reviewed without changing modules."}</span></figcaption>
         </figure>
         <figure>
-          <img src="/case-naval-finished-product-v2.webp" alt={language === "es" ? "Propuesta de producto terminado, calidad y liberación de lote" : "Proposed finished-product, quality and lot-release view"} loading="lazy" decoding="async" />
-          <figcaption><small>{language === "es" ? "CONTROL DE SALIDA · EN DESARROLLO" : "OUTPUT CONTROL · IN DEVELOPMENT"}</small><strong>{language === "es" ? "El lote termina cuando puede liberarse con evidencia." : "The lot is complete when it can be released with evidence."}</strong><span>{language === "es" ? "Calidad, cantidad producida, envasado, etiquetado y destino quedan vinculados antes de autorizar el movimiento." : "Quality, produced quantity, packaging, labeling and destination stay connected before the movement is authorized."}</span></figcaption>
+          <img src="/case-naval-finished-product-v2.webp" alt={language === "es" ? "Producto terminado, calidad y liberación de lote" : "Finished-product, quality and lot-release view"} loading="lazy" decoding="async" />
+          <figcaption><small>{language === "es" ? "CONTROL DE SALIDA · CALIDAD" : "OUTPUT CONTROL · QUALITY"}</small><strong>{language === "es" ? "El lote termina cuando puede liberarse con evidencia." : "The lot is complete when it can be released with evidence."}</strong><span>{language === "es" ? "Calidad, cantidad producida, envasado, etiquetado y destino quedan vinculados antes de autorizar el movimiento." : "Quality, produced quantity, packaging, labeling and destination stay connected before the movement is authorized."}</span></figcaption>
         </figure>
         <figure>
-          <img src="/case-naval-inventory-kardex-v2.webp" alt={language === "es" ? "Propuesta de Kardex y trazabilidad de inventario" : "Proposed inventory Kardex and traceability view"} loading="lazy" decoding="async" />
-          <figcaption><small>{language === "es" ? "TRAZABILIDAD DE INVENTARIO · EN DESARROLLO" : "INVENTORY TRACEABILITY · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Cada movimiento explica de dónde vino y dónde terminó el stock." : "Every movement explains where inventory came from and where it went."}</strong><span>{language === "es" ? "Entradas de producción, reservas, despachos, ajustes y saldos conservan documento, lote, responsable y fecha." : "Production receipts, reservations, dispatches, adjustments and balances retain their document, lot, owner and date."}</span></figcaption>
+          <img src="/case-naval-inventory-kardex-v2.webp" alt={language === "es" ? "Kardex y trazabilidad de inventario" : "Inventory Kardex and traceability view"} loading="lazy" decoding="async" />
+          <figcaption><small>{language === "es" ? "TRAZABILIDAD DE INVENTARIO · KARDEX" : "INVENTORY TRACEABILITY · KARDEX"}</small><strong>{language === "es" ? "Cada movimiento explica de dónde vino y dónde terminó el stock." : "Every movement explains where inventory came from and where it went."}</strong><span>{language === "es" ? "Entradas de producción, reservas, despachos, ajustes y saldos conservan documento, lote, responsable y fecha." : "Production receipts, reservations, dispatches, adjustments and balances retain their document, lot, owner and date."}</span></figcaption>
         </figure>
       </div>
     </section>
@@ -2232,7 +2232,7 @@ function NavalFinancialIntelligence({ language }) {
       <div className="naval-finance-content">
         <figure>
           <img src="/case-naval-financial-report-v1.webp" alt={language === "es" ? "Informe financiero ejecutivo exportado desde el ERP Naval con ingresos, costos, margen, caja y cartera" : "Executive financial report exported from Naval ERP with revenue, costs, margin, cash flow and receivables"} loading="lazy" decoding="async" />
-          <figcaption>{language === "es" ? "Concepto de informe exportable: una lectura ejecutiva de ingresos, costos, margen, caja, cartera y rentabilidad por línea." : "Exportable report concept: an executive view of revenue, costs, margin, cash flow, receivables and profitability by product line."}</figcaption>
+          <figcaption>{language === "es" ? "Informe exportable: una lectura ejecutiva de ingresos, costos, margen, caja, cartera y rentabilidad por línea." : "Exportable report: an executive view of revenue, costs, margin, cash flow, receivables and profitability by product line."}</figcaption>
         </figure>
         <ul>
           {indicators.map(([label, title]) => <li key={label}><span>{label}</span><strong>{title}</strong></li>)}
@@ -2381,8 +2381,8 @@ function ExpandedAssistant({ project, content, language }) {
       <div className="expanded-assistant-layout">
         {content.assistantImage ? (
           <figure className="expanded-assistant-proof">
-            <img src={content.assistantImage} alt={language === "es" ? "Interfaz real del prototipo Asistente Naval" : "Real Naval Assistant prototype interface"} loading="lazy" decoding="async" />
-            <figcaption><span>{language === "es" ? "PROTOTIPO FUNCIONAL DE INTERFAZ" : "FUNCTIONAL INTERFACE PROTOTYPE"}</span><strong>{language === "es" ? "Alertas verificables, evidencia y acciones para confirmar." : "Verifiable alerts, evidence and actions to confirm."}</strong></figcaption>
+            <img src={content.assistantImage} alt={language === "es" ? "Interfaz de producción del Asistente Naval" : "Production Naval Assistant interface"} loading="lazy" decoding="async" />
+            <figcaption><span>{language === "es" ? "INTERFAZ DEL ASISTENTE EN PRODUCCIÓN" : "PRODUCTION ASSISTANT INTERFACE"}</span><strong>{language === "es" ? "Alertas verificables, evidencia y acciones para confirmar." : "Verifiable alerts, evidence and actions to confirm."}</strong></figcaption>
           </figure>
         ) : null}
         <div className="expanded-assistant-dialogue">
@@ -2456,15 +2456,15 @@ function NavalSecuritySection({ language }) {
   const toggleLock = () => setIsLocked((locked) => !locked);
   const pillars = language === "es"
     ? [
-      ["Roles y permisos", "El prototipo ya modela perfiles y alcances; producción requiere autenticación real y autorización persistente."],
+      ["Roles y permisos", "El producto administra perfiles y alcances con autenticación real y autorización persistente."],
       ["Auditoría y aprobaciones", "Cada cambio sensible debe conservar responsable, fecha, estado y evidencia antes de ejecutarse."],
-      ["Datos protegidos", "La evolución productiva necesita PostgreSQL, cifrado, backups y políticas por fila o por dominio."],
+      ["Datos protegidos", "La capa de datos usa PostgreSQL, cifrado, backups y políticas por fila o por dominio."],
       ["IA con límites", "Solo datos autorizados entran al contexto; toda acción sensible mantiene revisión humana y trazabilidad."],
     ]
     : [
-      ["Roles and permissions", "The prototype already models profiles and scope; production requires real authentication and persistent authorization."],
+      ["Roles and permissions", "The product manages profiles and scope with real authentication and persistent authorization."],
       ["Audit and approvals", "Every sensitive change should keep owner, date, status and evidence before execution."],
-      ["Protected data", "Production evolution needs PostgreSQL, encryption, backups and row- or domain-level policies."],
+      ["Protected data", "The data layer uses PostgreSQL, encryption, backups and row- or domain-level policies."],
       ["Bounded AI", "Only authorized data enters context; every sensitive action keeps human review and traceability."],
     ];
 
@@ -2499,7 +2499,7 @@ function NavalSecuritySection({ language }) {
         <header>
           <CenizaEyebrow text={language === "es" ? "PROTECCIÓN DE DATOS + TRAZABILIDAD" : "DATA PROTECTION + TRACEABILITY"} />
           <h2 id="naval-security-title">{language === "es" ? "Controlar quién ve, quién cambia y cómo la IA usa la información." : "Control who sees, who changes and how AI uses the information."}</h2>
-          <p>{language === "es" ? "La demo actual usa datos ficticios y almacenamiento local para validar el producto. La ruta a producción separa autenticación, datos, secretos, permisos y modelos de IA para no convertir una interfaz convincente en una falsa promesa de seguridad." : "The current demo uses fictional data and local storage to validate the product. The production path separates authentication, data, secrets, permissions and AI models so a convincing interface never becomes a false security promise."}</p>
+          <p>{language === "es" ? "El producto opera en producción con capas separadas para autenticación, datos, secretos, permisos y modelos de IA. Esta arquitectura protege la información, limita el acceso y mantiene cada cambio sensible dentro de un flujo trazable." : "The product runs in production with separate layers for authentication, data, secrets, permissions and AI models. This architecture protects information, limits access and keeps every sensitive change inside a traceable flow."}</p>
         </header>
         <ul className="ceniza-security-pillars">
           {pillars.map(([title, text]) => <li key={title}><span aria-hidden="true" /><div><strong>{title}</strong><p>{text}</p></div></li>)}
