@@ -2824,7 +2824,7 @@ function ContactPage({ language }) {
       <section className="contact-page-hero">
         <div className="contact-page-intro">
           <AnimatedEyebrow text={isEs ? "HABLEMOS DE TU IDEA" : "LET'S TALK ABOUT YOUR IDEA"} className="eyebrow" dot threshold={0.25} />
-          <h1 id="contact-page-title">{isEs ? <>Construyamos lo que<br />tu negocio <em>necesita.</em></> : <>Let’s build what<br />your business <em>needs.</em></>}</h1>
+          <h1 id="contact-page-title">{isEs ? <>Construyamos lo que tu negocio <em>necesita.</em></> : <>Let’s build what your business <em>needs.</em></>}</h1>
           <p>{isEs ? "Cuéntame qué quieres mejorar, conectar o automatizar. Te responderé con una ruta técnica clara y el siguiente paso para llevarla a producción." : "Tell me what you want to improve, connect or automate. I’ll respond with a clear technical route and the next step toward production."}</p>
 
           <div className="contact-methods" aria-label={isEs ? "Canales de contacto" : "Contact channels"}>
@@ -2908,7 +2908,7 @@ function ContactPage({ language }) {
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
-  const [language, setLanguage] = useState(() => window.localStorage.getItem("portfolio-language") === "en" ? "en" : "es");
+  const [language, setLanguage] = useState("en");
   const text = copy[language];
   const projectOrder = { ceniza: 0, naval: 1, forty: 2 };
   const localizedProjects = projects
@@ -2926,7 +2926,6 @@ function App() {
 
   useEffect(() => {
     document.documentElement.lang = language;
-    window.localStorage.setItem("portfolio-language", language);
     const pageTitle = activeProject
       ? `${activeProject.name} · ${text.documentCase} | Diego Franco`
       : currentPath === "/perfil"
