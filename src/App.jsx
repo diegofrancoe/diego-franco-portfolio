@@ -12,6 +12,7 @@ const CONTACT_WHATSAPP_MESSAGE = "Hola Diego 👋, vi tu portafolio y me gustar�
 const CONTACT_WHATSAPP_URL = CONTACT_WHATSAPP_NUMBER
   ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`
   : "";
+const SITE_URL = "https://www.diegofrancoe.com";
 
 const projects = [
   {
@@ -384,19 +385,23 @@ function TypewriterText({ text, threshold = 0.75, rootMargin = "0px 0px -12% 0px
   );
 }
 
-function CenizaEyebrow({ text, className = "case-label", dot = false, threshold = 0.55 }) {
+function AnimatedEyebrow({ text, className = "eyebrow", dot = false, threshold = 0.55, rootMargin = "0px 0px -7% 0px", id }) {
   return (
-    <p className={`${className} ceniza-section-eyebrow`} aria-label={text}>
+    <p className={className} id={id} aria-label={text}>
       {dot ? <span className="availability-dot loading-dot" /> : null}
-      <TypewriterText text={text} threshold={threshold} rootMargin="0px 0px -7% 0px" />
+      <TypewriterText text={text} threshold={threshold} rootMargin={rootMargin} />
     </p>
   );
 }
 
+function CenizaEyebrow({ text, className = "case-label", dot = false, threshold = 0.55 }) {
+  return <AnimatedEyebrow text={text} className={`${className} ceniza-section-eyebrow`} dot={dot} threshold={threshold} />;
+}
+
 const projectVisualAssets = {
-  naval: "/project-naval-n-v3.png",
-  forty: "/project-40-4-v3.png",
-  ceniza: "/project-ceniza-c-v3.png",
+  naval: "/project-naval-n-v3.webp",
+  forty: "/project-40-4-v3.webp",
+  ceniza: "/project-ceniza-c-v3.webp",
 };
 
 const projectFolderLabels = {
@@ -455,10 +460,10 @@ const caseStudyDetails = {
     crmMobileCopy:
       "Mobile preserves the same information, status and actions as the desktop CRM. The team can review and manage the operation from a phone without changing systems or losing context.",
     crmMobileImages: [
-      { kind: "login", src: "/case-ceniza-crm-mobile-login.png", label: "Login", benefit: "Secure access to the same operation from any device." },
-      { kind: "agenda", src: "/case-ceniza-crm-mobile-agenda.png", label: "Agenda", benefit: "Tasks, deliveries, collections and owners accessible from anywhere." },
-      { kind: "inventory", src: "/case-ceniza-crm-mobile-inventory-detail.png", label: "Inventory", benefit: "Product stock, availability and linked operations available in the field." },
-      { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.png", label: "Asistente Ceniza", benefit: "Prioritizes alerts, summarizes the operation and prepares actions with the same desktop context." },
+      { kind: "login", src: "/case-ceniza-crm-mobile-login.webp", label: "Login", benefit: "Secure access to the same operation from any device." },
+      { kind: "agenda", src: "/case-ceniza-crm-mobile-agenda.webp", label: "Agenda", benefit: "Tasks, deliveries, collections and owners accessible from anywhere." },
+      { kind: "inventory", src: "/case-ceniza-crm-mobile-inventory-detail.webp", label: "Inventory", benefit: "Product stock, availability and linked operations available in the field." },
+      { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.webp", label: "Asistente Ceniza", benefit: "Prioritizes alerts, summarizes the operation and prepares actions with the same desktop context." },
     ],
     assistantLabel: "ASISTENTE CENIZA · AI INSIDE THE CRM",
     assistantTitle: "CRM context becomes clearer, more timely decisions.",
@@ -509,7 +514,7 @@ const caseStudyDetails = {
       { title: "Asistente Ceniza in action", text: "Contextual queries and permitted actions, with confirmation before changes and an auditable history." },
     ],
     desktopUrl: "cenizaproducciones.com",
-    desktopImage: "/case-ceniza-desktop.png",
+    desktopImage: "/case-ceniza-desktop.webp",
     designTitle: "The experience moves from inspiration to a useful brief.",
     designCopy:
       "Visitors can understand the visual offer first, then choose equipment, a production setup or direct contact. The form captures date, location and production details before the lead reaches the commercial team.",
@@ -540,11 +545,11 @@ const caseStudyDetails = {
       { label: "THE VALUE", title: "A solution aligned with the real operation.", text: "The brand keeps human-assisted sales while automating e-book delivery, internal notification and the customer record." },
     ],
     desktopUrl: "cuarentamas.com",
-    desktopImage: "/case-40plus-desktop.png",
+    desktopImage: "/case-40plus-desktop.webp",
     mobileImages: [
-      { src: "/case-40plus-mobile-1.png", label: "Home" },
-      { src: "/case-40plus-mobile-2.png", label: "Product" },
-      { src: "/case-40plus-mobile-3.png", label: "Daily ritual" },
+      { src: "/case-40plus-mobile-1.webp", label: "Home" },
+      { src: "/case-40plus-mobile-2.webp", label: "Product" },
+      { src: "/case-40plus-mobile-3.webp", label: "Daily ritual" },
     ],
     designTitle: "The product stays clear; the next action stays practical.",
     designCopy:
@@ -576,11 +581,11 @@ const caseStudyDetails = {
       { label: "THE VALUE", title: "A concrete path toward one source of truth.", text: "Teams can validate the operating model before replacing demo data with secure persistence and real integrations." },
     ],
     desktopUrl: "productosnaval.com",
-    desktopImage: "/case-naval-desktop.png",
+    desktopImage: "/case-naval-desktop.webp",
     mobileImages: [
-      { src: "/case-naval-app-login-real.png", label: "Secure login" },
-      { src: "/case-naval-app-dashboard-juan.png", label: "Dashboard" },
-      { src: "/case-naval-app-assistant.png", label: "Naval Assistant" },
+      { src: "/case-naval-app-login-real.webp", label: "Secure login" },
+      { src: "/case-naval-app-dashboard-juan.webp", label: "Dashboard" },
+      { src: "/case-naval-app-assistant.webp", label: "Naval Assistant" },
     ],
     designTitle: "Public clarity on one side; operational structure on the other.",
     designCopy:
@@ -646,10 +651,10 @@ const caseStudyDetailsEs = {
     crmMobileCopy:
       "La versión móvil conserva la misma información, estados y acciones del CRM de escritorio. El equipo puede consultar y gestionar la operación desde el celular sin cambiar de sistema ni perder contexto.",
     crmMobileImages: [
-      { kind: "login", src: "/case-ceniza-crm-mobile-login.png", label: "Login", benefit: "Acceso seguro a la misma operación desde cualquier dispositivo." },
-      { kind: "agenda", src: "/case-ceniza-crm-mobile-agenda.png", label: "Agenda", benefit: "Tareas, entregas, cobros y responsables accesibles desde cualquier lugar." },
-      { kind: "inventory", src: "/case-ceniza-crm-mobile-inventory-detail.png", label: "Ficha de inventario", benefit: "Stock, disponibilidad y operaciones vinculadas del producto, también en campo." },
-      { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.png", label: "Asistente Ceniza", benefit: "Prioriza alertas, resume la operación y prepara acciones con el mismo contexto del escritorio." },
+      { kind: "login", src: "/case-ceniza-crm-mobile-login.webp", label: "Login", benefit: "Acceso seguro a la misma operación desde cualquier dispositivo." },
+      { kind: "agenda", src: "/case-ceniza-crm-mobile-agenda.webp", label: "Agenda", benefit: "Tareas, entregas, cobros y responsables accesibles desde cualquier lugar." },
+      { kind: "inventory", src: "/case-ceniza-crm-mobile-inventory-detail.webp", label: "Ficha de inventario", benefit: "Stock, disponibilidad y operaciones vinculadas del producto, también en campo." },
+      { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.webp", label: "Asistente Ceniza", benefit: "Prioriza alertas, resume la operación y prepara acciones con el mismo contexto del escritorio." },
     ],
     assistantLabel: "ASISTENTE CENIZA · IA DENTRO DEL CRM",
     assistantTitle: "El contexto del CRM se convierte en decisiones más claras.",
@@ -726,9 +731,9 @@ const caseStudyDetailsEs = {
       { label: "EL VALOR", title: "Una solución alineada con la operación real.", text: "La marca conserva la venta asistida por personas y automatiza la entrega del e-book, la notificación interna y el registro del cliente." },
     ],
     mobileImages: [
-      { src: "/case-40plus-mobile-1.png", label: "Inicio" },
-      { src: "/case-40plus-mobile-2.png", label: "Producto" },
-      { src: "/case-40plus-mobile-3.png", label: "Ritual diario" },
+      { src: "/case-40plus-mobile-1.webp", label: "Inicio" },
+      { src: "/case-40plus-mobile-2.webp", label: "Producto" },
+      { src: "/case-40plus-mobile-3.webp", label: "Ritual diario" },
     ],
     designTitle: "El producto se mantiene claro; el siguiente paso sigue siendo práctico.",
     designCopy:
@@ -757,9 +762,9 @@ const caseStudyDetailsEs = {
       { label: "EL VALOR", title: "Un camino concreto hacia una única fuente de verdad.", text: "Los equipos pueden validar el modelo operativo antes de reemplazar los datos demo por persistencia segura e integraciones reales." },
     ],
     mobileImages: [
-      { src: "/case-naval-app-login-real.png", label: "Acceso seguro" },
-      { src: "/case-naval-app-dashboard-juan.png", label: "Dashboard" },
-      { src: "/case-naval-app-assistant.png", label: "Asistente Naval" },
+      { src: "/case-naval-app-login-real.webp", label: "Acceso seguro" },
+      { src: "/case-naval-app-dashboard-juan.webp", label: "Dashboard" },
+      { src: "/case-naval-app-assistant.webp", label: "Asistente Naval" },
     ],
     designTitle: "Claridad pública por un lado; estructura operativa por el otro.",
     designCopy:
@@ -792,12 +797,12 @@ const expandedCaseDetails = {
       galleryLabel: "PRODUCT DESIGN SYSTEM",
       galleryCount: "06 VIEWS · ONE EXPERIENCE",
       screens: [
-        { category: "Product strategy", title: "Conversion architecture", benefit: "A purposeful journey", text: "Content, education and calls to action follow the questions a customer asks before deciding.", variant: "map" },
-        { category: "E-commerce", title: "Product discovery", benefit: "Clear first impression", text: "The product, its promise and the next action stay visible without competing for attention.", variant: "website", image: "/case-40plus-desktop.png" },
-        { category: "UX", title: "Guided product detail", benefit: "Less uncertainty", text: "Benefits, format, use and practical information are ordered around a confident purchase decision.", variant: "product" },
-        { category: "UI", title: "Responsive visual system", benefit: "A consistent brand", text: "Typography, color, spacing and components preserve the same personality on every screen.", variant: "system" },
-        { category: "Conversion", title: "WhatsApp-assisted order", benefit: "A realistic checkout", text: "The customer prepares the order before continuing with the sales team in a contextual conversation.", variant: "checkout" },
-        { category: "Automation", title: "Experience follow-up", benefit: "Useful continuity", text: "A validated form triggers the e-book, an internal notification and an organized customer record.", variant: "automation" },
+        { category: "Home", title: "The product promise", benefit: "A clear first impression", text: "The real home page presents the product, its daily value and the primary action in one focused composition.", variant: "website", image: "/case-40plus-real-home-v2.webp" },
+        { category: "Daily ritual", title: "Ways to enjoy it", benefit: "A habit that feels possible", text: "Coffee, smoothies and infusions turn the product into practical, visual everyday choices.", variant: "ritual", image: "/case-40plus-real-ritual-v2.webp" },
+        { category: "Benefits", title: "Why 40+", benefit: "Information that builds trust", text: "Composition, benefits and the package remain visible before the customer moves toward purchase.", variant: "benefits", image: "/case-40plus-real-benefits-v2.webp" },
+        { category: "E-commerce", title: "Product and purchase", benefit: "A supported decision", text: "Product images, attributes, usage, price and quantity meet in the real purchasing interface.", variant: "product", image: "/case-40plus-real-product-v2.webp" },
+        { category: "Content", title: "Ritual 40+ e-book", benefit: "The experience continues", text: "A useful digital gift connects the customer story with content that extends the relationship.", variant: "ebook", image: "/case-40plus-real-ebook-v2.webp" },
+        { category: "Product detail", title: "Transparent information", benefit: "Confidence before buying", text: "Nutrition, ingredients, use and care instructions are organized in a complete, legible product section.", variant: "information", image: "/case-40plus-real-experience-v2.webp" },
       ],
       metrics: [
         { value: "UX", label: "Decision journey", note: "Content and interactions are organized around the questions that precede a purchase." },
@@ -809,9 +814,9 @@ const expandedCaseDetails = {
       mobileTitle: "The complete journey, designed for the phone first.",
       mobileCopy: "The mobile version keeps the product, proof, content and calls to action legible and comfortable. It is not a reduced desktop page; it is the same decision journey adapted to a smaller screen.",
       mobileImages: [
-        { src: "/case-40plus-mobile-1.png", label: "Home", benefit: "Brand promise and primary action without visual noise." },
-        { src: "/case-40plus-mobile-2.png", label: "Product", benefit: "Practical information arranged for quick comparison." },
-        { src: "/case-40plus-mobile-3.png", label: "Daily ritual", benefit: "Educational content that makes the product easier to adopt." },
+        { src: "/case-40plus-mobile-1.webp", label: "Home", benefit: "Brand promise and primary action without visual noise." },
+        { src: "/case-40plus-mobile-2.webp", label: "Product", benefit: "Practical information arranged for quick comparison." },
+        { src: "/case-40plus-mobile-3.webp", label: "Daily ritual", benefit: "Educational content that makes the product easier to adopt." },
       ],
       benefitsLabel: "PRODUCT VALUE",
       benefitsTitle: "Design is doing the commercial work before the conversation begins.",
@@ -821,23 +826,24 @@ const expandedCaseDetails = {
         { title: "Responsive confidence", text: "The brand, hierarchy and calls to action retain their strength on mobile." },
         { title: "Automated continuity", text: "Experience capture, content delivery and internal follow-up stop being isolated manual tasks." },
       ],
-      automationLabel: "AUTOMATION · FROM INTEREST TO FOLLOW-UP",
-      automationTitle: "The customer journey continues after the click.",
-      automationCopy: "The website prepares the context, WhatsApp supports the purchase and Make coordinates the follow-up without removing the human relationship from the process.",
+      automationLabel: "MAKE · FORM + AUTOMATED DELIVERY",
+      automationTitle: "One form triggers two useful emails and keeps the contact ready for follow-up.",
+      automationCopy: "Make receives the experience form, validates the contact information and activates two coordinated outputs: the customer receives the Ritual 40+ e-book, while the team receives the customer details and story for a personal follow-up.",
       automationSteps: [
-        { icon: "01", title: "Discover", meta: "Content · campaign" },
-        { icon: "02", title: "Understand", meta: "Product · ritual" },
-        { icon: "03", title: "Choose", meta: "Prepared order" },
-        { icon: "04", title: "Continue", meta: "WhatsApp" },
-        { icon: "05", title: "Automate", meta: "Make · email" },
-        { icon: "06", title: "Follow up", meta: "Record · next step" },
+        { icon: LuClipboardList, tone: "form", title: "Form received", meta: "Name · email · experience" },
+        { icon: SiMake, tone: "make", title: "Make organizes", meta: "Validate · route · activate" },
+        { icon: SiGmail, tone: "customer", title: "Customer email", meta: "Thank you + Ritual 40+ e-book" },
+        { icon: LuUserCheck, tone: "owner", title: "Internal email", meta: "Customer details + next step" },
       ],
       webLabel: "WEB PRODUCT · DESIGNED + BUILT",
       webTitle: "A product website where brand, education and conversion feel like one experience.",
       webCopy: "The desktop experience gives the visual identity room to breathe while maintaining a direct commercial path. Product storytelling, practical information and action are part of the same system rather than separate landing-page blocks.",
       capabilities: ["Product design", "UX/UI", "Responsive web", "Automation"],
-      outcomeTitle: "40+ turns product interest into an understandable journey, a realistic purchase action and a follow-up the business can maintain.",
-      outcomeCopy: "The result is not only a polished website. It is a web product designed around the way the brand sells, the way customers decide and the repetitive work that can be automated responsibly.",
+      webUrl: "https://cuarentamas.com/",
+      webCta: "Visit website",
+      outcomeTitle: "40+ turns interest into action.",
+      outcomeCopy: "A web product that explains the value, supports the purchase and automates follow-up without losing the human relationship.",
+      outcomeCta: "Let's talk about your product",
     },
     naval: {
       systemLabel: "ERP · CONNECTED BUSINESS OPERATION",
@@ -846,21 +852,21 @@ const expandedCaseDetails = {
       galleryLabel: "REAL ERP INTERFACES · NAVAL REPOSITORY",
       galleryCount: "15 VIEWS · NAVBAR ORDER",
       screens: [
-        { category: "Commercial · 01", title: "Sales pipeline", benefit: "Demand visibility", text: "Opportunities, customers, owners and next actions organized by stage and expected value.", variant: "pipeline", image: "/case-naval-erp-commercial-opportunities.png" },
-        { category: "Commercial · 02", title: "Commercial quotations", benefit: "Commercial continuity", text: "Proposals, validity dates, customers, owners, amounts and status remain organized inside the ERP.", variant: "table", image: "/case-naval-erp-commercial-quotes.png" },
-        { category: "Production · 01", title: "Tanks and capacity", benefit: "Visual production control", text: "The plan, active tanks, line capacity and cost per litre can be read together without leaving production.", variant: "timeline", image: "/case-naval-erp-production-overview.png" },
-        { category: "Production · 02", title: "Production orders", benefit: "Controlled execution", text: "Materials, progress, inspections and deviations remain connected to each production order.", variant: "quality", image: "/case-naval-erp-production-orders.png" },
-        { category: "Purchasing · 01", title: "Purchase order detail", benefit: "Clear, traceable document", text: "Supplier, delivery, approval status, inputs and totals are organized in one complete ERP workspace.", variant: "requests", image: "/case-naval-erp-purchases-order-redesign-v2.png" },
-        { category: "Purchasing · 02", title: "Supplier management", benefit: "Traceable purchasing", text: "Contacts, categories, payment terms, delivery status and recent purchases remain visible by supplier.", variant: "supplier", image: "/case-naval-erp-purchases-suppliers.png" },
-        { category: "Transport · 01", title: "Routes and deliveries", benefit: "Transport visibility", text: "Active routes, delivery status and evidence keep the final part of each order visible.", variant: "transport", image: "/case-naval-erp-transport-v1.png" },
-        { category: "Transport · 02", title: "Dispatch list", benefit: "Simple follow-up", text: "Scheduled, in-transit and completed dispatches are managed in a focused operational list.", variant: "transport-table", image: "/case-naval-erp-transport-v2.png" },
-        { category: "Finance · 01", title: "Receivables", benefit: "Cash control", text: "Due dates, collections and commitments connect back to the order that generated them.", variant: "finance", image: "/case-naval-erp-finance-receivables.png" },
-        { category: "Finance · 02", title: "Cost and profitability", benefit: "Margin visibility", text: "Materials, production cost, revenue and expected margin can be compared before closing the period.", variant: "bars", image: "/case-naval-erp-finance-costs.png" },
-        { category: "Reports · 01", title: "Integrated analysis", benefit: "One business view", text: "Commercial, production, purchasing and financial indicators share the same reporting period.", variant: "dashboard", image: "/case-naval-erp-reports-integral.png" },
-        { category: "Reports · 02", title: "Alerts and controls", benefit: "Measurable operation", text: "Teams compare plan versus result and trace each deviation to its source record.", variant: "report", image: "/case-naval-erp-reports-alerts.png" },
-        { category: "Settings · 01", title: "System settings", benefit: "Governed access", text: "Users, roles, permissions, integrations and audit rules are managed from one place.", variant: "settings", image: "/case-naval-erp-settings-v1.png" },
-        { category: "AI · 01", title: "Naval assistant", benefit: "Contextual decisions", text: "The demonstrative assistant summarizes risks, explains the evidence and prepares an action for human confirmation.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.png" },
-        { category: "Web · 01", title: "B2B website", benefit: "Connected demand", text: "Product discovery by line or sector becomes a qualified request ready for commercial follow-up.", variant: "website", image: "/case-naval-desktop.png" },
+        { category: "Commercial · 01", title: "Sales pipeline", benefit: "Demand visibility", text: "Opportunities, customers, owners and next actions organized by stage and expected value.", variant: "pipeline", image: "/case-naval-erp-commercial-opportunities.webp" },
+        { category: "Commercial · 02", title: "Commercial quotations", benefit: "Commercial continuity", text: "Proposals, validity dates, customers, owners, amounts and status remain organized inside the ERP.", variant: "table", image: "/case-naval-erp-commercial-quotes.webp" },
+        { category: "Production · 01", title: "Tanks and capacity", benefit: "Visual production control", text: "The plan, active tanks, line capacity and cost per litre can be read together without leaving production.", variant: "timeline", image: "/case-naval-erp-production-overview.webp" },
+        { category: "Production · 02", title: "Production orders", benefit: "Controlled execution", text: "Materials, progress, inspections and deviations remain connected to each production order.", variant: "quality", image: "/case-naval-erp-production-orders.webp" },
+        { category: "Purchasing · 01", title: "Purchase order detail", benefit: "Clear, traceable document", text: "Supplier, delivery, approval status, inputs and totals are organized in one complete ERP workspace.", variant: "requests", image: "/case-naval-erp-purchases-order-redesign-v2.webp" },
+        { category: "Purchasing · 02", title: "Supplier management", benefit: "Traceable purchasing", text: "Contacts, categories, payment terms, delivery status and recent purchases remain visible by supplier.", variant: "supplier", image: "/case-naval-erp-purchases-suppliers.webp" },
+        { category: "Transport · 01", title: "Routes and deliveries", benefit: "Transport visibility", text: "Active routes, delivery status and evidence keep the final part of each order visible.", variant: "transport", image: "/case-naval-erp-transport-v1.webp" },
+        { category: "Transport · 02", title: "Dispatch list", benefit: "Simple follow-up", text: "Scheduled, in-transit and completed dispatches are managed in a focused operational list.", variant: "transport-table", image: "/case-naval-erp-transport-v2.webp" },
+        { category: "Finance · 01", title: "Receivables", benefit: "Cash control", text: "Due dates, collections and commitments connect back to the order that generated them.", variant: "finance", image: "/case-naval-erp-finance-receivables.webp" },
+        { category: "Finance · 02", title: "Cost and profitability", benefit: "Margin visibility", text: "Materials, production cost, revenue and expected margin can be compared before closing the period.", variant: "bars", image: "/case-naval-erp-finance-costs.webp" },
+        { category: "Reports · 01", title: "Integrated analysis", benefit: "One business view", text: "Commercial, production, purchasing and financial indicators share the same reporting period.", variant: "dashboard", image: "/case-naval-erp-reports-integral.webp" },
+        { category: "Reports · 02", title: "Alerts and controls", benefit: "Measurable operation", text: "Teams compare plan versus result and trace each deviation to its source record.", variant: "report", image: "/case-naval-erp-reports-alerts.webp" },
+        { category: "Settings · 01", title: "System settings", benefit: "Governed access", text: "Users, roles, permissions, integrations and audit rules are managed from one place.", variant: "settings", image: "/case-naval-erp-settings-v1.webp" },
+        { category: "AI · 01", title: "Naval assistant", benefit: "Contextual decisions", text: "The demonstrative assistant summarizes risks, explains the evidence and prepares an action for human confirmation.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.webp" },
+        { category: "Web · 01", title: "B2B website", benefit: "Connected demand", text: "Product discovery by line or sector becomes a qualified request ready for commercial follow-up.", variant: "website", image: "/case-naval-desktop.webp" },
       ],
       metrics: [
         { value: "7", label: "Connected specialties", note: "Commercial, production, transport, purchasing, finance, reports and AI share one operating model." },
@@ -872,9 +878,9 @@ const expandedCaseDetails = {
       mobileTitle: "Naval ERP, ready to operate from anywhere.",
       mobileCopy: "The mobile concept adapts the ERP to short, high-value actions: secure access, an operational summary and contextual assistance. It is designed as an app experience—not a compressed desktop interface.",
       mobileImages: [
-        { src: "/case-naval-app-login-real.png", label: "Secure login", benefit: "Real credential access to Naval's business ecosystem." },
-        { src: "/case-naval-app-dashboard-juan.png", label: "Operational dashboard", benefit: "KPIs, priorities and production progress adapted to quick review." },
-        { src: "/case-naval-app-assistant.png", label: "Naval Assistant", benefit: "Evidence, alerts and a reviewable next action in one conversation." },
+        { src: "/case-naval-app-login-real.webp", label: "Secure login", benefit: "Real credential access to Naval's business ecosystem." },
+        { src: "/case-naval-app-dashboard-juan.webp", label: "Operational dashboard", benefit: "KPIs, priorities and production progress adapted to quick review." },
+        { src: "/case-naval-app-assistant.webp", label: "Naval Assistant", benefit: "Evidence, alerts and a reviewable next action in one conversation." },
       ],
       benefitsLabel: "OPERATIONAL VALUE",
       benefitsTitle: "The ERP is useful because every area continues the same story.",
@@ -899,13 +905,16 @@ const expandedCaseDetails = {
       assistantTitle: "Ask about the operation and receive a plan grounded in business data.",
       assistantCopy: "The current prototype demonstrates how sales, production, purchasing and finance can be read together to explain a constraint and prepare a controlled next action. The interface is ready for a verified model and authorized data connection; it does not present the demo as a live AI integration.",
       assistantQuestions: ["Which orders are at risk this week?", "What material is blocking production?", "Which collection protects cash flow first?"],
-      assistantImage: "/case-naval-erp-assistant-fullscreen.png",
-      webLabel: "B2B WEBSITE · PRODUCT DEMAND",
-      webTitle: "A public catalog that helps the right customer find the right product.",
-      webCopy: "The website organizes Naval's offer by product line and business sector. It gives hotels, restaurants, schools and distributors enough technical and commercial context to start a better-qualified conversation.",
-      capabilities: ["B2B catalog", "Product UX", "Responsive web", "ERP connection"],
-      outcomeTitle: "Naval makes a complex operation understandable from the first product search to the final business report.",
-      outcomeCopy: "The result is a clear product direction: a useful B2B experience, a structured ERP model and an AI assistant designed to work with shared operational context rather than as an isolated chatbot.",
+      assistantImage: "/case-naval-erp-assistant-fullscreen.webp",
+      webLabel: "B2B WEB + CHATBOT + ERP",
+      webTitle: "The chatbot turns every need into a traceable order.",
+      webCopy: "Inside productosnaval.com, the chatbot helps customers find the right product, review technical sheets and usage guidance, manage complaints, receive recommendations and create an order based on their specific need. The full context—product, sector, request and order—enters the ERP to trigger automated commercial and operational follow-up.",
+      capabilities: ["Catalog + SKU lookup", "Technical sheets + SDS", "Needs-based recommendation", "Orders + ERP webhooks"],
+      webUrl: "https://www.productosnaval.com/",
+      webCta: "Visit productosnaval.com",
+      outcomeTitle: "Connect your operation and move the business forward.",
+      outcomeCopy: "Bring sales, production, purchasing, inventory and finance into one clear, traceable system built to grow.",
+      outcomeCta: "Let's talk about your business",
     },
   },
   es: {
@@ -916,12 +925,12 @@ const expandedCaseDetails = {
       galleryLabel: "SISTEMA DE DISEÑO DEL PRODUCTO",
       galleryCount: "06 VISTAS · UNA SOLA EXPERIENCIA",
       screens: [
-        { category: "Estrategia de producto", title: "Arquitectura de conversión", benefit: "Un recorrido con propósito", text: "El contenido, la educación y los llamados a la acción siguen las preguntas que aparecen antes de decidir.", variant: "map" },
-        { category: "E-commerce", title: "Descubrimiento del producto", benefit: "Primera impresión clara", text: "El producto, su promesa y la siguiente acción permanecen visibles sin competir por atención.", variant: "website", image: "/case-40plus-desktop.png" },
-        { category: "UX", title: "Ficha de producto guiada", benefit: "Menos incertidumbre", text: "Beneficios, formato, uso e información práctica se ordenan alrededor de una decisión segura.", variant: "product" },
-        { category: "UI", title: "Sistema visual responsive", benefit: "Una marca consistente", text: "Tipografía, color, espaciado y componentes conservan la misma personalidad en cada pantalla.", variant: "system" },
-        { category: "Conversión", title: "Pedido asistido por WhatsApp", benefit: "Un checkout realista", text: "La persona prepara el pedido antes de continuar con el equipo comercial en una conversación con contexto.", variant: "checkout" },
-        { category: "Automatización", title: "Seguimiento de experiencia", benefit: "Continuidad útil", text: "Un formulario validado activa el e-book, la notificación interna y un registro organizado del cliente.", variant: "automation" },
+        { category: "Inicio", title: "La promesa del producto", benefit: "Primera impresión clara", text: "La portada real presenta el producto, su valor cotidiano y la acción principal dentro de una composición enfocada.", variant: "website", image: "/case-40plus-real-home-v2.webp" },
+        { category: "Ritual diario", title: "Formas de disfrutarlo", benefit: "Un hábito posible", text: "Café, smoothie e infusión convierten el producto en alternativas cotidianas, prácticas y visuales.", variant: "ritual", image: "/case-40plus-real-ritual-v2.webp" },
+        { category: "Beneficios", title: "Por qué elegir 40+", benefit: "Información que da confianza", text: "Composición, beneficios y empaque se mantienen visibles antes de avanzar hacia la compra.", variant: "benefits", image: "/case-40plus-real-benefits-v2.webp" },
+        { category: "E-commerce", title: "Producto y compra", benefit: "Decisión acompañada", text: "Imágenes, atributos, forma de uso, precio y cantidad conviven en la interfaz real de compra.", variant: "product", image: "/case-40plus-real-product-v2.webp" },
+        { category: "Contenido", title: "E-book Ritual 40+", benefit: "La experiencia continúa", text: "Un regalo digital útil conecta la historia del cliente con contenido que extiende la relación.", variant: "ebook", image: "/case-40plus-real-ebook-v2.webp" },
+        { category: "Detalle del producto", title: "Información transparente", benefit: "Confianza antes de comprar", text: "Nutrición, ingredientes, uso y cuidados se organizan en una sección completa y legible del producto.", variant: "information", image: "/case-40plus-real-experience-v2.webp" },
       ],
       metrics: [
         { value: "UX", label: "Recorrido de decisión", note: "El contenido y las interacciones responden las preguntas que anteceden una compra." },
@@ -933,9 +942,9 @@ const expandedCaseDetails = {
       mobileTitle: "El recorrido completo, diseñado primero para el celular.",
       mobileCopy: "La versión móvil mantiene legibles y cómodos el producto, la prueba, el contenido y los llamados a la acción. No es una página de escritorio reducida: es el mismo recorrido de decisión adaptado a una pantalla menor.",
       mobileImages: [
-        { src: "/case-40plus-mobile-1.png", label: "Inicio", benefit: "Promesa de marca y acción principal sin ruido visual." },
-        { src: "/case-40plus-mobile-2.png", label: "Producto", benefit: "Información práctica ordenada para comparar con rapidez." },
-        { src: "/case-40plus-mobile-3.png", label: "Ritual diario", benefit: "Contenido educativo que facilita adoptar el producto." },
+        { src: "/case-40plus-mobile-1.webp", label: "Inicio", benefit: "Promesa de marca y acción principal sin ruido visual." },
+        { src: "/case-40plus-mobile-2.webp", label: "Producto", benefit: "Información práctica ordenada para comparar con rapidez." },
+        { src: "/case-40plus-mobile-3.webp", label: "Ritual diario", benefit: "Contenido educativo que facilita adoptar el producto." },
       ],
       benefitsLabel: "VALOR DEL PRODUCTO",
       benefitsTitle: "El diseño hace el trabajo comercial antes de iniciar la conversación.",
@@ -945,23 +954,24 @@ const expandedCaseDetails = {
         { title: "Confianza responsive", text: "La marca, la jerarquía y los llamados a la acción mantienen su fuerza en celular." },
         { title: "Continuidad automatizada", text: "La captura de experiencias, la entrega de contenido y el seguimiento dejan de ser tareas manuales aisladas." },
       ],
-      automationLabel: "AUTOMATIZACIÓN · DEL INTERÉS AL SEGUIMIENTO",
-      automationTitle: "El recorrido del cliente continúa después del clic.",
-      automationCopy: "La web prepara el contexto, WhatsApp acompaña la compra y Make coordina el seguimiento sin eliminar la relación humana del proceso.",
+      automationLabel: "MAKE · FORMULARIO + ENTREGA AUTOMÁTICA",
+      automationTitle: "Un formulario activa dos correos útiles y deja cada contacto listo para continuar.",
+      automationCopy: "Make recibe el formulario de experiencia, valida los datos y activa dos salidas coordinadas: la persona recibe el e-book Ritual 40+ y el equipo recibe su información e historia para hacer un seguimiento personal.",
       automationSteps: [
-        { icon: "01", title: "Descubrir", meta: "Contenido · campaña" },
-        { icon: "02", title: "Entender", meta: "Producto · ritual" },
-        { icon: "03", title: "Elegir", meta: "Pedido preparado" },
-        { icon: "04", title: "Continuar", meta: "WhatsApp" },
-        { icon: "05", title: "Automatizar", meta: "Make · correo" },
-        { icon: "06", title: "Seguimiento", meta: "Registro · acción" },
+        { icon: LuClipboardList, tone: "form", title: "Formulario recibido", meta: "Nombre · correo · experiencia" },
+        { icon: SiMake, tone: "make", title: "Make organiza", meta: "Valida · enruta · activa" },
+        { icon: SiGmail, tone: "customer", title: "Correo al cliente", meta: "Gracias + e-book Ritual 40+" },
+        { icon: LuUserCheck, tone: "owner", title: "Correo interno", meta: "Datos del cliente + siguiente paso" },
       ],
       webLabel: "PRODUCTO WEB · DISEÑADO + DESARROLLADO",
       webTitle: "Una web donde marca, educación y conversión se sienten como una sola experiencia.",
       webCopy: "La experiencia de escritorio le da espacio a la identidad visual sin perder un camino comercial directo. La historia del producto, la información práctica y la acción forman parte del mismo sistema, no de bloques aislados de una landing.",
       capabilities: ["Diseño de producto", "UX/UI", "Web responsive", "Automatización"],
-      outcomeTitle: "40+ convierte el interés en un recorrido comprensible, una acción de compra realista y un seguimiento que el negocio puede sostener.",
-      outcomeCopy: "El resultado no es solamente una página bonita. Es un producto web diseñado alrededor de cómo vende la marca, cómo decide el cliente y qué trabajo repetitivo puede automatizarse de forma responsable.",
+      webUrl: "https://cuarentamas.com/",
+      webCta: "Ver página web",
+      outcomeTitle: "40+ convierte el interés en acción.",
+      outcomeCopy: "Un producto web que explica el valor, acompaña la compra y automatiza el seguimiento sin perder la relación humana.",
+      outcomeCta: "Hablemos de tu producto",
     },
     naval: {
       systemLabel: "ERP · OPERACIÓN EMPRESARIAL CONECTADA",
@@ -970,21 +980,21 @@ const expandedCaseDetails = {
       galleryLabel: "INTERFACES REALES · REPOSITORIO NAVAL",
       galleryCount: "15 VISTAS · ORDEN DEL NAVBAR",
       screens: [
-        { category: "Comercial · 01", title: "Pipeline de ventas", benefit: "Visibilidad de la demanda", text: "Oportunidades, clientes, responsables y siguientes acciones organizados por etapa y valor esperado.", variant: "pipeline", image: "/case-naval-erp-commercial-opportunities.png" },
-        { category: "Comercial · 02", title: "Cotizaciones comerciales", benefit: "Continuidad comercial", text: "Propuestas, vigencias, clientes, responsables, valores y estados permanecen organizados dentro del ERP.", variant: "table", image: "/case-naval-erp-commercial-quotes.png" },
-        { category: "Producción · 01", title: "Tanques y capacidad", benefit: "Control visual de producción", text: "El plan, los tanques activos, la capacidad de las líneas y el costo por litro se leen juntos sin salir de producción.", variant: "timeline", image: "/case-naval-erp-production-overview.png" },
-        { category: "Producción · 02", title: "Órdenes de producción", benefit: "Ejecución controlada", text: "Materiales, avance, inspecciones y novedades permanecen conectados con cada orden de producción.", variant: "quality", image: "/case-naval-erp-production-orders.png" },
-        { category: "Compras · 01", title: "Orden de compra en detalle", benefit: "Documento claro y trazable", text: "Proveedor, entrega, aprobaciones, insumos y totales quedan organizados en una sola vista del ERP.", variant: "requests", image: "/case-naval-erp-purchases-order-redesign-v2.png" },
-        { category: "Compras · 02", title: "Gestión de proveedores", benefit: "Compra trazable", text: "Contactos, categorías, condiciones de pago, estado de entrega y compras recientes permanecen visibles por proveedor.", variant: "supplier", image: "/case-naval-erp-purchases-suppliers.png" },
-        { category: "Transporte · 01", title: "Rutas y entregas", benefit: "Visibilidad del transporte", text: "Rutas activas, estado de entrega y evidencias mantienen visible la última parte de cada pedido.", variant: "transport", image: "/case-naval-erp-transport-v1.png" },
-        { category: "Transporte · 02", title: "Listado de despachos", benefit: "Seguimiento simple", text: "Los despachos programados, en ruta y completados se gestionan desde una lista operativa enfocada.", variant: "transport-table", image: "/case-naval-erp-transport-v2.png" },
-        { category: "Finanzas · 01", title: "Cuentas por cobrar", benefit: "Control de caja", text: "Vencimientos, recaudos y compromisos regresan al pedido que originó cada movimiento.", variant: "finance", image: "/case-naval-erp-finance-receivables.png" },
-        { category: "Finanzas · 02", title: "Costos y rentabilidad", benefit: "Visibilidad del margen", text: "Materiales, costo productivo, ingresos y margen esperado pueden compararse antes del cierre.", variant: "bars", image: "/case-naval-erp-finance-costs.png" },
-        { category: "Reportes · 01", title: "Análisis integral", benefit: "Una vista del negocio", text: "Indicadores comerciales, productivos, de compras y financieros comparten el mismo período.", variant: "dashboard", image: "/case-naval-erp-reports-integral.png" },
-        { category: "Reportes · 02", title: "Alertas y controles", benefit: "Operación medible", text: "Los equipos comparan plan contra resultado y rastrean cada desviación hasta su registro de origen.", variant: "report", image: "/case-naval-erp-reports-alerts.png" },
-        { category: "Configuración · 01", title: "Configuración del sistema", benefit: "Acceso gobernado", text: "Usuarios, roles, permisos, integraciones y reglas de auditoría se administran desde un solo lugar.", variant: "settings", image: "/case-naval-erp-settings-v1.png" },
-        { category: "IA · 01", title: "Asistente Naval", benefit: "Decisiones con contexto", text: "El asistente demostrativo resume riesgos, explica la evidencia y prepara una acción para confirmación humana.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.png" },
-        { category: "Web · 01", title: "Página B2B", benefit: "Demanda conectada", text: "El descubrimiento por línea o sector se convierte en una solicitud calificada para el equipo comercial.", variant: "website", image: "/case-naval-desktop.png" },
+        { category: "Comercial · 01", title: "Pipeline de ventas", benefit: "Visibilidad de la demanda", text: "Oportunidades, clientes, responsables y siguientes acciones organizados por etapa y valor esperado.", variant: "pipeline", image: "/case-naval-erp-commercial-opportunities.webp" },
+        { category: "Comercial · 02", title: "Cotizaciones comerciales", benefit: "Continuidad comercial", text: "Propuestas, vigencias, clientes, responsables, valores y estados permanecen organizados dentro del ERP.", variant: "table", image: "/case-naval-erp-commercial-quotes.webp" },
+        { category: "Producción · 01", title: "Tanques y capacidad", benefit: "Control visual de producción", text: "El plan, los tanques activos, la capacidad de las líneas y el costo por litro se leen juntos sin salir de producción.", variant: "timeline", image: "/case-naval-erp-production-overview.webp" },
+        { category: "Producción · 02", title: "Órdenes de producción", benefit: "Ejecución controlada", text: "Materiales, avance, inspecciones y novedades permanecen conectados con cada orden de producción.", variant: "quality", image: "/case-naval-erp-production-orders.webp" },
+        { category: "Compras · 01", title: "Orden de compra en detalle", benefit: "Documento claro y trazable", text: "Proveedor, entrega, aprobaciones, insumos y totales quedan organizados en una sola vista del ERP.", variant: "requests", image: "/case-naval-erp-purchases-order-redesign-v2.webp" },
+        { category: "Compras · 02", title: "Gestión de proveedores", benefit: "Compra trazable", text: "Contactos, categorías, condiciones de pago, estado de entrega y compras recientes permanecen visibles por proveedor.", variant: "supplier", image: "/case-naval-erp-purchases-suppliers.webp" },
+        { category: "Transporte · 01", title: "Rutas y entregas", benefit: "Visibilidad del transporte", text: "Rutas activas, estado de entrega y evidencias mantienen visible la última parte de cada pedido.", variant: "transport", image: "/case-naval-erp-transport-v1.webp" },
+        { category: "Transporte · 02", title: "Listado de despachos", benefit: "Seguimiento simple", text: "Los despachos programados, en ruta y completados se gestionan desde una lista operativa enfocada.", variant: "transport-table", image: "/case-naval-erp-transport-v2.webp" },
+        { category: "Finanzas · 01", title: "Cuentas por cobrar", benefit: "Control de caja", text: "Vencimientos, recaudos y compromisos regresan al pedido que originó cada movimiento.", variant: "finance", image: "/case-naval-erp-finance-receivables.webp" },
+        { category: "Finanzas · 02", title: "Costos y rentabilidad", benefit: "Visibilidad del margen", text: "Materiales, costo productivo, ingresos y margen esperado pueden compararse antes del cierre.", variant: "bars", image: "/case-naval-erp-finance-costs.webp" },
+        { category: "Reportes · 01", title: "Análisis integral", benefit: "Una vista del negocio", text: "Indicadores comerciales, productivos, de compras y financieros comparten el mismo período.", variant: "dashboard", image: "/case-naval-erp-reports-integral.webp" },
+        { category: "Reportes · 02", title: "Alertas y controles", benefit: "Operación medible", text: "Los equipos comparan plan contra resultado y rastrean cada desviación hasta su registro de origen.", variant: "report", image: "/case-naval-erp-reports-alerts.webp" },
+        { category: "Configuración · 01", title: "Configuración del sistema", benefit: "Acceso gobernado", text: "Usuarios, roles, permisos, integraciones y reglas de auditoría se administran desde un solo lugar.", variant: "settings", image: "/case-naval-erp-settings-v1.webp" },
+        { category: "IA · 01", title: "Asistente Naval", benefit: "Decisiones con contexto", text: "El asistente demostrativo resume riesgos, explica la evidencia y prepara una acción para confirmación humana.", variant: "assistant", image: "/case-naval-erp-assistant-fullscreen.webp" },
+        { category: "Web · 01", title: "Página B2B", benefit: "Demanda conectada", text: "El descubrimiento por línea o sector se convierte en una solicitud calificada para el equipo comercial.", variant: "website", image: "/case-naval-desktop.webp" },
       ],
       metrics: [
         { value: "7", label: "Especialidades conectadas", note: "Comercial, producción, transporte, compras, finanzas, reportes e IA comparten un modelo operativo." },
@@ -996,9 +1006,9 @@ const expandedCaseDetails = {
       mobileTitle: "El ERP de Naval, listo para operar desde cualquier lugar.",
       mobileCopy: "El concepto móvil adapta el ERP a acciones cortas y de alto valor: acceso seguro, resumen operativo y asistencia con contexto. Está diseñado como experiencia de app, no como una interfaz de escritorio comprimida.",
       mobileImages: [
-        { src: "/case-naval-app-login-real.png", label: "Acceso seguro", benefit: "Acceso real con credenciales al ecosistema empresarial de Naval." },
-        { src: "/case-naval-app-dashboard-juan.png", label: "Dashboard operativo", benefit: "Indicadores, prioridades y avance productivo adaptados para consulta rápida." },
-        { src: "/case-naval-app-assistant.png", label: "Asistente Naval", benefit: "Evidencia, alertas y una siguiente acción revisable en la conversación." },
+        { src: "/case-naval-app-login-real.webp", label: "Acceso seguro", benefit: "Acceso real con credenciales al ecosistema empresarial de Naval." },
+        { src: "/case-naval-app-dashboard-juan.webp", label: "Dashboard operativo", benefit: "Indicadores, prioridades y avance productivo adaptados para consulta rápida." },
+        { src: "/case-naval-app-assistant.webp", label: "Asistente Naval", benefit: "Evidencia, alertas y una siguiente acción revisable en la conversación." },
       ],
       benefitsLabel: "VALOR OPERATIVO",
       benefitsTitle: "El ERP es útil porque cada área continúa la misma historia.",
@@ -1023,13 +1033,16 @@ const expandedCaseDetails = {
       assistantTitle: "Pregunta por la operación y recibe un plan sustentado en datos del negocio.",
       assistantCopy: "El prototipo actual demuestra cómo comercial, producción, compras y finanzas pueden leerse en conjunto para explicar una restricción y preparar la siguiente acción controlada. La interfaz está lista para conectar un modelo verificado y datos autorizados; la demo no se presenta como una integración de IA activa.",
       assistantQuestions: ["¿Qué pedidos están en riesgo esta semana?", "¿Qué material está bloqueando producción?", "¿Qué cobro protege primero el flujo de caja?"],
-      assistantImage: "/case-naval-erp-assistant-fullscreen.png",
-      webLabel: "PÁGINA B2B · DEMANDA DE PRODUCTO",
-      webTitle: "Un catálogo público que ayuda al cliente correcto a encontrar el producto correcto.",
-      webCopy: "La página organiza la oferta de Naval por línea de producto y sector empresarial. Entrega a hoteles, restaurantes, colegios y distribuidores suficiente contexto técnico y comercial para iniciar una conversación mejor calificada.",
-      capabilities: ["Catálogo B2B", "UX de producto", "Web responsive", "Conexión ERP"],
-      outcomeTitle: "Naval hace comprensible una operación compleja desde la primera búsqueda de producto hasta el reporte final del negocio.",
-      outcomeCopy: "El resultado es una dirección de producto clara: una experiencia B2B útil, un modelo ERP estructurado y un asistente de IA diseñado para trabajar con contexto operativo compartido, no como un chatbot aislado.",
+      assistantImage: "/case-naval-erp-assistant-fullscreen.webp",
+      webLabel: "WEB B2B + CHATBOT + ERP",
+      webTitle: "El chatbot convierte cada necesidad en un pedido trazable.",
+      webCopy: "Dentro de productosnaval.com, el chatbot ayuda a encontrar el producto adecuado, consultar fichas técnicas y formas de uso, gestionar quejas, recibir recomendaciones y crear un pedido según la necesidad del cliente. Todo el contexto —producto, sector, solicitud y pedido— entra al ERP para activar un seguimiento comercial y operativo automatizado.",
+      capabilities: ["Catálogo + consulta de SKU", "Fichas técnicas + SDS", "Recomendación por necesidad", "Pedidos + webhooks al ERP"],
+      webUrl: "https://www.productosnaval.com/",
+      webCta: "Visitar productosnaval.com",
+      outcomeTitle: "Conecta tu operación y haz que el negocio avance.",
+      outcomeCopy: "Reúne ventas, producción, compras, inventario y finanzas en un sistema claro, trazable y listo para crecer.",
+      outcomeCta: "Hablemos de tu negocio",
     },
   },
 };
@@ -1038,7 +1051,7 @@ function ProjectVisual({ visual }) {
   const folderContents = (
     <>
       <span className="folder-surface" aria-hidden="true">
-        <img src="/project-folder-glass-cropped-v2.png" alt="" />
+        <img src="/project-folder-glass-cropped-v2.webp" alt="" />
       </span>
       <span className="folder-label">{projectFolderLabels[visual]}</span>
       {(
@@ -1246,21 +1259,21 @@ function ProfilePage({ language }) {
           </svg>
 
           <span className="profile-fur-orb profile-fur-orb-mint" aria-hidden="true">
-            <img className="profile-fur-base" src="/profile-fuzzy-orb-mint-v4.png" alt="" />
-            <img className="profile-fur-detail" src="/profile-fuzzy-orb-mint-v3.png" alt="" />
+            <img className="profile-fur-base" src="/profile-fuzzy-orb-mint-v4.webp" alt="" />
+            <img className="profile-fur-detail" src="/profile-fuzzy-orb-mint-v3.webp" alt="" />
           </span>
           <span className="profile-fur-orb profile-fur-orb-ivory" aria-hidden="true">
-            <img className="profile-fur-base" src="/profile-fuzzy-orb-ivory-v4.png" alt="" />
-            <img className="profile-fur-detail" src="/profile-fuzzy-orb-ivory-v3.png" alt="" />
+            <img className="profile-fur-base" src="/profile-fuzzy-orb-ivory-v4.webp" alt="" />
+            <img className="profile-fur-detail" src="/profile-fuzzy-orb-ivory-v3.webp" alt="" />
           </span>
           <span className="profile-fur-orb profile-fur-orb-stone" aria-hidden="true">
-            <img className="profile-fur-base" src="/profile-fuzzy-orb-stone-v4.png" alt="" />
-            <img className="profile-fur-detail" src="/profile-fuzzy-orb-stone-v3.png" alt="" />
+            <img className="profile-fur-base" src="/profile-fuzzy-orb-stone-v4.webp" alt="" />
+            <img className="profile-fur-detail" src="/profile-fuzzy-orb-stone-v3.webp" alt="" />
           </span>
 
           <figure className="profile-cutout">
             <img
-              src="/diego-franco-cutout-final.png"
+              src="/diego-franco-cutout-final.webp"
               alt="Diego Franco"
               loading="eager"
               decoding="async"
@@ -1347,25 +1360,25 @@ function CaseWorkflow({ project, detail, language }) {
 
 function CenizaCrmPreview({ detail, language, label }) {
   const screens = language === "es" ? [
-    { title: "Dashboard", benefit: "Control del negocio", text: "Reúne indicadores, clientes recientes, próximos hitos, oportunidades, entregas, inventario y rendimiento financiero para entender el negocio y decidir dónde actuar.", src: "/case-ceniza-laptop-dashboard.png", alt: "Indicadores y paneles operativos del dashboard del CRM de Ceniza", scale: "1", position: "center top", fit: "cover" },
-    { title: "Agenda", benefit: "Prioridades claras", text: "Centraliza calendario, tareas, cobros, entregas, responsables y alertas. Permite ordenar prioridades y dar a cada pendiente una fecha y un siguiente paso.", src: "/case-ceniza-laptop-agenda.png", alt: "Calendario operativo de la agenda del CRM de Ceniza", scale: "1", position: "center bottom" },
-    { title: "Clientes", benefit: "Contexto compartido", text: "Guarda datos de contacto, origen, necesidad, estado, conversaciones y próxima actividad, conservando el historial completo de cada relación.", src: "/case-ceniza-laptop-clients.png", alt: "Tabla y filtros de clientes del CRM de Ceniza", scale: "1", position: "center bottom" },
-    { title: "Cotizaciones", benefit: "Continuidad comercial", text: "Reúne cliente, alcance, conceptos, cantidades, precios, impuestos, condiciones de pago, responsables y fechas; al aprobarse, alimenta la operación sin duplicar datos.", src: "/case-ceniza-laptop-quotes.png", alt: "Detalle de conceptos y condiciones de una cotización de Ceniza", scale: "1", position: "center bottom" },
-    { title: "Inventario", benefit: "Confianza operativa", text: "Muestra existencias, equipos disponibles, reservados y en uso, características, accesorios y operaciones vinculadas antes de confirmar un alquiler o producción.", src: "/case-ceniza-laptop-inventory.png", alt: "Ficha de disponibilidad y características de un equipo del inventario de Ceniza", scale: "1", position: "center bottom" },
-    { title: "Reportes", benefit: "Lectura ejecutiva", text: "Resume resultados comerciales, operativos, financieros, de inventario y documentos en un mismo período para comparar, exportar y decidir.", src: "/case-ceniza-laptop-reports.png", alt: "Resumen ejecutivo y tabla de reportes del CRM de Ceniza", scale: "1", position: "center top" },
-    { title: "Finanzas", benefit: "Trazabilidad financiera", text: "Conecta ingresos, costos, cuentas por cobrar y pagar, movimientos, recaudo y rentabilidad con la cotización u operación que originó cada valor.", src: "/case-ceniza-laptop-finance.png", alt: "Indicadores y movimientos de la página financiera del CRM de Ceniza", scale: "1", position: "center bottom" },
-    { title: "Página web", benefit: "Entrada conectada", text: "Presenta los servicios y equipos de Ceniza y convierte el interés del visitante en una solicitud con contexto que continúa dentro del CRM.", src: "/case-ceniza-laptop-website.png", alt: "Página web pública de Ceniza conectada con el CRM", scale: "1", position: "center top" },
-    { title: "Asistente IA", benefit: "Decisiones en contexto", text: "Lee la página activa, prioriza alertas, resume la operación y prepara el siguiente paso sin separar la asistencia del trabajo diario.", src: "/case-ceniza-laptop-assistant-chat.png", alt: "Vista completa del Asistente de IA de Ceniza", scale: "1", position: "center top", fit: "cover" },
+    { title: "Dashboard", benefit: "Control del negocio", text: "Reúne indicadores, clientes recientes, próximos hitos, oportunidades, entregas, inventario y rendimiento financiero para entender el negocio y decidir dónde actuar.", src: "/case-ceniza-laptop-dashboard.webp", alt: "Indicadores y paneles operativos del dashboard del CRM de Ceniza", scale: "1", position: "center top", fit: "cover" },
+    { title: "Agenda", benefit: "Prioridades claras", text: "Centraliza calendario, tareas, cobros, entregas, responsables y alertas. Permite ordenar prioridades y dar a cada pendiente una fecha y un siguiente paso.", src: "/case-ceniza-laptop-agenda.webp", alt: "Calendario operativo de la agenda del CRM de Ceniza", scale: "1", position: "center bottom" },
+    { title: "Clientes", benefit: "Contexto compartido", text: "Guarda datos de contacto, origen, necesidad, estado, conversaciones y próxima actividad, conservando el historial completo de cada relación.", src: "/case-ceniza-laptop-clients.webp", alt: "Tabla y filtros de clientes del CRM de Ceniza", scale: "1", position: "center bottom" },
+    { title: "Cotizaciones", benefit: "Continuidad comercial", text: "Reúne cliente, alcance, conceptos, cantidades, precios, impuestos, condiciones de pago, responsables y fechas; al aprobarse, alimenta la operación sin duplicar datos.", src: "/case-ceniza-laptop-quotes.webp", alt: "Detalle de conceptos y condiciones de una cotización de Ceniza", scale: "1", position: "center bottom" },
+    { title: "Inventario", benefit: "Confianza operativa", text: "Muestra existencias, equipos disponibles, reservados y en uso, características, accesorios y operaciones vinculadas antes de confirmar un alquiler o producción.", src: "/case-ceniza-laptop-inventory.webp", alt: "Ficha de disponibilidad y características de un equipo del inventario de Ceniza", scale: "1", position: "center bottom" },
+    { title: "Reportes", benefit: "Lectura ejecutiva", text: "Resume resultados comerciales, operativos, financieros, de inventario y documentos en un mismo período para comparar, exportar y decidir.", src: "/case-ceniza-laptop-reports.webp", alt: "Resumen ejecutivo y tabla de reportes del CRM de Ceniza", scale: "1", position: "center top" },
+    { title: "Finanzas", benefit: "Trazabilidad financiera", text: "Conecta ingresos, costos, cuentas por cobrar y pagar, movimientos, recaudo y rentabilidad con la cotización u operación que originó cada valor.", src: "/case-ceniza-laptop-finance.webp", alt: "Indicadores y movimientos de la página financiera del CRM de Ceniza", scale: "1", position: "center bottom" },
+    { title: "Página web", benefit: "Entrada conectada", text: "Presenta los servicios y equipos de Ceniza y convierte el interés del visitante en una solicitud con contexto que continúa dentro del CRM.", src: "/case-ceniza-laptop-website.webp", alt: "Página web pública de Ceniza conectada con el CRM", scale: "1", position: "center top" },
+    { title: "Asistente IA", benefit: "Decisiones en contexto", text: "Lee la página activa, prioriza alertas, resume la operación y prepara el siguiente paso sin separar la asistencia del trabajo diario.", src: "/case-ceniza-laptop-assistant-chat.webp", alt: "Vista completa del Asistente de IA de Ceniza", scale: "1", position: "center top", fit: "cover" },
   ] : [
-    { title: "Dashboard", benefit: "Business control", text: "Brings together indicators, recent clients, upcoming milestones, opportunities, deliveries, inventory and financial performance to reveal where the business needs action.", src: "/case-ceniza-laptop-dashboard.png", alt: "Operational indicators and panels in the Ceniza CRM dashboard", scale: "1", position: "center top", fit: "cover" },
-    { title: "Agenda", benefit: "Clear priorities", text: "Centralizes the calendar, tasks, collections, deliveries, owners and alerts so every priority has a date and a clear next step.", src: "/case-ceniza-laptop-agenda.png", alt: "Operating calendar in the Ceniza CRM agenda", scale: "1", position: "center bottom" },
-    { title: "Clients", benefit: "Shared context", text: "Keeps contact details, source, need, status, conversations and next activity together, preserving the full history of every relationship.", src: "/case-ceniza-laptop-clients.png", alt: "Client table and filters in the Ceniza CRM", scale: "1", position: "center bottom" },
-    { title: "Quotes", benefit: "Commercial continuity", text: "Combines the client, scope, items, quantities, pricing, taxes, payment terms, owners and dates; approval then moves the same data into the operation.", src: "/case-ceniza-laptop-quotes.png", alt: "Items and commercial terms in a Ceniza quote", scale: "1", position: "center bottom" },
-    { title: "Inventory", benefit: "Operational confidence", text: "Shows stock, available, reserved and active equipment, specifications, accessories and related operations before a rental or production is confirmed.", src: "/case-ceniza-laptop-inventory.png", alt: "Equipment availability and specifications in Ceniza inventory", scale: "1", position: "center bottom" },
-    { title: "Reports", benefit: "Executive view", text: "Summarizes commercial, operational, financial, inventory and document results for the same period so the team can compare, export and decide.", src: "/case-ceniza-laptop-reports.png", alt: "Executive summary and report table in the Ceniza CRM", scale: "1", position: "center top" },
-    { title: "Finance", benefit: "Financial traceability", text: "Connects revenue, costs, receivables, payables, movements, collections and profitability to the quote or operation behind every amount.", src: "/case-ceniza-laptop-finance.png", alt: "Indicators and movements on the Ceniza CRM finance page", scale: "1", position: "center bottom" },
-    { title: "Website", benefit: "Connected entry point", text: "Presents Ceniza's services and equipment, then turns visitor interest into a contextual request that continues inside the CRM.", src: "/case-ceniza-laptop-website.png", alt: "Public Ceniza website connected with the CRM", scale: "1", position: "center top" },
-    { title: "AI Assistant", benefit: "Contextual decisions", text: "Reads the active page, prioritizes alerts, summarizes the operation and prepares the next step without separating assistance from daily work.", src: "/case-ceniza-laptop-assistant-chat.png", alt: "Full-screen Ceniza AI Assistant view", scale: "1", position: "center top", fit: "cover" },
+    { title: "Dashboard", benefit: "Business control", text: "Brings together indicators, recent clients, upcoming milestones, opportunities, deliveries, inventory and financial performance to reveal where the business needs action.", src: "/case-ceniza-laptop-dashboard.webp", alt: "Operational indicators and panels in the Ceniza CRM dashboard", scale: "1", position: "center top", fit: "cover" },
+    { title: "Agenda", benefit: "Clear priorities", text: "Centralizes the calendar, tasks, collections, deliveries, owners and alerts so every priority has a date and a clear next step.", src: "/case-ceniza-laptop-agenda.webp", alt: "Operating calendar in the Ceniza CRM agenda", scale: "1", position: "center bottom" },
+    { title: "Clients", benefit: "Shared context", text: "Keeps contact details, source, need, status, conversations and next activity together, preserving the full history of every relationship.", src: "/case-ceniza-laptop-clients.webp", alt: "Client table and filters in the Ceniza CRM", scale: "1", position: "center bottom" },
+    { title: "Quotes", benefit: "Commercial continuity", text: "Combines the client, scope, items, quantities, pricing, taxes, payment terms, owners and dates; approval then moves the same data into the operation.", src: "/case-ceniza-laptop-quotes.webp", alt: "Items and commercial terms in a Ceniza quote", scale: "1", position: "center bottom" },
+    { title: "Inventory", benefit: "Operational confidence", text: "Shows stock, available, reserved and active equipment, specifications, accessories and related operations before a rental or production is confirmed.", src: "/case-ceniza-laptop-inventory.webp", alt: "Equipment availability and specifications in Ceniza inventory", scale: "1", position: "center bottom" },
+    { title: "Reports", benefit: "Executive view", text: "Summarizes commercial, operational, financial, inventory and document results for the same period so the team can compare, export and decide.", src: "/case-ceniza-laptop-reports.webp", alt: "Executive summary and report table in the Ceniza CRM", scale: "1", position: "center top" },
+    { title: "Finance", benefit: "Financial traceability", text: "Connects revenue, costs, receivables, payables, movements, collections and profitability to the quote or operation behind every amount.", src: "/case-ceniza-laptop-finance.webp", alt: "Indicators and movements on the Ceniza CRM finance page", scale: "1", position: "center bottom" },
+    { title: "Website", benefit: "Connected entry point", text: "Presents Ceniza's services and equipment, then turns visitor interest into a contextual request that continues inside the CRM.", src: "/case-ceniza-laptop-website.webp", alt: "Public Ceniza website connected with the CRM", scale: "1", position: "center top" },
+    { title: "AI Assistant", benefit: "Contextual decisions", text: "Reads the active page, prioritizes alerts, summarizes the operation and prepares the next step without separating assistance from daily work.", src: "/case-ceniza-laptop-assistant-chat.webp", alt: "Full-screen Ceniza AI Assistant view", scale: "1", position: "center top", fit: "cover" },
   ];
 
   return (
@@ -1491,10 +1504,10 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     label: "INTEGRACIÓN DE IA · UN SOLO CONTEXTO OPERATIVO",
     title: "La IA convierte el contexto en acción y mejores decisiones.",
     embeddedLabel: "CÓMO FUNCIONA",
-    embeddedTitle: "Un mismo flujo conecta toda la operación.",
+    embeddedTitle: "Las áreas del CRM alimentan al Asistente Ceniza.",
     copy: "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, prioriza la agenda, prepara cotizaciones y ejecuta acciones dentro de la operación. Al mismo tiempo consulta inventario y finanzas, actualiza el dashboard y cruza señales para detectar riesgos y recomendar una siguiente acción revisable.",
     nodes: [
-      { position: "intake", icon: LuSparkles, title: "Asistente IA", meta: "Lee las señales" },
+      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Conecta y prioriza" },
       { position: "client", icon: LuUsers, title: "Cliente", meta: "Contexto e historial" },
       { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Prioridad y responsable" },
       { position: "quote", icon: LuFileText, title: "Cotización", meta: "Valor y estado" },
@@ -1507,10 +1520,10 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     label: "AI INTEGRATION · ONE OPERATING CONTEXT",
     title: "AI turns context into action and better decisions.",
     embeddedLabel: "HOW IT WORKS",
-    embeddedTitle: "One workflow connects the whole operation.",
+    embeddedTitle: "CRM areas feed Asistente Ceniza with context.",
     copy: "Asistente Ceniza works across the complete record: it understands the client, prioritizes the agenda, prepares quotes and executes actions inside the operation. At the same time, it consults inventory and finance, updates the dashboard and connects signals to detect risks and recommend a reviewable next action.",
     nodes: [
-      { position: "intake", icon: LuSparkles, title: "AI assistant", meta: "Reads the signals" },
+      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Connects and prioritizes" },
       { position: "client", icon: LuUsers, title: "Client", meta: "Context and history" },
       { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Priority and owner" },
       { position: "quote", icon: LuFileText, title: "Quote", meta: "Value and status" },
@@ -1524,28 +1537,43 @@ function CenizaConnectionFlow({ language, embedded = false }) {
   return (
     <section className={`ceniza-connection-section${embedded ? " is-embedded" : ""}`} aria-labelledby="ceniza-connection-title">
       <header className="ceniza-connection-header">
-        <p className="case-label">{embedded ? content.embeddedLabel : content.label}</p>
+        <AnimatedEyebrow text={embedded ? content.embeddedLabel : content.label} className="case-label" />
         <h2 id="ceniza-connection-title">{embedded ? content.embeddedTitle : content.title}</h2>
         {!embedded ? <p className="ceniza-connection-copy">{content.copy}</p> : null}
       </header>
-      <figure className="ceniza-connection-figure">
-        <div className="ceniza-connection-canvas">
-          <svg viewBox="0 0 1270 380" aria-hidden="true">
-            <defs>
-              <marker id="ceniza-flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" />
-              </marker>
-            </defs>
-            <path d="M185 190H205" />
-            <path d="M390 190C410 190 405 96 425 96" />
-            <path d="M390 190C410 190 405 284 425 284" />
-            <path d="M610 96C630 96 625 190 645 190" />
-            <path d="M610 284C630 284 625 190 645 190" />
-            <path d="M830 190C850 190 845 96 865 96" />
-            <path d="M830 190C850 190 845 284 865 284" />
-            <path d="M1050 96C1070 96 1045 190 1065 190" />
-            <path d="M1050 284C1070 284 1045 190 1065 190" />
-          </svg>
+      <figure className={`ceniza-connection-figure${embedded ? " is-radial" : ""}`}>
+        <div className={`ceniza-connection-canvas${embedded ? " is-radial" : ""}`}>
+          {embedded ? (
+            <svg viewBox="0 0 1100 500" aria-hidden="true">
+              <path d="M198 50H530" />
+              <path d="M440 50H530" />
+              <path d="M198 250H530" />
+              <path d="M440 250H530" />
+              <path d="M198 450H530" />
+              <path d="M440 450H530" />
+              <path d="M530 50V450" />
+              <path d="M530 250H605" />
+              <path d="M825 250H902" />
+              <circle cx="530" cy="250" r="8" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 1270 380" aria-hidden="true">
+              <defs>
+                <marker id="ceniza-flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" />
+                </marker>
+              </defs>
+              <path d="M185 190H205" />
+              <path d="M390 190C410 190 405 96 425 96" />
+              <path d="M390 190C410 190 405 284 425 284" />
+              <path d="M610 96C630 96 625 190 645 190" />
+              <path d="M610 284C630 284 625 190 645 190" />
+              <path d="M830 190C850 190 845 96 865 96" />
+              <path d="M830 190C850 190 845 284 865 284" />
+              <path d="M1050 96C1070 96 1045 190 1065 190" />
+              <path d="M1050 284C1070 284 1045 190 1065 190" />
+            </svg>
+          )}
           <ol>
             {content.nodes.map((node) => {
               const Icon = node.icon;
@@ -1568,7 +1596,7 @@ function CenizaResponsiveCrm({ detail, language }) {
   return (
     <div className="ceniza-responsive-crm" aria-labelledby="ceniza-responsive-title">
       <header className="ceniza-responsive-header">
-        <p className="case-label">{detail.crmMobileLabel}</p>
+        <AnimatedEyebrow text={detail.crmMobileLabel} className="case-label" />
         <h3 id="ceniza-responsive-title">{detail.crmMobileTitle}</h3>
         <p>{detail.crmMobileCopy}</p>
       </header>
@@ -1768,7 +1796,7 @@ function CenizaAssistantPreview({ detail, language }) {
 
         <aside className="ceniza-assistant-phone-column" aria-labelledby="ceniza-conversation-title">
           <div className="ceniza-assistant-phone-copy">
-            <p className="case-label">{isEs ? "DECISIONES CON CONTEXTO" : "DECISIONS WITH CONTEXT"}</p>
+            <AnimatedEyebrow text={isEs ? "DECISIONES CON CONTEXTO" : "DECISIONS WITH CONTEXT"} className="case-label" />
             <h3 id="ceniza-conversation-title">{isEs ? "Pregunta por el negocio. Recibe un plan listo para actuar." : "Ask about the business. Get a plan ready to act on."}</h3>
           </div>
           <CenizaAssistantConversation language={language} />
@@ -1801,36 +1829,29 @@ function CenizaAutomationBridge({ language }) {
       destination: { icon: LuDatabase, label: "CRM", meta: isEs ? "Lead, responsable y siguiente paso" : "Lead, owner and next step", service: "crm", featured: true },
     },
     {
-      layout: "catalog",
+      layout: "crm",
       number: "02",
-      eyebrow: isEs ? "ECOSISTEMA DE INTEGRACIONES" : "INTEGRATION ECOSYSTEM",
-      title: isEs ? "El CRM puede sumar las aplicaciones que la operación necesite." : "The CRM can add the applications the operation needs.",
+      eyebrow: isEs ? "RECORRIDO DENTRO DEL CRM" : "CRM OPERATING FLOW",
+      title: isEs ? "Cada oportunidad continúa hasta la operación y las finanzas." : "Every opportunity continues through operations and finance.",
       description: isEs
-        ? "Agenda, archivos, conversaciones, pagos y contabilidad se conectan por módulos, según el proceso de Ceniza."
-        : "Calendar, files, conversations, payments and accounting connect in modules according to Ceniza's process.",
+        ? "Clientes, oportunidades, cotización, renta o producción, facturación y cartera comparten el mismo registro, responsable y siguiente paso."
+        : "Clients, opportunities, quotes, rentals or production, invoicing and receivables share the same record, owner and next step.",
       groups: [
         {
-          label: isEs ? "ORGANIZAR" : "ORGANIZE",
+          label: isEs ? "COMERCIAL + OPERACIÓN" : "SALES + OPERATIONS",
           nodes: [
-            { icon: SiGooglecalendar, label: "Calendar", service: "calendar" },
-            { icon: SiGoogledrive, label: "Drive", service: "drive" },
-            { icon: SiDropbox, label: "Dropbox", service: "dropbox" },
-          ],
-        },
-        {
-          label: isEs ? "COMUNICAR" : "COMMUNICATE",
-          nodes: [
-            { icon: SiGmail, label: isEs ? "Correo" : "Email", service: "gmail" },
-            { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
-            { icon: SiZoom, label: "Zoom", service: "zoom" },
+            { icon: LuUsers, label: isEs ? "Clientes" : "Clients", service: "clients" },
+            { icon: LuTarget, label: isEs ? "Oportunidades" : "Opportunities", service: "opportunities" },
+            { icon: LuFileText, label: isEs ? "Cotización" : "Quote", service: "quote" },
+            { icon: LuFactory, label: isEs ? "Renta / producción" : "Rental / production", service: "operation" },
           ],
         },
         {
           label: isEs ? "FINANZAS" : "FINANCE",
           nodes: [
-            { icon: SiStripe, label: "Stripe", service: "stripe", optional: true },
-            { icon: SiMercadopago, label: "Mercado Pago", service: "mercadopago", optional: true },
-            { wordmark: "siigo", label: "Siigo", service: "siigo", optional: true },
+            { icon: LuClipboardList, label: isEs ? "Facturación" : "Invoicing", service: "invoicing" },
+            { icon: LuTrendingUp, label: isEs ? "Por cobrar" : "Receivables", service: "receivables" },
+            { icon: LuShoppingCart, label: isEs ? "Por pagar" : "Payables", service: "payables" },
           ],
         },
       ],
@@ -1859,6 +1880,39 @@ function CenizaAutomationBridge({ language }) {
         { icon: SiN8N, label: "n8n", service: "n8n" },
       ],
     },
+    {
+      layout: "catalog",
+      number: "04",
+      eyebrow: isEs ? "APIS + SERVICIOS CONECTADOS" : "APIS + CONNECTED SERVICES",
+      title: isEs ? "El ecosistema integra lo que ya opera y puede sumar nuevas herramientas." : "The ecosystem integrates what already runs and can add new tools.",
+      description: isEs
+        ? "Las conexiones actuales comparten datos con el CRM; nuevos servicios pueden incorporarse por API o automatización sin reconstruir el proceso."
+        : "Current connections share data with the CRM; new services can be added through APIs or automation without rebuilding the process.",
+      groups: [
+        {
+          label: isEs ? "CONECTADO" : "CONNECTED",
+          nodes: [
+            { icon: SiSupabase, label: "Supabase", service: "supabase" },
+            { icon: SiPostgresql, label: "PostgreSQL", service: "postgresql" },
+            { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
+            { icon: SiGmail, label: isEs ? "Correo" : "Email", service: "gmail" },
+            { icon: SiN8N, label: "n8n", service: "n8n" },
+            { icon: LuGlobe, label: "Webhooks", service: "webhooks" },
+          ],
+        },
+        {
+          label: isEs ? "SE PUEDE CONECTAR" : "READY TO CONNECT",
+          nodes: [
+            { icon: SiGooglecalendar, label: "Calendar", service: "calendar", optional: true },
+            { icon: SiGoogledrive, label: "Drive", service: "drive", optional: true },
+            { icon: SiZoom, label: "Zoom", service: "zoom", optional: true },
+            { icon: SiStripe, label: "Stripe", service: "stripe", optional: true },
+            { icon: SiMercadopago, label: "Mercado Pago", service: "mercadopago", optional: true },
+            { wordmark: "siigo", label: "Siigo", service: "siigo", optional: true },
+          ],
+        },
+      ],
+    },
   ];
 
   const renderNode = (node, className = "") => {
@@ -1878,8 +1932,8 @@ function CenizaAutomationBridge({ language }) {
       <header className="ceniza-automation-bridge-header">
         <CenizaEyebrow text={isEs ? "AUTOMATIZACIONES + INTEGRACIONES CRM" : "CRM AUTOMATIONS + INTEGRATIONS"} />
         <div>
-          <h2 id="ceniza-automation-title">{isEs ? "Automatizaciones que conectan cada lead con la operación." : "Automations that connect every lead with operations."}</h2>
-          <p>{isEs ? "Cada contacto conserva su origen, avanza por el CRM y activa el seguimiento sin duplicar información." : "Every contact keeps its source, moves through the CRM and activates follow-up without duplicating information."}</p>
+          <h2 id="ceniza-automation-title">{isEs ? "Cuatro flujos conectan cada lead con la operación." : "Four flows connect every lead with operations."}</h2>
+          <p>{isEs ? "La información entra una vez: se captura, avanza por el CRM, activa asistencia y se conecta con las herramientas que cada proceso necesita." : "Information enters once: it is captured, moves through the CRM, activates assistance and connects with the tools each process needs."}</p>
         </div>
       </header>
 
@@ -1906,6 +1960,24 @@ function CenizaAutomationBridge({ language }) {
                   <div className="ceniza-app-group" key={group.label}>
                     <small>{group.label}</small>
                     <div>{group.nodes.map((node) => renderNode(node))}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {automation.layout === "crm" && (
+              <div className="ceniza-crm-journey" aria-label={automation.eyebrow}>
+                {automation.groups.map((group) => (
+                  <div className="ceniza-crm-lane" key={group.label}>
+                    <small>{group.label}</small>
+                    <div className="ceniza-crm-lane-flow">
+                      {group.nodes.map((node, index) => (
+                        <div className="ceniza-mini-flow-step" key={node.label}>
+                          {renderNode(node)}
+                          {index < group.nodes.length - 1 && <LuArrowRight className="ceniza-mini-flow-arrow" aria-hidden="true" />}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1949,7 +2021,7 @@ function CaseNarrative({ detail, language, compact = false }) {
       {detail.story.map((item, index) => (
         <article key={item.label}>
           <span>{isCompact ? index + 1 : String(index + 1).padStart(2, "0")}</span>
-          <p className="case-label">{item.label}</p>
+          <AnimatedEyebrow text={item.label} className="case-label" threshold={0.48} />
           <h2>{item.title}</h2>
           <p>{item.text}</p>
         </article>
@@ -2020,11 +2092,16 @@ function ExpandedSystemPreview({ project, content, language }) {
             <h2 id={`${project.visual}-system-title`}>{content.systemTitle}</h2>
             <p>{content.systemCopy}</p>
           </div>
+          {content.webUrl ? (
+            <a className="ceniza-section-link is-website" href={content.webUrl} target="_blank" rel="noreferrer">
+              <span>{content.webCta}</span><span aria-hidden="true">↗</span>
+            </a>
+          ) : null}
         </div>
       </header>
 
       <figure className="ceniza-crm-figure expanded-system-gallery">
-        <figcaption><span>{content.galleryLabel}</span><span>{content.galleryCount}</span></figcaption>
+        <figcaption><AnimatedEyebrow text={content.galleryLabel} className="expanded-gallery-eyebrow" threshold={0.5} /><span>{content.galleryCount}</span></figcaption>
         <ol className="ceniza-crm-flow-grid">
           {content.screens.map((screen, index) => (
             <li className="ceniza-crm-flow-card" key={`${screen.category}-${screen.title}`}>
@@ -2047,7 +2124,7 @@ function ExpandedSystemPreview({ project, content, language }) {
 
       <div className="ceniza-responsive-crm" aria-labelledby={`${project.visual}-mobile-title`}>
         <header className="ceniza-responsive-header">
-          <p className="case-label">{content.mobileLabel}</p>
+          <AnimatedEyebrow text={content.mobileLabel} className="case-label" threshold={0.48} />
           <h3 id={`${project.visual}-mobile-title`}>{content.mobileTitle}</h3>
           <p>{content.mobileCopy}</p>
         </header>
@@ -2070,7 +2147,7 @@ function ExpandedBenefits({ project, content }) {
       <header><CenizaEyebrow text={content.benefitsLabel} /><h2 id={`${project.visual}-benefits-title`}>{content.benefitsTitle}</h2></header>
       <div className="ceniza-benefit-grid">
         {content.benefits.map((benefit, index) => (
-          <article key={benefit.title}><span>{project.visual === "naval" ? index + 1 : String(index + 1).padStart(2, "0")}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></article>
+          <article key={benefit.title}><span>{index + 1}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></article>
         ))}
       </div>
     </section>
@@ -2120,19 +2197,19 @@ function NavalProductionSection({ language }) {
 
       <div className="naval-production-proof">
         <figure>
-          <img src="/case-naval-production-order-detail-v2.png" alt={language === "es" ? "Orden de producción abierta con avance, materiales, calidad y trazabilidad" : "Open production order with progress, materials, quality and traceability"} loading="lazy" decoding="async" />
+          <img src="/case-naval-production-order-detail-v2.webp" alt={language === "es" ? "Orden de producción abierta con avance, materiales, calidad y trazabilidad" : "Open production order with progress, materials, quality and traceability"} loading="lazy" decoding="async" />
           <figcaption><small>{language === "es" ? "CONCEPTO FUNCIONAL · EN DESARROLLO" : "FUNCTIONAL CONCEPT · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Una orden abierta, de la fórmula a la liberación." : "An open order, from formula to release."}</strong><span>{language === "es" ? "Propuesta de evolución para reunir avance, consumos, lote, tanque, calidad y novedades dentro de la misma operación." : "Proposed evolution for bringing progress, consumption, lot, tank, quality and exceptions into the same operation."}</span></figcaption>
         </figure>
         <figure>
-          <img src="/case-naval-production-tanks.png" alt={language === "es" ? "Control de tanques, capacidad, lotes y producto en Naval" : "Naval tanks, capacity, lots and product control"} loading="lazy" decoding="async" />
+          <img src="/case-naval-production-tanks.webp" alt={language === "es" ? "Control de tanques, capacidad, lotes y producto en Naval" : "Naval tanks, capacity, lots and product control"} loading="lazy" decoding="async" />
           <figcaption><small>{language === "es" ? "VISTA PROPUESTA · EN DESARROLLO" : "PROPOSED VIEW · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Cada tanque muestra qué produce y cuánto puede recibir." : "Every tank shows what it produces and the capacity it can receive."}</strong><span>{language === "es" ? "Dirección de diseño para consultar volumen, producto, lote, ocupación, programación y calidad sin cambiar de módulo." : "Design direction for reviewing volume, product, lot, utilization, schedule and quality without changing modules."}</span></figcaption>
         </figure>
         <figure>
-          <img src="/case-naval-finished-product-v2.png" alt={language === "es" ? "Propuesta de producto terminado, calidad y liberación de lote" : "Proposed finished-product, quality and lot-release view"} loading="lazy" decoding="async" />
+          <img src="/case-naval-finished-product-v2.webp" alt={language === "es" ? "Propuesta de producto terminado, calidad y liberación de lote" : "Proposed finished-product, quality and lot-release view"} loading="lazy" decoding="async" />
           <figcaption><small>{language === "es" ? "CONTROL DE SALIDA · EN DESARROLLO" : "OUTPUT CONTROL · IN DEVELOPMENT"}</small><strong>{language === "es" ? "El lote termina cuando puede liberarse con evidencia." : "The lot is complete when it can be released with evidence."}</strong><span>{language === "es" ? "Calidad, cantidad producida, envasado, etiquetado y destino quedan vinculados antes de autorizar el movimiento." : "Quality, produced quantity, packaging, labeling and destination stay connected before the movement is authorized."}</span></figcaption>
         </figure>
         <figure>
-          <img src="/case-naval-inventory-kardex-v2.png" alt={language === "es" ? "Propuesta de Kardex y trazabilidad de inventario" : "Proposed inventory Kardex and traceability view"} loading="lazy" decoding="async" />
+          <img src="/case-naval-inventory-kardex-v2.webp" alt={language === "es" ? "Propuesta de Kardex y trazabilidad de inventario" : "Proposed inventory Kardex and traceability view"} loading="lazy" decoding="async" />
           <figcaption><small>{language === "es" ? "TRAZABILIDAD DE INVENTARIO · EN DESARROLLO" : "INVENTORY TRACEABILITY · IN DEVELOPMENT"}</small><strong>{language === "es" ? "Cada movimiento explica de dónde vino y dónde terminó el stock." : "Every movement explains where inventory came from and where it went."}</strong><span>{language === "es" ? "Entradas de producción, reservas, despachos, ajustes y saldos conservan documento, lote, responsable y fecha." : "Production receipts, reservations, dispatches, adjustments and balances retain their document, lot, owner and date."}</span></figcaption>
         </figure>
       </div>
@@ -2154,7 +2231,7 @@ function NavalFinancialIntelligence({ language }) {
       </header>
       <div className="naval-finance-content">
         <figure>
-          <img src="/case-naval-financial-report-v1.png" alt={language === "es" ? "Informe financiero ejecutivo exportado desde el ERP Naval con ingresos, costos, margen, caja y cartera" : "Executive financial report exported from Naval ERP with revenue, costs, margin, cash flow and receivables"} loading="lazy" decoding="async" />
+          <img src="/case-naval-financial-report-v1.webp" alt={language === "es" ? "Informe financiero ejecutivo exportado desde el ERP Naval con ingresos, costos, margen, caja y cartera" : "Executive financial report exported from Naval ERP with revenue, costs, margin, cash flow and receivables"} loading="lazy" decoding="async" />
           <figcaption>{language === "es" ? "Concepto de informe exportable: una lectura ejecutiva de ingresos, costos, margen, caja, cartera y rentabilidad por línea." : "Exportable report concept: an executive view of revenue, costs, margin, cash flow, receivables and profitability by product line."}</figcaption>
         </figure>
         <ul>
@@ -2258,20 +2335,37 @@ function NavalAutomationBridge({ content, language }) {
 }
 
 function ExpandedAutomation({ project, content }) {
+  const isForty = project.visual === "forty";
   return (
-    <section className="ceniza-automation-bridge expanded-automation" aria-labelledby={`${project.visual}-automation-title`}>
+    <section className={`ceniza-automation-bridge expanded-automation${isForty ? " forty-make-automation" : ""}`} aria-labelledby={`${project.visual}-automation-title`}>
       <header className="ceniza-automation-bridge-header">
         <CenizaEyebrow text={content.automationLabel} />
         <div><h2 id={`${project.visual}-automation-title`}>{content.automationTitle}</h2><p>{content.automationCopy}</p></div>
       </header>
-      <ol className="expanded-automation-track">
+      <ol className={`expanded-automation-track${isForty ? " is-make-flow" : ""}`}>
         {content.automationSteps.map((step, index) => (
-          <li key={step.title}>
-            <span>{step.icon}</span><strong>{step.title}</strong><small>{step.meta}</small>
+          <li className={step.tone ? `is-${step.tone}` : undefined} key={step.title}>
+            <span>{typeof step.icon === "string" ? step.icon : <step.icon aria-hidden="true" />}</span><strong>{step.title}</strong><small>{step.meta}</small>
             {index < content.automationSteps.length - 1 ? <LuArrowRight aria-hidden="true" /> : null}
           </li>
         ))}
       </ol>
+      {isForty ? (
+        <div className="forty-automation-proof">
+          <figure className="forty-ebook-proof">
+            <img src="/case-40plus-ebook-cover-real.webp" alt="Portada real del e-book Ritual 40+" loading="lazy" decoding="async" />
+            <figcaption><small>E-BOOK ADJUNTO</small><strong>Ritual 40+</strong><span>Recetario digital + mini planner.</span></figcaption>
+          </figure>
+          <figure className="forty-email-proof">
+            <div className="forty-email-proof-window"><img src="/case-40plus-email-customer-real.webp" alt="Correo real enviado al cliente con acceso al e-book Ritual 40+" loading="lazy" decoding="async" /></div>
+            <figcaption><small>CORREO AL CLIENTE</small><strong>Entrega automática confirmada</strong><span>Mensaje de agradecimiento, descarga del e-book y regreso al producto.</span></figcaption>
+          </figure>
+          <figure className="forty-email-proof is-owner">
+            <div className="forty-email-proof-window"><img src="/case-40plus-email-owner-real.webp" alt="Correo interno real con la información recibida desde el formulario de experiencia 40+" loading="lazy" decoding="async" /></div>
+            <figcaption><small>CORREO INTERNO</small><strong>Datos listos para continuar</strong><span>Contacto, experiencia, autorizaciones y origen del formulario en un mismo mensaje.</span></figcaption>
+          </figure>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -2293,7 +2387,7 @@ function ExpandedAssistant({ project, content, language }) {
         ) : null}
         <div className="expanded-assistant-dialogue">
           <div className="expanded-assistant-questions">
-            <p className="case-label">{language === "es" ? "PREGUNTAS SOBRE LA OPERACIÓN" : "QUESTIONS ABOUT THE OPERATION"}</p>
+            <AnimatedEyebrow text={language === "es" ? "PREGUNTAS SOBRE LA OPERACIÓN" : "QUESTIONS ABOUT THE OPERATION"} className="case-label" />
             {content.assistantQuestions.map((question) => <p key={question}>{question}<span>↗</span></p>)}
           </div>
           <div className="expanded-assistant-answer">
@@ -2316,7 +2410,7 @@ function ExpandedAssistant({ project, content, language }) {
 }
 
 function ExpandedWebSection({ project, content, language }) {
-  const image = project.visual === "forty" ? "/case-40plus-desktop.png" : "/case-naval-desktop.png";
+  const image = project.visual === "forty" ? "/case-40plus-real-home-v2.webp" : "/case-naval-desktop.webp";
   return (
     <section className="ceniza-web-section expanded-web-section" aria-labelledby={`${project.visual}-web-title`}>
       {project.visual === "naval" ? <CenizaEyebrow text={content.webLabel} /> : null}
@@ -2329,45 +2423,37 @@ function ExpandedWebSection({ project, content, language }) {
             <ul className="ceniza-web-capabilities" aria-label={language === "es" ? "Capacidades del producto web" : "Web product capabilities"}>
               {content.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
             </ul>
+            {content.webUrl ? (
+              <a className="ceniza-section-link is-website expanded-web-link" href={content.webUrl} target="_blank" rel="noreferrer">
+                <span>{content.webCta}</span><span aria-hidden="true">↗</span>
+              </a>
+            ) : null}
           </div>
         </div>
-        <figure className="expanded-web-preview">
-          <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>{project.visual === "forty" ? "cuarentamas.com" : "productosnaval.com"}</i></div><img src={image} alt={`${project.name}: ${language === "es" ? "página web" : "website"}`} loading="lazy" decoding="async" /></div>
-        </figure>
-      </div>
-    </section>
-  );
-}
-
-function NavalAdoptionStrip({ language }) {
-  const cards = language === "es"
-    ? [
-      ["01", "Acceso por perfil", "Cada rol inicia en los módulos y acciones que necesita para operar."],
-      ["02", "Contexto compartido", "Clientes, pedidos, lotes y costos conservan relaciones visibles entre equipos."],
-      ["03", "Asistencia dentro del flujo", "La persona consulta riesgos y recibe evidencia sin abandonar el ERP."],
-      ["04", "Relevo controlado", "Alertas, aprobaciones e historial permiten retomar el trabajo sin reconstruirlo."],
-    ]
-    : [
-      ["01", "Profile-based access", "Each role starts in the modules and actions needed for their work."],
-      ["02", "Shared context", "Customers, orders, lots and costs keep visible relationships across teams."],
-      ["03", "In-flow assistance", "People review risks and evidence without leaving the ERP."],
-      ["04", "Controlled handoff", "Alerts, approvals and history let the next person continue without rebuilding context."],
-    ];
-
-  return (
-    <section className="naval-adoption-strip" aria-labelledby="naval-adoption-title">
-      <header>
-        <CenizaEyebrow text={language === "es" ? "ADOPCIÓN · PERFILES + CONTEXTO + RELEVO" : "ADOPTION · PROFILES + CONTEXT + HANDOFF"} />
-        <h2 id="naval-adoption-title">{language === "es" ? "Un ERP se adopta cuando cada persona entiende qué ver, qué hacer y qué dejar listo." : "An ERP gets adopted when each person understands what to see, what to do and what to leave ready."}</h2>
-      </header>
-      <div>
-        {cards.map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+        {project.visual === "naval" ? (
+          <div className="naval-web-preview-stack">
+            <figure className="expanded-web-preview is-home">
+              <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>productosnaval.com</i></div><img src={image} alt={language === "es" ? "Portada real de productosnaval.com" : "Real productosnaval.com home page"} loading="lazy" decoding="async" /></div>
+              <figcaption>{language === "es" ? "PORTADA B2B · DESCUBRIMIENTO DE PRODUCTO" : "B2B HOME · PRODUCT DISCOVERY"}</figcaption>
+            </figure>
+            <figure className="expanded-web-preview is-chatbot">
+              <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>productosnaval.com/productos</i></div><img src="/case-naval-web-chatbot-real.webp" alt={language === "es" ? "Catálogo real de Naval con el chatbot abierto" : "Real Naval catalog with the chatbot open"} loading="lazy" decoding="async" /></div>
+              <figcaption>{language === "es" ? "CHATBOT CONECTADO · CONSULTA, RECOMENDACIÓN Y PEDIDO" : "CONNECTED CHATBOT · SEARCH, RECOMMENDATION AND ORDER"}</figcaption>
+            </figure>
+          </div>
+        ) : (
+          <figure className="expanded-web-preview">
+            <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>cuarentamas.com</i></div><img src={image} alt={`${project.name}: ${language === "es" ? "página web" : "website"}`} loading="lazy" decoding="async" /></div>
+          </figure>
+        )}
       </div>
     </section>
   );
 }
 
 function NavalSecuritySection({ language }) {
+  const [isLocked, setIsLocked] = useState(false);
+  const toggleLock = () => setIsLocked((locked) => !locked);
   const pillars = language === "es"
     ? [
       ["Roles y permisos", "El prototipo ya modela perfiles y alcances; producción requiere autenticación real y autorización persistente."],
@@ -2384,17 +2470,30 @@ function NavalSecuritySection({ language }) {
 
   return (
     <section className="ceniza-security-section naval-security-section" aria-labelledby="naval-security-title">
-      <figure className="naval-security-proof">
-        <div className="desktop-browser-frame">
-          <div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>naval / administración / auditoría</i></div>
-          <img src="/case-naval-erp-security-audit.png" alt={language === "es" ? "Bitácora de auditoría del prototipo ERP Naval" : "Audit log in the Naval ERP prototype"} loading="lazy" decoding="async" />
+      <div
+        className={`ceniza-security-visual${isLocked ? " is-locked" : ""}`}
+        role="img"
+        tabIndex="0"
+        aria-label={language === "es" ? `Candado ${isLocked ? "cerrado" : "abierto"}. Cada nueva pasada del cursor cambia su estado.` : `${isLocked ? "Closed" : "Open"} padlock. Each new hover changes its state.`}
+        onMouseEnter={toggleLock}
+        onPointerDown={(event) => {
+          if (event.pointerType !== "mouse") toggleLock();
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleLock();
+          }
+        }}
+      >
+        <div className="ceniza-lock-animation" aria-hidden="true">
+          <img className="ceniza-lock-image is-open" src="/ceniza-lock-open.webp" alt="" />
+          <img className="ceniza-lock-image is-closed" src="/ceniza-lock-closed.webp" alt="" />
         </div>
-        <div className="naval-security-secondary">
-          <img src="/case-naval-erp-security-users.png" alt={language === "es" ? "Vista de usuarios y roles del prototipo ERP Naval" : "Users and roles view in the Naval ERP prototype"} loading="lazy" decoding="async" />
-          <span>{language === "es" ? "USUARIOS + ROLES" : "USERS + ROLES"}</span>
-        </div>
-        <figcaption>{language === "es" ? "La interfaz demuestra roles, auditoría y aprobaciones; la protección productiva se plantea como la siguiente capa técnica." : "The interface demonstrates roles, audit and approvals; production-grade protection is framed as the next technical layer."}</figcaption>
-      </figure>
+        <span className="ceniza-lock-status">
+          {language === "es" ? (isLocked ? "ACCESO PROTEGIDO" : "ACCESO DISPONIBLE") : (isLocked ? "ACCESS PROTECTED" : "ACCESS READY")}
+        </span>
+      </div>
 
       <div className="ceniza-security-content">
         <header>
@@ -2421,13 +2520,12 @@ function ExpandedCaseContent({ project, language }) {
       <ExpandedBenefits project={project} content={content} />
       {project.visual === "naval" ? <NavalAutomationBridge content={content} language={language} /> : <ExpandedAutomation project={project} content={content} />}
       <ExpandedAssistant project={project} content={content} language={language} />
-      <ExpandedWebSection project={project} content={content} language={language} />
-      {project.visual === "naval" ? <NavalAdoptionStrip language={language} /> : null}
+      {project.visual !== "forty" ? <ExpandedWebSection project={project} content={content} language={language} /> : null}
       {project.visual === "naval" ? <NavalSecuritySection language={language} /> : null}
       <section className="editorial-case-outcome ceniza-case-outcome expanded-case-outcome">
         <CenizaEyebrow text={text.outcome} threshold={0.4} />
         <div className="ceniza-outcome-summary"><h2>{content.outcomeTitle}</h2><p>{content.outcomeCopy}</p></div>
-        <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer"><span>{text.getInTouch}</span><span aria-hidden="true">↗</span></a>
+        <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer"><span>{content.outcomeCta || text.getInTouch}</span><span aria-hidden="true">↗</span></a>
       </section>
     </>
   );
@@ -2459,33 +2557,33 @@ function CenizaAdoptionStrip({ language }) {
           {language === "es" ? "Aprender y retomar, desde el mismo CRM." : "Learn and pick up where others left off, inside the CRM."}
         </h2>
         <p>
-          {language === "es" ? "Desde su perfil, cada persona abre Demos del CRM y recorre la plataforma desde el principio. En el Asistente Ceniza puede pedir el contexto de lo que estaba en curso y saber qué debe hacer ahora." : "From their profile, each person opens CRM Demos and explores the platform from the beginning. In Asistente Ceniza, they can request the context of ongoing work and see what to do next."}
+          {language === "es" ? "Desde su perfil, cada persona abre el recorrido guiado del CRM y aprende la plataforma desde el principio. En el Asistente Ceniza recibe un resumen del negocio, alertas operativas y preguntas útiles para retomar el trabajo con contexto." : "From their profile, each person opens the guided CRM walkthrough and learns the platform from the beginning. In Asistente Ceniza, they receive a business summary, operational alerts and useful questions to resume work with context."}
         </p>
       </header>
 
-      <div className="ceniza-adoption-demo" aria-label={language === "es" ? "Ficha de perfil con Demos del CRM y chat del Asistente Ceniza" : "Profile card with CRM Demos and Asistente Ceniza chat"}>
+      <div className="ceniza-adoption-demo" aria-label={language === "es" ? "Perfil con recorrido del CRM y panel real del Asistente Ceniza" : "Profile with CRM walkthrough and real Asistente Ceniza panel"}>
         <figure className="ceniza-adoption-isolated-card is-profile">
           <div className="ceniza-adoption-card-crop">
             <img
-              src="/ceniza-profile-card-v4.png"
-              alt={language === "es" ? "Ficha de Laura Gómez con el botón Demos del CRM" : "Laura Gómez profile card with the CRM Demos button"}
+              src="/ceniza-onboarding-profile-cutout-v2.webp"
+              alt={language === "es" ? "Modal real del perfil de Ceniza con acceso al recorrido del CRM" : "Real Ceniza profile modal with access to the CRM walkthrough"}
               loading="lazy"
               decoding="async"
             />
           </div>
-          <figcaption>{language === "es" ? "Demo guiado desde el perfil." : "Guided demo from the profile."}</figcaption>
+          <figcaption>{language === "es" ? "Perfil real con acceso al recorrido del CRM." : "Real profile with access to the CRM walkthrough."}</figcaption>
         </figure>
 
         <figure className="ceniza-adoption-isolated-card is-assistant">
           <div className="ceniza-adoption-card-crop">
             <img
-              src="/ceniza-assistant-card-v4.png"
-              alt={language === "es" ? "Chat del Asistente Ceniza con feedback y siguiente paso" : "Asistente Ceniza chat with feedback and next step"}
+              src="/ceniza-onboarding-assistant-cutout-v2.webp"
+              alt={language === "es" ? "Panel real del Asistente Ceniza con resumen, alertas y preguntas útiles" : "Real Asistente Ceniza panel with a summary, alerts and useful questions"}
               loading="lazy"
               decoding="async"
             />
           </div>
-          <figcaption>{language === "es" ? "Feedback y siguiente paso en el chat." : "Feedback and next step in the chat."}</figcaption>
+          <figcaption>{language === "es" ? "Resumen, alertas y preguntas útiles dentro del sistema." : "Summary, alerts and useful questions inside the system."}</figcaption>
         </figure>
       </div>
     </section>
@@ -2515,8 +2613,8 @@ function CenizaSecurity({ language }) {
         }}
       >
         <div className="ceniza-lock-animation" aria-hidden="true">
-          <img className="ceniza-lock-image is-open" src="/ceniza-lock-open.png" alt="" />
-          <img className="ceniza-lock-image is-closed" src="/ceniza-lock-closed.png" alt="" />
+          <img className="ceniza-lock-image is-open" src="/ceniza-lock-open.webp" alt="" />
+          <img className="ceniza-lock-image is-closed" src="/ceniza-lock-closed.webp" alt="" />
         </div>
         <span className="ceniza-lock-status">
           {language === "es" ? (isLocked ? "ACCESO PROTEGIDO" : "ACCESO DISPONIBLE") : (isLocked ? "ACCESS PROTECTED" : "ACCESS READY")}
@@ -2592,7 +2690,7 @@ function CenizaCaseContent({ project, detail, language }) {
           </div>
 
           <figure className="ceniza-web-composition">
-            <img className="ceniza-web-device-scene" src="/case-ceniza-web-device-scene-transparent.png" alt={language === "es" ? "Combo Creator Pro de Ceniza en computador y contacto por WhatsApp o formulario en celular" : "Ceniza Creator Pro bundle on desktop and WhatsApp or form contact on mobile"} loading="lazy" decoding="async" />
+            <img className="ceniza-web-device-scene" src="/case-ceniza-web-device-scene-transparent.webp" alt={language === "es" ? "Combo Creator Pro de Ceniza en computador y contacto por WhatsApp o formulario en celular" : "Ceniza Creator Pro bundle on desktop and WhatsApp or form contact on mobile"} loading="lazy" decoding="async" />
           </figure>
 
           <ol className="ceniza-web-paths" aria-label={language === "es" ? "Recorrido de la página web" : "Website journey"}>
@@ -2652,10 +2750,10 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
       </a>
       <section className="editorial-case-hero" aria-labelledby="case-title">
         <div className="editorial-case-copy">
-          {project.visual === "ceniza" ? (
-            <CenizaEyebrow text={`${text.caseStudy} · CENIZA`} className="eyebrow" dot threshold={0.25} />
+          {project.visual === "ceniza" || project.visual === "forty" ? (
+            <CenizaEyebrow text={`${text.caseStudy} · ${project.visual === "ceniza" ? "CENIZA" : "40+"}`} className="eyebrow" dot threshold={0.25} />
           ) : (
-            <p className="eyebrow"><span className="availability-dot loading-dot" />{text.caseStudy} · {project.visual === "naval" ? "NAVAL" : project.number}</p>
+            <AnimatedEyebrow text={`${text.caseStudy} · ${project.visual === "naval" ? "NAVAL" : project.number}`} className="eyebrow" dot threshold={0.25} />
           )}
           <h1 id="case-title">{detail.title}</h1>
           <p>{project.description}</p>
@@ -2677,7 +2775,7 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
           <div><dt>{text.myRole}</dt><dd>{project.role}</dd></div>
         </dl>
         <div>
-          {project.visual === "ceniza" ? <CenizaEyebrow text={text.theProject} /> : <p className="case-label">{text.theProject}</p>}
+          {project.visual === "ceniza" || project.visual === "forty" ? <CenizaEyebrow text={text.theProject} threshold={0.42} /> : <AnimatedEyebrow text={text.theProject} className="case-label" threshold={0.42} />}
           <h2 id="case-overview-title">{detail.introTitle}</h2>
           <p>{detail.intro}</p>
         </div>
@@ -2711,12 +2809,12 @@ function ContactPage({ language }) {
     const form = new FormData(event.currentTarget);
     const name = form.get("name")?.toString().trim() || (isEs ? "Una persona interesada" : "A potential collaborator");
     const senderEmail = form.get("email")?.toString().trim() || "";
-    const projectType = form.get("projectType")?.toString().trim() || "";
-    const message = form.get("message")?.toString().trim() || "";
-    const subject = isEs ? `Nuevo proyecto · ${projectType || "Conversemos"}` : `New project · ${projectType || "Let's talk"}`;
+    const idea = form.get("idea")?.toString().trim() || (isEs ? "una nueva idea" : "a new idea");
+    const business = form.get("business")?.toString().trim() || "";
+    const subject = isEs ? `Nueva idea · ${idea}` : `New idea · ${idea}`;
     const body = isEs
-      ? `Hola Diego,\n\nSoy ${name}. Vi tu portafolio y me gustaría conversar sobre ${projectType || "un proyecto"}.\n\n${message}\n\nMi correo: ${senderEmail}\n\nQuedo atento/a.`
-      : `Hi Diego,\n\nI'm ${name}. I saw your portfolio and would like to talk about ${projectType || "a project"}.\n\n${message}\n\nMy email: ${senderEmail}\n\nLooking forward to hearing from you.`;
+      ? `Hola Diego,\n\nSoy ${name} y quiero conversar contigo sobre esta idea:\n${idea}\n\nSobre el negocio:\n${business}\n\nMi correo: ${senderEmail}\n\nQuedo atento/a.`
+      : `Hi Diego,\n\nI'm ${name}, and I would like to talk with you about this idea:\n${idea}\n\nAbout the business:\n${business}\n\nMy email: ${senderEmail}\n\nLooking forward to hearing from you.`;
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
@@ -2725,21 +2823,19 @@ function ContactPage({ language }) {
     <main className="contact-page" aria-labelledby="contact-page-title">
       <section className="contact-page-hero">
         <div className="contact-page-intro">
-          <p className="eyebrow"><span className="availability-dot loading-dot" />{isEs ? "HABLEMOS DE TU IDEA" : "LET'S TALK ABOUT YOUR IDEA"}</p>
-          <h1 id="contact-page-title">{isEs ? <>Convirtamos una necesidad<br /><em>en un sistema que funcione.</em></> : <>Let’s turn a real need<br /><em>into a system that works.</em></>}</h1>
-          <p>{isEs ? "Cuéntame brevemente qué quieres mejorar, conectar o automatizar. Te responderé con preguntas concretas para entender el siguiente paso." : "Tell me briefly what you want to improve, connect or automate. I’ll reply with focused questions to understand the next step."}</p>
+          <AnimatedEyebrow text={isEs ? "HABLEMOS DE TU IDEA" : "LET'S TALK ABOUT YOUR IDEA"} className="eyebrow" dot threshold={0.25} />
+          <h1 id="contact-page-title">{isEs ? <>Ideas convertidas<br />en <em>sistemas.</em></> : <>Ideas into <em>systems.</em></>}</h1>
+          <p>{isEs ? "Cuéntame qué necesita tu negocio y diseñemos una solución clara que conecte procesos, datos, automatización e IA." : "Tell me what you want to build, connect or automate, and let’s shape the next step."}</p>
 
           <div className="contact-methods" aria-label={isEs ? "Canales de contacto" : "Contact channels"}>
             <a className="contact-method" href={`mailto:${CONTACT_EMAIL}`}>
               <span aria-hidden="true"><SiGmail /></span>
               <div><small>{isEs ? "CORREO DIRECTO" : "DIRECT EMAIL"}</small><strong>{CONTACT_EMAIL}</strong></div>
-              <Arrow diagonal />
             </a>
             {CONTACT_WHATSAPP_URL ? (
               <a className="contact-method is-whatsapp" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer">
                 <span aria-hidden="true"><SiWhatsapp /></span>
                 <div><small>WHATSAPP</small><strong>{isEs ? "Abrir conversación" : "Start a conversation"}</strong></div>
-                <Arrow diagonal />
               </a>
             ) : (
               <div className="contact-method is-whatsapp is-pending" aria-label={isEs ? "WhatsApp pendiente de configurar" : "WhatsApp pending configuration"}>
@@ -2751,59 +2847,60 @@ function ContactPage({ language }) {
             <a className="contact-method is-linkedin" href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
               <span aria-hidden="true"><FaLinkedinIn /></span>
               <div><small>LINKEDIN</small><strong>{isEs ? "Conectemos profesionalmente" : "Let’s connect professionally"}</strong></div>
-              <Arrow diagonal />
             </a>
             <a className="contact-method is-cv" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
               <span aria-hidden="true"><LuFileText /></span>
               <div><small>{isEs ? "PERFIL PROFESIONAL" : "PROFESSIONAL PROFILE"}</small><strong>{isEs ? "Descargar CV" : "Download CV"}</strong></div>
-              <Arrow diagonal />
             </a>
           </div>
         </div>
 
         <form className="contact-form" onSubmit={prepareEmail}>
           <header>
-            <span>01</span>
-            <div><small>{isEs ? "MENSAJE BREVE" : "SHORT MESSAGE"}</small><h2>{isEs ? "¿Qué podemos construir juntos?" : "What can we build together?"}</h2></div>
+            <h2>{isEs ? "Cuéntame tu idea" : "Tell me your idea"}</h2>
           </header>
 
           <div className="contact-form-grid">
             <label>
-              <span>{isEs ? "Tu nombre" : "Your name"}</span>
+              <span>{isEs ? "Nombre" : "Name"}</span>
               <input name="name" type="text" autoComplete="name" placeholder={isEs ? "¿Cómo te llamas?" : "What’s your name?"} required />
             </label>
             <label>
-              <span>{isEs ? "Tu correo" : "Your email"}</span>
+              <span>{isEs ? "Correo" : "Email"}</span>
               <input name="email" type="email" autoComplete="email" placeholder="tu@empresa.com" required />
             </label>
             <label className="is-wide">
-              <span>{isEs ? "¿En qué te puedo ayudar?" : "How can I help?"}</span>
-              <select name="projectType" defaultValue="" required>
-                <option value="" disabled>{isEs ? "Selecciona una opción" : "Choose an option"}</option>
-                <option>{isEs ? "Producto digital o aplicación" : "Digital product or application"}</option>
-                <option>{isEs ? "Sistema CRM o ERP" : "CRM or ERP system"}</option>
-                <option>{isEs ? "Automatización e integración" : "Automation and integration"}</option>
-                <option>{isEs ? "IA aplicada al negocio" : "Applied AI for business"}</option>
-                <option>{isEs ? "Quiero explorar una idea" : "I want to explore an idea"}</option>
-              </select>
+              <span>{isEs ? "Tu idea" : "Your idea"}</span>
+              <input name="idea" type="text" placeholder={isEs ? "¿Qué quieres crear o mejorar?" : "What would you like to create or improve?"} required />
             </label>
             <label className="is-wide">
-              <span>{isEs ? "Cuéntame un poco" : "Tell me a little more"}</span>
-              <textarea name="message" rows="4" placeholder={isEs ? "¿Qué sucede hoy y qué te gustaría mejorar?" : "What happens today, and what would you like to improve?"} required />
+              <span>{isEs ? "Cuéntame un poco más sobre el negocio" : "Tell me a little more about the business"}</span>
+              <textarea name="business" rows="4" placeholder={isEs ? "¿A qué se dedica el negocio y qué te gustaría mejorar?" : "What does the business do, and what would you like to improve?"} required />
             </label>
           </div>
 
           <footer>
-            <p>{isEs ? "El botón abre tu aplicación de correo con la información organizada y lista para enviar." : "The button opens your email app with the information organized and ready to send."}</p>
-            <button className="contact-submit" type="submit">{isEs ? "Preparar mensaje" : "Prepare message"}<Arrow /></button>
+            <button className="contact-submit" type="submit">{isEs ? "Enviar" : "Send"}</button>
           </footer>
         </form>
       </section>
 
       <section className="contact-page-process" aria-label={isEs ? "Proceso de contacto" : "Contact process"}>
-        <article><span>1</span><strong>{isEs ? "Me cuentas el contexto" : "You share the context"}</strong><p>{isEs ? "Un mensaje corto es suficiente para comenzar." : "A short message is enough to get started."}</p></article>
-        <article><span>2</span><strong>{isEs ? "Aclaro el problema" : "I clarify the problem"}</strong><p>{isEs ? "Revisamos usuarios, operación y resultado esperado." : "We review users, operations and the expected outcome."}</p></article>
-        <article><span>3</span><strong>{isEs ? "Definimos el siguiente paso" : "We define the next step"}</strong><p>{isEs ? "Te propongo una ruta concreta, sin hacerla más compleja de lo necesario." : "I propose a concrete path without making it more complex than necessary."}</p></article>
+        <article>
+          <div><span>01</span><i aria-hidden="true"><LuClipboardList /></i></div>
+          <strong>{isEs ? "Me cuentas la idea" : "You share the idea"}</strong>
+          <p>{isEs ? "Nombre, contexto y lo que quieres construir o mejorar." : "Your name, context and what you want to build or improve."}</p>
+        </article>
+        <article>
+          <div><span>02</span><i aria-hidden="true"><LuTarget /></i></div>
+          <strong>{isEs ? "Entiendo el negocio" : "I understand the business"}</strong>
+          <p>{isEs ? "Identifico la necesidad, los usuarios y el resultado esperado." : "I identify the need, users and expected outcome."}</p>
+        </article>
+        <article>
+          <div><span>03</span><i aria-hidden="true"><LuSparkles /></i></div>
+          <strong>{isEs ? "Diseñamos una ruta" : "We shape a path"}</strong>
+          <p>{isEs ? "Recibes un siguiente paso concreto para convertir la idea en sistema." : "You get a concrete next step to turn the idea into a system."}</p>
+        </article>
       </section>
     </main>
   );
@@ -2811,7 +2908,7 @@ function ContactPage({ language }) {
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
-  const [language, setLanguage] = useState(() => window.localStorage.getItem("portfolio-language") === "es" ? "es" : "en");
+  const [language, setLanguage] = useState(() => window.localStorage.getItem("portfolio-language") === "en" ? "en" : "es");
   const text = copy[language];
   const projectOrder = { ceniza: 0, naval: 1, forty: 2 };
   const localizedProjects = projects
@@ -2830,13 +2927,37 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = language;
     window.localStorage.setItem("portfolio-language", language);
-    document.title = activeProject
+    const pageTitle = activeProject
       ? `${activeProject.name} · ${text.documentCase} | Diego Franco`
       : currentPath === "/perfil"
         ? text.documentProfile
         : currentPath === "/contacto"
           ? `${text.navContact} | Diego Franco`
         : text.documentPortfolio;
+    const pageDescription = activeProject
+      ? activeProject.description
+      : currentPath === "/perfil"
+        ? text.profileLead
+        : currentPath === "/contacto"
+          ? text.contactCopy
+          : text.heroDescription;
+    const socialImage = activeProject
+      ? `${SITE_URL}${projectVisualAssets[activeProject.visual]}`
+      : currentPath === "/perfil"
+        ? `${SITE_URL}/diego-franco-cutout-final.webp`
+        : `${SITE_URL}/hero-mint-cloud.webp`;
+
+    document.title = pageTitle;
+    const canonicalUrl = `${SITE_URL}${currentPath === "/" ? "/" : currentPath}`;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", pageDescription);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", pageTitle);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", pageDescription);
+    document.querySelector('meta[property="og:url"]')?.setAttribute("content", canonicalUrl);
+    document.querySelector('meta[property="og:image"]')?.setAttribute("content", socialImage);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", pageTitle);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", pageDescription);
+    document.querySelector('meta[name="twitter:image"]')?.setAttribute("content", socialImage);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", canonicalUrl);
   }, [activeProject, currentPath, language, text]);
 
   function navigate(event, path) {
@@ -2913,7 +3034,7 @@ function App() {
                 </feDisplacementMap>
               </filter>
             </svg>
-            <img src="/hero-mint-cloud.png" alt="" />
+            <img src="/hero-mint-cloud.webp" alt="" />
           </div>
 
           <div className="hero-footer">
