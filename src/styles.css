@@ -196,15 +196,15 @@ em { color: #64bd97; font-family: inherit; font-style: normal; font-weight: 600;
 /* Clean portrait study: only the lower handoff connector remains visible. */
 .profile-page .profile-connectors,
 .profile-page .profile-fur-orb { display: none; }
-.about-copy { grid-area: copy; position: relative; z-index: 1; max-width: 610px; }
+.about-copy { grid-area: copy; position: relative; z-index: 1; max-width: 680px; }
 .about-copy .eyebrow { font-size: calc(.6rem + 1px); }
 .about-copy h1, .about-copy h2 { max-width: 670px; margin: 40px 0 28px; font-size: clamp(3rem, 4.25vw, 4.85rem); }
-.about-page .about-copy h1 { max-width: 620px; font-size: clamp(2.65rem, 2.85vw, 3.65rem); font-weight: 700; line-height: .98; letter-spacing: .015em; text-transform: none; white-space: normal; text-wrap: balance; }
+.about-page .about-copy h1 { max-width: 680px; margin: clamp(42px, 4.6vw, 66px) 0 30px; font-size: clamp(4rem, 5.15vw, 6.35rem); font-weight: 650; line-height: .9; letter-spacing: -.065em; text-transform: none; white-space: normal; text-wrap: balance; }
 .about-page .about-copy h1 span { color: var(--mint-deep); }
 .about-copy > p:not(.eyebrow) { max-width: 580px; margin-bottom: 30px; color: #60645c; font-size: .94rem; line-height: 1.72; text-align: left; text-wrap: pretty; hyphens: none; }
 .about-page .about-copy > p:not(.eyebrow) { max-width: 580px; font-size: clamp(.9rem, .96vw, 1rem); line-height: 1.67; }
 .about-page .soft-button { min-width: 172px; min-height: 46px; padding: 0 22px; justify-content: space-between; gap: 18px; font-size: .76rem; }
-.about-page .about-copy > p.profile-lead { max-width: 560px; margin-bottom: 30px; text-align: left; text-align-last: auto; text-wrap: pretty; }
+.about-page .about-copy > p.profile-lead { max-width: 650px; margin-bottom: 34px; font-size: clamp(1rem, 1.18vw, 1.24rem); line-height: 1.58; text-align: left; text-align-last: auto; text-wrap: pretty; }
 .about-page .profile-approach { margin-bottom: 30px; }
 .about-details { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 31px; }
 .about-details span { padding: 7px 10px; border: 0; border-radius: 999px; color: #555b53; background: #e3e4dc; box-shadow: inset 1px 1px 2px rgba(255,255,255,.92), inset -2px -2px 4px rgba(120,122,113,.18); font-family: var(--mono); text-transform: uppercase; letter-spacing: .04em; font-size: .51rem; }

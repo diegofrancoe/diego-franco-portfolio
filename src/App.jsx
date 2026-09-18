@@ -2824,8 +2824,8 @@ function ContactPage({ language }) {
       <section className="contact-page-hero">
         <div className="contact-page-intro">
           <AnimatedEyebrow text={isEs ? "HABLEMOS DE TU IDEA" : "LET'S TALK ABOUT YOUR IDEA"} className="eyebrow" dot threshold={0.25} />
-          <h1 id="contact-page-title">{isEs ? <>Ideas convertidas<br />en <em>sistemas.</em></> : <>Ideas into <em>systems.</em></>}</h1>
-          <p>{isEs ? "Cuéntame qué necesita tu negocio y diseñemos una solución clara que conecte procesos, datos, automatización e IA." : "Tell me what you want to build, connect or automate, and let’s shape the next step."}</p>
+          <h1 id="contact-page-title">{isEs ? <>Construyamos lo que<br />tu negocio <em>necesita.</em></> : <>Let’s build what<br />your business <em>needs.</em></>}</h1>
+          <p>{isEs ? "Cuéntame qué quieres mejorar, conectar o automatizar. Te responderé con una ruta técnica clara y el siguiente paso para llevarla a producción." : "Tell me what you want to improve, connect or automate. I’ll respond with a clear technical route and the next step toward production."}</p>
 
           <div className="contact-methods" aria-label={isEs ? "Canales de contacto" : "Contact channels"}>
             <a className="contact-method" href={`mailto:${CONTACT_EMAIL}`}>
