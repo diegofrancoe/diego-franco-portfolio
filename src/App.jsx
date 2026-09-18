@@ -2092,7 +2092,7 @@ function ExpandedSystemPreview({ project, content, language }) {
             <h2 id={`${project.visual}-system-title`}>{content.systemTitle}</h2>
             <p>{content.systemCopy}</p>
           </div>
-          {content.webUrl ? (
+          {content.webUrl && project.visual !== "naval" ? (
             <a className="ceniza-section-link is-website" href={content.webUrl} target="_blank" rel="noreferrer">
               <span>{content.webCta}</span><span aria-hidden="true">↗</span>
             </a>
