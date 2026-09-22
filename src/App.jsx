@@ -13,6 +13,15 @@ const CONTACT_WHATSAPP_URL = CONTACT_WHATSAPP_NUMBER
   ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`
   : "";
 const SITE_URL = "https://www.diegofrancoe.com";
+const LANGUAGE_STORAGE_KEY = "diego-franco-portfolio-language";
+
+function getSavedLanguage() {
+  try {
+    return window.localStorage.getItem(LANGUAGE_STORAGE_KEY) === "es" ? "es" : "en";
+  } catch {
+    return "en";
+  }
+}
 
 const projects = [
   {
@@ -2908,7 +2917,7 @@ function ContactPage({ language }) {
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(getSavedLanguage);
   const text = copy[language];
   const projectOrder = { ceniza: 0, naval: 1, forty: 2 };
   const localizedProjects = projects
@@ -2973,6 +2982,15 @@ function App() {
     });
   }
 
+  function selectLanguage(nextLanguage) {
+    setLanguage(nextLanguage);
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
+    } catch {
+      // Keep the selected language for this visit when storage is unavailable.
+    }
+  }
+
   return (
     <div className="portfolio-page">
       <header className="site-nav">
@@ -2981,16 +2999,16 @@ function App() {
         </a>
 
         <nav aria-label={text.mainNavigation}>
-          <a href="/#trabajo">{text.navProjects}</a>
+          <a href="/#trabajo" onClick={(event) => navigate(event, "/#trabajo")}>{text.navProjects}</a>
           <a href="/perfil" onClick={(event) => navigate(event, "/perfil")}>{text.navAbout}</a>
           <a href="/contacto" onClick={(event) => navigate(event, "/contacto")}>{text.navContact}</a>
         </nav>
 
         <div className="site-nav-actions">
           <div className="language-switch" role="group" aria-label={text.languageSelector}>
-            <button type="button" className={language === "en" ? "is-active" : ""} onClick={() => setLanguage("en")} aria-pressed={language === "en"} aria-label={text.english}>EN</button>
+            <button type="button" className={language === "en" ? "is-active" : ""} onClick={() => selectLanguage("en")} aria-pressed={language === "en"} aria-label={text.english}>EN</button>
             <span aria-hidden="true">/</span>
-            <button type="button" className={language === "es" ? "is-active" : ""} onClick={() => setLanguage("es")} aria-pressed={language === "es"} aria-label={text.spanish}>ES</button>
+            <button type="button" className={language === "es" ? "is-active" : ""} onClick={() => selectLanguage("es")} aria-pressed={language === "es"} aria-label={text.spanish}>ES</button>
           </div>
           <SoftButton href="https://github.com/diegofrancoe" external>
             GitHub <Arrow diagonal />
