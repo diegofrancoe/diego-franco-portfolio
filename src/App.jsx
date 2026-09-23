@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { LuArrowRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
-import { SiDropbox, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, SiZoom } from "react-icons/si";
+import { SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiVite, SiWhatsapp, SiZoom } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
 const CONTACT_WHATSAPP_NUMBER = "573113964114";
@@ -305,14 +305,19 @@ const workflowTools = [
   { name: "OpenAI", icon: BsOpenai, color: "#10A37F", slug: "openai" },
   { name: "React", icon: SiReact, color: "#149ECA", slug: "react" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6", slug: "typescript" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#111111", slug: "next" },
-  { name: "Vercel", icon: SiVercel, color: "#111111", slug: "vercel" },
-  { name: "PostgreSQL / SQL", icon: SiPostgresql, color: "#336791", slug: "postgresql" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", slug: "tailwind" },
   { name: "Supabase", icon: SiSupabase, color: "#3ECF8E", slug: "supabase" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", slug: "postgresql" },
   { name: "Figma", icon: FigmaBrandMark, color: "#F24E1E", slug: "figma" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#111111", slug: "next" },
   { name: "n8n", icon: SiN8N, color: "#EA4B71", slug: "n8n" },
   { name: "Make", icon: SiMake, color: "#6D00CC", slug: "make" },
+  { name: "Vite", icon: SiVite, color: "#646CFF", slug: "vite" },
+  { name: "Vercel", icon: SiVercel, color: "#111111", slug: "vercel" },
 ];
+
+const workflowToolByName = new Map(workflowTools.map((tool) => [tool.name, tool]));
+workflowToolByName.set("GitHub", { name: "GitHub", icon: SiGithub, color: "#181717", slug: "github" });
 
 function FigmaBrandMark() {
   return (
@@ -1078,33 +1083,6 @@ function ProjectVisual({ visual }) {
   );
 }
 
-const profileResults = [
-  {
-    number: "1",
-    label: "FULL STACK",
-    title: "From business problem to working product.",
-    description: "I design the architecture, experience, frontend, backend, APIs and data needed to deliver a maintainable solution ready to deploy.",
-  },
-  {
-    number: "2",
-    label: "APPS AND WEBS",
-    title: "Clear, connected and responsive experiences.",
-    description: "I build apps and websites that turn complex processes into simple journeys and integrate with CRM, ERP and external services.",
-  },
-  {
-    number: "3",
-    label: "AUTOMATION",
-    title: "Less repetitive work. More momentum.",
-    description: "I connect tools and automate workflows, validations, alerts and data handoffs to reduce delays, errors and manual work.",
-  },
-  {
-    number: "4",
-    label: "AI ACROSS THE SYSTEM",
-    title: "AI with context, control and purpose.",
-    description: "I integrate assistants, RAG and intelligent actions that use business data, recommend next steps and preserve permissions, human review and traceability.",
-  },
-];
-
 const profileFaqs = [
   {
     question: "What can we build together?",
@@ -1120,32 +1098,150 @@ const profileFaqs = [
   },
 ];
 
-const profileResultsEs = [
-  {
-    number: "1",
-    label: "FULL STACK",
-    title: "Del problema al producto funcionando.",
-    description: "Diseño arquitectura, experiencia, frontend, backend, APIs y datos para llevar una necesidad del negocio hasta una solución desplegable y mantenible.",
+const profileTechnicalContent = {
+  en: {
+    eyebrow: "WHAT I BUILD",
+    title: "I build solutions end to end.",
+    copy: "I take ownership of the full product path: discovery, experience, architecture, engineering, integrations, deployment and iteration. The stack adapts to each project; these are the tools I use most often at each stage.",
+    flowLabel: "Delivery path",
+    toolsLabel: "Tools",
+    capabilitiesLabel: "Core capabilities",
+    capabilities: ["Full stack", "Webs & apps", "Automations", "APIs", "Applied AI"],
+    phases: [
+      { number: "1", title: "Discover", text: "Analyze how the operation works, who participates and where time is lost. Define the problem, priorities and solution scope.", output: "Processes · needs · scope", tools: ["OpenAI"] },
+      { number: "2", title: "Design", text: "Turn processes into clear desktop and mobile journeys with a consistent visual component system.", output: "UX/UI · journeys · components", tools: ["Figma"] },
+      { number: "3", title: "Architect", text: "Organize modules, data, permissions and integrations so the solution responds to the business operation.", output: "Architecture · data · permissions", tools: ["Supabase", "PostgreSQL"] },
+      { number: "4", title: "Build", text: "Develop the interface and business logic, connecting data and features to turn the design into a working application.", output: "Frontend · backend · business logic", tools: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vite"] },
+      { number: "5", title: "Connect", text: "Integrate AI assistants, connect services and automate tasks with the business data and rules.", output: "AI assistants · APIs · automation", tools: ["OpenAI", "n8n", "Make"] },
+      { number: "6", title: "Deploy and improve", text: "Verify the main flows, deploy the application and fix issues. Add improvements based on usage and business needs.", output: "Validation · deployment · continuous improvement", tools: ["GitHub", "Vercel"] },
+    ],
+    projectsEyebrow: "TECHNICAL WORK BY PROJECT",
+    projectsTitle: "Three products. Three end-to-end systems.",
+    projectsCopy: "The stack changes with the operation. The responsibility does not: connect product, data and execution until the system works as a whole.",
+    labels: { system: "SYSTEM", ownership: "END-TO-END OWNERSHIP", stack: "TOOLS + TECHNOLOGIES", view: "View technical case" },
+    projects: [
+      {
+        number: "01",
+        name: "Ceniza",
+        type: "CRM · OPERATIONS · APPLIED AI",
+        system: "Lead → quote → production or rental → inventory → finance → reporting.",
+        ownership: "Product strategy, UX/UI, CRM architecture, relational data, authentication, RAG assistant, automations and deployment.",
+        tools: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI", "RAG", "n8n", "REST APIs", "Vercel"],
+        path: "/proyectos/ceniza",
+      },
+      {
+        number: "02",
+        name: "Naval",
+        type: "B2B CATALOG · ERP · AI ASSISTANT",
+        system: "Product discovery → order → planning → production → quality → dispatch → reporting.",
+        ownership: "B2B experience, ERP UX/UI, operating model, database design, roles and permissions, assistant context, webhooks and production delivery.",
+        tools: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI", "RAG", "APIs + webhooks", "Vercel"],
+        path: "/proyectos/naval",
+      },
+      {
+        number: "03",
+        name: "40+",
+        type: "PRODUCT WEB · ASSISTED COMMERCE · AUTOMATION",
+        system: "Product content → WhatsApp order → experience form → validation → e-book delivery → follow-up.",
+        ownership: "Product narrative, responsive UX/UI, assisted-order flow, form validation, automation routing, customer email and internal handoff.",
+        tools: ["React", "TypeScript", "Make", "WhatsApp", "Gmail", "Google Drive", "Responsive UI", "Vercel"],
+        path: "/proyectos/40-plus",
+      },
+    ],
   },
-  {
-    number: "2",
-    label: "APPS Y WEBS",
-    title: "Experiencias claras, conectadas y responsive.",
-    description: "Creo apps y sitios web que convierten procesos complejos en recorridos simples y se integran con CRM, ERP y servicios externos.",
+  es: {
+    eyebrow: "LO QUE CONSTRUYO",
+    title: "Construyo soluciones de principio a fin.",
+    copy: "Me hago cargo del recorrido completo del producto: descubrimiento, experiencia, arquitectura, ingeniería, integraciones, despliegue e iteración. El stack se adapta a cada proyecto; estas son las herramientas que uso con más frecuencia en cada etapa.",
+    flowLabel: "Ruta de entrega",
+    toolsLabel: "Herramientas",
+    capabilitiesLabel: "Capacidades principales",
+    capabilities: ["Full stack", "Webs y apps", "Automatizaciones", "APIs", "IA aplicada"],
+    phases: [
+      { number: "1", title: "Descubrir", text: "Analizo cómo funciona la operación, quién participa y dónde se pierde tiempo. Defino el problema, las prioridades y el alcance de la solución.", output: "Procesos · necesidades · alcance", tools: ["OpenAI"] },
+      { number: "2", title: "Diseñar", text: "Transformo los procesos en pantallas y recorridos claros, adaptados a escritorio y móvil, con componentes visuales consistentes.", output: "UX/UI · recorridos · componentes", tools: ["Figma"] },
+      { number: "3", title: "Arquitectar", text: "Organizo los módulos, los datos, los permisos y las integraciones para que la solución responda a la operación del negocio.", output: "Arquitectura · datos · permisos", tools: ["Supabase", "PostgreSQL"] },
+      { number: "4", title: "Construir", text: "Desarrollo la interfaz y la lógica de negocio, conectando datos y funcionalidades para convertir el diseño en una aplicación funcional.", output: "Frontend · backend · lógica de negocio", tools: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vite"] },
+      { number: "5", title: "Conectar", text: "Integro asistentes de IA, conecto servicios y automatizo tareas con los datos y las reglas del negocio.", output: "Asistentes IA · APIs · automatización", tools: ["OpenAI", "n8n", "Make"] },
+      { number: "6", title: "Desplegar y mejorar", text: "Verifico los flujos principales, publico la aplicación y corrijo problemas. Incorporo mejoras a partir del uso y las necesidades del negocio.", output: "Validación · despliegue · mejora continua", tools: ["GitHub", "Vercel"] },
+    ],
+    projectsEyebrow: "TRABAJO TÉCNICO POR PROYECTO",
+    projectsTitle: "Tres productos. Tres sistemas de principio a fin.",
+    projectsCopy: "El stack cambia según la operación. La responsabilidad no: conectar producto, datos y ejecución hasta que el sistema funcione como un todo.",
+    labels: { system: "SISTEMA", ownership: "RESPONSABILIDAD END TO END", stack: "HERRAMIENTAS + TECNOLOGÍAS", view: "Ver caso técnico" },
+    projects: [
+      {
+        number: "01",
+        name: "Ceniza",
+        type: "CRM · OPERACIONES · IA APLICADA",
+        system: "Lead → cotización → producción o renta → inventario → finanzas → reportes.",
+        ownership: "Estrategia de producto, UX/UI, arquitectura CRM, datos relacionales, autenticación, asistente RAG, automatizaciones y despliegue.",
+        tools: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI", "RAG", "n8n", "APIs REST", "Vercel"],
+        path: "/proyectos/ceniza",
+      },
+      {
+        number: "02",
+        name: "Naval",
+        type: "CATÁLOGO B2B · ERP · ASISTENTE IA",
+        system: "Descubrimiento → pedido → planeación → producción → calidad → despacho → reportes.",
+        ownership: "Experiencia B2B, UX/UI del ERP, modelo operativo, diseño de datos, roles y permisos, contexto del asistente, webhooks y salida a producción.",
+        tools: ["React", "TypeScript", "Supabase", "PostgreSQL", "OpenAI", "RAG", "APIs + webhooks", "Vercel"],
+        path: "/proyectos/naval",
+      },
+      {
+        number: "03",
+        name: "40+",
+        type: "WEB DE PRODUCTO · COMERCIO ASISTIDO · AUTOMATIZACIÓN",
+        system: "Contenido → pedido por WhatsApp → formulario → validación → e-book → seguimiento.",
+        ownership: "Narrativa de producto, UX/UI responsive, pedido asistido, validación del formulario, rutas de automatización, correo al cliente y entrega interna.",
+        tools: ["React", "TypeScript", "Make", "WhatsApp", "Gmail", "Google Drive", "Responsive UI", "Vercel"],
+        path: "/proyectos/40-plus",
+      },
+    ],
   },
-  {
-    number: "3",
-    label: "AUTOMATIZACIÓN",
-    title: "Menos tareas repetitivas. Más operación.",
-    description: "Conecto herramientas y automatizo flujos, validaciones, alertas y traspasos de información para reducir tiempos, errores y trabajo manual.",
-  },
-  {
-    number: "4",
-    label: "IA APLICADA EN TODO EL SISTEMA",
-    title: "IA con contexto, control y propósito.",
-    description: "Integro asistentes, RAG y acciones inteligentes que consultan datos, recomiendan el siguiente paso y mantienen permisos, revisión humana y trazabilidad.",
-  },
-];
+};
+
+function ProfileTechnicalSection({ language }) {
+  const content = profileTechnicalContent[language];
+
+  return (
+    <>
+      <section className="profile-delivery-section" aria-labelledby="profile-delivery-title">
+        <header className="profile-technical-header">
+          <p className="eyebrow" aria-label={content.eyebrow}><span className="availability-dot loading-dot" /><TypewriterText text={content.eyebrow} threshold={0.2} /></p>
+          <div><h2 id="profile-delivery-title">{content.title}</h2><p>{content.copy}</p></div>
+        </header>
+        <ol className="profile-delivery-flow" aria-label={content.flowLabel}>
+          {content.phases.map((phase) => (
+            <li key={phase.number}>
+              <span>{phase.number}</span>
+              <h3>{phase.title}</h3>
+              <p>{phase.text}</p>
+              <div className="profile-delivery-step-footer">
+                <small>{phase.output}</small>
+                {phase.tools.length > 0 && (
+                  <ul className="profile-delivery-tools" aria-label={`${content.toolsLabel}: ${phase.tools.join(", ")}`}>
+                    {phase.tools.map((toolName) => {
+                      const tool = workflowToolByName.get(toolName);
+                      const ToolIcon = tool?.icon;
+                      return <li key={toolName}>{ToolIcon && <ToolIcon aria-hidden="true" />}<span>{toolName}</span></li>;
+                    })}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+        <ul className="profile-delivery-capabilities" aria-label={content.capabilitiesLabel}>
+          {content.capabilities.map((capability) => (
+            <li key={capability}>{capability}</li>
+          ))}
+        </ul>
+      </section>
+
+    </>
+  );
+}
 
 const profileFaqsEs = [
   {
@@ -1162,124 +1258,23 @@ const profileFaqsEs = [
   },
 ];
 
-function ResultsMap({ isVisible, language }) {
-  const text = copy[language];
-  const results = language === "es" ? profileResultsEs : profileResults;
-
-  return (
-    <section className="results-section" aria-labelledby="results-title">
-      <header className="results-intro">
-        <div className="results-intro-heading">
-          <p className="eyebrow" aria-label={text.whatICreate}><span className="availability-dot loading-dot" /><TypewriterText text={text.whatICreate} threshold={0.2} /></p>
-          <h2 id="results-title">{text.resultsTitle}</h2>
-        </div>
-        <p>{text.resultsCopy}</p>
-      </header>
-
-      <div className={`capabilities-map${isVisible ? " is-visible" : ""}`}>
-        <svg className="capabilities-connectors" viewBox="0 0 1200 570" preserveAspectRatio="none" aria-hidden="true">
-          <g className="capabilities-connector-paths">
-            <path pathLength="1" d="M600 0V82" />
-            <path pathLength="1" d="M300 82H900" />
-            <path pathLength="1" d="M300 82V108" />
-            <path pathLength="1" d="M900 82V108" />
-            <path pathLength="1" d="M600 82V354" />
-            <path pathLength="1" d="M300 354H900" />
-            <path pathLength="1" d="M300 354V380" />
-            <path pathLength="1" d="M900 354V380" />
-          </g>
-          <g className="capabilities-connector-nodes">
-            <circle cx="600" cy="82" r="4" />
-            <circle cx="300" cy="108" r="3.5" />
-            <circle cx="900" cy="108" r="3.5" />
-            <circle cx="600" cy="354" r="4" />
-            <circle cx="300" cy="380" r="3.5" />
-            <circle cx="900" cy="380" r="3.5" />
-          </g>
-        </svg>
-
-        {results.map((result, index) => (
-          <article className="capability-item" data-number={result.number} style={{ "--capability-delay": `${1.3 + Math.floor(index / 2) * 0.5 + (index % 2) * 0.12}s` }} key={result.number}>
-            <p className="capability-index"><span className="capability-number">{result.number}</span><span className="capability-label">{result.label}</span></p>
-            <h3>{result.title}</h3>
-            <p>{result.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function ProfilePage({ language }) {
-  const [connectionsVisible, setConnectionsVisible] = useState(false);
-  const handoffRef = useRef(null);
   const text = copy[language];
   const faqs = language === "es" ? profileFaqsEs : profileFaqs;
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setConnectionsVisible(true);
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setConnectionsVisible(true);
-        observer.disconnect();
-      }
-    }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
-
-    if (handoffRef.current) observer.observe(handoffRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <main className={`profile-page${connectionsVisible ? " connections-visible" : ""}`} id="inicio">
+    <main className="profile-page" id="inicio">
       <section className="about-section about-page" aria-labelledby="profile-title">
         <article className="about-copy">
           <p className="eyebrow" aria-label={text.profile}><span className="availability-dot loading-dot" /><TypewriterText text={text.profile} /></p>
           <h1 id="profile-title">{text.profileTitle}</h1>
           <p className="profile-lead">{text.profileLead}</p>
-          <SoftButton href={CONTACT_WHATSAPP_URL} primary external>{text.letsTalk} <Arrow diagonal /></SoftButton>
+          <div className="profile-hero-actions">
+            <SoftButton href={CONTACT_WHATSAPP_URL} primary external>{text.letsTalk} <Arrow diagonal /></SoftButton>
+          </div>
         </article>
 
         <div className="profile-visual" aria-label={text.profileVisual}>
-          <svg className="profile-connectors" viewBox="0 0 900 680" preserveAspectRatio="none" aria-hidden="true">
-            <g className="profile-circuit profile-circuit-left">
-              <path pathLength="1" d="M267 153H420" />
-              <path pathLength="1" d="M216 184V280H84V350" />
-              <path pathLength="1" d="M84 493V570H255" />
-            </g>
-
-            <g className="profile-circuit profile-circuit-right">
-              <path pathLength="1" d="M560 153H720V320H813V352" />
-              <path pathLength="1" d="M813 482V600H710" />
-            </g>
-
-            <g className="profile-grid-nodes">
-              <circle cx="84" cy="280" r="7.5" style={{ "--node-delay": ".72s" }} />
-              <circle cx="84" cy="570" r="7.5" style={{ "--node-delay": "1.22s" }} />
-              <circle cx="255" cy="570" r="7.5" style={{ "--node-delay": "1.46s" }} />
-              <circle cx="720" cy="153" r="7.5" style={{ "--node-delay": ".68s" }} />
-              <circle cx="813" cy="320" r="7.5" style={{ "--node-delay": ".98s" }} />
-              <circle cx="813" cy="600" r="7.5" style={{ "--node-delay": "1.28s" }} />
-              <circle cx="710" cy="600" r="7.5" style={{ "--node-delay": "1.42s" }} />
-            </g>
-          </svg>
-
-          <span className="profile-fur-orb profile-fur-orb-mint" aria-hidden="true">
-            <img className="profile-fur-base" src="/profile-fuzzy-orb-mint-v4.webp" alt="" />
-            <img className="profile-fur-detail" src="/profile-fuzzy-orb-mint-v3.webp" alt="" />
-          </span>
-          <span className="profile-fur-orb profile-fur-orb-ivory" aria-hidden="true">
-            <img className="profile-fur-base" src="/profile-fuzzy-orb-ivory-v4.webp" alt="" />
-            <img className="profile-fur-detail" src="/profile-fuzzy-orb-ivory-v3.webp" alt="" />
-          </span>
-          <span className="profile-fur-orb profile-fur-orb-stone" aria-hidden="true">
-            <img className="profile-fur-base" src="/profile-fuzzy-orb-stone-v4.webp" alt="" />
-            <img className="profile-fur-detail" src="/profile-fuzzy-orb-stone-v3.webp" alt="" />
-          </span>
-
           <figure className="profile-cutout">
             <img
               src="/diego-franco-cutout-final.webp"
@@ -1288,35 +1283,18 @@ function ProfilePage({ language }) {
               decoding="async"
             />
           </figure>
-
+          <div className="profile-visual-resources" aria-label={text.profileResources}>
+            <a className="profile-hero-resource" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
+              {text.downloadCv}<Arrow diagonal />
+            </a>
+            <a className="profile-hero-resource" href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
+              LinkedIn<Arrow diagonal />
+            </a>
+          </div>
         </div>
       </section>
 
-      <div className="profile-system-handoff" ref={handoffRef}>
-        <svg className="profile-system-handoff-lines profile-system-handoff-desktop" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path pathLength="1" d="M918 -18V50H600V150" />
-          <circle cx="918" cy="50" r="3.5" />
-          <circle cx="600" cy="50" r="3.5" />
-        </svg>
-        <svg className="profile-system-handoff-lines profile-system-handoff-mobile" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path pathLength="1" d="M612 0V52H-23V120" />
-          <circle cx="612" cy="52" r="3.5" />
-        </svg>
-        <div className="profile-connector-resources" aria-label={text.profileResources}>
-          <a className="profile-connector-resource" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
-            <span className="profile-connector-resource-node" aria-hidden="true" />
-            <span className="profile-connector-resource-label">{text.downloadCv}</span>
-            <Arrow diagonal />
-          </a>
-          <a className="profile-connector-resource" href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
-            <span className="profile-connector-resource-node" aria-hidden="true" />
-            <span className="profile-connector-resource-label">LinkedIn</span>
-            <Arrow diagonal />
-          </a>
-        </div>
-      </div>
-
-      <ResultsMap isVisible={connectionsVisible} language={language} />
+      <ProfileTechnicalSection language={language} />
 
       <section className="profile-faq" aria-labelledby="profile-faq-title">
         <header className="profile-faq-header">
@@ -2917,6 +2895,7 @@ function ContactPage({ language }) {
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
+  const [currentHash, setCurrentHash] = useState(() => window.location.hash);
   const [language, setLanguage] = useState(getSavedLanguage);
   const text = copy[language];
   const projectOrder = { ceniza: 0, naval: 1, forty: 2 };
@@ -2926,9 +2905,26 @@ function App() {
     .map((project, index) => ({ ...project, number: String(index + 1).padStart(2, "0") }));
 
   useEffect(() => {
-    const handleNavigation = () => setCurrentPath(window.location.pathname);
+    const handleNavigation = () => {
+      setCurrentPath(window.location.pathname);
+      setCurrentHash(window.location.hash);
+    };
     window.addEventListener("popstate", handleNavigation);
-    return () => window.removeEventListener("popstate", handleNavigation);
+    window.addEventListener("hashchange", handleNavigation);
+    return () => {
+      window.removeEventListener("popstate", handleNavigation);
+      window.removeEventListener("hashchange", handleNavigation);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (window.location.pathname !== "/contacto") return;
+    window.history.replaceState({}, "", "/#contacto");
+    setCurrentPath("/");
+    setCurrentHash("#contacto");
+    window.requestAnimationFrame(() => {
+      document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+    });
   }, []);
 
   const activeProject = localizedProjects.find((project) => project.path === currentPath);
@@ -2939,16 +2935,12 @@ function App() {
       ? `${activeProject.name} · ${text.documentCase} | Diego Franco`
       : currentPath === "/perfil"
         ? text.documentProfile
-        : currentPath === "/contacto"
-          ? `${text.navContact} | Diego Franco`
         : text.documentPortfolio;
     const pageDescription = activeProject
       ? activeProject.description
       : currentPath === "/perfil"
         ? text.profileLead
-        : currentPath === "/contacto"
-          ? text.contactCopy
-          : text.heroDescription;
+        : text.heroDescription;
     const socialImage = activeProject
       ? `${SITE_URL}${projectVisualAssets[activeProject.visual]}`
       : currentPath === "/perfil"
@@ -2972,6 +2964,7 @@ function App() {
     event.preventDefault();
     window.history.pushState({}, "", path);
     setCurrentPath(window.location.pathname);
+    setCurrentHash(window.location.hash);
     const targetId = window.location.hash.slice(1);
     window.requestAnimationFrame(() => {
       if (targetId) {
@@ -2999,9 +2992,9 @@ function App() {
         </a>
 
         <nav aria-label={text.mainNavigation}>
-          <a href="/#trabajo" onClick={(event) => navigate(event, "/#trabajo")}>{text.navProjects}</a>
-          <a href="/perfil" onClick={(event) => navigate(event, "/perfil")}>{text.navAbout}</a>
-          <a href="/contacto" onClick={(event) => navigate(event, "/contacto")}>{text.navContact}</a>
+          <a href="/#trabajo" aria-current={activeProject || (currentPath === "/" && currentHash === "#trabajo") ? "page" : undefined} onClick={(event) => navigate(event, "/#trabajo")}>{text.navProjects}</a>
+          <a href="/perfil" aria-current={currentPath === "/perfil" ? "page" : undefined} onClick={(event) => navigate(event, "/perfil")}>{text.navAbout}</a>
+          <a href="/#contacto" aria-current={currentPath === "/" && currentHash === "#contacto" ? "page" : undefined} onClick={(event) => navigate(event, "/#contacto")}>{text.navContact}</a>
         </nav>
 
         <div className="site-nav-actions">
@@ -3016,7 +3009,7 @@ function App() {
         </div>
       </header>
 
-      {currentPath === "/perfil" ? <ProfilePage language={language} /> : currentPath === "/contacto" ? <ContactPage language={language} /> : activeProject ? (
+      {currentPath === "/perfil" ? <ProfilePage language={language} /> : activeProject ? (
         <ProjectDetailPage project={activeProject} projectsList={localizedProjects} onNavigate={navigate} language={language} />
       ) : <main id="inicio">
         <section className="hero-panel" aria-labelledby="hero-title">
@@ -3126,9 +3119,19 @@ function App() {
           </div>
           <div className="contact-actions">
             <p>{text.contactCopy}</p>
-            <SoftButton href={CONTACT_WHATSAPP_URL} primary external>
-              {text.getInTouch} <Arrow diagonal />
-            </SoftButton>
+            <div className="contact-cta-row">
+              <SoftButton href={CONTACT_WHATSAPP_URL} primary external>
+                {text.getInTouch} <Arrow diagonal />
+              </SoftButton>
+              <div className="contact-secondary-links" aria-label={language === "es" ? "Otros canales de contacto" : "Other contact channels"}>
+                <a href={`mailto:${CONTACT_EMAIL}`}>
+                  <span>{language === "es" ? "Correo" : "Email"}</span><Arrow diagonal />
+                </a>
+                <a href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
+                  <span>LinkedIn</span><Arrow diagonal />
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </main>}
@@ -3136,7 +3139,7 @@ function App() {
       <footer>
         <a className="wordmark" href="/" onClick={(event) => navigate(event, "/")}>DIEGO <span>FRANCO</span></a>
         <p className="footer-portfolio" aria-label={text.ideasIntoSystems}><TypewriterText text={text.ideasIntoSystems} threshold={0.15} rootMargin="0px 0px 8% 0px" /></p>
-        <p className="footer-copyright">© 2026</p>
+        <p className="footer-copyright">© 2025</p>
       </footer>
     </div>
   );
