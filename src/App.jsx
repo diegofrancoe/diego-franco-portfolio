@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { LuArrowRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
+import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
 import { SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiVite, SiWhatsapp, SiZoom } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
@@ -306,7 +306,11 @@ function FigmaBrandMark() {
 }
 
 function Arrow({ diagonal = false }) {
-  return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
+  return (
+    <span className="arrow-icon" aria-hidden="true">
+      {diagonal ? <LuArrowUpRight /> : <LuArrowRight />}
+    </span>
+  );
 }
 
 function SoftButton({ children, href, primary = false, external = false, onClick }) {
@@ -1960,7 +1964,7 @@ function ExpandedSystemPreview({ project, content, language }) {
           </div>
           {content.webUrl && project.visual !== "naval" ? (
             <a className="ceniza-section-link is-website" href={content.webUrl} target="_blank" rel="noreferrer">
-              <span>{content.webCta}</span><span aria-hidden="true">↗</span>
+              <span>{content.webCta}</span><Arrow diagonal />
             </a>
           ) : null}
         </div>
@@ -2291,7 +2295,7 @@ function ExpandedWebSection({ project, content, language }) {
             </ul>
             {content.webUrl ? (
               <a className="ceniza-section-link is-website expanded-web-link" href={content.webUrl} target="_blank" rel="noreferrer">
-                <span>{content.webCta}</span><span aria-hidden="true">↗</span>
+                <span>{content.webCta}</span><Arrow diagonal />
               </a>
             ) : null}
           </div>
@@ -2391,7 +2395,7 @@ function ExpandedCaseContent({ project, language }) {
       <section className="editorial-case-outcome ceniza-case-outcome expanded-case-outcome">
         <CenizaEyebrow text={text.outcome} threshold={0.4} />
         <div className="ceniza-outcome-summary"><h2>{content.outcomeTitle}</h2><p>{content.outcomeCopy}</p></div>
-        <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer"><span>{content.outcomeCta || text.getInTouch}</span><span aria-hidden="true">↗</span></a>
+        <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer"><span>{content.outcomeCta || text.getInTouch}</span><Arrow diagonal /></a>
       </section>
     </>
   );
@@ -2519,7 +2523,7 @@ function CenizaCaseContent({ project, detail, language }) {
               <p>{detail.crmCopy}</p>
             </div>
             <a className="ceniza-section-link is-demo" href={detail.demoUrl} target="_blank" rel="noreferrer">
-              <span>{detail.demoLabel}</span><span aria-hidden="true">↗</span>
+              <span>{detail.demoLabel}</span><Arrow diagonal />
             </a>
           </div>
         </header>
@@ -2550,7 +2554,7 @@ function CenizaCaseContent({ project, detail, language }) {
               </ul>
 
               <a className="ceniza-section-link is-website ceniza-web-bridge-link" href="https://www.cenizaproducciones.com/" target="_blank" rel="noreferrer">
-                <span>{language === "es" ? "Ver página web" : "View website"}</span><span aria-hidden="true">↗</span>
+                <span>{language === "es" ? "Ver página web" : "View website"}</span><Arrow diagonal />
               </a>
             </div>
           </div>
@@ -2591,7 +2595,7 @@ function CenizaCaseContent({ project, detail, language }) {
           <p>{language === "es" ? "Ceniza pasó de información dispersa a una operación conectada: la web capta cada solicitud con contexto, el CRM ordena el seguimiento y la IA ayuda a anticipar riesgos, proteger ingresos y actuar con mayor claridad." : "Ceniza moved from scattered information to a connected operation: the website captures every inquiry with context, the CRM organizes follow-up and AI helps anticipate risks, protect revenue and act with greater clarity."}</p>
         </div>
         <a className="ceniza-section-link is-outcome" href={CONTACT_WHATSAPP_URL} target="_blank" rel="noreferrer">
-          <span>{text.getInTouch}</span><span aria-hidden="true">↗</span>
+          <span>{text.getInTouch}</span><Arrow diagonal />
         </a>
       </section>
     </>

@@ -136,6 +136,8 @@ a { color: inherit; text-decoration: none; }
 }
 .soft-button:hover { transform: translateY(-2px); box-shadow: 7px 7px 12px rgba(116,119,110,0.42), -5px -5px 11px rgba(255,255,255,0.9); }
 .soft-button.primary { background: var(--mint); box-shadow: 5px 6px 10px rgba(72,143,112,0.48), -4px -4px 8px rgba(255,255,255,0.75), inset 0 0 0 1px rgba(255,255,255,0.52); }
+.arrow-icon { flex: 0 0 auto; display: inline-grid; place-items: center; font-size: 1rem; line-height: 0; }
+.arrow-icon svg { width: 1em; height: 1em; display: block; stroke-width: 1.5; }
 
 .hero-panel {
   min-height: 700px;
