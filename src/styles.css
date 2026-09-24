@@ -3116,8 +3116,8 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   }
 
   .process-flow {
-    font-size: clamp(.43rem, 1.8vw, .51rem);
-    letter-spacing: .035em;
+    font-size: clamp(.39rem, 1.62vw, .46rem);
+    letter-spacing: .025em;
     line-height: 1.45;
     white-space: nowrap;
   }
