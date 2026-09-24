@@ -12,7 +12,7 @@ const routes = [
     path: "/proyectos/ceniza",
     title: "Ceniza · CRM + AI Case Study | Diego Franco",
     description: "A CRM-first system connecting clients, quotes, productions, rentals, inventory, finance and controlled AI assistance.",
-    image: "/ceniza-project-thumb.webp",
+    image: "/case-ceniza-desktop.webp",
     imageAlt: "Ceniza CRM and AI case study by Diego Franco",
   },
   {
@@ -20,7 +20,7 @@ const routes = [
     path: "/proyectos/naval",
     title: "Naval · Business System Case Study | Diego Franco",
     description: "A production B2B catalog and ERP connecting demand, production, purchasing, inventory, quality and reporting.",
-    image: "/naval-project-thumb.webp",
+    image: "/case-naval-desktop.webp",
     imageAlt: "Naval business system and ERP case study by Diego Franco",
   },
   {
@@ -28,7 +28,7 @@ const routes = [
     path: "/proyectos/40-plus",
     title: "40+ · E-commerce Automation Case Study | Diego Franco",
     description: "A responsive product journey with WhatsApp-assisted orders, experience capture and automated content delivery.",
-    image: "/40plus-project-thumb.webp",
+    image: "/case-40plus-desktop.webp",
     imageAlt: "40+ e-commerce automation case study by Diego Franco",
   },
 ];
