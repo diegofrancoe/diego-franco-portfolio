@@ -2025,7 +2025,7 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
     backdrop-filter: blur(18px) saturate(1.08);
     -webkit-backdrop-filter: blur(18px) saturate(1.08);
   }
-  .wordmark { display: none; }
+  .site-nav .wordmark { display: none; }
   .site-nav nav {
     min-width: 0;
     display: grid;
@@ -3051,7 +3051,7 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   }
 
   .site-nav nav,
-  .wordmark {
+  .site-nav .wordmark {
     display: none;
   }
 
@@ -3159,6 +3159,12 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
     width: 56px;
     height: 56px;
     border-radius: 18px;
+  }
+
+  footer .wordmark {
+    display: flex;
+    justify-self: start;
+    font-size: .74rem;
   }
 }
 
