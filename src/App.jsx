@@ -1890,7 +1890,7 @@ function CaseNarrative({ detail, language, compact = false }) {
     <section className={`case-narrative${isCompact ? " is-ceniza" : ""}`} aria-label={language === "es" ? "Narrativa del proyecto" : "Project narrative"}>
       {detail.story.map((item, index) => (
         <article key={item.label}>
-          <span>{isCompact ? index + 1 : String(index + 1).padStart(2, "0")}</span>
+          <span>{index + 1}</span>
           <AnimatedEyebrow text={item.label} className="case-label" threshold={0.48} />
           <h2>{item.title}</h2>
           <p>{item.text}</p>
@@ -2216,7 +2216,7 @@ function ExpandedAutomation({ project, content }) {
         {content.automationSteps.map((step, index) => (
           <li className={step.tone ? `is-${step.tone}` : undefined} key={step.title}>
             <span>{typeof step.icon === "string" ? step.icon : <step.icon aria-hidden="true" />}</span><strong>{step.title}</strong><small>{step.meta}</small>
-            {index < content.automationSteps.length - 1 ? <LuArrowRight aria-hidden="true" /> : null}
+            {index < content.automationSteps.length - 1 ? <i className="automation-flow-arrow" aria-hidden="true"><LuArrowRight /></i> : null}
           </li>
         ))}
       </ol>
