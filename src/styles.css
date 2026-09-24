@@ -1879,6 +1879,7 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 @keyframes cloud-drift { 0%, 100% { transform: translateY(-42%) translateX(0) rotate(-.7deg); } 33% { transform: translateY(calc(-42% - 11px)) translateX(6px) rotate(1deg); } 66% { transform: translateY(calc(-42% + 8px)) translateX(-5px) rotate(-.45deg); } }
 @keyframes cloud-breathe { 0%, 100% { transform: scale(1) rotate(0deg); } 35% { transform: scale(1.038, .97) rotate(.75deg); } 70% { transform: scale(.978, 1.032) rotate(-.6deg); } }
+@keyframes cloud-drift-mobile { 0%, 100% { transform: translate3d(0, 0, 0) rotate(-.7deg); } 33% { transform: translate3d(6px, -11px, 0) rotate(1deg); } 66% { transform: translate3d(-5px, 8px, 0) rotate(-.45deg); } }
 @keyframes profile-orb-cloud-breathe { 0%, 100% { transform: scale(1) rotate(0deg); } 35% { transform: scale(1.014, .99) rotate(.22deg); } 70% { transform: scale(.992, 1.013) rotate(-.18deg); } }
 @keyframes profile-orb-cloud-drift { 0%, 100% { transform: translate3d(0, 0, 0) rotate(-.12deg); } 33% { transform: translate3d(3px, -5px, 0) rotate(.28deg); } 66% { transform: translate3d(-3px, 4px, 0) rotate(-.24deg); } }
 @keyframes profile-orb-reveal { to { opacity: 1; filter: blur(0); } }
@@ -2098,9 +2099,14 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
     right: auto;
     opacity: .55;
     transform: none;
-    animation: none;
+    animation: cloud-drift-mobile 9s ease-in-out infinite;
+    will-change: transform;
   }
-  .hero-folder img { animation: none; filter: none; }
+  .hero-folder img {
+    filter: url(#cloud-motion);
+    animation: cloud-breathe 6.5s ease-in-out infinite;
+    will-change: transform;
+  }
   .intro-strip {
     min-height: 0;
     margin: 12px 0;
