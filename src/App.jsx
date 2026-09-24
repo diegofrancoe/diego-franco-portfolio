@@ -174,7 +174,7 @@ const copy = {
     heroLines: ["Ideas into", "", ""],
     heroAccent: "systems",
     heroDescription:
-      "I’m Diego Franco, an AI Solutions Engineer. I turn complex operations into clear digital systems: products that organize information, reduce manual work and help teams know what to do next.",
+      "I’m Diego Franco, an AI Solutions Engineer. I design and build digital products, full-stack applications, business systems and AI-powered automations that connect information, simplify operations and help teams move forward.",
     viewCases: "Explore my work",
     howIWork: "What I Do",
     process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
@@ -232,7 +232,7 @@ const copy = {
     heroLines: ["Ideas convertidas en", "", ""],
     heroAccent: "sistemas",
     heroDescription:
-      "Soy Diego Franco, Ingeniero de Soluciones de IA. Convierto operaciones complejas en sistemas digitales claros: productos que organizan información, reducen trabajo manual y ayudan a los equipos a saber qué hacer después.",
+      "Soy Diego Franco, Ingeniero de Soluciones de IA. Diseño y construyo productos digitales, aplicaciones full stack, sistemas empresariales y automatizaciones con IA que conectan información, simplifican operaciones y ayudan a los equipos a avanzar.",
     viewCases: "Explorar mi trabajo",
     howIWork: "Lo que hago",
     process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
