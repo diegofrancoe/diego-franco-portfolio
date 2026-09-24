@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     {
@@ -7,14 +8,17 @@
       "has": [{ "type": "host", "value": "diegofrancoe.com" }],
       "destination": "https://www.diegofrancoe.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/perfil",
+      "destination": "/#proceso",
+      "permanent": true
+    },
+    {
+      "source": "/contacto",
+      "destination": "/#contacto",
+      "permanent": true
     }
-  ],
-  "rewrites": [
-    { "source": "/perfil", "destination": "/index.html" },
-    { "source": "/contacto", "destination": "/index.html" },
-    { "source": "/proyectos/ceniza", "destination": "/index.html" },
-    { "source": "/proyectos/naval", "destination": "/index.html" },
-    { "source": "/proyectos/40-plus", "destination": "/index.html" }
   ],
   "headers": [
     {

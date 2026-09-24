@@ -1,6 +1,6 @@
-# Portfolio Web | Diego Franco Echverri
+# Portfolio Web | Diego Franco Echeverri
 
-Portafolio personal de Diego Franco Echverri: productos digitales, IA aplicada, automatización e integraciones.
+Portafolio personal de Diego Franco Echeverri: productos digitales, IA aplicada, automatización e integraciones.
 
 ## Desarrollo local
 

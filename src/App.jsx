@@ -7,6 +7,7 @@ import { SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGoogle
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
 const CONTACT_WHATSAPP_NUMBER = "573113964114";
 const CONTACT_LINKEDIN = "https://www.linkedin.com/in/diego-franco-338433364/";
+const CONTACT_GITHUB = "https://github.com/diegofrancoe";
 const CONTACT_CV_URL = "/Diego_Franco_CV.pdf";
 const CONTACT_WHATSAPP_MESSAGE = "Hola Diego 👋, vi tu portafolio y me gustaría conversar contigo sobre una idea o una oportunidad de trabajo. ¿Te cuento un poco más?";
 const CONTACT_WHATSAPP_URL = CONTACT_WHATSAPP_NUMBER
@@ -91,7 +92,7 @@ const projects = [
   {
     number: "03",
     name: "Naval",
-    type: "FULL STACK · ERP + B2B",
+    type: "BUSINESS SYSTEM · ERP + B2B",
     description:
       "A production B2B catalog and ERP that bring product demand, production, purchasing, inventory, quality and reporting into one operating model.",
     tags: ["ERP", "B2B", "OPERATIONS"],
@@ -146,7 +147,7 @@ const projectTranslationsEs = {
       "Un recorrido digital funcional que ayuda a entender 40+, preparar un pedido en WhatsApp y recibir contenido útil mediante un flujo automatizado y con consentimiento.",
   },
   naval: {
-    type: "FULL STACK · ERP + B2B",
+    type: "BUSINESS SYSTEM · ERP + B2B",
     description:
       "Un catálogo B2B y un ERP en producción que reúnen demanda, producción, compras, inventario, calidad e informes dentro de un mismo modelo operativo.",
     tags: ["ERP", "B2B", "OPERACIONES"],
@@ -170,17 +171,16 @@ const copy = {
     spanish: "Spanish",
     roleTitle: "AI SOLUTIONS ENGINEER",
     portfolio: "PORTFOLIO",
-    heroLines: ["Building intelligent business systems", "where operations, data and AI", ""],
-    heroAccent: "work together.",
+    heroLines: ["Ideas into", "", ""],
+    heroAccent: "systems",
     heroDescription:
-      "From full-stack applications, databases and LLM-powered systems to workflow automation, API integrations and intuitive digital experiences, I turn disconnected tools into intelligent business ecosystems.",
-    viewCases: "Explore my projects",
-    heroFooter: "Systems Design · AI Integration · Automation · API Integration · UX/UI",
-    howIWork: "How I Work",
-    process: "DISCOVER → DESIGN → BUILD → INTEGRATE",
-    processAria: "Discover, design, build and integrate",
-    projects: "PROJECTS",
-    projectsTitle: <>Where business<br />meets intelligence</>,
+      "I’m Diego Franco, an AI Solutions Engineer. I turn complex operations into clear digital systems: products that organize information, reduce manual work and help teams know what to do next.",
+    viewCases: "Explore my work",
+    howIWork: "What I Do",
+    process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
+    processAria: "Full stack, AI integration, webs y apps, automations, APIs and UX/UI",
+    projects: "WHAT I BUILD",
+    projectsTitle: <>Projects</>,
     caseStudies: "03 CASE STUDIES",
     viewCase: "View case study",
     disciplines: "Disciplines",
@@ -188,23 +188,14 @@ const copy = {
     toolsTitle: "Tools behind the systems.",
     toolsCopy: "A focused stack for designing, building and scaling intelligent ecosystems.",
     toolsAria: "Tools in my current workflow",
-    workTogether: "LET’S WORK TOGETHER",
+    workTogether: "BUILT TOGETHER",
     contactTitle: <>Let’s make business<br />flow.</>,
     contactCopy: "Available for digital products, business systems, AI automation and connected experiences.",
     getInTouch: "Get in touch",
     ideasIntoSystems: "IDEAS INTO SYSTEMS",
-    profile: "PROFILE",
-    profileTitle: <>Ideas into <span>systems.</span></>,
-    profileLead:
-      "I’m Diego Franco, an AI Solutions Engineer. I turn complex operations into clear digital systems: products that organize information, reduce manual work and help teams know what to do next.",
-    letsTalk: "Let’s talk",
-    profileVisual: "Portrait of Diego Franco connected to the visual system",
-    profileResources: "Profile resources",
-    downloadCv: "Download CV",
     whatICreate: "WHAT I CREATE",
     resultsTitle: <>I build solutions<br /><em>end to end.</em></>,
     resultsCopy: "As an AI Solutions Engineer, I connect product, code, data, automation and AI to turn business needs into complete, measurable systems ready to scale.",
-    faq: "FAQ",
     allProjects: "All projects",
     caseStudy: "Case study",
     projectScope: "Project scope",
@@ -223,14 +214,14 @@ const copy = {
     nextCase: "Next case study",
     desktopAlt: "home page on desktop",
     mobileAlt: "on mobile",
-    documentPortfolio: "Portfolio | Diego Franco Echeverri",
-    documentProfile: "Profile | Diego Franco",
+    documentPortfolio: "Diego Franco | AI Solutions Engineer & Full-Stack Developer",
+    documentDescription: "AI Solutions Engineer building full-stack web apps, business systems, automations and AI integrations for complex operations.",
     documentCase: "Case Study",
   },
   es: {
-    navProjects: "Proyectos",
-    navAbout: "Perfil",
-    navContact: "Contacto",
+    navProjects: "Projects",
+    navAbout: "About",
+    navContact: "Contact",
     backHome: "Diego Franco, volver al inicio",
     mainNavigation: "Navegación principal",
     languageSelector: "Idioma",
@@ -238,17 +229,16 @@ const copy = {
     spanish: "Español",
     roleTitle: "INGENIERO DE SOLUCIONES DE IA",
     portfolio: "PORTAFOLIO",
-    heroLines: ["Construyo sistemas empresariales inteligentes", "donde operaciones, datos e IA", ""],
-    heroAccent: "funcionan juntos.",
+    heroLines: ["Ideas convertidas en", "", ""],
+    heroAccent: "sistemas",
     heroDescription:
-      "Desde aplicaciones full stack, bases de datos y sistemas impulsados por LLM hasta automatización de flujos, integraciones API y experiencias digitales intuitivas, convierto herramientas desconectadas en ecosistemas empresariales inteligentes.",
-    viewCases: "Explorar mis proyectos",
-    heroFooter: "Diseño de sistemas · Integración de IA · Automatización · Integración API · UX/UI",
-    howIWork: "Cómo trabajo",
-    process: "DESCUBRIR → DISEÑAR → CONSTRUIR → INTEGRAR",
-    processAria: "Descubrir, diseñar, construir e integrar",
-    projects: "PROYECTOS",
-    projectsTitle: <>Donde el negocio<br />se encuentra con la inteligencia</>,
+      "Soy Diego Franco, Ingeniero de Soluciones de IA. Convierto operaciones complejas en sistemas digitales claros: productos que organizan información, reducen trabajo manual y ayudan a los equipos a saber qué hacer después.",
+    viewCases: "Explorar mi trabajo",
+    howIWork: "Lo que hago",
+    process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
+    processAria: "Full stack, AI integration, webs y apps, automations, APIs y UX/UI",
+    projects: "LO QUE CONSTRUYO",
+    projectsTitle: <>Proyectos</>,
     caseStudies: "03 CASOS DE ESTUDIO",
     viewCase: "Ver caso de estudio",
     disciplines: "Disciplinas",
@@ -256,23 +246,14 @@ const copy = {
     toolsTitle: "Herramientas detrás de los sistemas.",
     toolsCopy: "Un conjunto enfocado para diseñar, construir y escalar ecosistemas inteligentes.",
     toolsAria: "Herramientas en mi flujo de trabajo actual",
-    workTogether: "TRABAJEMOS JUNTOS",
+    workTogether: "CONSTRUIDO EN EQUIPO",
     contactTitle: <>Hagamos que el negocio<br />fluya.</>,
     contactCopy: "Disponible para productos digitales, sistemas empresariales, automatización con IA y experiencias conectadas.",
     getInTouch: "Hablemos",
     ideasIntoSystems: "IDEAS CONVERTIDAS EN SISTEMAS",
-    profile: "PERFIL",
-    profileTitle: <>Ideas convertidas en <span>sistemas.</span></>,
-    profileLead:
-      "Soy Diego Franco, Ingeniero de Soluciones de IA. Convierto operaciones complejas en sistemas digitales claros: productos que organizan información, reducen trabajo manual y ayudan a los equipos a saber qué hacer después.",
-    letsTalk: "Hablemos",
-    profileVisual: "Retrato de Diego Franco conectado al sistema visual",
-    profileResources: "Recursos del perfil",
-    downloadCv: "Descargar CV",
     whatICreate: "LO QUE CONSTRUYO",
     resultsTitle: <>Construyo soluciones<br /><em>de principio a fin.</em></>,
     resultsCopy: "Como AI Solutions Engineer, conecto producto, código, datos, automatización e IA para convertir necesidades del negocio en sistemas completos, medibles y listos para crecer.",
-    faq: "PREGUNTAS FRECUENTES",
     allProjects: "Todos los proyectos",
     caseStudy: "Caso de estudio",
     projectScope: "Alcance del proyecto",
@@ -291,8 +272,8 @@ const copy = {
     nextCase: "Siguiente caso de estudio",
     desktopAlt: "página principal en computador",
     mobileAlt: "en celular",
-    documentPortfolio: "Portafolio | Diego Franco Echeverri",
-    documentProfile: "Perfil | Diego Franco",
+    documentPortfolio: "Diego Franco | Ingeniero de Soluciones de IA y Full Stack",
+    documentDescription: "Ingeniero de Soluciones de IA que crea aplicaciones full stack, sistemas empresariales, automatizaciones e integraciones para operaciones complejas.",
     documentCase: "Caso de estudio",
   },
 };
@@ -309,15 +290,12 @@ const workflowTools = [
   { name: "Supabase", icon: SiSupabase, color: "#3ECF8E", slug: "supabase" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", slug: "postgresql" },
   { name: "Figma", icon: FigmaBrandMark, color: "#F24E1E", slug: "figma" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#111111", slug: "next" },
   { name: "n8n", icon: SiN8N, color: "#EA4B71", slug: "n8n" },
   { name: "Make", icon: SiMake, color: "#6D00CC", slug: "make" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#111111", slug: "nextjs" },
   { name: "Vite", icon: SiVite, color: "#646CFF", slug: "vite" },
   { name: "Vercel", icon: SiVercel, color: "#111111", slug: "vercel" },
 ];
-
-const workflowToolByName = new Map(workflowTools.map((tool) => [tool.name, tool]));
-workflowToolByName.set("GitHub", { name: "GitHub", icon: SiGithub, color: "#181717", slug: "github" });
 
 function FigmaBrandMark() {
   return (
@@ -1083,37 +1061,21 @@ function ProjectVisual({ visual }) {
   );
 }
 
-const profileFaqs = [
-  {
-    question: "What can we build together?",
-    answer: "From connected ERP, CRM and POS platforms to responsive apps, web experiences, automated workflows and practical AI layers built around the way your business operates.",
-  },
-  {
-    question: "Which teams are the best fit for this work?",
-    answer: "Growing businesses and operational teams that need clearer systems, better-connected information and digital products that can evolve with their processes.",
-  },
-  {
-    question: "How does an idea become a working system?",
-    answer: "We map the operation, identify the highest-impact opportunity, shape the experience and build in focused stages—testing each connection before expanding the system.",
-  },
-];
-
 const profileTechnicalContent = {
   en: {
     eyebrow: "WHAT I BUILD",
-    title: "I build solutions end to end.",
+    title: <>I build solutions <em>end to end.</em></>,
     copy: "I take ownership of the full product path: discovery, experience, architecture, engineering, integrations, deployment and iteration. The stack adapts to each project; these are the tools I use most often at each stage.",
     flowLabel: "Delivery path",
-    toolsLabel: "Tools",
     capabilitiesLabel: "Core capabilities",
     capabilities: ["Full stack", "Webs & apps", "Automations", "APIs", "Applied AI"],
     phases: [
-      { number: "1", title: "Discover", text: "Analyze how the operation works, who participates and where time is lost. Define the problem, priorities and solution scope.", output: "Processes · needs · scope", tools: ["OpenAI"] },
-      { number: "2", title: "Design", text: "Turn processes into clear desktop and mobile journeys with a consistent visual component system.", output: "UX/UI · journeys · components", tools: ["Figma"] },
-      { number: "3", title: "Architect", text: "Organize modules, data, permissions and integrations so the solution responds to the business operation.", output: "Architecture · data · permissions", tools: ["Supabase", "PostgreSQL"] },
-      { number: "4", title: "Build", text: "Develop the interface and business logic, connecting data and features to turn the design into a working application.", output: "Frontend · backend · business logic", tools: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vite"] },
-      { number: "5", title: "Connect", text: "Integrate AI assistants, connect services and automate tasks with the business data and rules.", output: "AI assistants · APIs · automation", tools: ["OpenAI", "n8n", "Make"] },
-      { number: "6", title: "Deploy and improve", text: "Verify the main flows, deploy the application and fix issues. Add improvements based on usage and business needs.", output: "Validation · deployment · continuous improvement", tools: ["GitHub", "Vercel"] },
+      { number: "1", title: "Discover", text: "Analyze how the operation works, who participates, where work is repeated and what needs to be solved first.", output: "Processes · problems · scope" },
+      { number: "2", title: "Design", text: "Turn the process into clear web and mobile journeys, organizing screens, states and components before building.", output: "UX/UI · journeys · components" },
+      { number: "3", title: "Architect", text: "Organize modules, data, roles and permissions so every part of the system supports the real business operation.", output: "Modules · data · roles and permissions" },
+      { number: "4", title: "Build", text: "Develop the interface and business logic, connecting forms, validations, databases and features into a usable product.", output: "Frontend · backend · business logic" },
+      { number: "5", title: "Connect", text: "Integrate APIs, automations and AI assistants to move information between tools and reduce manual tasks.", output: "APIs · automation · applied AI" },
+      { number: "6", title: "Deploy and improve", text: "Test the main flows, publish the application, fix issues and improve the product as usage and needs evolve.", output: "Testing · deployment · continuous improvement" },
     ],
     projectsEyebrow: "TECHNICAL WORK BY PROJECT",
     projectsTitle: "Three products. Three end-to-end systems.",
@@ -1151,19 +1113,18 @@ const profileTechnicalContent = {
   },
   es: {
     eyebrow: "LO QUE CONSTRUYO",
-    title: "Construyo soluciones de principio a fin.",
+    title: <>Construyo soluciones <em>de principio a fin.</em></>,
     copy: "Me hago cargo del recorrido completo del producto: descubrimiento, experiencia, arquitectura, ingeniería, integraciones, despliegue e iteración. El stack se adapta a cada proyecto; estas son las herramientas que uso con más frecuencia en cada etapa.",
     flowLabel: "Ruta de entrega",
-    toolsLabel: "Herramientas",
     capabilitiesLabel: "Capacidades principales",
     capabilities: ["Full stack", "Webs y apps", "Automatizaciones", "APIs", "IA aplicada"],
     phases: [
-      { number: "1", title: "Descubrir", text: "Analizo cómo funciona la operación, quién participa y dónde se pierde tiempo. Defino el problema, las prioridades y el alcance de la solución.", output: "Procesos · necesidades · alcance", tools: ["OpenAI"] },
-      { number: "2", title: "Diseñar", text: "Transformo los procesos en pantallas y recorridos claros, adaptados a escritorio y móvil, con componentes visuales consistentes.", output: "UX/UI · recorridos · componentes", tools: ["Figma"] },
-      { number: "3", title: "Arquitectar", text: "Organizo los módulos, los datos, los permisos y las integraciones para que la solución responda a la operación del negocio.", output: "Arquitectura · datos · permisos", tools: ["Supabase", "PostgreSQL"] },
-      { number: "4", title: "Construir", text: "Desarrollo la interfaz y la lógica de negocio, conectando datos y funcionalidades para convertir el diseño en una aplicación funcional.", output: "Frontend · backend · lógica de negocio", tools: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Vite"] },
-      { number: "5", title: "Conectar", text: "Integro asistentes de IA, conecto servicios y automatizo tareas con los datos y las reglas del negocio.", output: "Asistentes IA · APIs · automatización", tools: ["OpenAI", "n8n", "Make"] },
-      { number: "6", title: "Desplegar y mejorar", text: "Verifico los flujos principales, publico la aplicación y corrijo problemas. Incorporo mejoras a partir del uso y las necesidades del negocio.", output: "Validación · despliegue · mejora continua", tools: ["GitHub", "Vercel"] },
+      { number: "1", title: "Descubrir", text: "Analizo cómo funciona la operación, quién participa, dónde se repite trabajo y qué necesita resolverse primero.", output: "Procesos · problemas · alcance" },
+      { number: "2", title: "Diseñar", text: "Transformo el proceso en recorridos claros para web y móvil, organizando pantallas, estados y componentes antes de construir.", output: "UX/UI · recorridos · componentes" },
+      { number: "3", title: "Arquitectar", text: "Organizo módulos, datos, roles y permisos para que cada parte del sistema responda a la operación real del negocio.", output: "Módulos · datos · roles y permisos" },
+      { number: "4", title: "Construir", text: "Desarrollo la interfaz y la lógica de negocio, conectando formularios, validaciones, bases de datos y funciones en un producto usable.", output: "Frontend · backend · lógica de negocio" },
+      { number: "5", title: "Conectar", text: "Integro APIs, automatizaciones y asistentes de IA para mover información entre herramientas y reducir tareas manuales.", output: "APIs · automatización · IA aplicada" },
+      { number: "6", title: "Desplegar y mejorar", text: "Pruebo los flujos principales, publico la aplicación, corrijo errores y mejoro el producto según el uso y nuevas necesidades.", output: "Pruebas · despliegue · mejora continua" },
     ],
     projectsEyebrow: "TRABAJO TÉCNICO POR PROYECTO",
     projectsTitle: "Tres productos. Tres sistemas de principio a fin.",
@@ -1201,15 +1162,16 @@ const profileTechnicalContent = {
   },
 };
 
-function ProfileTechnicalSection({ language }) {
+function ProfileTechnicalSection({ language, eyebrow, className = "", centeredTitle = false, hideCopy = false, hideCapabilities = false, sectionId }) {
   const content = profileTechnicalContent[language];
+  const sectionEyebrow = eyebrow || content.eyebrow;
 
   return (
     <>
-      <section className="profile-delivery-section" aria-labelledby="profile-delivery-title">
-        <header className="profile-technical-header">
-          <p className="eyebrow" aria-label={content.eyebrow}><span className="availability-dot loading-dot" /><TypewriterText text={content.eyebrow} threshold={0.2} /></p>
-          <div><h2 id="profile-delivery-title">{content.title}</h2><p>{content.copy}</p></div>
+      <section id={sectionId} className={`profile-delivery-section ${className}`.trim()} aria-labelledby="profile-delivery-title">
+        <header className={`profile-technical-header${centeredTitle ? " is-centered" : ""}`}>
+          <p className="eyebrow" aria-label={sectionEyebrow}><span className="availability-dot loading-dot" /><TypewriterText text={sectionEyebrow} threshold={0.2} /></p>
+          <div><h2 id="profile-delivery-title">{content.title}</h2>{!hideCopy && <p>{content.copy}</p>}</div>
         </header>
         <ol className="profile-delivery-flow" aria-label={content.flowLabel}>
           {content.phases.map((phase) => (
@@ -1219,103 +1181,20 @@ function ProfileTechnicalSection({ language }) {
               <p>{phase.text}</p>
               <div className="profile-delivery-step-footer">
                 <small>{phase.output}</small>
-                {phase.tools.length > 0 && (
-                  <ul className="profile-delivery-tools" aria-label={`${content.toolsLabel}: ${phase.tools.join(", ")}`}>
-                    {phase.tools.map((toolName) => {
-                      const tool = workflowToolByName.get(toolName);
-                      const ToolIcon = tool?.icon;
-                      return <li key={toolName}>{ToolIcon && <ToolIcon aria-hidden="true" />}<span>{toolName}</span></li>;
-                    })}
-                  </ul>
-                )}
               </div>
             </li>
           ))}
         </ol>
-        <ul className="profile-delivery-capabilities" aria-label={content.capabilitiesLabel}>
-          {content.capabilities.map((capability) => (
-            <li key={capability}>{capability}</li>
-          ))}
-        </ul>
+        {!hideCapabilities && (
+          <ul className="profile-delivery-capabilities" aria-label={content.capabilitiesLabel}>
+            {content.capabilities.map((capability) => (
+              <li key={capability}>{capability}</li>
+            ))}
+          </ul>
+        )}
       </section>
 
     </>
-  );
-}
-
-const profileFaqsEs = [
-  {
-    question: "¿Qué podemos construir juntos?",
-    answer: "Desde plataformas ERP, CRM y POS conectadas hasta aplicaciones adaptables, experiencias web, flujos automatizados y capas prácticas de IA construidas alrededor de la forma en que opera tu negocio.",
-  },
-  {
-    question: "¿Qué equipos son ideales para este trabajo?",
-    answer: "Empresas en crecimiento y equipos operativos que necesitan sistemas más claros, información mejor conectada y productos digitales que evolucionen junto con sus procesos.",
-  },
-  {
-    question: "¿Cómo se convierte una idea en un sistema funcional?",
-    answer: "Mapeamos la operación, identificamos la oportunidad de mayor impacto, diseñamos la experiencia y construimos por etapas enfocadas, probando cada conexión antes de ampliar el sistema.",
-  },
-];
-
-function ProfilePage({ language }) {
-  const text = copy[language];
-  const faqs = language === "es" ? profileFaqsEs : profileFaqs;
-
-  return (
-    <main className="profile-page" id="inicio">
-      <section className="about-section about-page" aria-labelledby="profile-title">
-        <article className="about-copy">
-          <p className="eyebrow" aria-label={text.profile}><span className="availability-dot loading-dot" /><TypewriterText text={text.profile} /></p>
-          <h1 id="profile-title">{text.profileTitle}</h1>
-          <p className="profile-lead">{text.profileLead}</p>
-          <div className="profile-hero-actions">
-            <SoftButton href={CONTACT_WHATSAPP_URL} primary external>{text.letsTalk} <Arrow diagonal /></SoftButton>
-          </div>
-        </article>
-
-        <div className="profile-visual" aria-label={text.profileVisual}>
-          <figure className="profile-cutout">
-            <img
-              src="/diego-franco-cutout-final.webp"
-              alt="Diego Franco"
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-          <div className="profile-visual-resources" aria-label={text.profileResources}>
-            <a className="profile-hero-resource" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
-              {text.downloadCv}<Arrow diagonal />
-            </a>
-            <a className="profile-hero-resource" href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
-              LinkedIn<Arrow diagonal />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <ProfileTechnicalSection language={language} />
-
-      <section className="profile-faq" aria-labelledby="profile-faq-title">
-        <header className="profile-faq-header">
-          <p className="eyebrow" id="profile-faq-title" aria-label={text.faq}>
-            <span className="availability-dot loading-dot" />
-            <TypewriterText text={text.faq} threshold={0.2} />
-          </p>
-        </header>
-        <div className="profile-faq-list">
-          {faqs.map((faq) => (
-            <details className="profile-faq-item" key={faq.question}>
-              <summary>
-                <span className="profile-faq-plus" aria-hidden="true" />
-                <span>{faq.question}</span>
-              </summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-    </main>
   );
 }
 
@@ -2893,6 +2772,20 @@ function ContactPage({ language }) {
   );
 }
 
+function NotFoundPage({ language, onNavigate }) {
+  const isEs = language === "es";
+  return (
+    <main className="not-found-page" aria-labelledby="not-found-title">
+      <p className="eyebrow"><span className="availability-dot" />404</p>
+      <h1 id="not-found-title">{isEs ? "Esta página no existe." : "This page doesn’t exist."}</h1>
+      <p>{isEs ? "Puedes volver al inicio o explorar los proyectos del portafolio." : "You can return home or explore the portfolio projects."}</p>
+      <SoftButton href="/" primary onClick={(event) => onNavigate(event, "/")}>
+        {isEs ? "Volver al inicio" : "Back home"} <Arrow diagonal />
+      </SoftButton>
+    </main>
+  );
+}
+
 function App() {
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
   const [currentHash, setCurrentHash] = useState(() => window.location.hash);
@@ -2918,47 +2811,63 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (window.location.pathname !== "/contacto") return;
-    window.history.replaceState({}, "", "/#contacto");
+    const legacyHash = window.location.pathname === "/contacto"
+      ? "#contacto"
+      : window.location.pathname === "/perfil"
+        ? "#proceso"
+        : "";
+    if (!legacyHash) return;
+    window.history.replaceState({}, "", `/${legacyHash}`);
     setCurrentPath("/");
-    setCurrentHash("#contacto");
+    setCurrentHash(legacyHash);
     window.requestAnimationFrame(() => {
-      document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(legacyHash.slice(1))?.scrollIntoView({ behavior: "smooth" });
     });
   }, []);
 
   const activeProject = localizedProjects.find((project) => project.path === currentPath);
+  const isNotFound = currentPath !== "/" && !activeProject;
 
   useEffect(() => {
     document.documentElement.lang = language;
     const pageTitle = activeProject
       ? `${activeProject.name} · ${text.documentCase} | Diego Franco`
-      : currentPath === "/perfil"
-        ? text.documentProfile
+      : isNotFound
+        ? `${language === "es" ? "Página no encontrada" : "Page not found"} | Diego Franco`
         : text.documentPortfolio;
     const pageDescription = activeProject
       ? activeProject.description
-      : currentPath === "/perfil"
-        ? text.profileLead
-        : text.heroDescription;
+      : isNotFound
+        ? language === "es"
+          ? "La página solicitada no existe. Explora los proyectos y soluciones de Diego Franco."
+          : "The requested page does not exist. Explore Diego Franco's projects and solutions."
+        : text.documentDescription;
     const socialImage = activeProject
       ? `${SITE_URL}${projectVisualAssets[activeProject.visual]}`
-      : currentPath === "/perfil"
-        ? `${SITE_URL}/diego-franco-cutout-final.webp`
-        : `${SITE_URL}/hero-mint-cloud.webp`;
+      : `${SITE_URL}/hero-mint-cloud.webp`;
+    const socialImageAlt = activeProject
+      ? `${activeProject.name} — ${text.documentCase}`
+      : language === "es"
+        ? "Portafolio de Diego Franco, Ingeniero de Soluciones de IA"
+        : "Diego Franco's AI Solutions Engineering portfolio";
 
     document.title = pageTitle;
     const canonicalUrl = `${SITE_URL}${currentPath === "/" ? "/" : currentPath}`;
     document.querySelector('meta[name="description"]')?.setAttribute("content", pageDescription);
+    document.querySelector('meta[name="robots"]')?.setAttribute("content", isNotFound ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     document.querySelector('meta[property="og:title"]')?.setAttribute("content", pageTitle);
     document.querySelector('meta[property="og:description"]')?.setAttribute("content", pageDescription);
+    document.querySelector('meta[property="og:type"]')?.setAttribute("content", activeProject ? "article" : "website");
+    document.querySelector('meta[property="og:locale"]')?.setAttribute("content", language === "es" ? "es_CO" : "en_US");
     document.querySelector('meta[property="og:url"]')?.setAttribute("content", canonicalUrl);
     document.querySelector('meta[property="og:image"]')?.setAttribute("content", socialImage);
+    document.querySelector('meta[property="og:image:alt"]')?.setAttribute("content", socialImageAlt);
     document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", pageTitle);
     document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", pageDescription);
     document.querySelector('meta[name="twitter:image"]')?.setAttribute("content", socialImage);
+    document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute("content", socialImageAlt);
     document.querySelector('link[rel="canonical"]')?.setAttribute("href", canonicalUrl);
-  }, [activeProject, currentPath, language, text]);
+  }, [activeProject, currentPath, isNotFound, language, text]);
 
   function navigate(event, path) {
     event.preventDefault();
@@ -2993,7 +2902,7 @@ function App() {
 
         <nav aria-label={text.mainNavigation}>
           <a href="/#trabajo" aria-current={activeProject || (currentPath === "/" && currentHash === "#trabajo") ? "page" : undefined} onClick={(event) => navigate(event, "/#trabajo")}>{text.navProjects}</a>
-          <a href="/perfil" aria-current={currentPath === "/perfil" ? "page" : undefined} onClick={(event) => navigate(event, "/perfil")}>{text.navAbout}</a>
+          <a href="/#proceso" aria-current={currentPath === "/" && currentHash === "#proceso" ? "page" : undefined} onClick={(event) => navigate(event, "/#proceso")}>{text.navAbout}</a>
           <a href="/#contacto" aria-current={currentPath === "/" && currentHash === "#contacto" ? "page" : undefined} onClick={(event) => navigate(event, "/#contacto")}>{text.navContact}</a>
         </nav>
 
@@ -3003,14 +2912,18 @@ function App() {
             <span aria-hidden="true">/</span>
             <button type="button" className={language === "es" ? "is-active" : ""} onClick={() => selectLanguage("es")} aria-pressed={language === "es"} aria-label={text.spanish}>ES</button>
           </div>
-          <SoftButton href="https://github.com/diegofrancoe" external>
-            GitHub <Arrow diagonal />
-          </SoftButton>
+          <div className="site-social-links" aria-label={language === "es" ? "Perfiles profesionales" : "Professional profiles"}>
+            <a href={CONTACT_GITHUB} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+              <SiGithub aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </header>
 
-      {currentPath === "/perfil" ? <ProfilePage language={language} /> : activeProject ? (
+      {activeProject ? (
         <ProjectDetailPage project={activeProject} projectsList={localizedProjects} onNavigate={navigate} language={language} />
+      ) : isNotFound ? (
+        <NotFoundPage language={language} onNavigate={navigate} />
       ) : <main id="inicio">
         <section className="hero-panel" aria-labelledby="hero-title">
           <div className="hero-copy">
@@ -3028,7 +2941,7 @@ function App() {
             </div>
             <div className="hero-actions">
               <SoftButton href="/proyectos/ceniza" primary onClick={(event) => navigate(event, "/proyectos/ceniza")}>
-                {text.viewCases} <Arrow />
+                {text.viewCases} <Arrow diagonal />
               </SoftButton>
             </div>
           </div>
@@ -3047,9 +2960,6 @@ function App() {
             <img src="/hero-mint-cloud.webp" alt="" />
           </div>
 
-          <div className="hero-footer">
-            <p>{text.heroFooter}</p>
-          </div>
         </section>
 
         <section className="intro-strip" aria-label={text.howIWork}>
@@ -3092,6 +3002,16 @@ function App() {
           </div>
         </section>
 
+        <ProfileTechnicalSection
+          language={language}
+          eyebrow="WORKFLOW"
+          className="home-process-section"
+          centeredTitle
+          hideCopy
+          hideCapabilities
+          sectionId="proceso"
+        />
+
         <section className="tools-section" aria-labelledby="tools-title">
           <div className="tools-heading">
             <p className="eyebrow" aria-label={text.coreStack}><span className="availability-dot" /><TypewriterText text={text.coreStack} /></p>
@@ -3124,11 +3044,14 @@ function App() {
                 {text.getInTouch} <Arrow diagonal />
               </SoftButton>
               <div className="contact-secondary-links" aria-label={language === "es" ? "Otros canales de contacto" : "Other contact channels"}>
-                <a href={`mailto:${CONTACT_EMAIL}`}>
-                  <span>{language === "es" ? "Correo" : "Email"}</span><Arrow diagonal />
+                <a className="contact-cv-link" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf" aria-label={language === "es" ? "Descargar CV" : "Download CV"} title={language === "es" ? "Descargar CV" : "Download CV"}>
+                  CV
                 </a>
-                <a href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer">
-                  <span>LinkedIn</span><Arrow diagonal />
+                <a href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                  <FaLinkedinIn aria-hidden="true" />
+                </a>
+                <a href={CONTACT_GITHUB} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
+                  <SiGithub aria-hidden="true" />
                 </a>
               </div>
             </div>
