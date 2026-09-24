@@ -2661,8 +2661,8 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
       </>)}
 
       <a className="case-next" href={nextProject.path} onClick={(event) => onNavigate(event, nextProject.path)}>
-        <span aria-label={project.visual === "ceniza" ? text.nextCase : `${text.nextCase} · ${nextProject.number}`}>
-          {project.visual === "ceniza" ? <TypewriterText text={text.nextCase} threshold={0.35} rootMargin="0px 0px -7% 0px" /> : `${text.nextCase} · ${nextProject.number}`}
+        <span aria-label={text.nextCase}>
+          <TypewriterText text={text.nextCase} threshold={0.35} rootMargin="0px 0px -7% 0px" />
         </span>
         <strong>{nextProject.name}</strong>
         <Arrow />
