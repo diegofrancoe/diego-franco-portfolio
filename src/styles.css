@@ -3115,10 +3115,17 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
     max-width: 100%;
   }
 
+  .process-flow {
+    font-size: clamp(.43rem, 1.8vw, .51rem);
+    letter-spacing: .035em;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
   .process-flow .typewriter-text {
     display: block;
     min-width: 0 !important;
-    overflow-wrap: anywhere;
+    white-space: nowrap;
   }
 
   .home-process-section .profile-technical-header.is-centered h2 {
