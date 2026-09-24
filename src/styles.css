@@ -3063,7 +3063,7 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
     gap: 5px;
     border: 1px solid rgba(255,255,255,.78);
     border-radius: 18px;
-    background: rgba(239,238,232,.9);
+    background: var(--hero-surface);
     box-shadow: 5px 7px 15px rgba(73,77,69,.16), inset 1px 1px 0 rgba(255,255,255,.9);
   }
 
@@ -3094,6 +3094,19 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 
   .hero-panel {
     margin-top: 0;
+  }
+
+  .hero-folder {
+    opacity: 1;
+  }
+
+  .hero-actions .soft-button,
+  .contact-panel .soft-button {
+    width: fit-content;
+    min-width: 0;
+    padding-inline: 22px;
+    justify-content: center;
+    gap: 18px;
   }
 
   .process-flow,
