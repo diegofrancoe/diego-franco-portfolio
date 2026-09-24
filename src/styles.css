@@ -3116,9 +3116,11 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   }
 
   .process-flow {
+    padding-inline: 4px;
     font-size: clamp(.39rem, 1.62vw, .46rem);
     letter-spacing: .025em;
     line-height: 1.45;
+    text-align: center;
     white-space: nowrap;
   }
 
