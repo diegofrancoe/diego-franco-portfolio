@@ -1636,10 +1636,10 @@ function CenizaAssistantConversation({ language }) {
       <div className="ceniza-conversation-screen is-dashboard-shot">
         <img
           className="ceniza-assistant-finance-screen"
-          src="/case-ceniza-assistant-finance-screen-v1.png"
+          src="/case-ceniza-assistant-finance-screen-v2.png"
           alt={isEs
-            ? "Pantalla del Asistente Ceniza con cobros por vencer y la pregunta: ¿Qué cobros vencen esta semana y cuáles debo priorizar?"
-            : "Asistente Ceniza screen with upcoming receivables and a typed question asking which payments to prioritize this week"}
+            ? "Pantalla del Asistente Ceniza con cobros por vencer y la pregunta: Prepara mi día por prioridad."
+            : "Asistente Ceniza screen with upcoming receivables and the typed request: Prepare my day by priority."}
           loading="lazy"
           decoding="async"
         />
