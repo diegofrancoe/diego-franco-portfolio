@@ -1631,19 +1631,18 @@ function CenizaAssistantConversation({ language }) {
   const isEs = language === "es";
 
   return (
-    <div className="ceniza-conversation-phone" aria-label={isEs ? "Dashboard del Asistente Ceniza" : "Asistente Ceniza dashboard"}>
+    <div className="ceniza-conversation-phone" aria-label={isEs ? "Asistente Ceniza en un iPhone mostrando una consulta financiera" : "Asistente Ceniza on an iPhone showing a finance question"}>
       <span className="ceniza-conversation-speaker" aria-hidden="true" />
       <div className="ceniza-conversation-screen is-dashboard-shot">
-        <div className="ceniza-dashboard-shot-crop">
-          <img
-            src="/case-ceniza-assistant-dashboard-reference.png"
-            alt={isEs ? "Dashboard del Asistente Ceniza con resumen del negocio, prioridades y preguntas útiles" : "Asistente Ceniza dashboard with business summary, priorities and useful questions"}
-            loading="lazy"
-            decoding="async"
-          />
-          <span className="ceniza-dashboard-shot-top" aria-hidden="true" />
-          <span className="ceniza-dashboard-shot-composer" aria-hidden="true" />
-        </div>
+        <img
+          className="ceniza-assistant-finance-screen"
+          src="/case-ceniza-assistant-finance-screen-v1.png"
+          alt={isEs
+            ? "Pantalla del Asistente Ceniza con cobros por vencer y la pregunta: ¿Qué cobros vencen esta semana y cuáles debo priorizar?"
+            : "Asistente Ceniza screen with upcoming receivables and a typed question asking which payments to prioritize this week"}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   );
