@@ -943,13 +943,11 @@ const expandedCaseDetails = {
       webCopy: "Inside productosnaval.com, the chatbot helps customers find the right product, review technical sheets and usage guidance, manage complaints, receive recommendations and create an order based on their specific need. The full context—product, sector, request and order—enters the ERP to trigger automated commercial and operational follow-up.",
       capabilities: ["Catalog + SKU lookup", "Technical sheets + SDS", "Needs-based recommendation", "Orders + ERP webhooks"],
       webJourneyLabel: "WEB → ERP WORKFLOW",
-      webJourneyTitle: "The request keeps its context from discovery to fulfillment.",
       webJourney: [
         { title: "Discover", text: "Find products by sector, use or need." },
         { title: "Ask", text: "The chatbot guides the customer and keeps the conversation." },
         { title: "Request", text: "The quote or order preserves customer, SKU and quantity." },
-        { title: "Enter the ERP", text: "The request becomes a traceable commercial record." },
-        { title: "Fulfill", text: "Inventory, production, delivery and finance continue the same order." },
+        { title: "Continue in the ERP", text: "The traceable order continues through inventory, production, delivery and finance." },
       ],
       webUrl: "https://www.productosnaval.com/",
       webCta: "Visit productosnaval.com",
@@ -1080,13 +1078,11 @@ const expandedCaseDetails = {
       webCopy: "Dentro de productosnaval.com, el chatbot ayuda a encontrar el producto adecuado, consultar fichas técnicas y formas de uso, gestionar quejas, recibir recomendaciones y crear un pedido según la necesidad del cliente. Todo el contexto —producto, sector, solicitud y pedido— entra al ERP para activar un seguimiento comercial y operativo automatizado.",
       capabilities: ["Catálogo + consulta de SKU", "Fichas técnicas + SDS", "Recomendación por necesidad", "Pedidos + webhooks al ERP"],
       webJourneyLabel: "FLUJO WEB → ERP",
-      webJourneyTitle: "La solicitud conserva su contexto desde el descubrimiento hasta la ejecución.",
       webJourney: [
         { title: "Descubrir", text: "Encuentra productos por sector, uso o necesidad." },
         { title: "Consultar", text: "El chatbot orienta al cliente y conserva la conversación." },
         { title: "Solicitar", text: "La cotización o pedido mantiene cliente, SKU y cantidad." },
-        { title: "Entrar al ERP", text: "La solicitud se convierte en un registro comercial trazable." },
-        { title: "Ejecutar", text: "Inventario, producción, entrega y finanzas continúan el mismo pedido." },
+        { title: "Continuar en el ERP", text: "El pedido trazable continúa por inventario, producción, entrega y finanzas." },
       ],
       webUrl: "https://www.productosnaval.com/",
       webCta: "Visitar productosnaval.com",
@@ -2339,13 +2335,9 @@ function ExpandedWebSection({ project, content, language }) {
       </div>
       {project.visual === "naval" && content.webJourney ? (
         <div className="naval-web-workflow" aria-label={content.webJourneyLabel}>
-          <header>
-            <span>{content.webJourneyLabel}</span>
-            <h3>{content.webJourneyTitle}</h3>
-          </header>
           <ol className="ceniza-web-paths naval-web-paths">
             {content.webJourney.map((step, index) => (
-              <li className={index >= 3 ? "is-erp-stage" : "is-web-stage"} key={step.title}>
+              <li key={step.title}>
                 <span>{index + 1}</span>
                 <div><strong>{step.title}</strong><p>{step.text}</p></div>
               </li>

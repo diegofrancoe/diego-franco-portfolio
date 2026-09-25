@@ -2961,31 +2961,17 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 .expanded-web-preview { min-width: 0; margin: 0; }
 .expanded-web-preview .desktop-browser-frame { box-shadow: 0 30px 55px rgba(63,65,57,.22); }
 .expanded-web-preview img { width: 100%; display: block; }
-.naval-web-preview-stack { min-width: 0; padding: clamp(12px, 1.5vw, 20px); display: grid; grid-template-columns: minmax(0,1.06fr) minmax(0,.94fr); gap: clamp(14px, 1.4vw, 22px); align-items: start; border: 1px solid rgba(49,84,185,.12); border-radius: 26px; background: linear-gradient(145deg, rgba(255,255,255,.46), rgba(224,230,248,.28)); box-shadow: inset 1px 1px 0 rgba(255,255,255,.72), 10px 14px 26px rgba(65,70,87,.08); }
+.naval-web-preview-stack { min-width: 0; display: grid; align-items: start; }
 .naval-web-preview-stack .expanded-web-preview { position: relative; }
-.naval-web-preview-stack .is-home,
-.naval-web-preview-stack .is-chatbot { width: 100%; margin: 0; }
-.naval-web-preview-stack .is-chatbot { margin-top: clamp(38px, 4vw, 64px); z-index: 2; }
+.naval-web-preview-stack .is-home { width: 88%; }
+.naval-web-preview-stack .is-chatbot { width: 76%; margin: clamp(-66px, -4vw, -48px) 0 0 auto; z-index: 2; }
 .naval-web-preview-stack .is-chatbot .desktop-browser-frame { border-color: rgba(49,84,185,.24); box-shadow: 0 34px 64px rgba(34,51,107,.25); }
 .naval-web-preview-stack .is-chatbot img { aspect-ratio: 1.55 / 1; object-fit: cover; object-position: right top; }
 .naval-web-preview-stack figcaption { margin-top: 11px; color: #8f7100; font-family: var(--mono); font-size: .5rem; font-weight: 800; letter-spacing: .075em; text-align: right; }
-.naval-web-workflow { margin-top: clamp(42px, 5vw, 72px); padding-top: clamp(26px, 3vw, 38px); border-top: 1px solid rgba(49,84,185,.16); }
-.naval-web-workflow > header { display: grid; grid-template-columns: minmax(150px,.34fr) minmax(0,1fr); gap: clamp(24px, 4vw, 68px); align-items: start; }
-.naval-web-workflow > header > span { padding-top: 6px; color: #3154b9; font-family: var(--mono); font-size: .6rem; font-weight: 800; letter-spacing: .08em; }
-.naval-web-workflow > header h3 { max-width: 720px; margin: 0; color: #272923; font-size: clamp(1.35rem, 2vw, 2.2rem); line-height: 1.05; letter-spacing: -.035em; text-wrap: balance; }
-.naval-web-paths { margin-top: clamp(24px, 3vw, 38px); padding-top: 0; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0; border-top: 0; }
-.naval-web-paths li { min-height: 132px; padding: 18px 16px; grid-template-columns: 30px minmax(0,1fr); border-left: 1px solid rgba(49,84,185,.14); background: rgba(255,255,255,.3); }
-.naval-web-paths li:first-child { border-left: 0; border-radius: 18px 0 0 18px; }
-.naval-web-paths li:last-child { border-radius: 0 18px 18px 0; }
-.naval-web-paths li.is-erp-stage { background: rgba(49,84,185,.075); }
+.naval-web-workflow { margin-top: clamp(30px, 3.5vw, 48px); }
+.naval-web-paths { margin-top: 0; }
 .naval-web-paths li > span { color: #3154b9; border-color: rgba(49,84,185,.34); }
-.naval-web-paths li.is-erp-stage > span { color: #fff; border-color: #3154b9; background: #3154b9; }
-.naval-web-paths strong { font-size: .78rem; }
-.naval-web-paths p { max-width: 190px; color: #60645f; font-size: .59rem; line-height: 1.42; }
-
-@media (min-width: 1101px) {
-  .naval-web-paths li:not(:last-child)::after { content: "→"; position: absolute; z-index: 3; top: 20px; right: -8px; color: rgba(49,84,185,.58); font-size: .72rem; font-weight: 800; }
-}
+.naval-web-paths p { color: #60645f; }
 .expanded-case-outcome .ceniza-outcome-summary { max-width: 950px; }
 .case-study-forty .expanded-case-outcome { padding-block: clamp(40px, 4.5vw, 64px); }
 .case-study-forty .expanded-case-outcome .ceniza-outcome-summary { max-width: 760px; }
@@ -3009,15 +2995,9 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   .forty-email-proof.is-owner { grid-column: 1 / -1; }
   .expanded-web-grid { grid-template-columns: 1fr; }
   .case-study-naval .expanded-web-grid { grid-template-columns: minmax(0,1fr); }
-  .naval-web-preview-stack { margin-top: 8px; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
-  .naval-web-preview-stack .is-home,
-  .naval-web-preview-stack .is-chatbot { width: 100%; margin: 0; }
-  .naval-web-preview-stack .is-chatbot { margin-top: 42px; }
-  .naval-web-preview-stack .is-chatbot img { aspect-ratio: auto; object-fit: contain; }
-  .naval-web-paths { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-  .naval-web-paths li,
-  .naval-web-paths li:first-child,
-  .naval-web-paths li:last-child { min-height: 116px; border: 1px solid rgba(49,84,185,.12); border-radius: 16px; }
+  .naval-web-preview-stack { width: min(100%, 860px); margin: 8px auto 0; }
+  .naval-web-preview-stack .is-home { width: 86%; }
+  .naval-web-preview-stack .is-chatbot { width: 74%; margin-top: -52px; }
   .expanded-assistant .ceniza-section-header { grid-template-columns: 1fr; }
   .expanded-assistant-layout { grid-template-columns: 1fr; }
   .expanded-assistant-dialogue { grid-template-columns: 1fr; }
@@ -3080,17 +3060,13 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   .expanded-web-section { padding: 42px 24px; }
   .case-study-naval .expanded-web-grid { grid-template-columns: minmax(0, 1fr); }
   .expanded-web-section .ceniza-web-story-copy h2 { font-size: 2.45rem; }
-  .naval-web-preview-stack { padding: 12px; grid-template-columns: 1fr; border-radius: 20px; }
-  .naval-web-preview-stack .is-chatbot { margin-top: 0; }
+  .naval-web-preview-stack { width: 100%; margin-top: 0; }
+  .naval-web-preview-stack .is-home,
+  .naval-web-preview-stack .is-chatbot { width: 100%; }
+  .naval-web-preview-stack .is-chatbot { margin-top: 18px; }
+  .naval-web-preview-stack .is-chatbot img { aspect-ratio: auto; object-fit: contain; }
   .naval-web-preview-stack figcaption { font-size: .43rem; line-height: 1.35; }
-  .naval-web-workflow { margin-top: 36px; padding-top: 26px; }
-  .naval-web-workflow > header { grid-template-columns: 1fr; gap: 12px; }
-  .naval-web-workflow > header > span { padding-top: 0; }
-  .naval-web-workflow > header h3 { font-size: 1.7rem; }
-  .naval-web-paths { margin-top: 22px; grid-template-columns: 1fr; gap: 10px; }
-  .naval-web-paths li,
-  .naval-web-paths li:first-child,
-  .naval-web-paths li:last-child { min-height: 0; padding: 15px 14px; border-radius: 15px; }
+  .naval-web-workflow { margin-top: 30px; }
   .naval-production-section { padding: 42px 24px; border-radius: 24px; }
   .naval-production-flow { padding: 6px 0; grid-template-columns: 1fr; border-left: 0; }
   .naval-production-flow li { min-height: 88px; padding: 14px 8px; display: grid; grid-template-columns: 48px minmax(0,1fr); gap: 8px; text-align: left; }
