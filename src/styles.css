@@ -3786,10 +3786,6 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 }
 
 @media (max-width: 680px) {
-  .site-nav .wordmark small {
-    display: none;
-  }
-
   .eyebrow .typewriter-text,
   .case-label .typewriter-text,
   .expanded-gallery-eyebrow .typewriter-text {
