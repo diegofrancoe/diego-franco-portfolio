@@ -1,14 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
+import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuSend, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
 import { SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiVite, SiWhatsapp, SiZoom } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
 const CONTACT_WHATSAPP_NUMBER = "573113964114";
 const CONTACT_LINKEDIN = "https://www.linkedin.com/in/diego-franco-338433364/";
 const CONTACT_GITHUB = "https://github.com/diegofrancoe";
-const CONTACT_CV_URL = "/Diego_Franco_CV.pdf";
+const CONTACT_CV_URLS = {
+  en: "/Diego_Franco_CV_EN.pdf",
+  es: "/Diego_Franco_CV_ES.pdf",
+};
+const CENIZA_DEMO_URL = "https://ceniza-crm.vercel.app/";
 const CONTACT_WHATSAPP_MESSAGE = "Hola Diego 👋, vi tu portafolio y me gustaría conversar contigo sobre una idea o una oportunidad de trabajo. ¿Te cuento un poco más?";
 const CONTACT_WHATSAPP_URL = CONTACT_WHATSAPP_NUMBER
   ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`
@@ -172,7 +176,7 @@ const copy = {
     roleTitle: "AI SOLUTIONS ENGINEER",
     portfolio: "PORTFOLIO",
     heroLines: ["Ideas into", "", ""],
-    heroAccent: "systems",
+    heroAccent: "systems.",
     heroDescription:
       "I’m Diego Franco, an AI Solutions Engineer. I design and build digital products, full-stack applications, business systems and AI-powered automations that connect information, simplify operations and help teams move forward.",
     viewCases: "Explore my work",
@@ -180,7 +184,7 @@ const copy = {
     process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
     processAria: "Full stack, AI integration, webs y apps, automations, APIs and UX/UI",
     projects: "WHAT I BUILD",
-    projectsTitle: <>Projects</>,
+    projectsTitle: <>Projects.</>,
     caseStudies: "03 CASE STUDIES",
     viewCase: "View case study",
     disciplines: "Disciplines",
@@ -230,7 +234,7 @@ const copy = {
     roleTitle: "INGENIERO DE SOLUCIONES DE IA",
     portfolio: "PORTAFOLIO",
     heroLines: ["Ideas convertidas en", "", ""],
-    heroAccent: "sistemas",
+    heroAccent: "sistemas.",
     heroDescription:
       "Soy Diego Franco, Ingeniero de Soluciones de IA. Diseño y construyo productos digitales, aplicaciones full stack, sistemas empresariales y automatizaciones con IA que conectan información, simplifican operaciones y ayudan a los equipos a avanzar.",
     viewCases: "Explorar mi trabajo",
@@ -238,7 +242,7 @@ const copy = {
     process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
     processAria: "Full stack, AI integration, webs y apps, automations, APIs y UX/UI",
     projects: "LO QUE CONSTRUYO",
-    projectsTitle: <>Proyectos</>,
+    projectsTitle: <>Proyectos.</>,
     caseStudies: "03 CASOS DE ESTUDIO",
     viewCase: "Ver caso de estudio",
     disciplines: "Disciplinas",
@@ -313,10 +317,10 @@ function Arrow({ diagonal = false }) {
   );
 }
 
-function SoftButton({ children, href, primary = false, external = false, onClick }) {
+function SoftButton({ children, href, primary = false, external = false, onClick, className = "" }) {
   return (
     <a
-      className={`soft-button${primary ? " primary" : ""}`}
+      className={`soft-button${primary ? " primary" : ""}${className ? ` ${className}` : ""}`}
       href={href}
       onClick={onClick}
       target={external ? "_blank" : undefined}
@@ -327,15 +331,44 @@ function SoftButton({ children, href, primary = false, external = false, onClick
   );
 }
 
-function TypewriterText({ text, threshold = 0.75, rootMargin = "0px 0px -12% 0px" }) {
+function TypewriterText({
+  text,
+  threshold = 0.75,
+  rootMargin = "0px 0px -12% 0px",
+  replayOnViewportChange = false,
+  startOnMount = false,
+  mobileCharacterDelay,
+  mobileStartDelay,
+}) {
   const [visibleText, setVisibleText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [replayKey, setReplayKey] = useState(0);
   const textRef = useRef(null);
+
+  useEffect(() => {
+    if (!replayOnViewportChange) return undefined;
+
+    const mobileViewport = window.matchMedia("(max-width: 680px)");
+    const restartTyping = () => {
+      setVisibleText("");
+      setIsTyping(false);
+      setHasStarted(false);
+      setReplayKey((currentKey) => currentKey + 1);
+    };
+
+    mobileViewport.addEventListener("change", restartTyping);
+    return () => mobileViewport.removeEventListener("change", restartTyping);
+  }, [replayOnViewportChange]);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setVisibleText(text);
+      setHasStarted(true);
+      return undefined;
+    }
+
+    if (startOnMount) {
       setHasStarted(true);
       return undefined;
     }
@@ -349,13 +382,16 @@ function TypewriterText({ text, threshold = 0.75, rootMargin = "0px 0px -12% 0px
 
     if (textRef.current) observer.observe(textRef.current);
     return () => observer.disconnect();
-  }, [rootMargin, text, threshold]);
+  }, [replayKey, rootMargin, startOnMount, text, threshold]);
 
   useEffect(() => {
     if (!hasStarted || visibleText === text) return undefined;
 
     setIsTyping(true);
 
+    const isMobileViewport = window.matchMedia("(max-width: 680px)").matches;
+    const characterDelay = isMobileViewport && mobileCharacterDelay ? mobileCharacterDelay : 68;
+    const startDelay = isMobileViewport && mobileStartDelay ? mobileStartDelay : 220;
     let characterIndex = 0;
     let timer;
 
@@ -364,15 +400,15 @@ function TypewriterText({ text, threshold = 0.75, rootMargin = "0px 0px -12% 0px
       setVisibleText(text.slice(0, characterIndex));
 
       if (characterIndex < text.length) {
-        timer = window.setTimeout(typeNextCharacter, characterIndex === 10 ? 150 : 68);
+        timer = window.setTimeout(typeNextCharacter, characterIndex === 10 ? (isMobileViewport && mobileCharacterDelay ? 90 : 150) : characterDelay);
       } else {
         timer = window.setTimeout(() => setIsTyping(false), 850);
       }
     };
 
-    timer = window.setTimeout(typeNextCharacter, 220);
+    timer = window.setTimeout(typeNextCharacter, startDelay);
     return () => window.clearTimeout(timer);
-  }, [hasStarted, text]);
+  }, [hasStarted, mobileCharacterDelay, mobileStartDelay, text]);
 
   return (
     <span ref={textRef} className={`typewriter-text${isTyping ? " is-typing" : ""}`} style={{ minWidth: `${text.length}ch` }} aria-hidden="true">
@@ -419,19 +455,19 @@ const caseStudyDetails = {
       "The project involved designing and building a custom CRM for Ceniza Producciones, a creative studio that also rents production equipment. It turns requests from email, WhatsApp and the website into organized work, helping the team manage clients, quotes, productions, rentals and resources without losing context.",
     story: [
       {
-        label: "PROBLEMS",
-        title: "Scattered information. Delayed decisions.",
-        text: "Requests, dates, equipment and payments were separated, without clear ownership or priorities.",
+        label: "THE PROBLEM",
+        title: "Every request meant rebuilding the story.",
+        text: "Clients, dates, equipment, quotes and payments were scattered across conversations and tools, slowing down responses and priorities.",
       },
       {
-        label: "SYSTEM",
-        title: "One connected operating model.",
-        text: "I unified clients, agenda, quotes, operations, inventory and finance so the dashboard and AI share the same context.",
+        label: "THE SYSTEM",
+        title: "A CRM that carries the work from start to finish.",
+        text: "The product connects sales, scheduling, inventory and finance; every record keeps its owner, status and next step.",
       },
       {
-        label: "VALUE",
-        title: "A CRM for operating and deciding.",
-        text: "The team manages opportunities, work, resources and financial results from one responsive application.",
+        label: "THE VALUE",
+        title: "Visibility to act sooner, not later.",
+        text: "The dashboard and Asistente Ceniza surface pending work, availability, collections and risks so the team can make faster decisions.",
       },
     ],
     currentLabel: "THE SOFTWARE · ONE ECOSYSTEM",
@@ -532,7 +568,7 @@ const caseStudyDetails = {
     dark: "#12514e",
     wash: "#f4ecd7",
     title: <>From product interest<br />to a <em>clear next step.</em></>,
-    introTitle: "The business did not need more complexity. It needed a digital journey that matched how it actually sells.",
+    introTitle: "40+ needed a simpler digital journey aligned with how it actually sells.",
     intro:
       "40+ evolved from an online checkout concept into a simpler WhatsApp-assisted sales journey. The website explains the collagen, shows how it fits into a routine and captures customer experiences that trigger useful content and an organized internal record.",
     story: [
@@ -610,19 +646,19 @@ const caseStudyDetailsEs = {
       "El proyecto consistió en diseñar y construir un CRM a la medida para Ceniza Producciones, un estudio creativo que también alquila equipos de producción. Convierte las solicitudes que llegan por correo, WhatsApp y la web en trabajo organizado, para que el equipo gestione clientes, cotizaciones, producciones, alquileres y recursos sin perder contexto.",
     story: [
       {
-        label: "PROBLEMAS",
-        title: "Información dispersa. Decisiones tardías.",
-        text: "Solicitudes, fechas, equipos y pagos estaban separados, sin responsables ni prioridades claras.",
+        label: "EL PROBLEMA",
+        title: "Cada solicitud exigía reconstruir la historia.",
+        text: "Clientes, fechas, equipos, cotizaciones y pagos estaban repartidos entre conversaciones y herramientas, haciendo más lento responder y priorizar.",
       },
       {
-        label: "SISTEMA",
-        title: "Un modelo operativo conectado.",
-        text: "Unifiqué clientes, agenda, cotizaciones, operación, inventario y finanzas para que el dashboard y la IA compartan contexto.",
+        label: "EL SISTEMA",
+        title: "Un CRM que acompaña el trabajo de principio a fin.",
+        text: "El producto une la gestión comercial, la agenda, el inventario y las finanzas; cada registro conserva su responsable, estado y siguiente paso.",
       },
       {
         label: "EL VALOR",
-        title: "Un CRM para operar y decidir.",
-        text: "El equipo gestiona oportunidades, trabajo, recursos y resultados financieros desde una sola aplicación responsive.",
+        title: "Visibilidad para actuar antes, no después.",
+        text: "El dashboard y el Asistente Ceniza destacan pendientes, disponibilidad, cobros y riesgos para que el equipo tome decisiones con mayor rapidez.",
       },
     ],
     currentLabel: "EL SOFTWARE · UN SOLO ECOSISTEMA",
@@ -718,7 +754,7 @@ const caseStudyDetailsEs = {
   },
   forty: {
     title: <>Del interés por el producto<br />a un <em>siguiente paso claro.</em></>,
-    introTitle: "El negocio no necesitaba más complejidad. Necesitaba un recorrido digital alineado con su forma real de vender.",
+    introTitle: "40+ necesitaba un recorrido digital más simple y alineado con su forma real de vender.",
     intro:
       "40+ evolucionó de una idea de checkout en línea a un recorrido de venta asistida por WhatsApp más simple. La web explica el colágeno, muestra cómo integrarlo a la rutina y captura experiencias de clientes que activan contenido útil y un registro interno organizado.",
     story: [
@@ -906,6 +942,15 @@ const expandedCaseDetails = {
       webTitle: "The chatbot turns every need into a traceable order.",
       webCopy: "Inside productosnaval.com, the chatbot helps customers find the right product, review technical sheets and usage guidance, manage complaints, receive recommendations and create an order based on their specific need. The full context—product, sector, request and order—enters the ERP to trigger automated commercial and operational follow-up.",
       capabilities: ["Catalog + SKU lookup", "Technical sheets + SDS", "Needs-based recommendation", "Orders + ERP webhooks"],
+      webJourneyLabel: "WEB → ERP WORKFLOW",
+      webJourneyTitle: "The request keeps its context from discovery to fulfillment.",
+      webJourney: [
+        { title: "Discover", text: "Find products by sector, use or need." },
+        { title: "Ask", text: "The chatbot guides the customer and keeps the conversation." },
+        { title: "Request", text: "The quote or order preserves customer, SKU and quantity." },
+        { title: "Enter the ERP", text: "The request becomes a traceable commercial record." },
+        { title: "Fulfill", text: "Inventory, production, delivery and finance continue the same order." },
+      ],
       webUrl: "https://www.productosnaval.com/",
       webCta: "Visit productosnaval.com",
       outcomeTitle: "Connect your operation and move the business forward.",
@@ -1034,6 +1079,15 @@ const expandedCaseDetails = {
       webTitle: "El chatbot convierte cada necesidad en un pedido trazable.",
       webCopy: "Dentro de productosnaval.com, el chatbot ayuda a encontrar el producto adecuado, consultar fichas técnicas y formas de uso, gestionar quejas, recibir recomendaciones y crear un pedido según la necesidad del cliente. Todo el contexto —producto, sector, solicitud y pedido— entra al ERP para activar un seguimiento comercial y operativo automatizado.",
       capabilities: ["Catálogo + consulta de SKU", "Fichas técnicas + SDS", "Recomendación por necesidad", "Pedidos + webhooks al ERP"],
+      webJourneyLabel: "FLUJO WEB → ERP",
+      webJourneyTitle: "La solicitud conserva su contexto desde el descubrimiento hasta la ejecución.",
+      webJourney: [
+        { title: "Descubrir", text: "Encuentra productos por sector, uso o necesidad." },
+        { title: "Consultar", text: "El chatbot orienta al cliente y conserva la conversación." },
+        { title: "Solicitar", text: "La cotización o pedido mantiene cliente, SKU y cantidad." },
+        { title: "Entrar al ERP", text: "La solicitud se convierte en un registro comercial trazable." },
+        { title: "Ejecutar", text: "Inventario, producción, entrega y finanzas continúan el mismo pedido." },
+      ],
       webUrl: "https://www.productosnaval.com/",
       webCta: "Visitar productosnaval.com",
       outcomeTitle: "Conecta tu operación y haz que el negocio avance.",
@@ -1068,7 +1122,7 @@ function ProjectVisual({ visual }) {
 const profileTechnicalContent = {
   en: {
     eyebrow: "WHAT I BUILD",
-    title: <>I build solutions <em>end to end.</em></>,
+    title: <>I build solutions<br /><em>end to end.</em></>,
     copy: "I take ownership of the full product path: discovery, experience, architecture, engineering, integrations, deployment and iteration. The stack adapts to each project; these are the tools I use most often at each stage.",
     flowLabel: "Delivery path",
     capabilitiesLabel: "Core capabilities",
@@ -1117,7 +1171,7 @@ const profileTechnicalContent = {
   },
   es: {
     eyebrow: "LO QUE CONSTRUYO",
-    title: <>Construyo soluciones <em>de principio a fin.</em></>,
+    title: <>Construyo soluciones<br /><em>de principio a fin.</em></>,
     copy: "Me hago cargo del recorrido completo del producto: descubrimiento, experiencia, arquitectura, ingeniería, integraciones, despliegue e iteración. El stack se adapta a cada proyecto; estas son las herramientas que uso con más frecuencia en cada etapa.",
     flowLabel: "Ruta de entrega",
     capabilitiesLabel: "Capacidades principales",
@@ -1377,13 +1431,13 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     embeddedTitle: "Las áreas del CRM alimentan al Asistente Ceniza.",
     copy: "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, prioriza la agenda, prepara cotizaciones y ejecuta acciones dentro de la operación. Al mismo tiempo consulta inventario y finanzas, actualiza el dashboard y cruza señales para detectar riesgos y recomendar una siguiente acción revisable.",
     nodes: [
-      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Conecta y prioriza" },
       { position: "client", icon: LuUsers, title: "Cliente", meta: "Contexto e historial" },
       { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Prioridad y responsable" },
       { position: "quote", icon: LuFileText, title: "Cotización", meta: "Valor y estado" },
       { position: "operation", icon: LuTarget, title: "Operación", meta: "Prepara la acción" },
       { position: "inventory", icon: LuBoxes, title: "Inventario", meta: "Disponibilidad" },
       { position: "finance", icon: LuCircleDollarSign, title: "Finanzas", meta: "Flujo y margen" },
+      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Conecta y prioriza" },
       { position: "dashboard", icon: LuTrendingUp, title: "Mejor decisión", meta: "Razón + acción" },
     ],
   } : {
@@ -1393,13 +1447,13 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     embeddedTitle: "CRM areas feed Asistente Ceniza with context.",
     copy: "Asistente Ceniza works across the complete record: it understands the client, prioritizes the agenda, prepares quotes and executes actions inside the operation. At the same time, it consults inventory and finance, updates the dashboard and connects signals to detect risks and recommend a reviewable next action.",
     nodes: [
-      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Connects and prioritizes" },
       { position: "client", icon: LuUsers, title: "Client", meta: "Context and history" },
       { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Priority and owner" },
       { position: "quote", icon: LuFileText, title: "Quote", meta: "Value and status" },
       { position: "operation", icon: LuTarget, title: "Operation", meta: "Prepares the action" },
       { position: "inventory", icon: LuBoxes, title: "Inventory", meta: "Availability" },
       { position: "finance", icon: LuCircleDollarSign, title: "Finance", meta: "Cash flow and margin" },
+      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Connects and prioritizes" },
       { position: "dashboard", icon: LuTrendingUp, title: "Better decision", meta: "Rationale + action" },
     ],
   };
@@ -1448,11 +1502,19 @@ function CenizaConnectionFlow({ language, embedded = false }) {
             {content.nodes.map((node) => {
               const Icon = node.icon;
               return (
-                <li className={`ceniza-connection-node node-${node.position}`} key={node.position}>
-                  <span className="ceniza-connection-icon" aria-hidden="true"><Icon /></span>
-                  <strong>{node.title}</strong>
-                  <p>{node.meta}</p>
-                </li>
+                <Fragment key={node.position}>
+                  {embedded && node.position === "intake" ? (
+                    <li className="ceniza-mobile-flow-merge">
+                      <span aria-hidden="true" />
+                      <strong>{language === "es" ? "Contexto compartido" : "Shared context"}</strong>
+                    </li>
+                  ) : null}
+                  <li className={`ceniza-connection-node node-${node.position}`}>
+                    <span className="ceniza-connection-icon" aria-hidden="true"><Icon /></span>
+                    <strong>{node.title}</strong>
+                    <p>{node.meta}</p>
+                  </li>
+                </Fragment>
               );
             })}
           </ol>
@@ -1569,59 +1631,18 @@ function CenizaAssistantConversation({ language }) {
   const isEs = language === "es";
 
   return (
-    <div className="ceniza-conversation-phone" aria-label={isEs ? "Conversación de ejemplo con el Asistente Ceniza" : "Example conversation with Asistente Ceniza"}>
+    <div className="ceniza-conversation-phone" aria-label={isEs ? "Dashboard del Asistente Ceniza" : "Asistente Ceniza dashboard"}>
       <span className="ceniza-conversation-speaker" aria-hidden="true" />
-      <div className="ceniza-conversation-screen">
-        <header>
-          <span aria-hidden="true"><LuSparkles /></span>
-          <div>
-            <strong>Asistente Ceniza</strong>
-            <small>{isEs ? "CONECTADO AL CRM" : "CONNECTED TO THE CRM"}</small>
-          </div>
-          <i aria-hidden="true">•••</i>
-        </header>
-        <div className="ceniza-conversation-context">
-          <small>{isEs ? "CONTEXTO ACTIVO" : "ACTIVE CONTEXT"}</small>
-          <strong>{isEs ? "Dashboard · Operación de hoy" : "Dashboard · Today's operation"}</strong>
-        </div>
-        <div className="ceniza-conversation-thread">
-          <p className="is-user">{isEs ? "¿Qué está pendiente hoy y cómo va la rentabilidad del negocio?" : "What is still pending today, and how profitable is the business?"}</p>
-          <article className="is-assistant">
-            <span aria-hidden="true"><LuSparkles /></span>
-            <div className="ceniza-conversation-answer">
-              <strong className="ceniza-conversation-answer-title">{isEs ? "Hoy hay 4 prioridades" : "There are 4 priorities today"}</strong>
-              <ul className="ceniza-conversation-priorities">
-                <li><b>{isEs ? "Entrega" : "Delivery"}</b><span>{isEs ? "Cerrar Lumen House" : "Close Lumen House"}</span></li>
-                <li><b>{isEs ? "Inventario" : "Inventory"}</b><span>{isEs ? "Recibir la Sony FX6" : "Receive the Sony FX6"}</span></li>
-                <li><b>{isEs ? "Cobro" : "Payment"}</b><span>{isEs ? "Confirmar el vencido" : "Confirm the overdue payment"}</span></li>
-                <li><b>{isEs ? "Reserva" : "Booking"}</b><span>{isEs ? "Aprobar la de mañana" : "Approve tomorrow's booking"}</span></li>
-              </ul>
-              <div className="ceniza-conversation-metrics" aria-label={isEs ? "Indicadores de rentabilidad" : "Profitability indicators"}>
-                <span><b>$1,14 M</b><small>{isEs ? "recaudado" : "collected"}</small></span>
-                <span><b>$875 K</b><small>{isEs ? "costos" : "costs"}</small></span>
-                <span><b>23 %</b><small>{isEs ? "margen" : "margin"}</small></span>
-              </div>
-              <small>{isEs ? "Datos: agenda + operaciones + inventario + finanzas" : "Data: agenda + operations + inventory + finance"}</small>
-            </div>
-          </article>
-          <p className="is-user">{isEs ? "¿Qué debemos atender primero?" : "What should we handle first?"}</p>
-          <article className="is-assistant is-action">
-            <span aria-hidden="true"><LuSparkles /></span>
-            <div>
-              <strong className="ceniza-conversation-answer-title">{isEs ? "Atendería primero este cruce" : "I would resolve this conflict first"}</strong>
-              <ol className="ceniza-conversation-recommendation">
-                <li>{isEs ? "Cerrar la entrega de Lumen House." : "Close the Lumen House delivery."}</li>
-                <li>{isEs ? "Confirmar la devolución de la Sony FX6." : "Confirm the Sony FX6 return."}</li>
-              </ol>
-              <p className="ceniza-conversation-result">{isEs ? "Así liberamos el equipo para mañana y evitamos aplazar el cobro." : "This releases the equipment for tomorrow and prevents the payment from slipping."}</p>
-              <span className="ceniza-conversation-impact">{isEs ? "Impacto: protege la reserva, el flujo de caja y el margen" : "Impact: protects the booking, cash flow and margin"}</span>
-              <span className="ceniza-conversation-action">{isEs ? "Ver plan de hoy" : "View today's plan"}<b>→</b></span>
-            </div>
-          </article>
-        </div>
-        <div className="ceniza-conversation-composer">
-          <span>{isEs ? "Pregunta o pide una acción…" : "Ask or request an action…"}</span>
-          <b aria-hidden="true">↑</b>
+      <div className="ceniza-conversation-screen is-dashboard-shot">
+        <div className="ceniza-dashboard-shot-crop">
+          <img
+            src="/case-ceniza-assistant-dashboard-reference.png"
+            alt={isEs ? "Dashboard del Asistente Ceniza con resumen del negocio, prioridades y preguntas útiles" : "Asistente Ceniza dashboard with business summary, priorities and useful questions"}
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="ceniza-dashboard-shot-top" aria-hidden="true" />
+          <span className="ceniza-dashboard-shot-composer" aria-hidden="true" />
         </div>
       </div>
     </div>
@@ -2304,11 +2325,11 @@ function ExpandedWebSection({ project, content, language }) {
           <div className="naval-web-preview-stack">
             <figure className="expanded-web-preview is-home">
               <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>productosnaval.com</i></div><img src={image} alt={language === "es" ? "Portada real de productosnaval.com" : "Real productosnaval.com home page"} loading="lazy" decoding="async" /></div>
-              <figcaption>{language === "es" ? "PORTADA B2B · DESCUBRIMIENTO DE PRODUCTO" : "B2B HOME · PRODUCT DISCOVERY"}</figcaption>
+              <figcaption>{language === "es" ? "01 · PORTADA B2B · DESCUBRIMIENTO" : "01 · B2B HOME · DISCOVERY"}</figcaption>
             </figure>
             <figure className="expanded-web-preview is-chatbot">
               <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>productosnaval.com/productos</i></div><img src="/case-naval-web-chatbot-real.webp" alt={language === "es" ? "Catálogo real de Naval con el chatbot abierto" : "Real Naval catalog with the chatbot open"} loading="lazy" decoding="async" /></div>
-              <figcaption>{language === "es" ? "CHATBOT CONECTADO · CONSULTA, RECOMENDACIÓN Y PEDIDO" : "CONNECTED CHATBOT · SEARCH, RECOMMENDATION AND ORDER"}</figcaption>
+              <figcaption>{language === "es" ? "02–03 · CHATBOT · CONSULTA Y PEDIDO" : "02–03 · CHATBOT · GUIDANCE AND ORDER"}</figcaption>
             </figure>
           </div>
         ) : (
@@ -2317,12 +2338,28 @@ function ExpandedWebSection({ project, content, language }) {
           </figure>
         )}
       </div>
+      {project.visual === "naval" && content.webJourney ? (
+        <div className="naval-web-workflow" aria-label={content.webJourneyLabel}>
+          <header>
+            <span>{content.webJourneyLabel}</span>
+            <h3>{content.webJourneyTitle}</h3>
+          </header>
+          <ol className="ceniza-web-paths naval-web-paths">
+            {content.webJourney.map((step, index) => (
+              <li className={index >= 3 ? "is-erp-stage" : "is-web-stage"} key={step.title}>
+                <span>{index + 1}</span>
+                <div><strong>{step.title}</strong><p>{step.text}</p></div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
     </section>
   );
 }
 
 function NavalSecuritySection({ language }) {
-  const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(true);
   const toggleLock = () => setIsLocked((locked) => !locked);
   const pillars = language === "es"
     ? [
@@ -2440,6 +2477,7 @@ function CenizaAdoptionStrip({ language }) {
               loading="lazy"
               decoding="async"
             />
+            <span className="ceniza-adoption-focus is-tour" aria-hidden="true" />
           </div>
           <figcaption>{language === "es" ? "Perfil real con acceso al recorrido del CRM." : "Real profile with access to the CRM walkthrough."}</figcaption>
         </figure>
@@ -2447,13 +2485,18 @@ function CenizaAdoptionStrip({ language }) {
         <figure className="ceniza-adoption-isolated-card is-assistant">
           <div className="ceniza-adoption-card-crop">
             <img
-              src="/ceniza-onboarding-assistant-cutout-v2.webp"
-              alt={language === "es" ? "Panel real del Asistente Ceniza con resumen, alertas y preguntas útiles" : "Real Asistente Ceniza panel with a summary, alerts and useful questions"}
+              src="/ceniza-onboarding-feedback-v3.png"
+              alt={language === "es" ? "Panel real del Asistente Ceniza con el botón Feedback seleccionado" : "Real Asistente Ceniza dashboard with the Feedback button selected"}
               loading="lazy"
               decoding="async"
             />
+            <span className="ceniza-adoption-focus is-feedback" aria-hidden="true" />
+            <span className="ceniza-adoption-query" aria-hidden="true">
+              <span>{language === "es" ? "Pregunta o pide una acción..." : "Ask a question or request an action..."}</span>
+              <i><LuSend /></i>
+            </span>
           </div>
-          <figcaption>{language === "es" ? "Resumen, alertas y preguntas útiles dentro del sistema." : "Summary, alerts and useful questions inside the system."}</figcaption>
+          <figcaption>{language === "es" ? "Feedback operativo y consultas dentro del Asistente Ceniza." : "Operational feedback and questions inside Asistente Ceniza."}</figcaption>
         </figure>
       </div>
     </section>
@@ -2461,7 +2504,7 @@ function CenizaAdoptionStrip({ language }) {
 }
 
 function CenizaSecurity({ language }) {
-  const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(true);
   const toggleLock = () => setIsLocked((locked) => !locked);
 
   return (
@@ -2559,9 +2602,30 @@ function CenizaCaseContent({ project, detail, language }) {
             </div>
           </div>
 
-          <figure className="ceniza-web-composition">
-            <img className="ceniza-web-device-scene" src="/case-ceniza-web-device-scene-transparent.webp" alt={language === "es" ? "Combo Creator Pro de Ceniza en computador y contacto por WhatsApp o formulario en celular" : "Ceniza Creator Pro bundle on desktop and WhatsApp or form contact on mobile"} loading="lazy" decoding="async" />
-          </figure>
+          <div className="ceniza-web-composition" aria-label={language === "es" ? "Sitio web responsive de Ceniza en laptop y celular" : "Responsive Ceniza website on laptop and mobile"}>
+            <figure className="ceniza-web-laptop-preview">
+              <div className="ceniza-web-laptop-shell">
+                <div className="ceniza-web-browser-bar" aria-hidden="true">
+                  <span /><span /><span />
+                  <i>cenizaproducciones.com</i>
+                </div>
+                <div className="ceniza-web-laptop-screen">
+                  <img src="/case-ceniza-web-desktop-v2.png" alt={language === "es" ? "Portada real del sitio web de Ceniza" : "Real Ceniza website home page"} loading="lazy" decoding="async" />
+                </div>
+              </div>
+              <span className="ceniza-web-laptop-base" aria-hidden="true" />
+              <figcaption>{language === "es" ? "EXPERIENCIA DE ESCRITORIO · DESCUBRIMIENTO DEL ESTUDIO" : "DESKTOP EXPERIENCE · STUDIO DISCOVERY"}</figcaption>
+            </figure>
+
+            <figure className="ceniza-web-mobile-preview">
+              <div className="ceniza-web-phone-shell">
+                <span className="ceniza-web-phone-notch" aria-hidden="true" />
+                <img src="/case-ceniza-web-mobile-v2.png" alt={language === "es" ? "Página real de contacto de Ceniza en celular" : "Real Ceniza contact page on mobile"} loading="lazy" decoding="async" />
+                <span className="ceniza-web-phone-home" aria-hidden="true" />
+              </div>
+              <figcaption>{language === "es" ? "EXPERIENCIA MÓVIL · CONTACTO Y CAPTACIÓN" : "MOBILE EXPERIENCE · CONTACT AND CAPTURE"}</figcaption>
+            </figure>
+          </div>
 
           <ol className="ceniza-web-paths" aria-label={language === "es" ? "Recorrido de la página web" : "Website journey"}>
             <li>
@@ -2718,7 +2782,7 @@ function ContactPage({ language }) {
               <span aria-hidden="true"><FaLinkedinIn /></span>
               <div><small>LINKEDIN</small><strong>{isEs ? "Conectemos profesionalmente" : "Let’s connect professionally"}</strong></div>
             </a>
-            <a className="contact-method is-cv" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf">
+            <a className="contact-method is-cv" href={isEs ? CONTACT_CV_URLS.es : CONTACT_CV_URLS.en} download={isEs ? "Diego_Franco_CV_ES.pdf" : "Diego_Franco_CV_EN.pdf"}>
               <span aria-hidden="true"><LuFileText /></span>
               <div><small>{isEs ? "PERFIL PROFESIONAL" : "PROFESSIONAL PROFILE"}</small><strong>{isEs ? "Descargar CV" : "Download CV"}</strong></div>
             </a>
@@ -2901,7 +2965,8 @@ function App() {
     <div className="portfolio-page">
       <header className="site-nav">
         <a className="wordmark" href="/" onClick={(event) => navigate(event, "/")} aria-label={text.backHome}>
-          DIEGO <span>FRANCO</span><small aria-label={text.roleTitle}><TypewriterText text={text.roleTitle} /></small>
+          <span className="wordmark-name">DIEGO <span>FRANCO</span></span>
+          <small aria-label={text.roleTitle}><TypewriterText text={text.roleTitle} replayOnViewportChange /></small>
         </a>
 
         <nav aria-label={text.mainNavigation}>
@@ -2947,6 +3012,10 @@ function App() {
               <SoftButton href="/proyectos/ceniza" primary onClick={(event) => navigate(event, "/proyectos/ceniza")}>
                 {text.viewCases} <Arrow diagonal />
               </SoftButton>
+              <SoftButton href={CENIZA_DEMO_URL} external className="hero-demo-button">
+                <span className="live-demo-dot" aria-hidden="true" />
+                Live Demo <Arrow diagonal />
+              </SoftButton>
             </div>
           </div>
 
@@ -2969,7 +3038,7 @@ function App() {
         <section className="intro-strip" aria-label={text.howIWork}>
           <p className="process-title">{text.howIWork}</p>
           <p className="process-flow" aria-label={text.processAria}>
-            <TypewriterText text={text.process} />
+            <TypewriterText text={text.process} replayOnViewportChange startOnMount mobileCharacterDelay={42} mobileStartDelay={130} />
           </p>
         </section>
 
@@ -3048,7 +3117,7 @@ function App() {
                 {text.getInTouch} <Arrow diagonal />
               </SoftButton>
               <div className="contact-secondary-links" aria-label={language === "es" ? "Otros canales de contacto" : "Other contact channels"}>
-                <a className="contact-cv-link" href={CONTACT_CV_URL} download="Diego_Franco_CV.pdf" aria-label={language === "es" ? "Descargar CV" : "Download CV"} title={language === "es" ? "Descargar CV" : "Download CV"}>
+                <a className="contact-cv-link" href={CONTACT_CV_URLS[language]} download={language === "es" ? "Diego_Franco_CV_ES.pdf" : "Diego_Franco_CV_EN.pdf"} aria-label={language === "es" ? "Descargar CV" : "Download CV"} title={language === "es" ? "Descargar CV" : "Download CV"}>
                   CV
                 </a>
                 <a href={CONTACT_LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
