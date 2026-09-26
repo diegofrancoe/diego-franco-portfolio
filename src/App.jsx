@@ -40,7 +40,7 @@ const projects = [
     visual: "ceniza",
     headline: "Every client, quote and operation in one place.",
     industry: "Creative production + equipment rental",
-    role: "AI Solutions Engineer · Product & UX/UI · CRM · Data · Automation",
+    role: "Full-Stack Developer · AI Solutions · Digital Product · CRM · Data Automation · UX/UI",
     brief:
       "Ceniza needed a digital home that could explain its offer with clarity and turn interest into a useful commercial conversation. The experience had to connect content, services and products without making visitors choose between disconnected paths.",
     challenge:
@@ -72,7 +72,7 @@ const projects = [
     visual: "forty",
     headline: "A simpler path from product interest to action.",
     industry: "Wellness + direct-to-consumer",
-    role: "Web strategy · UX/UI · Responsive experience",
+    role: "Web Strategy · Product Design · UX/UI · Responsive Experience",
     brief:
       "40+ needed a focused website where product education and a warm brand story could support the same journey. The goal was to make the collagen easy to understand, easy to imagine as a daily ritual and comfortable to explore on any screen.",
     challenge:
@@ -104,7 +104,7 @@ const projects = [
     visual: "naval",
     headline: "One operational core for a connected business.",
     industry: "Manufacturing + B2B operations",
-    role: "System design · ERP UX/UI · Operational architecture",
+    role: "Business Systems · AI Solutions · ERP · Operational Architecture · Product UX/UI",
     brief:
       "Naval needed more than a new interface. Its commercial and operational areas had to work from one connected structure, while the website and automated customer touchpoints remained tied to the same business information.",
     challenge:
@@ -135,7 +135,7 @@ const projectTranslationsEs = {
     tags: ["CRM", "IA APLICADA", "AUTOMATIZACIÓN"],
     headline: "Cada cliente, cotización y operación en un solo lugar.",
     industry: "Producción creativa + alquiler de equipos",
-    role: "AI Solutions Engineer · Producto y UX/UI · CRM · Datos · Automatización",
+    role: "Desarrollo Full Stack · Soluciones de IA · Producto Digital · CRM · Automatización de Datos · UX/UI",
     outcome:
       "El producto final conecta el recorrido comercial y operativo en un sistema responsive, con contexto compartido, asistencia de IA controlada y trazabilidad desde la oportunidad hasta el seguimiento financiero.",
   },
@@ -146,7 +146,7 @@ const projectTranslationsEs = {
     tags: ["E-COMMERCE", "UX/UI", "MAKE"],
     headline: "Un camino más simple del interés a la acción.",
     industry: "Bienestar + venta directa al consumidor",
-    role: "Estrategia web · UX/UI · Experiencia adaptable",
+    role: "Estrategia Web · Diseño de Producto · UX/UI · Experiencia Responsive",
     outcome:
       "Un recorrido digital funcional que ayuda a entender 40+, preparar un pedido en WhatsApp y recibir contenido útil mediante un flujo automatizado y con consentimiento.",
   },
@@ -157,7 +157,7 @@ const projectTranslationsEs = {
     tags: ["ERP", "B2B", "OPERACIONES"],
     headline: "Un núcleo operativo para un negocio conectado.",
     industry: "Manufactura + operaciones B2B",
-    role: "Diseño de sistemas · UX/UI de ERP · Arquitectura operativa",
+    role: "Sistemas Empresariales · Soluciones de IA · ERP · Arquitectura Operativa · UX/UI de Producto",
     outcome:
       "Un ecosistema de producto en producción con ERP operativo, catálogo público, acceso seguro y flujos conectados entre las áreas del negocio.",
   },
