@@ -2982,6 +2982,39 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
 .case-study-forty .expanded-case-outcome .ceniza-outcome-summary p { max-width: 670px; font-size: .9rem; line-height: 1.65; }
 .case-study-forty .expanded-case-outcome .ceniza-section-link.is-outcome { min-width: 230px; }
 
+.forty-integrations-section {
+  margin-bottom: 22px;
+  padding: clamp(44px, 5.2vw, 74px);
+  display: grid;
+  grid-template-columns: minmax(250px, .7fr) minmax(0, 1.3fr);
+  gap: clamp(34px, 6vw, 88px);
+  align-items: center;
+  overflow: hidden;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(241,95,49,.16), transparent 28%),
+    radial-gradient(circle at 92% 92%, rgba(18,81,78,.13), transparent 31%),
+    #efe5d4;
+  box-shadow: inset 2px 2px 4px rgba(255,255,255,.74), 10px 14px 26px rgba(94,89,77,.13);
+}
+.forty-integrations-section > header h2 { max-width: 600px; margin: 18px 0 22px; font-size: clamp(2rem, 2.8vw, 3.2rem); line-height: 1; letter-spacing: -.045em; text-wrap: balance; }
+.forty-integrations-section > header > p { max-width: 620px; margin: 0; color: #5f625b; font-size: clamp(.82rem, .92vw, .96rem); line-height: 1.65; }
+.forty-integrations-map { min-width: 0; padding: clamp(22px, 2.6vw, 34px); display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); overflow: hidden; border-radius: 24px; color: #f7f5ed; background: #12514e; box-shadow: inset 1px 1px 0 rgba(255,255,255,.12), 10px 16px 28px rgba(18,81,78,.2); }
+.forty-integrations-map > section { min-width: 0; padding: 0 clamp(10px, 2vw, 28px); }
+.forty-integrations-map > section + section { border-left: 1px solid rgba(255,255,255,.14); }
+.forty-integration-status { display: flex; align-items: center; gap: 8px; color: #ffd4c5; font-family: var(--mono); font-size: .48rem; font-weight: 850; letter-spacing: .1em; }
+.forty-integration-status > span { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: #f15f31; box-shadow: 0 0 0 4px rgba(241,95,49,.13); }
+.forty-integrations-map .is-connected .forty-integration-status { color: #ffd4c5; }
+.forty-integrations-map .is-connected .forty-integration-status > span { background: #7ce3bd; box-shadow: 0 0 0 4px rgba(124,227,189,.13); }
+.forty-integrations-map ul { margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: 22px; row-gap: 16px; list-style: none; }
+.forty-integrations-map .is-available ul { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.forty-integrations-map li { min-width: 0; display: grid; grid-template-columns: 23px minmax(0,1fr); gap: 10px; align-items: start; }
+.forty-integrations-map li > span { width: 23px; height: 23px; display: grid; place-items: center; color: #ff805b; }
+.forty-integrations-map li > span svg { width: 19px; height: 19px; }
+.forty-integrations-map li strong { display: block; color: #fff9ee; font-size: .68rem; line-height: 1.1; }
+.forty-integrations-map li p { margin: 4px 0 0; color: #bfcac5; font-size: .5rem; line-height: 1.35; }
+.forty-integrations-map .is-connected li > span { color: #7ce3bd; }
+
 .naval-security-section { grid-template-columns: minmax(190px,.42fr) minmax(0,1.58fr); background: linear-gradient(145deg, rgba(237,240,251,.62), rgba(247,247,243,.15)); border-radius: 30px; }
 .naval-security-section .ceniza-security-content .case-label { color: #3154b9; }
 .naval-security-section .ceniza-security-pillars li > span { border-color: rgba(49,84,185,.38); }
@@ -2996,6 +3029,7 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   .forty-automation-proof { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .forty-ebook-proof { grid-row: span 1; }
   .forty-email-proof.is-owner { grid-column: 1 / -1; }
+  .forty-integrations-section { grid-template-columns: 1fr; }
   .expanded-web-grid { grid-template-columns: 1fr; }
   .case-study-naval .expanded-web-grid { grid-template-columns: minmax(0,1fr); }
   .naval-web-preview-stack { width: min(100%, 860px); margin: 8px auto 0; }
@@ -3054,6 +3088,13 @@ footer { padding: 39px 5px 12px; display: grid; grid-template-columns: 1fr auto 
   .forty-email-proof.is-owner { grid-column: auto; }
   .forty-email-proof-window { aspect-ratio: auto; }
   .forty-email-proof-window img, .forty-ebook-proof img { height: auto; max-height: 420px; }
+  .forty-integrations-section { margin-bottom: 12px; padding: 42px 24px; border-radius: 24px; }
+  .forty-integrations-section > header h2 { font-size: 2rem; }
+  .forty-integrations-map { padding: 24px; grid-template-columns: 1fr; }
+  .forty-integrations-map > section { padding: 0 0 24px; }
+  .forty-integrations-map > section + section { padding: 24px 0 0; border-top: 1px solid rgba(255,255,255,.14); border-left: 0; }
+  .forty-integrations-map ul,
+  .forty-integrations-map .is-available ul { grid-template-columns: 1fr; }
   .expanded-assistant { padding: 42px 24px; border-radius: 24px; }
   .expanded-assistant .ceniza-section-header h2 { font-size: 2.45rem; }
   .expanded-assistant-layout { margin-top: 32px; }

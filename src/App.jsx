@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuSend, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
+import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalculator, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuSend, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
 import { SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiVite, SiWhatsapp, SiZoom } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
@@ -67,7 +67,7 @@ const projects = [
     type: "E-COMMERCE · AUTOMATION",
     description:
       "A responsive product journey that explains the ritual, prepares WhatsApp-assisted orders and automates experience capture and e-book delivery.",
-    tags: ["E-COMMERCE", "UX/UI", "MAKE"],
+    tags: ["E-COMMERCE", "UX/UI", "AUTOMATION"],
     path: "/proyectos/40-plus",
     visual: "forty",
     headline: "A simpler path from product interest to action.",
@@ -143,7 +143,7 @@ const projectTranslationsEs = {
     type: "E-COMMERCE · AUTOMATIZACIÓN",
     description:
       "Un recorrido adaptable que explica el ritual, prepara pedidos asistidos por WhatsApp y automatiza la captura de experiencias y la entrega del e-book.",
-    tags: ["E-COMMERCE", "UX/UI", "MAKE"],
+    tags: ["E-COMMERCE", "UX/UI", "AUTOMATIZACIÓN"],
     headline: "Un camino más simple del interés a la acción.",
     industry: "Bienestar + venta directa al consumidor",
     role: "Estrategia Web · Diseño de Producto · UX/UI · Experiencia Responsive",
@@ -569,13 +569,13 @@ const caseStudyDetails = {
     accent: "#f15f31",
     dark: "#12514e",
     wash: "#f4ecd7",
-    title: <>From product interest<br />to a <em>clear next step.</em></>,
+    title: <>One product experience.<br /><em>Every step connected.</em></>,
     introTitle: "40+ needed a simpler digital journey aligned with how it actually sells.",
     intro:
       "40+ evolved from an online checkout concept into a simpler WhatsApp-assisted sales journey. The website explains the collagen, shows how it fits into a routine and captures customer experiences that trigger useful content and an organized internal record.",
     story: [
       { label: "THE PROBLEM", title: "Content, ordering and follow-up felt separate.", text: "A potential customer could understand the brand without always knowing the simplest next action." },
-      { label: "THE SYSTEM", title: "One responsive journey with two clear paths.", text: "People can prepare an order for WhatsApp or share their experience through a validated form connected to Make." },
+      { label: "THE SYSTEM", title: "One responsive journey with two clear paths.", text: "People can prepare an order for WhatsApp or share their experience through a validated form connected to an automated follow-up." },
       { label: "THE VALUE", title: "A solution aligned with the real operation.", text: "The brand keeps human-assisted sales while automating e-book delivery, internal notification and the customer record." },
     ],
     desktopUrl: "cuarentamas.com",
@@ -590,12 +590,12 @@ const caseStudyDetails = {
       "The home page builds recognition, the product page answers practical questions and the ritual content helps people imagine daily use. Mobile preserves packaging, hierarchy and calls to action without flattening the brand.",
     notes: ["WhatsApp-assisted order", "Validated experience form", "Automated e-book delivery"],
     workflowTitle: "One website supports both the sale and the relationship after it.",
-    workflowCaption: "WORKING FLOW · WEBSITE + WHATSAPP + MAKE + EMAIL + SHEETS",
+    workflowCaption: "WORKING FLOW · WEBSITE + WHATSAPP + AUTOMATION + EMAIL + SHEETS",
     workflow: [
       { position: "start", icon: "◎", title: "Interest", meta: "Content · direct" },
       { position: "site", icon: "W", title: "Website", meta: "Product · ritual" },
       { position: "branch-top", icon: "↗", title: "WhatsApp", meta: "Prepared order" },
-      { position: "branch-bottom", icon: "M", title: "Make flow", meta: "Experience form" },
+      { position: "branch-bottom", icon: "A", title: "Automated flow", meta: "Experience form" },
       { position: "system", icon: "+", title: "Follow-up", meta: "Human + automated" },
       { position: "end", icon: "✓", title: "Continuity", meta: "Order · e-book · record" },
     ],
@@ -755,13 +755,13 @@ const caseStudyDetailsEs = {
     outcomeTitle: "Un sistema operativo conectado que convierte la información diaria en decisiones claras y acciones coordinadas.",
   },
   forty: {
-    title: <>Del interés por el producto<br />a un <em>siguiente paso claro.</em></>,
+    title: <>Una experiencia de producto.<br /><em>Cada paso conectado.</em></>,
     introTitle: "40+ necesitaba un recorrido digital más simple y alineado con su forma real de vender.",
     intro:
       "40+ evolucionó de una idea de checkout en línea a un recorrido de venta asistida por WhatsApp más simple. La web explica el colágeno, muestra cómo integrarlo a la rutina y captura experiencias de clientes que activan contenido útil y un registro interno organizado.",
     story: [
       { label: "EL PROBLEMA", title: "El contenido, el pedido y el seguimiento se sentían separados.", text: "Una persona podía entender la marca sin tener siempre claro cuál era la acción más simple para continuar." },
-      { label: "EL SISTEMA", title: "Un recorrido responsive con dos caminos claros.", text: "Las personas pueden preparar un pedido para WhatsApp o compartir su experiencia mediante un formulario validado y conectado con Make." },
+      { label: "EL SISTEMA", title: "Un recorrido responsive con dos caminos claros.", text: "Las personas pueden preparar un pedido para WhatsApp o compartir su experiencia mediante un formulario validado y conectado con un seguimiento automatizado." },
       { label: "EL VALOR", title: "Una solución alineada con la operación real.", text: "La marca conserva la venta asistida por personas y automatiza la entrega del e-book, la notificación interna y el registro del cliente." },
     ],
     mobileImages: [
@@ -774,12 +774,12 @@ const caseStudyDetailsEs = {
       "La página de inicio genera reconocimiento, la página de producto explica qué es y el contenido de ritual muestra cómo integrarlo a la vida diaria. En celular, el empaque, la información clave y las llamadas a la acción permanecen visibles sin perder el carácter de la marca.",
     notes: ["Pedido asistido por WhatsApp", "Formulario de experiencia validado", "Entrega automatizada del e-book"],
     workflowTitle: "Un mismo sitio apoya tanto la venta como la relación posterior.",
-    workflowCaption: "FLUJO FUNCIONAL · WEB + WHATSAPP + MAKE + CORREO + SHEETS",
+    workflowCaption: "FLUJO FUNCIONAL · WEB + WHATSAPP + AUTOMATIZACIÓN + CORREO + SHEETS",
     workflow: [
       { position: "start", icon: "◎", title: "Interés", meta: "Contenido · directo" },
       { position: "site", icon: "W", title: "Sitio web", meta: "Producto · ritual" },
       { position: "branch-top", icon: "↗", title: "WhatsApp", meta: "Pedido preparado" },
-      { position: "branch-bottom", icon: "M", title: "Flujo Make", meta: "Formulario de experiencia" },
+      { position: "branch-bottom", icon: "A", title: "Flujo automatizado", meta: "Formulario de experiencia" },
       { position: "system", icon: "+", title: "Seguimiento", meta: "Humano + automático" },
       { position: "end", icon: "✓", title: "Continuidad", meta: "Pedido · e-book · registro" },
     ],
@@ -842,7 +842,7 @@ const expandedCaseDetails = {
         { value: "UX", label: "Decision journey", note: "Content and interactions are organized around the questions that precede a purchase." },
         { value: "UI", label: "Visual product system", note: "Reusable components preserve hierarchy and brand confidence across breakpoints." },
         { value: "D2C", label: "Human-assisted commerce", note: "The digital experience supports the real WhatsApp-based sales model." },
-        { value: "MAKE", label: "Connected follow-up", note: "Forms, delivery and internal records continue through an automated workflow." },
+        { value: "AUTO", label: "Connected follow-up", note: "Forms, delivery and internal records continue through an automated workflow." },
       ],
       mobileLabel: "RESPONSIVE PRODUCT EXPERIENCE",
       mobileTitle: "The complete journey, designed for the phone first.",
@@ -860,12 +860,12 @@ const expandedCaseDetails = {
         { title: "Responsive confidence", text: "The brand, hierarchy and calls to action retain their strength on mobile." },
         { title: "Automated continuity", text: "Experience capture, content delivery and internal follow-up stop being isolated manual tasks." },
       ],
-      automationLabel: "MAKE · FORM + AUTOMATED DELIVERY",
-      automationTitle: "One form triggers two useful emails and keeps the contact ready for follow-up.",
-      automationCopy: "Make receives the experience form, validates the contact information and activates two coordinated outputs: the customer receives the Ritual 40+ e-book, while the team receives the customer details and story for a personal follow-up.",
+      automationLabel: "AUTOMATION · CAPTURE + DELIVERY + FOLLOW-UP",
+      automationTitle: "Every shared experience becomes immediate value and follow-up ready to continue.",
+      automationCopy: "When a customer submits the form, the system validates the information, delivers the Ritual 40+ e-book automatically and sends the team an organized record. The result is a useful response for the customer and less repetitive work for the business.",
       automationSteps: [
         { icon: LuClipboardList, tone: "form", title: "Form received", meta: "Name · email · experience" },
-        { icon: SiMake, tone: "make", title: "Make organizes", meta: "Validate · route · activate" },
+        { icon: LuSparkles, tone: "make", title: "Automation organizes", meta: "Validate · route · deliver" },
         { icon: SiGmail, tone: "customer", title: "Customer email", meta: "Thank you + Ritual 40+ e-book" },
         { icon: LuUserCheck, tone: "owner", title: "Internal email", meta: "Customer details + next step" },
       ],
@@ -977,7 +977,7 @@ const expandedCaseDetails = {
         { value: "UX", label: "Recorrido de decisión", note: "El contenido y las interacciones responden las preguntas que anteceden una compra." },
         { value: "UI", label: "Sistema visual de producto", note: "Los componentes reutilizables mantienen jerarquía y confianza entre dispositivos." },
         { value: "D2C", label: "Comercio asistido", note: "La experiencia digital respeta el modelo real de venta apoyado por WhatsApp." },
-        { value: "MAKE", label: "Seguimiento conectado", note: "Formulario, entrega y registro interno continúan mediante un flujo automatizado." },
+        { value: "AUTO", label: "Seguimiento conectado", note: "Formulario, entrega y registro interno continúan mediante un flujo automatizado." },
       ],
       mobileLabel: "EXPERIENCIA DE PRODUCTO RESPONSIVE",
       mobileTitle: "El recorrido completo, diseñado primero para el celular.",
@@ -995,12 +995,12 @@ const expandedCaseDetails = {
         { title: "Confianza responsive", text: "La marca, la jerarquía y los llamados a la acción mantienen su fuerza en celular." },
         { title: "Continuidad automatizada", text: "La captura de experiencias, la entrega de contenido y el seguimiento dejan de ser tareas manuales aisladas." },
       ],
-      automationLabel: "MAKE · FORMULARIO + ENTREGA AUTOMÁTICA",
-      automationTitle: "Un formulario activa dos correos útiles y deja cada contacto listo para continuar.",
-      automationCopy: "Make recibe el formulario de experiencia, valida los datos y activa dos salidas coordinadas: la persona recibe el e-book Ritual 40+ y el equipo recibe su información e historia para hacer un seguimiento personal.",
+      automationLabel: "AUTOMATIZACIÓN · CAPTURA + ENTREGA + SEGUIMIENTO",
+      automationTitle: "Cada experiencia compartida se convierte en valor inmediato y seguimiento listo para continuar.",
+      automationCopy: "Cuando una persona envía el formulario, el sistema valida la información, entrega automáticamente el e-book Ritual 40+ y envía al equipo un registro ordenado. El resultado es una respuesta útil para el cliente y menos trabajo repetitivo para el negocio.",
       automationSteps: [
         { icon: LuClipboardList, tone: "form", title: "Formulario recibido", meta: "Nombre · correo · experiencia" },
-        { icon: SiMake, tone: "make", title: "Make organiza", meta: "Valida · enruta · activa" },
+        { icon: LuSparkles, tone: "make", title: "La automatización organiza", meta: "Valida · enruta · entrega" },
         { icon: SiGmail, tone: "customer", title: "Correo al cliente", meta: "Gracias + e-book Ritual 40+" },
         { icon: LuUserCheck, tone: "owner", title: "Correo interno", meta: "Datos del cliente + siguiente paso" },
       ],
@@ -2260,6 +2260,57 @@ function ExpandedAutomation({ project, content }) {
   );
 }
 
+function FortyIntegrationsSection({ language }) {
+  const isEs = language === "es";
+  const connected = [
+    { icon: SiWhatsapp, title: "WhatsApp", text: isEs ? "Conversaciones de venta y pedidos asistidos." : "Sales conversations and assisted orders." },
+    { icon: SiInstagram, title: "Instagram + Meta", text: isEs ? "Descubrimiento, contenido y campañas sociales." : "Discovery, content and social campaigns." },
+    { icon: SiGmail, title: isEs ? "Correo" : "Email", text: isEs ? "Entrega automática y seguimiento." : "Automated delivery and follow-up." },
+    { icon: SiGoogledrive, title: "Google Drive", text: isEs ? "Archivos y contenido compartido." : "Shared files and content." },
+    { icon: LuGlobe, title: "Webhooks", text: isEs ? "Eventos y datos entre plataformas." : "Events and data across platforms." },
+  ];
+  const available = [
+    { icon: LuPackageCheck, title: isEs ? "Envíos" : "Shipping", text: isEs ? "Tarifas, guías, estados y seguimiento." : "Rates, labels, status and tracking." },
+    { icon: SiStripe, title: isEs ? "Pagos" : "Payments", text: isEs ? "Checkout, confirmaciones y devoluciones." : "Checkout, confirmations and refunds." },
+    { icon: LuShoppingCart, title: "E-commerce + CRM", text: isEs ? "CRM a la medida, Shopify, WooCommerce, HubSpot y otros flujos de venta." : "Custom CRM, Shopify, WooCommerce, HubSpot and other sales flows." },
+    { icon: LuCalculator, title: isEs ? "Contabilidad y facturación" : "Accounting and billing", text: isEs ? "Facturación, conciliación y conexión con sistemas contables." : "Billing, reconciliation and connection with accounting systems." },
+  ];
+
+  return (
+    <section className="forty-integrations-section" aria-labelledby="forty-integrations-title">
+      <header>
+        <CenizaEyebrow text={isEs ? "APIS + ECOSISTEMA DE CRECIMIENTO" : "APIS + GROWTH ECOSYSTEM"} />
+        <h2 id="forty-integrations-title">
+          {isEs ? "La web puede conectar todo el recorrido del cliente." : "The website can connect the entire customer journey."}
+        </h2>
+        <p>
+          {isEs
+            ? "La experiencia actual ya conecta redes sociales, WhatsApp, correo, Drive y webhooks. Su arquitectura preparada para APIs permite sumar plataformas de envíos, pagos, e-commerce y CRM sin reconstruir el recorrido del producto."
+            : "The current experience already connects social media, WhatsApp, email, Drive and webhooks. Its API-ready architecture can add shipping, payment, e-commerce and CRM platforms without rebuilding the product journey."}
+        </p>
+      </header>
+      <div className="forty-integrations-map">
+        <section className="is-connected">
+          <div className="forty-integration-status"><span aria-hidden="true" />{isEs ? "CONECTADO HOY" : "CONNECTED TODAY"}</div>
+          <ul>
+            {connected.map(({ icon: Icon, title, text }) => (
+              <li key={title}><span aria-hidden="true"><Icon /></span><div><strong>{title}</strong><p>{text}</p></div></li>
+            ))}
+          </ul>
+        </section>
+        <section className="is-available">
+          <div className="forty-integration-status"><span aria-hidden="true" />{isEs ? "LISTO PARA CONECTAR" : "READY TO CONNECT"}</div>
+          <ul>
+            {available.map(({ icon: Icon, title, text }) => (
+              <li key={title}><span aria-hidden="true"><Icon /></span><div><strong>{title}</strong><p>{text}</p></div></li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </section>
+  );
+}
+
 function ExpandedAssistant({ project, content, language }) {
   if (!content.assistantTitle) return null;
   return (
@@ -2421,6 +2472,7 @@ function ExpandedCaseContent({ project, language }) {
       {project.visual === "naval" ? <NavalFinancialIntelligence language={language} /> : null}
       <ExpandedBenefits project={project} content={content} />
       {project.visual === "naval" ? <NavalAutomationBridge content={content} language={language} /> : <ExpandedAutomation project={project} content={content} />}
+      {project.visual === "forty" ? <FortyIntegrationsSection language={language} /> : null}
       <ExpandedAssistant project={project} content={content} language={language} />
       {project.visual !== "forty" ? <ExpandedWebSection project={project} content={content} language={language} /> : null}
       {project.visual === "naval" ? <NavalSecuritySection language={language} /> : null}
