@@ -181,8 +181,8 @@ const copy = {
       "I’m Diego Franco, an AI Solutions Engineer. I design and build digital products, full-stack applications, business systems and AI-powered automations that connect information, simplify operations and help teams move forward.",
     viewCases: "Explore my work",
     howIWork: "What I Do",
-    process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
-    processAria: "Full stack, AI integration, webs y apps, automations, APIs and UX/UI",
+    process: "FULL-STACK DEVELOPMENT · AI AGENTS · RAG · AUTOMATION · API INTEGRATIONS · UX/UI",
+    processAria: "Full-stack development, AI agents, RAG, automation, API integrations and UX/UI",
     projects: "WHAT I BUILD",
     projectsTitle: <>Projects.</>,
     caseStudies: "03 CASE STUDIES",
@@ -198,7 +198,7 @@ const copy = {
     getInTouch: "Get in touch",
     ideasIntoSystems: "IDEAS INTO SYSTEMS",
     whatICreate: "WHAT I CREATE",
-    resultsTitle: <>I build solutions<br /><em>end to end.</em></>,
+    resultsTitle: <>I build solutions <em>end to end.</em></>,
     resultsCopy: "As an AI Solutions Engineer, I connect product, code, data, automation and AI to turn business needs into complete, measurable systems ready to scale.",
     allProjects: "All projects",
     caseStudy: "Case study",
@@ -231,16 +231,16 @@ const copy = {
     languageSelector: "Idioma",
     english: "Inglés",
     spanish: "Español",
-    roleTitle: "INGENIERO DE SOLUCIONES DE IA",
+    roleTitle: "AI SOLUTIONS ENGINEER",
     portfolio: "PORTAFOLIO",
     heroLines: ["Ideas convertidas en", "", ""],
     heroAccent: "sistemas.",
     heroDescription:
-      "Soy Diego Franco, Ingeniero de Soluciones de IA. Diseño y construyo productos digitales, aplicaciones full stack, sistemas empresariales y automatizaciones con IA que conectan información, simplifican operaciones y ayudan a los equipos a avanzar.",
+      "Soy Diego Franco, AI Solutions Engineer. Diseño y construyo productos digitales, aplicaciones full stack, sistemas empresariales y automatizaciones con IA que conectan información, simplifican operaciones y ayudan a los equipos a avanzar.",
     viewCases: "Explorar mi trabajo",
     howIWork: "Lo que hago",
-    process: "FULL STACK · AI INTEGRATION · WEBS & APPS · AUTOMATIONS · APIs · UX/UI",
-    processAria: "Full stack, AI integration, webs y apps, automations, APIs y UX/UI",
+    process: "FULL-STACK DEVELOPMENT · AI AGENTS · RAG · AUTOMATION · API INTEGRATIONS · UX/UI",
+    processAria: "Full-stack development, AI agents, RAG, automation, API integrations y UX/UI",
     projects: "LO QUE CONSTRUYO",
     projectsTitle: <>Proyectos.</>,
     caseStudies: "03 CASOS DE ESTUDIO",
@@ -276,8 +276,8 @@ const copy = {
     nextCase: "Siguiente caso de estudio",
     desktopAlt: "página principal en computador",
     mobileAlt: "en celular",
-    documentPortfolio: "Diego Franco | Ingeniero de Soluciones de IA y Full Stack",
-    documentDescription: "Ingeniero de Soluciones de IA que crea aplicaciones full stack, sistemas empresariales, automatizaciones e integraciones para operaciones complejas.",
+    documentPortfolio: "Diego Franco | AI Solutions Engineer y Full Stack",
+    documentDescription: "AI Solutions Engineer que crea aplicaciones full stack, sistemas empresariales, automatizaciones e integraciones para operaciones complejas.",
     documentCase: "Caso de estudio",
   },
 };
@@ -498,12 +498,12 @@ const caseStudyDetails = {
       { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.webp", label: "Asistente Ceniza", benefit: "Prioritizes alerts, summarizes the operation and prepares actions with the same desktop context." },
     ],
     assistantLabel: "ASISTENTE CENIZA · AI INSIDE THE CRM",
-    assistantTitle: "CRM context becomes clearer, more timely decisions.",
+    assistantTitle: "Run the CRM manually—or let the assistant do the work for you.",
     assistantCopy:
-      "Asistente Ceniza connects clients, agenda, quotes, inventory and finance to detect risks, explain what matters and prepare a next step the team can review before acting.",
+      "The team keeps full control of every CRM area. Asistente Ceniza can create and update clients, opportunities and quotes; record payments and collections; prepare reports, anticipate risks, plan work, provide feedback and prioritize what comes next. Any action that changes the system is submitted for human approval.",
     assistantCapabilities: [
-      { title: "Sees the full context", text: "Connects clients, agenda, quotes, operations, inventory and finance." },
-      { title: "Prepares the next step", text: "Turns risks and opportunities into a controlled action." },
+      { title: "Operates the full CRM", text: "Creates records, prepares actions and updates the operation with human approval." },
+      { title: "Summarizes and anticipates", text: "Turns the complete business context into reports, priorities and clear next actions." },
     ],
     assistantBenefitsLabel: "BUSINESS BENEFITS",
     assistantBenefits: [
@@ -519,15 +519,15 @@ const caseStudyDetails = {
       { label: "HOW IT IS USED", title: "A prioritized next action", text: "Rank attention, recommend a follow-up, flag a conflict, protect margin or prepare a reservation. The team sees the rationale and confirms the action." },
     ],
     predictionNote: "Product direction: the decision logic and interaction are defined in the system. A learned forecasting model will only be presented as production-ready after it has sufficient historical data and measurable evaluation results.",
-    assistantStatus: "REAL INTERFACE · CONNECTED TO THE CRM",
+    assistantStatus: "REAL INTERFACE · AI-ASSISTED OPERATION WITH HUMAN APPROVAL",
     webLabel: "WEBSITE DESIGNED + BUILT · CONNECTED TO THE CRM",
     webTitle: "From discovering the catalog to starting a rental or production.",
     webCopy:
       "I also designed and built Ceniza’s public website so clients can understand the offer before contacting the team. They can browse equipment and bundles, open detailed product pages, see completed projects and choose between renting equipment or producing a project. A WhatsApp conversation or form submission reaches the CRM with the source, need and selected equipment already attached.",
-    automationTitle: "AI turns shared context into action, prediction and decisions.",
+    automationTitle: "One CRM: fully manual when needed, AI-assisted when useful.",
     automationLabel: "AI INTEGRATION · ONE OPERATING CONTEXT",
     automationCopy:
-      "Asistente Ceniza works across the complete record: it understands the client, checks the agenda and inventory, prepares actions, monitors finance and updates the dashboard. Every response preserves traceability and improves the next recommendation.",
+      "Asistente Ceniza can carry out the full CRM workflow: create clients, opportunities and quotes; record payments and collections; prepare reports, plan work, provide feedback and anticipate priorities. The team reviews and approves every action before it changes the system.",
     automationSteps: [
       { icon: "+", title: "Client context", meta: "Origin · need · owner", status: "UNDERSTANDS" },
       { icon: "$", title: "Quote", meta: "Scope · totals · approval", status: "PREPARES" },
@@ -689,12 +689,12 @@ const caseStudyDetailsEs = {
       { kind: "assistant", src: "/case-ceniza-crm-mobile-assistant.webp", label: "Asistente Ceniza", benefit: "Prioriza alertas, resume la operación y prepara acciones con el mismo contexto del escritorio." },
     ],
     assistantLabel: "ASISTENTE CENIZA · IA DENTRO DEL CRM",
-    assistantTitle: "El contexto del CRM se convierte en decisiones más claras.",
+    assistantTitle: "Opera el CRM manualmente o deja que el asistente haga el trabajo por ti.",
     assistantCopy:
-      "El Asistente Ceniza conecta clientes, agenda, cotizaciones, inventario y finanzas para detectar riesgos, explicar qué importa y preparar un siguiente paso que el equipo revisa antes de actuar.",
+      "El equipo conserva el control total de cada área del CRM. El Asistente Ceniza puede crear y actualizar clientes, oportunidades y cotizaciones; registrar pagos y cobros; preparar reportes, anticipar riesgos, planificar el trabajo, dar feedback y priorizar lo que sigue. Toda acción que modifica el sistema se presenta para aprobación humana.",
     assistantCapabilities: [
-      { title: "Ve el contexto completo", text: "Conecta clientes, agenda, cotizaciones, operación, inventario y finanzas." },
-      { title: "Prepara el siguiente paso", text: "Convierte riesgos y oportunidades en una acción controlada." },
+      { title: "Opera todo el CRM", text: "Crea registros, prepara acciones y actualiza la operación con aprobación humana." },
+      { title: "Resume y anticipa", text: "Convierte todo el contexto del negocio en reportes, prioridades y siguientes acciones claras." },
     ],
     assistantBenefitsLabel: "BENEFICIOS PARA EL NEGOCIO",
     assistantBenefits: [
@@ -710,15 +710,15 @@ const caseStudyDetailsEs = {
       { label: "CÓMO SE UTILIZA", title: "Una siguiente acción priorizada", text: "Ordenar la atención, recomendar un seguimiento, advertir un conflicto, proteger el margen o preparar una reserva. El equipo ve la razón y confirma la acción." },
     ],
     predictionNote: "Dirección del producto: la lógica de decisión y la interacción están definidas en el sistema. Un modelo de pronóstico aprendido solo se presentará como listo para producción cuando cuente con suficiente historial y resultados de evaluación medibles.",
-    assistantStatus: "INTERFAZ REAL · CONECTADA AL CRM",
+    assistantStatus: "INTERFAZ REAL · OPERACIÓN ASISTIDA CON APROBACIÓN HUMANA",
     webLabel: "SITIO WEB DISEÑADO + DESARROLLADO · CONECTADO AL CRM",
     webTitle: "De descubrir el catálogo a iniciar una renta o producción.",
     webCopy:
       "También diseñé y desarrollé la web pública de Ceniza para que cada cliente entienda la oferta antes de hablar con el equipo. Puede recorrer equipos y combos, abrir fichas detalladas, ver proyectos realizados y decidir entre rentar equipos o producir un proyecto. La conversación por WhatsApp o el envío del formulario llega al CRM con el origen, la necesidad y los equipos elegidos ya conectados.",
-    automationTitle: "La IA convierte el contexto compartido en acción, predicción y decisiones.",
+    automationTitle: "Un solo CRM: completamente manual cuando se necesita y asistido por IA cuando conviene.",
     automationLabel: "INTEGRACIÓN DE IA · UN SOLO CONTEXTO OPERATIVO",
     automationCopy:
-      "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, revisa agenda e inventario, prepara acciones, vigila las finanzas y actualiza el dashboard. Cada respuesta conserva la trazabilidad y mejora la siguiente recomendación.",
+      "El Asistente Ceniza puede realizar todo el flujo del CRM: crear clientes, oportunidades y cotizaciones; registrar pagos y cobros; preparar reportes, planificar el trabajo, dar feedback y anticipar prioridades. El equipo revisa y aprueba cada acción antes de que modifique el sistema.",
     automationSteps: [
       { icon: "+", title: "Contexto del cliente", meta: "Origen · necesidad · responsable", status: "ENTIENDE" },
       { icon: "$", title: "Cotización", meta: "Alcance · totales · aprobación", status: "PREPARA" },
@@ -1118,7 +1118,7 @@ function ProjectVisual({ visual }) {
 const profileTechnicalContent = {
   en: {
     eyebrow: "WHAT I BUILD",
-    title: <>I build solutions<br /><em>end to end.</em></>,
+    title: <>I build solutions <em>end to end.</em></>,
     copy: "I take ownership of the full product path: discovery, experience, architecture, engineering, integrations, deployment and iteration. The stack adapts to each project; these are the tools I use most often at each stage.",
     flowLabel: "Delivery path",
     capabilitiesLabel: "Core capabilities",
@@ -1422,35 +1422,35 @@ function CenizaDecisionStrip({ language }) {
 function CenizaConnectionFlow({ language, embedded = false }) {
   const content = language === "es" ? {
     label: "INTEGRACIÓN DE IA · UN SOLO CONTEXTO OPERATIVO",
-    title: "La IA convierte el contexto en acción y mejores decisiones.",
+    title: "Toda la operación del CRM, con control humano y asistencia de IA.",
     embeddedLabel: "CÓMO FUNCIONA",
-    embeddedTitle: "Las áreas del CRM alimentan al Asistente Ceniza.",
-    copy: "El Asistente Ceniza trabaja sobre el registro completo: entiende al cliente, prioriza la agenda, prepara cotizaciones y ejecuta acciones dentro de la operación. Al mismo tiempo consulta inventario y finanzas, actualiza el dashboard y cruza señales para detectar riesgos y recomendar una siguiente acción revisable.",
+    embeddedTitle: "El equipo controla cada área; el Asistente Ceniza puede operarlas todas.",
+    copy: "Cada módulo puede manejarse manualmente. Cuando el equipo lo decide, el Asistente Ceniza crea y actualiza registros, prepara cotizaciones, registra pagos y cobros, construye reportes, planifica, da feedback y anticipa prioridades. Toda modificación requiere aprobación humana y conserva su trazabilidad.",
     nodes: [
-      { position: "client", icon: LuUsers, title: "Cliente", meta: "Contexto e historial" },
-      { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Prioridad y responsable" },
-      { position: "quote", icon: LuFileText, title: "Cotización", meta: "Valor y estado" },
-      { position: "operation", icon: LuTarget, title: "Operación", meta: "Prepara la acción" },
-      { position: "inventory", icon: LuBoxes, title: "Inventario", meta: "Disponibilidad" },
-      { position: "finance", icon: LuCircleDollarSign, title: "Finanzas", meta: "Flujo y margen" },
-      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Conecta y prioriza" },
-      { position: "dashboard", icon: LuTrendingUp, title: "Mejor decisión", meta: "Razón + acción" },
+      { position: "client", icon: LuUsers, title: "Clientes", meta: "Crea y actualiza" },
+      { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Planifica y prioriza" },
+      { position: "quote", icon: LuFileText, title: "Cotizaciones", meta: "Prepara y gestiona" },
+      { position: "operation", icon: LuTarget, title: "Oportunidades", meta: "Seguimiento y feedback" },
+      { position: "inventory", icon: LuBoxes, title: "Operación", meta: "Inventario y disponibilidad" },
+      { position: "finance", icon: LuCircleDollarSign, title: "Pagos y cobros", meta: "Registra y anticipa" },
+      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", lines: ["Opera todo el CRM", "Resume para decidir mejor"] },
+      { position: "dashboard", icon: LuTrendingUp, title: "Prioridades claras", meta: "Resumen + decisión" },
     ],
   } : {
     label: "AI INTEGRATION · ONE OPERATING CONTEXT",
-    title: "AI turns context into action and better decisions.",
+    title: "The full CRM operation, with human control and AI assistance.",
     embeddedLabel: "HOW IT WORKS",
-    embeddedTitle: "CRM areas feed Asistente Ceniza with context.",
-    copy: "Asistente Ceniza works across the complete record: it understands the client, prioritizes the agenda, prepares quotes and executes actions inside the operation. At the same time, it consults inventory and finance, updates the dashboard and connects signals to detect risks and recommend a reviewable next action.",
+    embeddedTitle: "The team controls every area; Asistente Ceniza can operate them all.",
+    copy: "Every module can be managed manually. When the team chooses, Asistente Ceniza creates and updates records, prepares quotes, records payments and collections, builds reports, plans work, provides feedback and anticipates priorities. Every change requires human approval and remains traceable.",
     nodes: [
-      { position: "client", icon: LuUsers, title: "Client", meta: "Context and history" },
-      { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Priority and owner" },
-      { position: "quote", icon: LuFileText, title: "Quote", meta: "Value and status" },
-      { position: "operation", icon: LuTarget, title: "Operation", meta: "Prepares the action" },
-      { position: "inventory", icon: LuBoxes, title: "Inventory", meta: "Availability" },
-      { position: "finance", icon: LuCircleDollarSign, title: "Finance", meta: "Cash flow and margin" },
-      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", meta: "Connects and prioritizes" },
-      { position: "dashboard", icon: LuTrendingUp, title: "Better decision", meta: "Rationale + action" },
+      { position: "client", icon: LuUsers, title: "Clients", meta: "Creates and updates" },
+      { position: "agenda", icon: LuCalendarCheck, title: "Agenda", meta: "Plans and prioritizes" },
+      { position: "quote", icon: LuFileText, title: "Quotes", meta: "Prepares and manages" },
+      { position: "operation", icon: LuTarget, title: "Opportunities", meta: "Follow-up and feedback" },
+      { position: "inventory", icon: LuBoxes, title: "Operation", meta: "Inventory and availability" },
+      { position: "finance", icon: LuCircleDollarSign, title: "Payments and collections", meta: "Records and anticipates" },
+      { position: "intake", icon: LuSparkles, title: "Asistente Ceniza", lines: ["Runs the full CRM", "Summarizes for decisions"] },
+      { position: "dashboard", icon: LuTrendingUp, title: "Clear priorities", meta: "Summary + decision" },
     ],
   };
 
@@ -1502,13 +1502,15 @@ function CenizaConnectionFlow({ language, embedded = false }) {
                   {embedded && node.position === "intake" ? (
                     <li className="ceniza-mobile-flow-merge">
                       <span aria-hidden="true" />
-                      <strong>{language === "es" ? "Contexto compartido" : "Shared context"}</strong>
+                      <strong>{language === "es" ? "Contexto unificado" : "Unified context"}</strong>
                     </li>
                   ) : null}
                   <li className={`ceniza-connection-node node-${node.position}`}>
                     <span className="ceniza-connection-icon" aria-hidden="true"><Icon /></span>
                     <strong>{node.title}</strong>
-                    <p>{node.meta}</p>
+                    {node.lines ? (
+                      <p className="ceniza-connection-detail">{node.lines.map((line) => <span key={line}>{line}</span>)}</p>
+                    ) : <p>{node.meta}</p>}
                   </li>
                 </Fragment>
               );
@@ -1664,17 +1666,17 @@ function CenizaAssistantPreview({ detail, language }) {
             <div>
               <small>{isEs ? "QUÉ HACE" : "WHAT IT DOES"}</small>
               <ul>
-                <li><strong>{isEs ? "Conecta la operación" : "Connects the operation"}</strong><span>{isEs ? "Combina clientes, agenda, inventario y finanzas." : "Combines clients, agenda, inventory and finance."}</span></li>
-                <li><strong>{isEs ? "Detecta riesgos" : "Detects risks"}</strong><span>{isEs ? "Señala cruces, retrasos y presión de caja usando el contexto disponible." : "Flags conflicts, delays and cash pressure using the available context."}</span></li>
-                <li><strong>{isEs ? "Prepara el siguiente paso" : "Prepares the next step"}</strong><span>{isEs ? "Sugiere una acción y un responsable para confirmarla." : "Suggests an action and an owner to confirm it."}</span></li>
+                <li><strong>{isEs ? "Opera el CRM completo" : "Operates the full CRM"}</strong><span>{isEs ? "Crea clientes, oportunidades y cotizaciones; registra pagos y cobros." : "Creates clients, opportunities and quotes; records payments and collections."}</span></li>
+                <li><strong>{isEs ? "Anticipa y planifica" : "Anticipates and plans"}</strong><span>{isEs ? "Cruza agenda, inventario, caja y vencimientos para detectar riesgos." : "Connects agenda, inventory, cash flow and due dates to detect risks."}</span></li>
+                <li><strong>{isEs ? "Resume y prioriza" : "Summarizes and prioritizes"}</strong><span>{isEs ? "Prepara reportes, feedback y acciones ordenadas para decidir mejor." : "Prepares reports, feedback and ordered actions for better decisions."}</span></li>
               </ul>
             </div>
             <div>
               <small>{isEs ? "BENEFICIOS" : "BENEFITS"}</small>
               <ul>
-                <li><strong>{isEs ? "Ahorra tiempo operativo" : "Saves operating time"}</strong><span>{isEs ? "Resume lo importante sin reconstruir cada caso." : "Summarizes what matters without rebuilding every case."}</span></li>
-                <li><strong>{isEs ? "Protege reservas e ingresos" : "Protects bookings and revenue"}</strong><span>{isEs ? "Reduce conflictos de equipos y cobros aplazados." : "Reduces equipment conflicts and delayed payments."}</span></li>
-                <li><strong>{isEs ? "Mejora rentabilidad y control" : "Improves profitability and control"}</strong><span>{isEs ? "Relaciona decisiones con caja, costos y margen." : "Connects decisions with cash flow, costs and margin."}</span></li>
+                <li><strong>{isEs ? "Control humano siempre" : "Human control, always"}</strong><span>{isEs ? "Cada cambio se revisa y aprueba antes de ejecutarse." : "Every change is reviewed and approved before execution."}</span></li>
+                <li><strong>{isEs ? "Menos trabajo manual" : "Less manual work"}</strong><span>{isEs ? "El asistente realiza las acciones autorizadas sin perder trazabilidad." : "The assistant carries out authorized actions without losing traceability."}</span></li>
+                <li><strong>{isEs ? "Decisiones más fáciles" : "Easier decisions"}</strong><span>{isEs ? "Todo llega resumido con prioridades y un siguiente paso claro." : "Everything arrives summarized with priorities and a clear next step."}</span></li>
               </ul>
             </div>
           </div>
@@ -1682,8 +1684,8 @@ function CenizaAssistantPreview({ detail, language }) {
 
         <aside className="ceniza-assistant-phone-column" aria-labelledby="ceniza-conversation-title">
           <div className="ceniza-assistant-phone-copy">
-            <AnimatedEyebrow text={isEs ? "DECISIONES CON CONTEXTO" : "DECISIONS WITH CONTEXT"} className="case-label" />
-            <h3 id="ceniza-conversation-title">{isEs ? "Pregunta por el negocio. Recibe un plan listo para actuar." : "Ask about the business. Get a plan ready to act on."}</h3>
+            <AnimatedEyebrow text={isEs ? "RESUMEN DEL NEGOCIO" : "BUSINESS SUMMARY"} className="case-label" />
+            <h3 id="ceniza-conversation-title">{isEs ? "El estado del negocio, resumido y listo para actuar." : "The state of the business, summarized and ready for action."}</h3>
           </div>
           <CenizaAssistantConversation language={language} />
         </aside>
@@ -2907,7 +2909,7 @@ function App() {
     const socialImageAlt = activeProject
       ? `${activeProject.name} — ${text.documentCase}`
       : language === "es"
-        ? "Portafolio de Diego Franco, Ingeniero de Soluciones de IA"
+        ? "Portafolio de Diego Franco, AI Solutions Engineer"
         : "Diego Franco's AI Solutions Engineering portfolio";
 
     document.title = pageTitle;
@@ -2991,10 +2993,16 @@ function App() {
               <span className="availability-dot loading-dot" />
               <TypewriterText text={text.portfolio} />
             </p>
-            <h1 id="hero-title">
-              <span>{text.heroLines[0]}</span>
-              <span>{text.heroLines[1]}</span>
-              <span>{text.heroLines[2]} <em>{text.heroAccent}</em></span>
+            <h1 id="hero-title" className={language === "en" ? "is-english-single-line" : undefined}>
+              {language === "en" ? (
+                <>Ideas into <em>systems.</em></>
+              ) : (
+                <>
+                  <span>{text.heroLines[0]}</span>
+                  <span>{text.heroLines[1]}</span>
+                  <span>{text.heroLines[2]} <em>{text.heroAccent}</em></span>
+                </>
+              )}
             </h1>
             <div className="hero-description">
               <p>{text.heroDescription}</p>
@@ -3010,19 +3018,12 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-folder" aria-hidden="true">
-            <svg className="cloud-motion-filter" width="0" height="0" focusable="false">
-              <filter id="cloud-motion" x="-12%" y="-12%" width="124%" height="124%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.007 0.014" numOctaves="2" seed="7" result="noise">
-                  <animate attributeName="baseFrequency" dur="11s" values="0.007 0.014;0.015 0.007;0.007 0.014" repeatCount="indefinite" />
-                </feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="B">
-                  <animate attributeName="scale" dur="8s" values="7;17;7" repeatCount="indefinite" />
-                </feDisplacementMap>
-              </filter>
-            </svg>
-            <img src="/hero-mint-cloud.webp" alt="" />
-          </div>
+          <figure className="hero-portrait">
+            <img
+              src="/diego-franco-hero-final-v3.png"
+              alt={language === "es" ? "Retrato de Diego Franco" : "Portrait of Diego Franco"}
+            />
+          </figure>
 
         </section>
 
