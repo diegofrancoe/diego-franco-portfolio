@@ -181,8 +181,8 @@ const copy = {
       "I’m Diego Franco, an AI Solutions Engineer. I design and build digital products, full-stack applications, business systems and AI-powered automations that connect information, simplify operations and help teams move forward.",
     viewCases: "Explore my work",
     howIWork: "What I Do",
-    process: "FULL-STACK DEVELOPMENT · AI AGENTS · RAG · AUTOMATION · API INTEGRATIONS · UX/UI",
-    processAria: "Full-stack development, AI agents, RAG, automation, API integrations and UX/UI",
+    process: "FULL-STACK DEV · AI AGENTS · RAG · AUTOMATION · API · UX/UI",
+    processAria: "Full-stack development, AI agents, RAG, automation, API and UX/UI",
     projects: "WHAT I BUILD",
     projectsTitle: <>Projects.</>,
     caseStudies: "03 CASE STUDIES",
@@ -239,8 +239,8 @@ const copy = {
       "Soy Diego Franco, AI Solutions Engineer. Diseño y construyo productos digitales, aplicaciones full stack, sistemas empresariales y automatizaciones con IA que conectan información, simplifican operaciones y ayudan a los equipos a avanzar.",
     viewCases: "Explorar mi trabajo",
     howIWork: "Lo que hago",
-    process: "FULL-STACK DEVELOPMENT · AI AGENTS · RAG · AUTOMATION · API INTEGRATIONS · UX/UI",
-    processAria: "Full-stack development, AI agents, RAG, automation, API integrations y UX/UI",
+    process: "FULL-STACK DEV · AI AGENTS · RAG · AUTOMATION · API · UX/UI",
+    processAria: "Full-stack development, AI agents, RAG, automation, API y UX/UI",
     projects: "LO QUE CONSTRUYO",
     projectsTitle: <>Proyectos.</>,
     caseStudies: "03 CASOS DE ESTUDIO",
@@ -337,6 +337,8 @@ function TypewriterText({
   rootMargin = "0px 0px -12% 0px",
   replayOnViewportChange = false,
   startOnMount = false,
+  characterDelay = 68,
+  startDelay = 220,
   mobileCharacterDelay,
   mobileStartDelay,
 }) {
@@ -390,8 +392,8 @@ function TypewriterText({
     setIsTyping(true);
 
     const isMobileViewport = window.matchMedia("(max-width: 680px)").matches;
-    const characterDelay = isMobileViewport && mobileCharacterDelay ? mobileCharacterDelay : 68;
-    const startDelay = isMobileViewport && mobileStartDelay ? mobileStartDelay : 220;
+    const activeCharacterDelay = isMobileViewport && mobileCharacterDelay ? mobileCharacterDelay : characterDelay;
+    const activeStartDelay = isMobileViewport && mobileStartDelay ? mobileStartDelay : startDelay;
     let characterIndex = 0;
     let timer;
 
@@ -400,15 +402,15 @@ function TypewriterText({
       setVisibleText(text.slice(0, characterIndex));
 
       if (characterIndex < text.length) {
-        timer = window.setTimeout(typeNextCharacter, characterIndex === 10 ? (isMobileViewport && mobileCharacterDelay ? 90 : 150) : characterDelay);
+        timer = window.setTimeout(typeNextCharacter, characterIndex === 10 ? Math.min(90, activeCharacterDelay * 4) : activeCharacterDelay);
       } else {
         timer = window.setTimeout(() => setIsTyping(false), 850);
       }
     };
 
-    timer = window.setTimeout(typeNextCharacter, startDelay);
+    timer = window.setTimeout(typeNextCharacter, activeStartDelay);
     return () => window.clearTimeout(timer);
-  }, [hasStarted, mobileCharacterDelay, mobileStartDelay, text]);
+  }, [characterDelay, hasStarted, mobileCharacterDelay, mobileStartDelay, startDelay, text]);
 
   return (
     <span ref={textRef} className={`typewriter-text${isTyping ? " is-typing" : ""}`} style={{ minWidth: `${text.length}ch` }} aria-hidden="true">
@@ -3020,7 +3022,7 @@ function App() {
 
           <figure className="hero-portrait">
             <img
-              src="/diego-franco-hero-final-v3.png"
+              src="/diego-franco-hero-original-v6.png"
               alt={language === "es" ? "Retrato de Diego Franco" : "Portrait of Diego Franco"}
             />
           </figure>
@@ -3103,7 +3105,17 @@ function App() {
             <h2 id="contact-title">{text.contactTitle}</h2>
           </div>
           <div className="contact-actions">
-            <p>{text.contactCopy}</p>
+            <p aria-label={text.contactCopy}>
+              <TypewriterText
+                text={text.contactCopy}
+                threshold={0.35}
+                rootMargin="0px 0px -5% 0px"
+                characterDelay={24}
+                startDelay={80}
+                mobileCharacterDelay={22}
+                mobileStartDelay={60}
+              />
+            </p>
             <div className="contact-cta-row">
               <SoftButton href={CONTACT_WHATSAPP_URL} primary external>
                 {text.getInTouch} <Arrow diagonal />
