@@ -40,7 +40,7 @@ const projects = [
     visual: "ceniza",
     headline: "Every client, quote and operation in one place.",
     industry: "Creative production + equipment rental",
-    role: "Full-Stack Developer · AI Solutions · Digital Product · CRM · Data Automation · UX/UI",
+    role: "Full-Stack Developer · AI Solutions · CRM · Data · Automation · Product UX/UI",
     brief:
       "Ceniza needed a digital home that could explain its offer with clarity and turn interest into a useful commercial conversation. The experience had to connect content, services and products without making visitors choose between disconnected paths.",
     challenge:
@@ -135,7 +135,7 @@ const projectTranslationsEs = {
     tags: ["CRM", "IA APLICADA", "AUTOMATIZACIÓN"],
     headline: "Cada cliente, cotización y operación en un solo lugar.",
     industry: "Producción creativa + alquiler de equipos",
-    role: "Desarrollo Full Stack · Soluciones de IA · Producto Digital · CRM · Automatización de Datos · UX/UI",
+    role: "Desarrollo Full Stack · Soluciones de IA · CRM · Datos · Automatización · Producto UX/UI",
     outcome:
       "El producto final conecta el recorrido comercial y operativo en un sistema responsive, con contexto compartido, asistencia de IA controlada y trazabilidad desde la oportunidad hasta el seguimiento financiero.",
   },
