@@ -1,3 +1,5 @@
+<p align="center"><img src="public/diego-franco-hero-final-v3.png" alt="Diego Franco" width="260"></p>
+
 # Diego Franco — AI Solutions Engineer
 
 **Ideas into systems.**
