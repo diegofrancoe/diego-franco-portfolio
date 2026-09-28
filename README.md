@@ -1,4 +1,4 @@
-<p align="center"><img src="public/diego-franco-hero-final-v3.png" alt="Diego Franco" width="260"></p>
+<p align="center"><img src="public/diego-franco-hero-original-v6.png" alt="Diego Franco" width="520"></p>
 
 # Diego Franco — AI Solutions Engineer
 
