@@ -1,46 +1,32 @@
-<p align="center"><img src="public/diego-franco-hero-original-v6.png" alt="Diego Franco" width="520"></p>
+<p align="center"><img src="public/diego-franco-hero-original-v6.png" alt="Diego Franco" width="360"></p>
 
-# Diego Franco — AI Solutions Engineer
+<h1 align="center">Diego Franco — AI Solutions Engineer</h1>
+<p align="center"><strong>Ideas into systems.</strong></p>
+<p align="center"><a href="https://www.diegofrancoe.com/"><strong>Live portfolio</strong></a> · <a href="https://github.com/diegofrancoe"><strong>GitHub</strong></a></p>
 
-**Ideas into systems.**
+I design and build digital products where software, business workflows, automation, data and applied AI work together as one system.
 
-[Live portfolio](https://www.diegofrancoe.com/) · [GitHub profile](https://github.com/diegofrancoe)
+| Product development | AI + automation | Product Design | Business systems |
+|---|---|---|---|
+| Full-stack applications | Agents, RAG and workflows | UX/UI + journeys | Operational context |
 
-Personal portfolio presenting my work across full-stack products, business systems, applied AI, workflow automation and product UX/UI.
+### Featured work
 
-## Featured work
+| Project | What I built | Access |
+|---|---|---|
+| **CENIZA** | Full-stack CRM + contextual AI agent | [Live demo](https://ceniza-crm.vercel.app/) · [Case study](https://www.diegofrancoe.com/proyectos/ceniza) |
+| **NAVAL** | B2B platform + assistant + private ERP ecosystem | [Website](https://www.productosnaval.com/) · [Case study](https://www.diegofrancoe.com/proyectos/naval) |
+| **40+** | E-commerce + WhatsApp sales + customer automation | [Website](https://cuarentamas.com/) · [Case study](https://www.diegofrancoe.com/proyectos/40-plus) |
 
-### CENIZA — AI-Powered Full-Stack CRM
-Commercial and operational CRM with structured data, hybrid RAG and an AI agent designed to operate across supported workflows with human approval.
+### Core stack
+![React](https://img.shields.io/badge/React-20232A?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-20232A?logo=typescript) ![Supabase](https://img.shields.io/badge/Supabase-20232A?logo=supabase) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-20232A?logo=postgresql) ![OpenAI](https://img.shields.io/badge/OpenAI-20232A?logo=openai) ![n8n](https://img.shields.io/badge/n8n-20232A?logo=n8n) ![Vercel](https://img.shields.io/badge/Vercel-20232A?logo=vercel)
 
-[Live demo](https://ceniza-crm.vercel.app/) · [Case study](https://www.diegofrancoe.com/proyectos/ceniza)
-
-### NAVAL — AI Business Ecosystem
-B2B platform, commercial assistant and automation connected to a private ERP currently under development.
-
-[Live website](https://www.productosnaval.com/) · [Case study](https://www.diegofrancoe.com/proyectos/naval)
-
-### 40+ — E-commerce & Automation
-Commerce experience with WhatsApp-assisted purchasing, secure lead capture and automated customer communication.
-
-[Live website](https://cuarentamas.com/) · [Case study](https://www.diegofrancoe.com/proyectos/40-plus)
-
-## Core stack
-
-React · TypeScript · JavaScript · CSS · Supabase · PostgreSQL · OpenAI · n8n · Make · Vercel · Figma
-
-## Run locally
+<details><summary><strong>Run locally</strong></summary>
 
 ~~~bash
 npm install
 npm run dev
 ~~~
+</details>
 
-~~~bash
-npm run build
-npm run preview
-~~~
-
-**Production:** https://www.diegofrancoe.com/
-
-Built by **Diego Franco**.
+<p align="center"><strong>Production:</strong> https://www.diegofrancoe.com/</p>
