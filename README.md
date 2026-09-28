@@ -1,4 +1,8 @@
-<p align="center"><img src="docs/readme-hero.svg" alt="Project overview" width="100%"></p>
+<p align="center"><a href="https://www.diegofrancoe.com/"><img src="docs/readme-hero.svg" alt="Project overview" width="100%"></a></p>
+
+<p align="center"><a href="https://www.diegofrancoe.com/"><strong>Live website</strong></a> · <a href="https://github.com/diegofrancoe"><strong>Case study</strong></a></p>
+
+This portfolio presents my work as an AI Solutions Engineer across full-stack products, operational business systems, applied AI, workflow automation and Product Design. Each case study connects the product experience with the architecture, integrations and business context behind the implementation.
 
 ### Featured work
 
