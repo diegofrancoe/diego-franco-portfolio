@@ -1,14 +1,4 @@
-<p align="center"><img src="public/diego-franco-hero-original-v6.png" alt="Diego Franco" width="360"></p>
-
-<h1 align="center">Diego Franco — AI Solutions Engineer</h1>
-<p align="center"><strong>Ideas into systems.</strong></p>
-<p align="center"><a href="https://www.diegofrancoe.com/"><strong>Live portfolio</strong></a> · <a href="https://github.com/diegofrancoe"><strong>GitHub</strong></a></p>
-
-I design and build digital products where software, business workflows, automation, data and applied AI work together as one system.
-
-| Product development | AI + automation | Product Design | Business systems |
-|---|---|---|---|
-| Full-stack applications | Agents, RAG and workflows | UX/UI + journeys | Operational context |
+<p align="center"><img src="docs/readme-hero.svg" alt="Project overview" width="100%"></p>
 
 ### Featured work
 
