@@ -2,6 +2,9 @@
 
 This portfolio presents my work as an AI Solutions Engineer across full-stack products, operational business systems, applied AI, workflow automation and Product Design. Each case study connects the product experience with the architecture, integrations and business context behind the implementation.
 
+### Core stack
+![React](https://img.shields.io/badge/React-252824?style=flat-square&logo=react&logoColor=74CDA7) ![TypeScript](https://img.shields.io/badge/TypeScript-252824?style=flat-square&logo=typescript&logoColor=74CDA7) ![Supabase](https://img.shields.io/badge/Supabase-252824?style=flat-square&logo=supabase&logoColor=74CDA7) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-252824?style=flat-square&logo=postgresql&logoColor=74CDA7) ![OpenAI](https://img.shields.io/badge/OpenAI-252824?style=flat-square&logo=openai&logoColor=74CDA7) ![n8n](https://img.shields.io/badge/n8n-252824?style=flat-square&logo=n8n&logoColor=74CDA7) ![Vercel](https://img.shields.io/badge/Vercel-252824?style=flat-square&logo=vercel&logoColor=74CDA7)
+
 ### Featured work
 
 | Project | What I built | Access |
@@ -9,9 +12,6 @@ This portfolio presents my work as an AI Solutions Engineer across full-stack pr
 | **CENIZA** | Full-stack CRM + contextual AI agent | [Live demo](https://ceniza-crm.vercel.app/) · [Case study](https://www.diegofrancoe.com/proyectos/ceniza) |
 | **NAVAL** | B2B platform + assistant + private ERP ecosystem | [Website](https://www.productosnaval.com/) · [Case study](https://www.diegofrancoe.com/proyectos/naval) |
 | **40+** | E-commerce + WhatsApp sales + customer automation | [Website](https://cuarentamas.com/) · [Case study](https://www.diegofrancoe.com/proyectos/40-plus) |
-
-### Core stack
-![React](https://img.shields.io/badge/React-20232A?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-20232A?logo=typescript) ![Supabase](https://img.shields.io/badge/Supabase-20232A?logo=supabase) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-20232A?logo=postgresql) ![OpenAI](https://img.shields.io/badge/OpenAI-20232A?logo=openai) ![n8n](https://img.shields.io/badge/n8n-20232A?logo=n8n) ![Vercel](https://img.shields.io/badge/Vercel-20232A?logo=vercel)
 
 <details><summary><strong>Run locally</strong></summary>
 
