@@ -1,4 +1,4 @@
-<p align="center"><a href="https://www.diegofrancoe.com/"><img src="public/diego-franco-hero-original-v6.png" alt="Diego Franco" width="520"></a></p>\n\n<p align="center"><a href="https://www.diegofrancoe.com/"><img src="docs/readme-hero.svg" alt="Diego Franco — AI Solutions Engineer" width="100%"></a></p>
+<p align="center"><a href="https://www.diegofrancoe.com/"><img src="docs/readme-hero.svg" alt="Diego Franco — AI Solutions Engineer" width="100%"></a></p>
 
 <p align="center"><a href="https://www.diegofrancoe.com/"><strong>Live website</strong></a> · <a href="https://github.com/diegofrancoe"><strong>Case study</strong></a></p>
 
