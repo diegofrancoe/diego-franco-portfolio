@@ -10,26 +10,26 @@ const routes = [
   {
     output: "proyectos/ceniza.html",
     path: "/proyectos/ceniza",
-    title: "Ceniza · CRM + AI Case Study | Diego Franco",
+    title: "Ceniza · CRM + AI Digital Product | Diego Franco",
     description: "A CRM-first system connecting clients, quotes, productions, rentals, inventory, finance and controlled AI assistance.",
     image: "/case-ceniza-desktop.webp",
-    imageAlt: "Ceniza CRM and AI case study by Diego Franco",
+    imageAlt: "Ceniza CRM and AI digital product by Diego Franco",
   },
   {
     output: "proyectos/naval.html",
     path: "/proyectos/naval",
-    title: "Naval · Business System Case Study | Diego Franco",
+    title: "Naval · Business System Digital Product | Diego Franco",
     description: "A production B2B catalog and ERP connecting demand, production, purchasing, inventory, quality and reporting.",
     image: "/case-naval-desktop.webp",
-    imageAlt: "Naval business system and ERP case study by Diego Franco",
+    imageAlt: "Naval business system and ERP digital product by Diego Franco",
   },
   {
     output: "proyectos/40-plus.html",
     path: "/proyectos/40-plus",
-    title: "40+ · E-commerce Automation Case Study | Diego Franco",
+    title: "40+ · E-commerce Automation Digital Product | Diego Franco",
     description: "A responsive product journey with WhatsApp-assisted orders, experience capture and automated content delivery.",
     image: "/case-40plus-desktop.webp",
-    imageAlt: "40+ e-commerce automation case study by Diego Franco",
+    imageAlt: "40+ e-commerce automation digital product by Diego Franco",
   },
 ];
 
@@ -84,7 +84,7 @@ for (const route of routes) {
 }
 
 const notFoundTitle = "Page not found | Diego Franco";
-const notFoundDescription = "The page you requested could not be found. Explore Diego Franco's AI solutions and product case studies.";
+const notFoundDescription = "The page you requested could not be found. Explore Diego Franco's AI solutions and product digital products.";
 let notFoundHtml = baseHtml
   .replace(/<title>[^<]*<\/title>/i, `<title>${notFoundTitle}</title>`)
   .replace(/<link rel="canonical" href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${siteUrl}/" />`);
