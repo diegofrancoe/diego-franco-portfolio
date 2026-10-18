@@ -2,6 +2,18 @@
 
 This portfolio presents my work as an AI Product Developer across full-stack products, operational business systems, applied AI, workflow automation and Product Design. Each case study connects the product experience with the architecture, integrations and business context behind the implementation.
 
+### Product Overview
+
+A portfolio of digital products combining UX/UI design, full-stack development and applied AI. Each project is presented through the problem it addresses, the user experience and the working application.
+
+### Product Design & UX/UI
+
+The experience connects approachable navigation, responsive layouts and project case studies to explain product decisions before technical details.
+
+### What I Built
+
+A responsive portfolio that introduces live websites, business applications, commerce experiences and AI-assisted products without claiming that every project uses AI.
+
 ### Core stack
 ![React](https://img.shields.io/badge/React-252824?style=flat-square&logo=react&logoColor=74CDA7) ![TypeScript](https://img.shields.io/badge/TypeScript-252824?style=flat-square&logo=typescript&logoColor=74CDA7) ![Supabase](https://img.shields.io/badge/Supabase-252824?style=flat-square&logo=supabase&logoColor=74CDA7) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-252824?style=flat-square&logo=postgresql&logoColor=74CDA7) ![OpenAI](https://img.shields.io/badge/OpenAI-252824?style=flat-square&logo=openai&logoColor=74CDA7) ![n8n](https://img.shields.io/badge/n8n-252824?style=flat-square&logo=n8n&logoColor=74CDA7) ![Vercel](https://img.shields.io/badge/Vercel-252824?style=flat-square&logo=vercel&logoColor=74CDA7)
 
