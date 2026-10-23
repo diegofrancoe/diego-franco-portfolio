@@ -5438,3 +5438,25 @@ dialog.case-image-preview::backdrop { background: rgba(20,27,23,.75); }
   .case-study .case-next:hover, .case-study .case-next:focus-visible, .case-study .case-next:active,
   .case-study .case-next:hover > .arrow-icon, .case-study .case-next:focus-visible > .arrow-icon { transform: none; }
 }
+
+/* Touch devices open the folder nearest the center while scrolling. */
+#trabajo .project-card.is-scroll-open .project-folder { transform: rotateX(-38deg) translateY(-2px); }
+#trabajo .project-card.is-scroll-open .project-visual > img { transform: translateY(-16%) scale(1.045); }
+#trabajo .project-card.is-scroll-open .folder-arrow { transform: translate(10px,-10px); color: var(--mint-deep); }
+.project-card { position: relative; }
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .project-card.reveal-ready {
+    translate: 0 24px;
+    scale: .985;
+    transition: opacity 350ms ease var(--project-compact-delay, 0ms), translate 450ms cubic-bezier(.16,1,.3,1) var(--project-compact-delay, 0ms), scale 450ms ease var(--project-compact-delay, 0ms), transform 220ms ease;
+  }
+  .project-card.reveal-ready:nth-child(2) { --project-compact-delay: 60ms; }
+  .project-card.reveal-ready:nth-child(3) { --project-compact-delay: 120ms; }
+  .project-card.reveal-ready.is-revealed { translate: 0 0; scale: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card.reveal-ready { opacity: 1; translate: none; scale: 1; transition: none; }
+  #trabajo .project-card.is-scroll-open .project-folder,
+  #trabajo .project-card.is-scroll-open .project-visual > img,
+  #trabajo .project-card.is-scroll-open .folder-arrow { transition: none; }
+}

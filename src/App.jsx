@@ -1105,13 +1105,42 @@ function ProjectGrid({ children }) {
       entries.forEach((entry) => {
         entry.target.classList.toggle("is-revealed", entry.isIntersecting);
       });
-    }, { threshold: 0.28 });
+    }, { threshold: 0.12 });
     cards.forEach((card, index) => {
       card.style.setProperty("--project-delay", `${index * 240}ms`);
       card.classList.add("reveal-ready");
       observer.observe(card);
     });
-    return () => observer.disconnect();
+    const touchViewport = window.matchMedia("(hover: none), (pointer: coarse)");
+    const updateOpenFolder = () => {
+      let closest = null;
+      let distance = Infinity;
+      if (touchViewport.matches) cards.forEach((card) => {
+        const bounds = card.getBoundingClientRect();
+        const center = bounds.top + bounds.height / 2;
+        const delta = Math.abs(center - window.innerHeight / 2);
+        if (center > window.innerHeight * .15 && center < window.innerHeight * .85 && delta < distance) {
+          closest = card;
+          distance = delta;
+        }
+      });
+      cards.forEach((card) => card.classList.toggle("is-scroll-open", card === closest));
+    };
+    let frame = 0;
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(() => { frame = 0; updateOpenFolder(); });
+    };
+    updateOpenFolder();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    touchViewport.addEventListener("change", schedule);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      touchViewport.removeEventListener("change", schedule);
+    };
   }, []);
 
   return <div className="projects-grid" ref={gridRef}>{children}</div>;
