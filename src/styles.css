@@ -5261,3 +5261,180 @@ main.editorial-case.case-study-forty .expanded-intro-visit > span:first-child { 
  main.editorial-case.case-study .ceniza-metrics article > strong { font-size: 2rem; }
  main.editorial-case.case-study .ceniza-metrics h3 { font-size: .95rem; line-height: 1.25; }
 }
+
+/* Local project interactions: staggered arrival and hinged folder fronts. */
+.project-card.reveal-ready {
+  opacity: 0;
+  translate: 0 100px;
+  scale: .94;
+  transition: opacity 950ms ease var(--project-delay), translate 1100ms cubic-bezier(.16,1,.3,1) var(--project-delay), scale 1100ms cubic-bezier(.16,1,.3,1) var(--project-delay), transform 220ms ease;
+}
+.project-card.reveal-ready.is-revealed { opacity: 1; translate: 0 0; scale: 1; }
+.project-visual { perspective: 1000px; }
+.project-folder {
+  transform-origin: center bottom;
+  transition: transform 650ms cubic-bezier(.16,1,.3,1);
+}
+.folder-arrow { transition: transform 450ms cubic-bezier(.16,1,.3,1), color 240ms ease; }
+#trabajo .project-card:focus-visible .project-folder {
+  transform: rotateX(-38deg) translateY(-2px);
+}
+#trabajo .project-card:focus-visible .project-visual > img { transform: translateY(-16%) scale(1.045); }
+#trabajo .project-card:focus-visible .folder-arrow { transform: translate(10px,-10px); color: var(--mint-deep); }
+@media (hover: hover) and (pointer: fine) {
+  #trabajo .project-card:hover .project-folder { transform: rotateX(-38deg) translateY(-2px); }
+  #trabajo .project-card:hover .project-visual > img { transform: translateY(-16%) scale(1.045); }
+  #trabajo .project-card:hover .folder-arrow { transform: translate(10px,-10px); color: var(--mint-deep); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card.reveal-ready { opacity: 1; translate: none; scale: 1; transition: none; }
+  .project-card .project-folder, .project-card .project-visual > img, .project-card .folder-arrow { transition: none; }
+  #trabajo .project-card:hover .project-folder, #trabajo .project-card:focus-visible .project-folder,
+  #trabajo .project-card:hover .project-visual > img, #trabajo .project-card:focus-visible .project-visual > img,
+  #trabajo .project-card:hover .folder-arrow, #trabajo .project-card:focus-visible .folder-arrow { transform: none; }
+}
+
+/* Workflow reading progress follows the viewport through the delivery steps. */
+#proceso .profile-delivery-flow { position: relative; margin-left: 24px; }
+#proceso .profile-delivery-flow::before,
+#proceso .profile-delivery-flow::after {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+#proceso .profile-delivery-flow::before { background: rgba(74,153,112,.14); }
+#proceso .profile-delivery-flow::after {
+  background: linear-gradient(180deg, #a5d9bb, #388866);
+  transform: scaleY(var(--workflow-progress, 0));
+  transform-origin: center top;
+  box-shadow: 0 0 12px rgba(87,189,141,.18);
+}
+#proceso .profile-delivery-flow > li { transition: border-color 350ms ease; }
+#proceso .profile-delivery-flow > li.is-traversed { border-color: rgba(87,189,141,.48); }
+#proceso .profile-delivery-flow > li > span { display: flex; align-items: center; gap: 8px; }
+#proceso .profile-delivery-flow > li > span::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: #c8d1c9; transition: background 350ms ease, box-shadow 350ms ease;
+}
+#proceso .profile-delivery-flow > li.is-traversed > span::before {
+  background: #57bd8d; box-shadow: 0 0 0 4px rgba(87,189,141,.13);
+}
+@media (max-width: 680px) {
+  #proceso .profile-delivery-flow { margin-left: 17px; }
+  #proceso .profile-delivery-flow::before, #proceso .profile-delivery-flow::after { left: -17px; }
+}
+
+/* Section titles unfold gently as they enter the viewport. */
+#inicio h2.title-reveal {
+  opacity: 0;
+  translate: 0 30px;
+  transition: opacity 800ms ease, translate 1000ms cubic-bezier(.16,1,.3,1);
+}
+#inicio h2.title-reveal.title-is-visible { opacity: 1; translate: 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  #inicio h2.title-reveal { opacity: 1; translate: none; clip-path: none; transition: none; }
+}
+
+/* Soft button lift, with the same feedback for keyboard navigation. */
+.portfolio-page .soft-button {
+  transition: transform 280ms cubic-bezier(.2,.75,.25,1), box-shadow 280ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-page .soft-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(67,92,75,.22), -3px -3px 9px rgba(255,255,255,.78), inset 0 0 0 1px rgba(255,255,255,.65);
+  }
+}
+.portfolio-page .soft-button:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(67,92,75,.22), -3px -3px 9px rgba(255,255,255,.78), inset 0 0 0 1px rgba(255,255,255,.65);
+  outline: 2px solid var(--mint-deep);
+  outline-offset: 4px;
+}
+.portfolio-page .soft-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 7px rgba(67,92,75,.2), inset 0 0 0 1px rgba(255,255,255,.65);
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page .soft-button { transition: none; }
+  .portfolio-page .soft-button:hover, .portfolio-page .soft-button:focus-visible,
+  .portfolio-page .soft-button:active { transform: none; }
+}
+
+/* Case-study screenshots and headings: soft entry and accessible image preview. */
+.case-study .case-soft-reveal {
+  opacity: 0; translate: 0 26px;
+  transition: opacity 750ms ease, translate 900ms cubic-bezier(.16,1,.3,1);
+}
+.case-study .case-soft-reveal.case-is-visible { opacity: 1; translate: 0 0; }
+.case-study img.case-zoomable { cursor: zoom-in; }
+.case-study img.case-zoomable:focus-visible { outline: 3px solid var(--mint-deep); outline-offset: 5px; }
+dialog.case-image-preview {
+  position: fixed; inset: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none;
+  margin: 0; padding: 64px 24px 28px; border: 0; background: rgba(20,27,23,.94); color: #f4f3ed;
+  overflow: auto; overscroll-behavior: contain;
+}
+dialog.case-image-preview::backdrop { background: rgba(20,27,23,.75); }
+.case-image-preview figure { width: fit-content; max-width: 100%; margin: 0 auto; }
+.case-image-preview figure img { display: block; width: auto; max-width: 100%; height: auto; max-height: none; margin: 0 auto; border-radius: 8px; }
+.case-image-preview figcaption { max-width: 900px; margin: 18px auto 0; text-align: center; font-size: .85rem; line-height: 1.5; color: #d2dfd5; }
+.case-preview-close { position: fixed; z-index: 2; top: 14px; right: 20px; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: white; background: #303f35; cursor: pointer; font-size: 1.2rem; }
+.case-preview-close:hover { background: #476b55; }
+.case-preview-close:focus-visible { outline: 2px solid #a5d9bb; outline-offset: 3px; }
+@media (max-width: 680px) { dialog.case-image-preview { padding: 64px 10px 24px; } }
+@media (prefers-reduced-motion: reduce) { .case-study .case-soft-reveal { opacity: 1; translate: none; transition: none; } }
+
+/* Diagram sequences preserve the existing geometry and icon transforms. */
+.case-study .diagram-motion .diagram-step { opacity: 0; translate: 0 16px; }
+.case-study .diagram-motion .diagram-connection { opacity: 0; }
+.case-study .diagram-motion .diagram-draw {
+  stroke-dasharray: var(--diagram-length);
+  stroke-dashoffset: var(--diagram-length);
+}
+.case-study .diagram-motion.diagram-is-visible .diagram-step {
+  animation: case-diagram-step 650ms cubic-bezier(.16,1,.3,1) var(--diagram-delay, 0ms) both;
+}
+.case-study .diagram-motion.diagram-is-visible .diagram-connection {
+  animation: case-diagram-connection 450ms ease var(--diagram-delay, 250ms) both;
+}
+.case-study .diagram-motion.diagram-is-visible .diagram-draw {
+  animation: case-diagram-draw 650ms ease var(--diagram-delay, 250ms) both;
+}
+@keyframes case-diagram-step { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+@keyframes case-diagram-connection { from { opacity: 0; clip-path: inset(0 100% 0 0); } to { opacity: 1; clip-path: inset(-20% -20% -20% -20%); } }
+@keyframes case-diagram-draw { from { stroke-dashoffset: var(--diagram-length); } to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .case-study .diagram-motion .diagram-step, .case-study .diagram-motion .diagram-connection { opacity: 1; translate: none; clip-path: none; animation: none; }
+  .case-study .diagram-motion .diagram-draw { stroke-dashoffset: 0; animation: none; }
+}
+
+/* Shared next-project interaction across every case study. */
+.case-study .case-next {
+  transition: transform 320ms cubic-bezier(.2,.75,.25,1), box-shadow 320ms ease;
+}
+.case-study .case-next > .arrow-icon {
+  transition: transform 420ms cubic-bezier(.16,1,.3,1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .case-study .case-next:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 28px rgba(57,88,67,.24), inset 2px 2px 4px rgba(255,255,255,.5);
+  }
+  .case-study .case-next:hover > .arrow-icon { transform: translateX(10px); }
+}
+.case-study .case-next:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(57,88,67,.24), inset 2px 2px 4px rgba(255,255,255,.5);
+}
+.case-study .case-next:focus-visible > .arrow-icon { transform: translateX(10px); }
+.case-study .case-next:active { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) {
+  .case-study .case-next, .case-study .case-next > .arrow-icon { transition: none; }
+  .case-study .case-next:hover, .case-study .case-next:focus-visible, .case-study .case-next:active,
+  .case-study .case-next:hover > .arrow-icon, .case-study .case-next:focus-visible > .arrow-icon { transform: none; }
+}

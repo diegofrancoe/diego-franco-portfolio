@@ -1095,6 +1095,28 @@ const expandedCaseDetails = {
   },
 };
 
+function ProjectGrid({ children }) {
+  const gridRef = useRef(null);
+
+  useEffect(() => {
+    const cards = [...gridRef.current.querySelectorAll(".project-card")];
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("is-revealed", entry.isIntersecting);
+      });
+    }, { threshold: 0.28 });
+    cards.forEach((card, index) => {
+      card.style.setProperty("--project-delay", `${index * 240}ms`);
+      card.classList.add("reveal-ready");
+      observer.observe(card);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  return <div className="projects-grid" ref={gridRef}>{children}</div>;
+}
+
 function ProjectVisual({ visual }) {
   const folderContents = (
     <>
@@ -1221,10 +1243,41 @@ const profileTechnicalContent = {
 function ProfileTechnicalSection({ language, eyebrow, className = "", centeredTitle = false, hideCopy = false, hideCapabilities = false, sectionId }) {
   const content = profileTechnicalContent[language];
   const sectionEyebrow = eyebrow || content.eyebrow;
+  const workflowRef = useRef(null);
+
+  useEffect(() => {
+    if (sectionId !== "proceso") return;
+    const section = workflowRef.current;
+    const flow = section.querySelector(".profile-delivery-flow");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const rect = flow.getBoundingClientRect();
+      const progress = reducedMotion.matches ? 1 : Math.max(0, Math.min(1,
+        (window.innerHeight * 0.7 - rect.top) / rect.height));
+      section.style.setProperty("--workflow-progress", progress);
+      flow.querySelectorAll(":scope > li").forEach((step) => {
+        const bounds = step.getBoundingClientRect();
+        step.classList.toggle("is-traversed", reducedMotion.matches || bounds.top < window.innerHeight * 0.7);
+      });
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    reducedMotion.addEventListener("change", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      reducedMotion.removeEventListener("change", schedule);
+    };
+  }, [sectionId, language]);
 
   return (
     <>
-      <section id={sectionId} className={`profile-delivery-section ${className}`.trim()} aria-labelledby="profile-delivery-title">
+      <section ref={workflowRef} id={sectionId} className={`profile-delivery-section ${className}`.trim()} aria-labelledby="profile-delivery-title">
         <header className={`profile-technical-header${centeredTitle ? " is-centered" : ""}`}>
           <p className="eyebrow" aria-label={sectionEyebrow}><span className="availability-dot loading-dot" /><TypewriterText text={sectionEyebrow} threshold={0.2} /></p>
           <div><h2 id="profile-delivery-title">{content.title}</h2>{!hideCopy && <p>{content.copy}</p>}</div>
@@ -2748,7 +2801,140 @@ function CenizaCaseContent({ project, detail, language }) {
   );
 }
 
+function useCaseDiagramMotion(caseRef, projectPath) {
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches) return;
+    const definitions = [
+      [".ceniza-automation-map", ".ceniza-mini-flow-node", ".ceniza-mini-flow-arrow, .ceniza-capture-next, .ceniza-flow-merge"],
+      [".naval-open-flow", ":scope > li", ":scope > li > svg"],
+      [".naval-production-flow", ":scope > li", ":scope > li > i"],
+      [".forty-connected-intake", ":scope > li", ".forty-intake-arrow"],
+      [".forty-connected-outputs", ".forty-connected-output", ".forty-branch-lines, .forty-output-connector"],
+      [".expanded-automation-track", ":scope > li", ".automation-flow-arrow"],
+      [".case-workflow-map", ".case-workflow-node", ":scope > svg"],
+      [".naval-web-workflow", "li", ""],
+    ];
+    const roots = [];
+    const changed = [];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (!isIntersecting) return;
+        target.classList.add("diagram-is-visible");
+        observer.unobserve(target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    definitions.forEach(([selector, nodeSelector, connectionSelector]) => {
+      caseRef.current.querySelectorAll(selector).forEach((diagram) => {
+        const nodes = [...diagram.querySelectorAll(nodeSelector)];
+        if (!nodes.length) return;
+        diagram.classList.add("diagram-motion");
+        roots.push(diagram);
+        const decorate = (el, name, delay) => {
+          el.classList.add(name);
+          el.style.setProperty("--diagram-delay", `${delay}ms`);
+          changed.push([el, name]);
+        };
+        nodes.forEach((node, index) => decorate(node, "diagram-step", Math.min(index * 190, 1900)));
+        if (connectionSelector) diagram.querySelectorAll(connectionSelector).forEach((connection, index) => {
+          const parentStep = connection.closest(".diagram-step");
+          const indexInNodes = nodes.indexOf(parentStep);
+          const delay = Math.min((indexInNodes >= 0 ? indexInNodes : index) * 190 + 250, 2150);
+          decorate(connection, "diagram-connection", delay);
+          connection.querySelectorAll("path, line, polyline").forEach((path) => {
+            if (path.closest("defs")) return;
+            const length = path.getTotalLength();
+            if (!length) return;
+            path.style.setProperty("--diagram-length", length + 1);
+            decorate(path, "diagram-draw", delay);
+          });
+        });
+        observer.observe(diagram);
+      });
+    });
+    return () => {
+      observer.disconnect();
+      roots.forEach((el) => el.classList.remove("diagram-motion", "diagram-is-visible"));
+      changed.forEach(([el, name]) => {
+        el.classList.remove(name);
+        el.style.removeProperty("--diagram-delay");
+        el.style.removeProperty("--diagram-length");
+      });
+    };
+  }, [caseRef, projectPath]);
+}
+
 function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
+  const caseRef = useRef(null);
+  const previewRef = useRef(null);
+  const [preview, setPreview] = useState(null);
+  useCaseDiagramMotion(caseRef, `${project.path}-${language}`);
+
+  useEffect(() => {
+    const root = caseRef.current;
+    const images = [...root.querySelectorAll('img[alt]:not([alt=""])')];
+    const titles = [...root.querySelectorAll("h1, h2")];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) {
+          target.classList.add("case-is-visible");
+          observer.unobserve(target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -3% 0px" });
+    const animated = [...images, ...titles];
+    if (!reducedMotion.matches) animated.forEach((el) => {
+      el.classList.add("case-soft-reveal");
+      observer.observe(el);
+    });
+    const cleanups = images.map((img) => {
+      const link = img.closest("a");
+      const control = link || img;
+      const original = ["tabindex", "role", "aria-haspopup", "aria-label"].map((name) => [name, control.getAttribute(name)]);
+      if (!link) { control.tabIndex = 0; control.setAttribute("role", "button"); }
+      control.setAttribute("aria-haspopup", "dialog");
+      control.setAttribute("aria-label", `${language === "es" ? "Ampliar captura" : "Enlarge screenshot"}: ${img.alt}`);
+      img.classList.add("case-zoomable");
+      const open = (event) => {
+        event.preventDefault();
+        setPreview({ src: img.currentSrc || img.src, alt: img.alt });
+      };
+      const key = (event) => {
+        if (event.key === "Enter" || event.key === " ") open(event);
+      };
+      control.addEventListener("click", open);
+      control.addEventListener("keydown", key);
+      return () => {
+        control.removeEventListener("click", open);
+        control.removeEventListener("keydown", key);
+        original.forEach(([name, value]) => value === null ? control.removeAttribute(name) : control.setAttribute(name, value));
+        img.classList.remove("case-zoomable");
+      };
+    });
+    return () => {
+      observer.disconnect();
+      cleanups.forEach((cleanup) => cleanup());
+      animated.forEach((el) => el.classList.remove("case-soft-reveal", "case-is-visible"));
+    };
+  }, [project.path, language]);
+
+  useEffect(() => {
+    setPreview(null);
+  }, [project.path]);
+
+  useEffect(() => {
+    if (!preview) return;
+    const dialog = previewRef.current;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [preview]);
+
   const text = copy[language];
   const projectIndex = projectsList.findIndex((item) => item.path === project.path);
   const nextProject = projectsList[(projectIndex + 1) % projectsList.length];
@@ -2760,7 +2946,7 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
   };
 
   return (
-    <main className={`case-study editorial-case case-study-${project.visual}`} style={caseStyle}>
+    <main ref={caseRef} className={`case-study editorial-case case-study-${project.visual}`} style={caseStyle}>
       <a className="case-back-link editorial-case-back-link" href="/#trabajo" onClick={(event) => onNavigate(event, "/#trabajo")}>
         <span aria-hidden="true">←</span> {text.allProjects}
       </a>
@@ -2799,6 +2985,14 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
         <ExpandedCaseContent project={project} language={language} />
       </>)}
 
+      <dialog ref={previewRef} className="case-image-preview" aria-label={language === "es" ? "Captura ampliada" : "Enlarged screenshot"}
+        onCancel={() => setPreview(null)} onClose={() => setPreview(null)}
+        onClick={(event) => { if (event.target === event.currentTarget) setPreview(null); }}>
+        {preview && <>
+          <button type="button" className="case-preview-close" autoFocus onClick={() => setPreview(null)} aria-label={language === "es" ? "Cerrar captura" : "Close screenshot"}>✕</button>
+          <figure><img src={preview.src} alt={preview.alt} /><figcaption>{preview.alt}</figcaption></figure>
+        </>}
+      </dialog>
       <a className="case-next" href={nextProject.path} onClick={(event) => onNavigate(event, nextProject.path)}>
         <span aria-label={text.nextCase}>
           <TypewriterText text={text.nextCase} threshold={0.35} rootMargin="0px 0px -7% 0px" />
@@ -2968,6 +3162,25 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    const titles = [...document.querySelectorAll("#inicio h2")];
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        target.classList.toggle("title-is-visible", isIntersecting);
+      });
+    }, { threshold: 0.25, rootMargin: "0px 0px -6% 0px" });
+    titles.forEach((title) => {
+      title.classList.add("title-reveal");
+      observer.observe(title);
+    });
+    return () => {
+      observer.disconnect();
+      titles.forEach((title) => title.classList.remove("title-reveal", "title-is-visible"));
+    };
+  }, [currentPath, language]);
+
   const activeProject = localizedProjects.find((project) => project.path === currentPath);
   const isNotFound = currentPath !== "/" && !activeProject;
 
@@ -3125,7 +3338,7 @@ function App() {
             <p className="section-note" aria-label={text.caseStudies}><TypewriterText text={text.caseStudies} /></p>
           </div>
 
-          <div className="projects-grid">
+          <ProjectGrid>
             {localizedProjects.map((project) => (
               <a
                 className="project-card"
@@ -3146,7 +3359,7 @@ function App() {
                 </div>
               </a>
             ))}
-          </div>
+          </ProjectGrid>
         </section>
 
         <ProfileTechnicalSection
