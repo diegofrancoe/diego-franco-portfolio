@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalculator, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuSend, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
-import { SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiNextdotjs, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiVite, SiWhatsapp, SiZoom } from "react-icons/si";
+import { SiShopify, SiGoogleanalytics, SiGooglesearchconsole, SiGoogleads, SiDocker, SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, SiZoom } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
 const CONTACT_WHATSAPP_NUMBER = "573113964114";
@@ -296,8 +296,8 @@ const workflowTools = [
   { name: "Figma", icon: FigmaBrandMark, color: "#F24E1E", slug: "figma" },
   { name: "n8n", icon: SiN8N, color: "#EA4B71", slug: "n8n" },
   { name: "Make", icon: SiMake, color: "#6D00CC", slug: "make" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#111111", slug: "nextjs" },
-  { name: "Vite", icon: SiVite, color: "#646CFF", slug: "vite" },
+  { name: "GitHub", icon: SiGithub, color: "#111111", slug: "github" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED", slug: "docker" },
   { name: "Vercel", icon: SiVercel, color: "#111111", slug: "vercel" },
 ];
 
@@ -428,8 +428,8 @@ function AnimatedEyebrow({ text, className = "eyebrow", dot = false, threshold =
   );
 }
 
-function CenizaEyebrow({ text, className = "case-label", dot = false, threshold = 0.55 }) {
-  return <AnimatedEyebrow text={text} className={`${className} ceniza-section-eyebrow`} dot={dot} threshold={threshold} />;
+function CenizaEyebrow({ text, className = "case-label", dot = false, threshold = 0.55, internal = false }) {
+  return <AnimatedEyebrow text={text} className={`${className} ceniza-section-eyebrow${internal ? "" : " is-section-eyebrow"}`} dot={dot} threshold={threshold} />;
 }
 
 const projectVisualAssets = {
@@ -832,7 +832,7 @@ const expandedCaseDetails = {
       galleryCount: "06 VIEWS · ONE EXPERIENCE",
       screens: [
         { category: "Home", title: "The product promise", benefit: "A clear first impression", text: "The real home page presents the product, its daily value and the primary action in one focused composition.", variant: "website", image: "/case-40plus-real-home-v2.webp" },
-        { category: "Daily ritual", title: "Ways to enjoy it", benefit: "A habit that feels possible", text: "Coffee, smoothies and infusions turn the product into practical, visual everyday choices.", variant: "ritual", image: "/case-40plus-real-ritual-v2.webp" },
+        { category: "Daily ritual", title: "Ways to enjoy it", benefit: "A habit that feels possible", text: "Coffee, smoothies and infusions turn the product into practical, visual everyday choices.", variant: "ritual", image: "/case-40plus-ritual-clear.png" },
         { category: "Benefits", title: "Why 40+", benefit: "Information that builds trust", text: "Composition, benefits and the package remain visible before the customer moves toward purchase.", variant: "benefits", image: "/case-40plus-real-benefits-v2.webp" },
         { category: "E-commerce", title: "Product and purchase", benefit: "A supported decision", text: "Product images, attributes, usage, price and quantity meet in the real purchasing interface.", variant: "product", image: "/case-40plus-real-product-v2.webp" },
         { category: "Content", title: "Ritual 40+ e-book", benefit: "The experience continues", text: "A useful digital gift connects the customer story with content that extends the relationship.", variant: "ebook", image: "/case-40plus-real-ebook-v2.webp" },
@@ -967,7 +967,7 @@ const expandedCaseDetails = {
       galleryCount: "06 VISTAS · UNA SOLA EXPERIENCIA",
       screens: [
         { category: "Inicio", title: "La promesa del producto", benefit: "Primera impresión clara", text: "La portada real presenta el producto, su valor cotidiano y la acción principal dentro de una composición enfocada.", variant: "website", image: "/case-40plus-real-home-v2.webp" },
-        { category: "Ritual diario", title: "Formas de disfrutarlo", benefit: "Un hábito posible", text: "Café, smoothie e infusión convierten el producto en alternativas cotidianas, prácticas y visuales.", variant: "ritual", image: "/case-40plus-real-ritual-v2.webp" },
+        { category: "Ritual diario", title: "Formas de disfrutarlo", benefit: "Un hábito posible", text: "Café, smoothie e infusión convierten el producto en alternativas cotidianas, prácticas y visuales.", variant: "ritual", image: "/case-40plus-ritual-clear.png" },
         { category: "Beneficios", title: "Por qué elegir 40+", benefit: "Información que da confianza", text: "Composición, beneficios y empaque se mantienen visibles antes de avanzar hacia la compra.", variant: "benefits", image: "/case-40plus-real-benefits-v2.webp" },
         { category: "E-commerce", title: "Producto y compra", benefit: "Decisión acompañada", text: "Imágenes, atributos, forma de uso, precio y cantidad conviven en la interfaz real de compra.", variant: "product", image: "/case-40plus-real-product-v2.webp" },
         { category: "Contenido", title: "E-book Ritual 40+", benefit: "La experiencia continúa", text: "Un regalo digital útil conecta la historia del cliente con contenido que extiende la relación.", variant: "ebook", image: "/case-40plus-real-ebook-v2.webp" },
@@ -1126,12 +1126,12 @@ const profileTechnicalContent = {
     capabilitiesLabel: "Core capabilities",
     capabilities: ["Full stack", "Webs & apps", "Automations", "APIs", "Applied AI"],
     phases: [
-      { number: "1", title: "Discover", text: "Analyze how the operation works, who participates, where work is repeated and what needs to be solved first.", output: "Processes · problems · scope" },
-      { number: "2", title: "Design", text: "Turn the process into clear web and mobile journeys, organizing screens, states and components before building.", output: "UX/UI · journeys · components" },
-      { number: "3", title: "Architect", text: "Organize modules, data, roles and permissions so every part of the system supports the real business operation.", output: "Modules · data · roles and permissions" },
-      { number: "4", title: "Build", text: "Develop the interface and business logic, connecting forms, validations, databases and features into a usable product.", output: "Frontend · backend · business logic" },
-      { number: "5", title: "Connect", text: "Integrate APIs, automations and AI assistants to move information between tools and reduce manual tasks.", output: "APIs · automation · applied AI" },
-      { number: "6", title: "Deploy and improve", text: "Test the main flows, publish the application, fix issues and improve the product as usage and needs evolve.", output: "Testing · deployment · continuous improvement" },
+      {"number": "1", "title": "Understand", "text": "I get to know your business, how your team works and where things could work better. Together, we identify what matters most and where technology can make a real difference.", "output": "Business goals · Challenges · Opportunities"},
+      {"number": "2", "title": "Design", "text": "I turn ideas into intuitive digital experiences that people actually enjoy using. Every screen and interaction is designed to make work easier.", "output": "UX/UI · User journeys · Prototypes"},
+      {"number": "3", "title": "Architect", "text": "Behind every great product is a solid foundation. I structure the data, features and permissions to create a system that works today and can grow tomorrow.", "output": "System architecture · Data · Security"},
+      {"number": "4", "title": "Build", "text": "From beautiful interfaces to the logic behind them, I develop functional web applications that connect your business needs with real technology.", "output": "Frontend · Backend · Business logic"},
+      {"number": "5", "title": "Connect & Automate", "text": "I connect your tools, automate repetitive tasks and integrate AI assistants that help your team work smarter, save time and focus on what matters.", "output": "APIs · Automation · AI agents"},
+      {"number": "6", "title": "Launch & Evolve", "text": "I test, deploy and improve the product to make sure it delivers real value. As your business grows, your digital solution evolves with it.", "output": "Testing · Deployment · Continuous improvement"},
     ],
     projectsEyebrow: "TECHNICAL WORK BY PROJECT",
     projectsTitle: "Three products. Three end-to-end systems.",
@@ -1303,14 +1303,28 @@ function CenizaCrmPreview({ detail, language, label }) {
     { title: "AI Assistant", benefit: "Contextual decisions", text: "Reads the active page, prioritizes alerts, summarizes the operation and prepares the next step without separating assistance from daily work.", src: "/case-ceniza-laptop-assistant-chat.webp", alt: "Full-screen Ceniza AI Assistant view", scale: "1", position: "center top", fit: "cover" },
   ];
 
+  const selectedScreens = [screens[0], screens[3], screens[4], screens[6]].map((screen, i) => ({ ...screen,
+    src: ["/ceniza-current-dashboard.png", "/ceniza-current-commercial.png", "/ceniza-current-inventory.png", "/ceniza-current-finance.png"][i],
+    title: (language === "es" ? ["Dashboard", "Gestión comercial", "Inventario", "Finanzas"] : ["Dashboard", "Commercial management", "Inventory", "Finance"])[i],
+    fit: "contain", position: "center", text: (language === "es" ? [
+    "Indicadores, prioridades y resultados del negocio en una sola vista.",
+    "Del cliente a la cotización y la operación, sin duplicar información.",
+    "Equipos, disponibilidad y reservas conectados con cada producción o alquiler.",
+    "Ingresos, gastos, cobros y pagos conectados con cada operación."
+  ] : [
+    "Business indicators, priorities and results in one clear view.",
+    "From client to quote and operations, without entering information twice.",
+    "Equipment, availability and reservations linked to each production or rental.",
+    "Revenue, expenses, collections and payments connected to each operation."
+  ])[i] }));
   return (
     <figure className="ceniza-crm-figure">
       <figcaption>
         <span>{label}</span>
-        <span>{language === "es" ? "09 VISTAS · UN SOLO SISTEMA" : "09 VIEWS · ONE SYSTEM"}</span>
+        <span>{language === "es" ? "UNA VISTA AL SISTEMA" : "A LOOK INSIDE THE SYSTEM"}</span>
       </figcaption>
       <ol className="ceniza-crm-flow-grid">
-        {screens.map((screen, index) => {
+        {selectedScreens.map((screen, index) => {
           return (
               <li
                 className="ceniza-crm-flow-card"
@@ -1343,45 +1357,18 @@ function CenizaCrmPreview({ detail, language, label }) {
 
 function CenizaDecisionStrip({ language }) {
   return (
-    <section className="ceniza-decision-strip" aria-labelledby="ceniza-decision-strip-title">
+    <section className="ceniza-decision-strip is-simple" aria-labelledby="ceniza-decision-strip-title">
       <header>
-        <CenizaEyebrow text={language === "es" ? "INTELIGENCIA FINANCIERA + COMERCIAL" : "FINANCIAL + COMMERCIAL INTELLIGENCE"} />
-        <h3 id="ceniza-decision-strip-title">{language === "es" ? "Datos conectados para medir hoy y anticipar lo que viene." : "Connected data to measure today and anticipate what comes next."}</h3>
-        <p>{language === "es" ? "Con RAG, el asistente consulta el CRM para gestionar leads, seguimiento, agenda, cotizaciones, rentas, pagos y reportes desde un mismo contexto." : "With RAG, the assistant consults the CRM to manage leads, follow-up, scheduling, quotes, rentals, payments and reports from one shared context."}</p>
+        <CenizaEyebrow text={language === "es" ? "DATOS PARA DECIDIR" : "DATA THAT HELPS YOU DECIDE"} />
+        <h3 id="ceniza-decision-strip-title">{language === "es" ? "Entiende tu negocio. Decide con claridad." : "Know your business. Make clearer decisions."}</h3>
+        <p>{language === "es" ? "Descubre de dónde llegan tus clientes, qué oportunidades avanzan y cómo van tus ingresos, costos y cobros. El CRM reúne la información y la IA te ayuda a interpretarla." : "See where clients come from, which opportunities move forward and how revenue, costs and collections are doing. The CRM brings the data together; AI helps you make sense of it."}</p>
       </header>
-
-      <ul>
-        <li>
-          <span>ROI</span>
-          <strong>{language === "es" ? "Retorno por canal" : "Return by channel"}</strong>
-        </li>
-        <li>
-          <span>{language === "es" ? "MARGEN" : "MARGIN"}</span>
-          <strong>{language === "es" ? "Rentabilidad por operación" : "Profitability by operation"}</strong>
-        </li>
-        <li>
-          <span>CAC</span>
-          <strong>{language === "es" ? "Costo de adquisición" : "Acquisition cost"}</strong>
-        </li>
-        <li>
-          <span>{language === "es" ? "CONVERSIÓN" : "CONVERSION"}</span>
-          <strong>{language === "es" ? "Conversión por etapa" : "Conversion by stage"}</strong>
-        </li>
-        <li>
-          <span>{language === "es" ? "VELOCIDAD" : "VELOCITY"}</span>
-          <strong>{language === "es" ? "Tiempo de respuesta" : "Response time"}</strong>
-        </li>
-        <li>
-          <span>{language === "es" ? "CAJA" : "CASH FLOW"}</span>
-          <strong>{language === "es" ? "Ingresos y compromisos" : "Revenue and commitments"}</strong>
-        </li>
-      </ul>
 
       <div className="ceniza-decision-charts" aria-label={language === "es" ? "Visualizaciones disponibles en los reportes" : "Visualizations available in reports"}>
         <figure className="ceniza-decision-report">
           <figcaption>
             <span>ROI + CAC</span>
-            <strong>{language === "es" ? "Origen de las oportunidades" : "Opportunity sources"}</strong>
+            <strong>{language === "es" ? "¿Qué canales funcionan?" : "Which channels work?"}</strong>
             <p>{language === "es" ? "Leads, inversión e ingresos por canal." : "Leads, investment and revenue by channel."}</p>
           </figcaption>
           <div className="ceniza-report-pie" role="img" aria-label={language === "es" ? "Gráfica de torta para comparar canales comerciales" : "Pie chart for comparing commercial channels"}>
@@ -1398,7 +1385,7 @@ function CenizaDecisionStrip({ language }) {
         <figure className="ceniza-decision-report is-pipeline">
           <figcaption>
             <span>{language === "es" ? "CONVERSIÓN + VELOCIDAD" : "CONVERSION + VELOCITY"}</span>
-            <strong>{language === "es" ? "Del lead al cierre" : "From lead to close"}</strong>
+            <strong>{language === "es" ? "¿Qué se convierte en negocio?" : "What turns into business?"}</strong>
             <p>{language === "es" ? "Volumen y respuesta entre etapas." : "Volume and response across stages."}</p>
           </figcaption>
           <div className="ceniza-report-bars" role="img" aria-label={language === "es" ? "Gráfica de etapas desde lead hasta cierre" : "Chart of stages from lead to close"}>
@@ -1410,13 +1397,7 @@ function CenizaDecisionStrip({ language }) {
         </figure>
       </div>
 
-      <aside className="ceniza-decision-future" aria-label={language === "es" ? "Próxima evolución" : "Next evolution"}>
-        <span>{language === "es" ? "PRÓXIMA EVOLUCIÓN" : "NEXT EVOLUTION"}</span>
-        <div>
-          <strong>{language === "es" ? "Más historial para incorporar predicciones confiables." : "More history to incorporate reliable predictions."}</strong>
-          <p>{language === "es" ? "Cierre, demanda y riesgo financiero." : "Close probability, demand and financial risk."}</p>
-        </div>
-      </aside>
+      <p className="ceniza-simple-future">{language === "es" ? "Próximo paso: sumar más historial para explorar predicciones de ventas, demanda y riesgo financiero." : "Next step: build more history to explore sales, demand and financial risk predictions."}</p>
     </section>
   );
 }
@@ -1426,7 +1407,7 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     label: "INTEGRACIÓN DE IA · UN SOLO CONTEXTO OPERATIVO",
     title: "Toda la operación del CRM, con control humano y asistencia de IA.",
     embeddedLabel: "CÓMO FUNCIONA",
-    embeddedTitle: "El equipo controla cada área; el Asistente Ceniza puede operarlas todas.",
+    embeddedTitle: "Todo el CRM, conectado al asistente.",
     copy: "Cada módulo puede manejarse manualmente. Cuando el equipo lo decide, el Asistente Ceniza crea y actualiza registros, prepara cotizaciones, registra pagos y cobros, construye reportes, planifica, da feedback y anticipa prioridades. Toda modificación requiere aprobación humana y conserva su trazabilidad.",
     nodes: [
       { position: "client", icon: LuUsers, title: "Clientes", meta: "Crea y actualiza" },
@@ -1442,7 +1423,7 @@ function CenizaConnectionFlow({ language, embedded = false }) {
     label: "AI INTEGRATION · ONE OPERATING CONTEXT",
     title: "The full CRM operation, with human control and AI assistance.",
     embeddedLabel: "HOW IT WORKS",
-    embeddedTitle: "The team controls every area; Asistente Ceniza can operate them all.",
+    embeddedTitle: "The whole CRM, connected to your assistant.",
     copy: "Every module can be managed manually. When the team chooses, Asistente Ceniza creates and updates records, prepares quotes, records payments and collections, builds reports, plans work, provides feedback and anticipates priorities. Every change requires human approval and remains traceable.",
     nodes: [
       { position: "client", icon: LuUsers, title: "Clients", meta: "Creates and updates" },
@@ -1528,11 +1509,12 @@ function CenizaResponsiveCrm({ detail, language }) {
   return (
     <div className="ceniza-responsive-crm" aria-labelledby="ceniza-responsive-title">
       <header className="ceniza-responsive-header">
-        <AnimatedEyebrow text={detail.crmMobileLabel} className="case-label" />
+        <AnimatedEyebrow text={detail.crmMobileLabel} className="case-label is-section-eyebrow" />
         <h3 id="ceniza-responsive-title">{detail.crmMobileTitle}</h3>
         <p>{detail.crmMobileCopy}</p>
       </header>
-      <div className="ceniza-crm-phone-row">
+      <p className="mobile-gallery-hint">{language === "es" ? "Desliza para explorar las pantallas →" : "Swipe to explore the screens →"}</p>
+        <div className="ceniza-crm-phone-row">
         {detail.crmMobileImages.map((screen) => (
           <figure key={screen.kind || screen.src}>
             <div className="ceniza-crm-phone">
@@ -1628,70 +1610,64 @@ function CenizaMobileAgenda({ language }) {
 }
 
 function CenizaAssistantConversation({ language }) {
-  const isEs = language === "es";
-
-  return (
-    <div className="ceniza-conversation-phone" aria-label={isEs ? "Asistente Ceniza en un iPhone mostrando una consulta financiera" : "Asistente Ceniza on an iPhone showing a finance question"}>
-      <span className="ceniza-conversation-speaker" aria-hidden="true" />
-      <div className="ceniza-conversation-screen is-dashboard-shot">
-        <img
-          className="ceniza-assistant-finance-screen"
-          src="/case-ceniza-assistant-finance-screen-v2.png"
-          alt={isEs
-            ? "Pantalla del Asistente Ceniza con cobros por vencer y la pregunta: Prepara mi día por prioridad."
-            : "Asistente Ceniza screen with upcoming receivables and the typed request: Prepare my day by priority."}
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-    </div>
-  );
+  const es = language === "es";
+  return <div className="ceniza-assistant-screen-stack">
+    <a className="ceniza-assistant-stack-back" href="/ceniza-assistant-home-real.png" target="_blank" rel="noreferrer" aria-label={es ? "Ampliar inicio del asistente" : "Enlarge assistant home"}>
+      <img src="/ceniza-assistant-home-real.png" alt={es ? "Inicio real de Ceniza Assistant" : "Real Ceniza Assistant home"} loading="lazy" decoding="async" />
+    </a>
+    <a className="ceniza-assistant-stack-front" href="/ceniza-assistant-report-real.png" target="_blank" rel="noreferrer" aria-label={es ? "Ampliar reporte comercial del asistente" : "Enlarge assistant sales report"}>
+      <img src="/ceniza-assistant-report-real.png" alt={es ? "Reporte de pipeline comercial generado por Ceniza Assistant" : "Sales pipeline report generated by Ceniza Assistant"} loading="lazy" decoding="async" />
+    </a>
+  </div>;
 }
 
 function CenizaAssistantPreview({ detail, language }) {
   const isEs = language === "es";
 
   return (
-    <section className="ceniza-assistant-section" aria-labelledby="ceniza-assistant-title">
+    <section className="ceniza-assistant-section is-compact-layout" aria-labelledby="ceniza-assistant-title">
       <header className="ceniza-section-header">
         <CenizaEyebrow text={detail.assistantLabel} />
         <div>
-          <h2 id="ceniza-assistant-title">{detail.assistantTitle}</h2>
-          <p>{detail.assistantCopy}</p>
+          <h2 id="ceniza-assistant-title">{isEs ? "Asistente Ceniza. Tu negocio en una conversación." : "Asistente Ceniza. Your business in one conversation."}</h2>
+          <p>{isEs ? "Opera el CRM con ayuda de IA: gestiona registros, consulta la operación y convierte los datos en reportes y próximos pasos. El equipo revisa y aprueba cada cambio antes de ejecutarlo." : "Run the CRM with AI support: manage records, query operations and turn data into reports and next steps. The team reviews and approves every change before it runs."}</p>
         </div>
       </header>
 
       <div className="ceniza-assistant-unified">
         <div className="ceniza-assistant-flow-column">
-          <CenizaConnectionFlow language={language} embedded />
-          <div className="ceniza-assistant-value-line">
-            <div>
-              <small>{isEs ? "QUÉ HACE" : "WHAT IT DOES"}</small>
-              <ul>
-                <li><strong>{isEs ? "Opera el CRM completo" : "Operates the full CRM"}</strong><span>{isEs ? "Crea clientes, oportunidades y cotizaciones; registra pagos y cobros." : "Creates clients, opportunities and quotes; records payments and collections."}</span></li>
-                <li><strong>{isEs ? "Anticipa y planifica" : "Anticipates and plans"}</strong><span>{isEs ? "Cruza agenda, inventario, caja y vencimientos para detectar riesgos." : "Connects agenda, inventory, cash flow and due dates to detect risks."}</span></li>
-                <li><strong>{isEs ? "Resume y prioriza" : "Summarizes and prioritizes"}</strong><span>{isEs ? "Prepara reportes, feedback y acciones ordenadas para decidir mejor." : "Prepares reports, feedback and ordered actions for better decisions."}</span></li>
-              </ul>
-            </div>
-            <div>
-              <small>{isEs ? "BENEFICIOS" : "BENEFITS"}</small>
-              <ul>
-                <li><strong>{isEs ? "Control humano siempre" : "Human control, always"}</strong><span>{isEs ? "Cada cambio se revisa y aprueba antes de ejecutarse." : "Every change is reviewed and approved before execution."}</span></li>
-                <li><strong>{isEs ? "Menos trabajo manual" : "Less manual work"}</strong><span>{isEs ? "El asistente realiza las acciones autorizadas sin perder trazabilidad." : "The assistant carries out authorized actions without losing traceability."}</span></li>
-                <li><strong>{isEs ? "Decisiones más fáciles" : "Easier decisions"}</strong><span>{isEs ? "Todo llega resumido con prioridades y un siguiente paso claro." : "Everything arrives summarized with priorities and a clear next step."}</span></li>
-              </ul>
-            </div>
+          <CenizaEyebrow text={isEs ? "CÓMO FUNCIONA" : "HOW IT WORKS"} />
+          <h3>{isEs ? "Todo el CRM. Una sola conversación." : "The whole CRM. One conversation."}</h3>
+          <div className="ceniza-ai-mini-map">
+            <div className="ceniza-ai-stage"><div className="ceniza-ai-crm-group"><span className="ceniza-ai-crm-label">CRM CENIZA</span><div className="ceniza-ai-mini-modules">{[
+              [LuUsers, isEs ? "Clientes" : "Clients"], [LuCalendarCheck, "Agenda"], [LuFileText, isEs ? "Cotizaciones" : "Quotes"], [LuTarget, isEs ? "Oportunidades" : "Opportunities"], [LuBoxes, isEs ? "Operación" : "Operations"], [LuCircleDollarSign, isEs ? "Finanzas" : "Finance"]
+            ].map(([Icon, label]) => <span key={label}><Icon aria-hidden="true" />{label}</span>)}</div></div><p className="ceniza-ai-stage-note">{isEs ? "Toda la información del negocio, conectada en un mismo lugar." : "All your business information, connected in one place."}</p></div>
+            <span className="ceniza-ai-mini-arrow" aria-hidden="true">↓</span>
+            <div className="ceniza-ai-stage"><strong className="ceniza-ai-mini-agent"><LuSparkles aria-hidden="true" />Asistente Ceniza</strong><p className="ceniza-ai-stage-note">{isEs ? "Entiende tu solicitud, consulta el CRM y prepara una respuesta o acción." : "Understands your request, consults the CRM and prepares an answer or action."}</p></div>
+            <span className="ceniza-ai-mini-arrow" aria-hidden="true">↓</span>
+            <div className="ceniza-ai-stage"><span className="ceniza-ai-mini-approval"><LuUsers aria-hidden="true" />{isEs ? "Tú revisas y apruebas" : "You review and approve"}</span><p className="ceniza-ai-stage-note">{isEs ? "Revisas la propuesta y autorizas los cambios antes de ejecutarlos." : "Review the proposal and authorize changes before they run."}</p></div>
           </div>
+      <div className="ceniza-assistant-insights">
+        <CenizaEyebrow internal text={isEs ? "PREGUNTA. ENTIENDE. ACTÚA." : "ASK. UNDERSTAND. ACT."} />
+        <div className="ceniza-assistant-insights-grid">
+          <article><strong>{isEs ? "¿Qué necesita atención hoy?" : "What needs attention today?"}</strong><p>{isEs ? "Resume pendientes, detecta alertas y te ayuda a priorizar." : "Summarizes pending work, flags alerts and helps you prioritize."}</p></article>
+          <article><strong>{isEs ? "Muéstrame cómo va el negocio." : "Show me how the business is doing."}</strong><p>{isEs ? "Genera reportes y analiza ventas, campañas, costos y cobros con datos del CRM." : "Generates reports and analyzes sales, campaigns, costs and collections using CRM data."}</p></article>
+          <article><strong>{isEs ? "Prepara el siguiente paso." : "Prepare the next step."}</strong><p>{isEs ? "Prepara cotizaciones, actualiza registros y organiza el seguimiento. Tú apruebas antes de ejecutar." : "Prepares quotes, updates records and organizes follow-up. You approve before changes run."}</p></article>
+        </div>
+      </div>
         </div>
 
         <aside className="ceniza-assistant-phone-column" aria-labelledby="ceniza-conversation-title">
           <div className="ceniza-assistant-phone-copy">
-            <AnimatedEyebrow text={isEs ? "RESUMEN DEL NEGOCIO" : "BUSINESS SUMMARY"} className="case-label" />
-            <h3 id="ceniza-conversation-title">{isEs ? "El estado del negocio, resumido y listo para actuar." : "The state of the business, summarized and ready for action."}</h3>
+            <AnimatedEyebrow text={isEs ? "RESUMEN DEL NEGOCIO" : "BUSINESS SUMMARY"} className="case-label is-section-eyebrow" />
+            <h3 id="ceniza-conversation-title">{isEs ? "De las prioridades del día al análisis de ventas." : "From daily priorities to sales insights."}</h3>
+            <p className="ceniza-assistant-image-explainer">{(isEs ? ["Primero, una vista del negocio con alertas y prioridades.", "Después, una pregunta se convierte en un reporte de ventas.", "Cifras, etapas y oportunidades para decidir el siguiente paso."] : ["First, a business overview with alerts and priorities.", "Then, a question becomes a sales report.", "Figures, stages and opportunities to decide what comes next."]).map(line => <span key={line}>{line}</span>)}</p>
           </div>
           <CenizaAssistantConversation language={language} />
+          <footer className="ceniza-assistant-screen-footer"><p>{isEs ? "Lo importante de tu negocio, listo para actuar." : "What matters in your business, ready for action."}</p></footer>
         </aside>
       </div>
+
     </section>
   );
 }
@@ -1703,10 +1679,10 @@ function CenizaAutomationBridge({ language }) {
       layout: "capture",
       number: "01",
       eyebrow: isEs ? "CAPTACIÓN MULTICANAL" : "MULTICHANNEL CAPTURE",
-      title: isEs ? "Cada solicitud llega ordenada y lista para continuar." : "Every request arrives organized and ready to continue.",
+      title: isEs ? "Cada contacto, listo para avanzar." : "Every inquiry, ready for the next step.",
       description: isEs
-        ? "El sistema reúne los canales, identifica el origen y convierte la solicitud en un lead con responsable y siguiente tarea."
-        : "The system brings channels together, identifies the source and turns each request into a lead with an owner and next task.",
+        ? "Las solicitudes llegan con origen, campaña, responsable y siguiente paso para seguir cada contacto hasta la venta."
+        : "Inquiries arrive with their source, campaign, owner and next step to track each contact through to a sale.",
       nodes: [
         { icon: LuGlobe, label: isEs ? "Web + formulario" : "Web + form", service: "web" },
         { icon: SiWhatsapp, label: "WhatsApp", service: "whatsapp" },
@@ -1722,10 +1698,10 @@ function CenizaAutomationBridge({ language }) {
       layout: "crm",
       number: "02",
       eyebrow: isEs ? "RECORRIDO DENTRO DEL CRM" : "CRM OPERATING FLOW",
-      title: isEs ? "Cada oportunidad continúa hasta la operación y las finanzas." : "Every opportunity continues through operations and finance.",
+      title: isEs ? "De la oportunidad al cobro." : "From opportunity to payment.",
       description: isEs
-        ? "Clientes, oportunidades, cotización, renta o producción, facturación y cartera comparten el mismo registro, responsable y siguiente paso."
-        : "Clients, opportunities, quotes, rentals or production, invoicing and receivables share the same record, owner and next step.",
+        ? "Ventas, operación y finanzas comparten la información sin duplicar registros."
+        : "Sales, operations and finance share information without duplicate records.",
       groups: [
         {
           label: isEs ? "COMERCIAL + OPERACIÓN" : "SALES + OPERATIONS",
@@ -1750,10 +1726,10 @@ function CenizaAutomationBridge({ language }) {
       layout: "sequence",
       number: "03",
       eyebrow: isEs ? "ASISTENTE CENIZA" : "ASISTENTE CENIZA",
-      title: isEs ? "Del CRM a Supabase, y de la IA a una acción trazable." : "From CRM to Supabase, and from AI to a traceable action.",
+      title: isEs ? "La IA propone. El equipo decide." : "AI proposes. The team decides.",
       description: isEs
-        ? "El CRM activa la consulta; los datos y permisos forman el contexto; la IA propone el siguiente paso y lo devuelve al sistema con validación e historial."
-        : "The CRM triggers the query; data and permissions form the context; AI proposes the next step and returns it to the system with validation and history.",
+        ? "El asistente usa datos y permisos del CRM para preparar acciones que una persona revisa y aprueba."
+        : "The assistant uses CRM data and permissions to prepare actions for a person to review and approve.",
       nodes: [
         { icon: LuDatabase, label: isEs ? "Evento CRM" : "CRM event", meta: isEs ? "Lead · tarea · operación" : "Lead · task · operation", service: "crm-input" },
         { icon: SiSupabase, label: "Supabase", meta: isEs ? "PostgreSQL · SQL · permisos" : "PostgreSQL · SQL · permissions", service: "supabase" },
@@ -1774,10 +1750,10 @@ function CenizaAutomationBridge({ language }) {
       layout: "catalog",
       number: "04",
       eyebrow: isEs ? "APIS + SERVICIOS CONECTADOS" : "APIS + CONNECTED SERVICES",
-      title: isEs ? "El ecosistema integra lo que ya opera y puede sumar nuevas herramientas." : "The ecosystem integrates what already runs and can add new tools.",
+      title: isEs ? "Tus herramientas, conectadas." : "Your tools, working together.",
       description: isEs
-        ? "Las conexiones actuales comparten datos con el CRM; nuevos servicios pueden incorporarse por API o automatización sin reconstruir el proceso."
-        : "Current connections share data with the CRM; new services can be added through APIs or automation without rebuilding the process.",
+        ? "Conecta campañas, pagos y comercio mediante APIs: desde Google Analytics, Search Console y Ads hasta Stripe, Mercado Pago y Shopify."
+        : "Connect campaigns, payments and commerce through APIs: from Google Analytics, Search Console and Ads to Stripe, Mercado Pago and Shopify.",
       groups: [
         {
           label: isEs ? "CONECTADO" : "CONNECTED",
@@ -1791,14 +1767,14 @@ function CenizaAutomationBridge({ language }) {
           ],
         },
         {
-          label: isEs ? "SE PUEDE CONECTAR" : "READY TO CONNECT",
+          label: isEs ? "MARKETING + PAGOS + COMERCIO · INTEGRABLE" : "MARKETING + PAYMENTS + COMMERCE · READY TO CONNECT",
           nodes: [
-            { icon: SiGooglecalendar, label: "Calendar", service: "calendar", optional: true },
-            { icon: SiGoogledrive, label: "Drive", service: "drive", optional: true },
-            { icon: SiZoom, label: "Zoom", service: "zoom", optional: true },
             { icon: SiStripe, label: "Stripe", service: "stripe", optional: true },
             { icon: SiMercadopago, label: "Mercado Pago", service: "mercadopago", optional: true },
-            { wordmark: "siigo", label: "Siigo", service: "siigo", optional: true },
+            { icon: SiGoogleanalytics, label: "Google Analytics", service: "analytics", optional: true },
+            { icon: SiGooglesearchconsole, label: "Search Console", service: "searchconsole", optional: true },
+            { icon: SiGoogleads, label: "Google Ads", service: "googleads", optional: true },
+            { icon: SiShopify, label: "Shopify", service: "shopify", optional: true },
           ],
         },
       ],
@@ -1830,7 +1806,7 @@ function CenizaAutomationBridge({ language }) {
       <div className="ceniza-automation-map-grid">
         {automations.map((automation) => (
           <article className={`ceniza-automation-map is-${automation.layout}`} key={automation.eyebrow}>
-            <CenizaEyebrow text={`${isEs ? "FLUJO" : "FLOW"} ${automation.number} · ${automation.eyebrow}`} className="ceniza-flow-eyebrow" threshold={0.7} />
+            <CenizaEyebrow internal text={`${isEs ? "FLUJO" : "FLOW"} ${Number(automation.number)} · ${automation.eyebrow}`} className="case-label ceniza-flow-eyebrow" threshold={0.7} />
             <h3>{automation.title}</h3>
             <p>{automation.description}</p>
 
@@ -1901,14 +1877,24 @@ function CenizaAutomationBridge({ language }) {
   );
 }
 
-function CaseNarrative({ detail, language, compact = false }) {
+function CaseNarrative({ detail, language, compact = false, ceniza = false }) {
   if (!detail.story) return null;
 
   const isCompact = compact || Boolean(detail.predictionEvidence);
+  const story = ceniza ? (language === "es" ? [
+    { label: "EL RETO", title: "Menos tiempo buscando. Más tiempo creando.", text: "Clientes, equipos y pagos estaban repartidos entre chats y archivos. El equipo necesitaba una forma más fácil de organizarse." },
+    { label: "LA SOLUCIÓN", title: "Todo el negocio, conectado.", text: "Un CRM a medida que reúne clientes, cotizaciones, producciones, alquileres y finanzas, con IA para acompañar el trabajo diario." },
+    { label: "EL VALOR", title: "Más claridad para dar el siguiente paso.", text: "El equipo puede ver qué sigue, consultar al asistente y generar reportes para decidir con contexto y mantener el control." }
+  ] : [
+    { label: "THE CHALLENGE", title: "Less searching. More creating.", text: "Clients, equipment and payments were spread across chats and files. The team needed an easier way to stay organized." },
+    { label: "THE SOLUTION", title: "Your whole business, connected.", text: "A custom CRM brings clients, quotes, productions, rentals and finances together, with AI to support everyday work." },
+    { label: "THE VALUE", title: "A clearer next step, every day.", text: "The team can see what needs attention, ask the assistant and generate reports to make informed decisions while staying in control." }
+  ]) : detail.story;
+
 
   return (
     <section className={`case-narrative${isCompact ? " is-ceniza" : ""}`} aria-label={language === "es" ? "Narrativa del proyecto" : "Project narrative"}>
-      {detail.story.map((item, index) => (
+      {story.map((item, index) => (
         <article key={item.label}>
           <span>{index + 1}</span>
           <AnimatedEyebrow text={item.label} className="case-label" threshold={0.48} />
@@ -1931,7 +1917,7 @@ function ExpandedScreenVisual({ screen, project }) {
         </div>
       );
     }
-    return <img className="expanded-screen-image" src={screen.image} alt={`${project.name}: ${screen.title}`} loading="lazy" decoding="async" />;
+    return <a className="expanded-screen-enlarge" href={screen.image} target="_blank" rel="noreferrer" aria-label={`${project.name}: ${screen.title}`}><img className="expanded-screen-image" src={screen.image} alt={`${project.name}: ${screen.title}`} loading="lazy" decoding="async" /></a>;
   }
 
   const rows = ["A", "B", "C", "D"];
@@ -1973,6 +1959,18 @@ function ExpandedScreenVisual({ screen, project }) {
 }
 
 function ExpandedSystemPreview({ project, content, language }) {
+  const selectedScreens = (project.visual === "naval" ? [0, 2, 4, 8] : [0, 1, 3, 4]).map(index => content.screens[index]);
+  const metrics = project.visual === "naval" ? (language === "es" ? [
+    { value: "ERP", label: "Toda la operación conectada", note: "Comercial, producción, compras, transporte y finanzas comparten el mismo contexto." },
+    { value: "UX/UI", label: "Claridad para operar", note: "Cada área organiza sus datos, prioridades y acciones dentro de una experiencia común." },
+    { value: "AI", label: "Decisiones con contexto", note: "El asistente consulta la operación, explica la evidencia y prepara acciones para revisión humana." },
+    { value: "AUTO", label: "Continuidad de principio a fin", note: "La web, el chatbot y los flujos conectan cada solicitud con su seguimiento en el ERP." }
+  ] : [
+    { value: "ERP", label: "One connected operation", note: "Sales, production, purchasing, transport and finance share the same context." },
+    { value: "UX/UI", label: "Clarity for daily work", note: "Each area organizes its data, priorities and actions within a shared experience." },
+    { value: "AI", label: "Decisions in context", note: "The assistant reads operations, explains evidence and prepares actions for human review." },
+    { value: "AUTO", label: "End-to-end continuity", note: "The website, chatbot and workflows connect each inquiry with follow-up in the ERP." }
+  ]) : content.metrics;
   return (
     <section className="ceniza-crm-section expanded-system-section" aria-labelledby={`${project.visual}-system-title`}>
       <header className="ceniza-section-header">
@@ -1981,19 +1979,16 @@ function ExpandedSystemPreview({ project, content, language }) {
           <div className="ceniza-crm-heading-copy">
             <h2 id={`${project.visual}-system-title`}>{content.systemTitle}</h2>
             <p>{content.systemCopy}</p>
+            {project.visual === "forty" && content.webUrl && <a className="ceniza-section-link is-website expanded-intro-visit" href={content.webUrl} target="_blank" rel="noreferrer"><span>{content.webCta}</span><Arrow diagonal /></a>}
           </div>
-          {content.webUrl && project.visual !== "naval" ? (
-            <a className="ceniza-section-link is-website" href={content.webUrl} target="_blank" rel="noreferrer">
-              <span>{content.webCta}</span><Arrow diagonal />
-            </a>
-          ) : null}
+
         </div>
       </header>
 
       <figure className="ceniza-crm-figure expanded-system-gallery">
-        <figcaption><AnimatedEyebrow text={content.galleryLabel} className="expanded-gallery-eyebrow" threshold={0.5} /><span>{content.galleryCount}</span></figcaption>
+        <figcaption><AnimatedEyebrow text={language === "es" ? "ALGUNAS PÁGINAS DEL PRODUCTO" : "SELECTED PRODUCT PAGES"} className="expanded-gallery-eyebrow" threshold={0.5} /><span>{language === "es" ? "UNA VISTA AL PRODUCTO" : "A LOOK INSIDE THE PRODUCT"}</span></figcaption>
         <ol className="ceniza-crm-flow-grid">
-          {content.screens.map((screen, index) => (
+          {selectedScreens.map((screen, index) => (
             <li className="ceniza-crm-flow-card" key={`${screen.category}-${screen.title}`}>
               <div className="ceniza-crm-flow-screen"><ExpandedScreenVisual screen={screen} project={project} /></div>
               <span className="ceniza-crm-laptop-base" aria-hidden="true" />
@@ -2006,18 +2001,21 @@ function ExpandedSystemPreview({ project, content, language }) {
         </ol>
       </figure>
 
+
+
       <div className="ceniza-metrics">
-        {content.metrics.map((metric) => (
+        {metrics.map((metric) => (
           <article key={metric.label}><strong>{metric.value}</strong><h3>{metric.label}</h3><p>{metric.note}</p></article>
         ))}
       </div>
 
       <div className="ceniza-responsive-crm" aria-labelledby={`${project.visual}-mobile-title`}>
         <header className="ceniza-responsive-header">
-          <AnimatedEyebrow text={content.mobileLabel} className="case-label" threshold={0.48} />
+          <AnimatedEyebrow text={content.mobileLabel} className="case-label is-section-eyebrow" threshold={0.48} />
           <h3 id={`${project.visual}-mobile-title`}>{content.mobileTitle}</h3>
           <p>{content.mobileCopy}</p>
         </header>
+        <p className="mobile-gallery-hint">{language === "es" ? "Desliza para explorar las pantallas →" : "Swipe to explore the screens →"}</p>
         <div className="ceniza-crm-phone-row expanded-phone-row">
           {content.mobileImages.map((screen) => (
             <figure key={screen.src}>
@@ -2085,7 +2083,7 @@ function NavalProductionSection({ language }) {
         })}
       </ol>
 
-      <div className="naval-production-proof">
+      <p className="mobile-gallery-hint">{language === "es" ? "Desliza para ver la operación →" : "Swipe to explore the operation →"}</p><div className="naval-production-proof">
         <figure>
           <img src="/case-naval-production-order-detail-v2.webp" alt={language === "es" ? "Orden de producción abierta con avance, materiales, calidad y trazabilidad" : "Open production order with progress, materials, quality and traceability"} loading="lazy" decoding="async" />
           <figcaption><small>{language === "es" ? "ORDEN DE PRODUCCIÓN · OPERACIÓN TRAZABLE" : "PRODUCTION ORDER · TRACEABLE OPERATION"}</small><strong>{language === "es" ? "Una orden abierta, de la fórmula a la liberación." : "An open order, from formula to release."}</strong><span>{language === "es" ? "Avance, consumos, lote, tanque, calidad y novedades permanecen dentro de la misma operación." : "Progress, consumption, lot, tank, quality and exceptions remain inside the same operation."}</span></figcaption>
@@ -2213,18 +2211,50 @@ function NavalAutomationBridge({ content, language }) {
             </ol>
           </article>
         ))}
-      </div>
       <div className="naval-automation-ecosystem">
         <header><span>{language === "es" ? "ECOSISTEMA DE INTEGRACIONES" : "INTEGRATION ECOSYSTEM"}</span><h3>{language === "es" ? "Herramientas conectadas según el proceso, no como silos." : "Tools connected around the process, not as silos."}</h3></header>
         <div>
           {toolGroups.map((group) => <section key={group.label}><small>{group.label}</small><ul>{group.tools.map(([Icon, label]) => <li key={label}><Icon aria-hidden="true" /><span>{label}</span></li>)}</ul></section>)}
         </div>
       </div>
+      </div>
     </section>
   );
 }
 
-function ExpandedAutomation({ project, content }) {
+function FortyConnectedAutomation({ content, language }) {
+  const isEs = language === "es";
+  return <section className="ceniza-automation-bridge forty-connected-automation" aria-labelledby="forty-automation-title">
+    <header>
+      <CenizaEyebrow text={content.automationLabel} />
+      <h2 id="forty-automation-title">{isEs ? "Una experiencia. Dos respuestas." : "One experience. Two responses."}</h2>
+      <p>{isEs ? "El cliente comparte su experiencia. La automatización valida sus datos, le envía Ritual 40+ y entrega al equipo la información para continuar el seguimiento." : "The customer shares their experience. Automation validates their details, sends Ritual 40+ and gives the team the information to continue follow-up."}</p>
+    </header>
+    <ol className="forty-connected-intake">
+      {content.automationSteps.slice(0, 2).map((step, index) => {
+        const Icon = step.icon;
+        return <li key={step.title}><span className={`forty-connected-icon is-${step.tone}`}><Icon aria-hidden="true" /></span><div><strong>{step.title}</strong><small>{step.meta}</small></div>{index === 0 && <LuArrowRight className="forty-intake-arrow" aria-hidden="true" />}</li>;
+      })}
+    </ol>
+    <div className="forty-connected-outputs">
+      <svg className="forty-branch-lines" viewBox="0 0 1000 72" preserveAspectRatio="none" aria-hidden="true"><path d="M500 0 V24 M250 24 H750 M250 24 V62 M750 24 V62" /><path d="M244 55 L250 63 L256 55 M744 55 L750 63 L756 55" /></svg>
+      <p className="forty-branch-mobile-label">{isEs ? "La misma solicitud genera dos entregas:" : "The same request produces two deliveries:"}</p>
+      {content.automationSteps.slice(2).map((step, index) => {
+        const Icon = step.icon;
+        return <article className="forty-connected-output" key={step.title}>
+          <span className="forty-output-connector" aria-hidden="true">↓</span>
+          <header><span className={`forty-connected-icon is-${step.tone}`}><Icon aria-hidden="true" /></span><div><h3>{step.title}</h3><p>{step.meta}</p></div></header>
+          {index === 0 && <div className="forty-connected-gift"><img src="/case-40plus-ebook-cover-real.webp" alt={isEs ? "Portada del e-book Ritual 40+" : "Ritual 40+ e-book cover"} loading="lazy" /><div><small>{isEs ? "INCLUIDO EN ESTE CORREO" : "INCLUDED IN THIS EMAIL"}</small><strong>Ritual 40+</strong><p>{isEs ? "Recetario digital y mini planner. El cliente recibe el enlace de descarga al compartir su experiencia." : "Digital recipe book and mini planner. Customers receive the download link after sharing their experience."}</p></div></div>}
+          <figure><a href={index === 0 ? "/case-40plus-email-customer-real.webp" : "/case-40plus-email-owner-real.webp"} target="_blank" rel="noreferrer"><img src={index === 0 ? "/case-40plus-email-customer-real.webp" : "/case-40plus-email-owner-real.webp"} alt={isEs ? (index === 0 ? "Correo real al cliente con la entrega de Ritual 40+" : "Correo interno real con la experiencia y datos del cliente") : (index === 0 ? "Real customer email delivering Ritual 40+" : "Real internal email with customer details and experience")} loading="lazy" decoding="async" /></a><figcaption>{isEs ? (index === 0 ? "Confirmación, agradecimiento y descarga del e-book en una misma entrega." : "Contacto, experiencia, autorizaciones y origen del formulario listos para el equipo.") : (index === 0 ? "Confirmation, thank-you and e-book download in one delivery." : "Contact details, experience, permissions and form source ready for the team.")}</figcaption></figure>
+        </article>;
+      })}
+    </div>
+  </section>;
+}
+
+function ExpandedAutomation({ project, content, language }) {
+  if (project.visual === "forty") return <FortyConnectedAutomation content={content} language={language} />;
+  const isEs = language === "es";
   const isForty = project.visual === "forty";
   return (
     <section className={`ceniza-automation-bridge expanded-automation${isForty ? " forty-make-automation" : ""}`} aria-labelledby={`${project.visual}-automation-title`}>
@@ -2244,7 +2274,7 @@ function ExpandedAutomation({ project, content }) {
         <div className="forty-automation-proof">
           <figure className="forty-ebook-proof">
             <img src="/case-40plus-ebook-cover-real.webp" alt="Portada real del e-book Ritual 40+" loading="lazy" decoding="async" />
-            <figcaption><small>E-BOOK ADJUNTO</small><strong>Ritual 40+</strong><span>Recetario digital + mini planner.</span></figcaption>
+            <figcaption><small>{isEs ? "ENTREGA AUTOMÁTICA · CORREO AL CLIENTE" : "RITUAL 40+ · AUTOMATED EMAIL DELIVERY"}</small><strong>Ritual 40+</strong><span>{isEs ? "Al compartir su experiencia, el cliente recibe este recetario digital y mini planner en el correo de confirmación que ves abajo." : "After sharing their experience, the customer receives this digital recipe book and mini planner in the confirmation email shown below."}</span><div className="forty-delivery-connection"><b>{content.automationSteps[0].title}</b><LuArrowRight aria-hidden="true" /><b>{content.automationSteps[2].title}</b><LuArrowRight aria-hidden="true" /><b>Ritual 40+</b></div></figcaption>
           </figure>
           <figure className="forty-email-proof">
             <div className="forty-email-proof-window"><img src="/case-40plus-email-customer-real.webp" alt="Correo real enviado al cliente con acceso al e-book Ritual 40+" loading="lazy" decoding="async" /></div>
@@ -2266,10 +2296,13 @@ function FortyIntegrationsSection({ language }) {
     { icon: SiWhatsapp, title: "WhatsApp", text: isEs ? "Conversaciones de venta y pedidos asistidos." : "Sales conversations and assisted orders." },
     { icon: SiInstagram, title: "Instagram + Meta", text: isEs ? "Descubrimiento, contenido y campañas sociales." : "Discovery, content and social campaigns." },
     { icon: SiGmail, title: isEs ? "Correo" : "Email", text: isEs ? "Entrega automática y seguimiento." : "Automated delivery and follow-up." },
-    { icon: SiGoogledrive, title: "Google Drive", text: isEs ? "Archivos y contenido compartido." : "Shared files and content." },
+    { icon: SiGooglesearchconsole, title: "Search Console", text: isEs ? "Visibilidad y búsquedas orgánicas." : "Visibility and organic search." },
+    { icon: SiGoogleanalytics, title: "Google Analytics", text: isEs ? "Tráfico y acciones del visitante." : "Traffic and visitor actions." },
     { icon: LuGlobe, title: "Webhooks", text: isEs ? "Eventos y datos entre plataformas." : "Events and data across platforms." },
   ];
   const available = [
+    { icon: SiMercadopago, title: "Mercado Pago", text: isEs ? "Cobros y confirmaciones de pago." : "Payments and confirmations." },
+    { icon: SiGoogleads, title: "Google Ads", text: isEs ? "Campañas y seguimiento de conversiones." : "Campaigns and conversion tracking." },
     { icon: LuPackageCheck, title: isEs ? "Envíos" : "Shipping", text: isEs ? "Tarifas, guías, estados y seguimiento." : "Rates, labels, status and tracking." },
     { icon: SiStripe, title: isEs ? "Pagos" : "Payments", text: isEs ? "Checkout, confirmaciones y devoluciones." : "Checkout, confirmations and refunds." },
     { icon: LuShoppingCart, title: "E-commerce + CRM", text: isEs ? "CRM a la medida, Shopify, WooCommerce, HubSpot y otros flujos de venta." : "Custom CRM, Shopify, WooCommerce, HubSpot and other sales flows." },
@@ -2285,8 +2318,8 @@ function FortyIntegrationsSection({ language }) {
         </h2>
         <p>
           {isEs
-            ? "La experiencia actual ya conecta redes sociales, WhatsApp, correo, Drive y webhooks. Su arquitectura preparada para APIs permite sumar plataformas de envíos, pagos, e-commerce y CRM sin reconstruir el recorrido del producto."
-            : "The current experience already connects social media, WhatsApp, email, Drive and webhooks. Its API-ready architecture can add shipping, payment, e-commerce and CRM platforms without rebuilding the product journey."}
+            ? "La experiencia actual ya conecta redes sociales, WhatsApp, correo, Search Console, Analytics y webhooks. Su arquitectura preparada para APIs permite sumar plataformas de envíos, pagos, e-commerce y CRM sin reconstruir el recorrido del producto."
+            : "The current experience already connects social media, WhatsApp, email, Search Console, Analytics and webhooks. Its API-ready architecture can add shipping, payment, e-commerce and CRM platforms without rebuilding the product journey."}
         </p>
       </header>
       <div className="forty-integrations-map">
@@ -2359,12 +2392,12 @@ function ExpandedWebSection({ project, content, language }) {
         <div className="ceniza-web-story-copy">
           {project.visual !== "naval" ? <CenizaEyebrow text={content.webLabel} /> : null}
           <div className="ceniza-web-copy-body">
-            <h2 id={`${project.visual}-web-title`}>{content.webTitle}</h2>
+            <h2 id={`${project.visual}-web-title`}>{project.visual === "naval" ? (language === "es" ? "La web y el chatbot conectan al cliente con Naval." : "The website and chatbot connect customers with Naval.") : content.webTitle}</h2>
             <p>{content.webCopy}</p>
-            <ul className="ceniza-web-capabilities" aria-label={language === "es" ? "Capacidades del producto web" : "Web product capabilities"}>
+            {project.visual !== "naval" && <ul className="ceniza-web-capabilities" aria-label={language === "es" ? "Capacidades del producto web" : "Web product capabilities"}>
               {content.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
-            </ul>
-            {content.webUrl ? (
+            </ul>}
+            {content.webUrl && project.visual !== "naval" ? (
               <a className="ceniza-section-link is-website expanded-web-link" href={content.webUrl} target="_blank" rel="noreferrer">
                 <span>{content.webCta}</span><Arrow diagonal />
               </a>
@@ -2375,11 +2408,11 @@ function ExpandedWebSection({ project, content, language }) {
           <div className="naval-web-preview-stack">
             <figure className="expanded-web-preview is-home">
               <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>productosnaval.com</i></div><img src={image} alt={language === "es" ? "Portada real de productosnaval.com" : "Real productosnaval.com home page"} loading="lazy" decoding="async" /></div>
-              <figcaption>{language === "es" ? "01 · PORTADA B2B · DESCUBRIMIENTO" : "01 · B2B HOME · DISCOVERY"}</figcaption>
+              <figcaption>{language === "es" ? "1 · PORTADA B2B · DESCUBRIMIENTO" : "1 · B2B HOME · DISCOVERY"}</figcaption>
             </figure>
             <figure className="expanded-web-preview is-chatbot">
               <div className="desktop-browser-frame"><div className="desktop-browser-bar" aria-hidden="true"><span /><span /><span /><i>productosnaval.com/productos</i></div><img src="/case-naval-web-chatbot-real.webp" alt={language === "es" ? "Catálogo real de Naval con el chatbot abierto" : "Real Naval catalog with the chatbot open"} loading="lazy" decoding="async" /></div>
-              <figcaption>{language === "es" ? "02–03 · CHATBOT · CONSULTA Y PEDIDO" : "02–03 · CHATBOT · GUIDANCE AND ORDER"}</figcaption>
+              <figcaption>{language === "es" ? "2 · CHATBOT · CONSULTA Y PEDIDO" : "2 · CHATBOT · GUIDANCE AND ORDER"}</figcaption>
             </figure>
           </div>
         ) : (
@@ -2471,7 +2504,7 @@ function ExpandedCaseContent({ project, language }) {
       {project.visual === "naval" ? <NavalProductionSection language={language} /> : null}
       {project.visual === "naval" ? <NavalFinancialIntelligence language={language} /> : null}
       <ExpandedBenefits project={project} content={content} />
-      {project.visual === "naval" ? <NavalAutomationBridge content={content} language={language} /> : <ExpandedAutomation project={project} content={content} />}
+      {project.visual === "naval" ? <NavalAutomationBridge content={content} language={language} /> : <ExpandedAutomation project={project} content={content} language={language} />}
       {project.visual === "forty" ? <FortyIntegrationsSection language={language} /> : null}
       <ExpandedAssistant project={project} content={content} language={language} />
       {project.visual !== "forty" ? <ExpandedWebSection project={project} content={content} language={language} /> : null}
@@ -2610,18 +2643,28 @@ function CenizaCaseContent({ project, detail, language }) {
           <div className="ceniza-crm-heading-row">
             <div className="ceniza-crm-heading-copy">
               <h2 id="ceniza-crm-title">{detail.crmTitle}</h2>
-              <p>{detail.crmCopy}</p>
+              <p>{language === "es" ? "Ceniza conecta toda la operación del negocio: desde el primer contacto y la cotización hasta la producción, el alquiler de equipos y el seguimiento financiero. El equipo organiza clientes, agenda, recursos y documentos en un solo lugar, con reportes y un asistente de IA que ayuda a consultar, analizar y actuar con contexto. A continuación, una selección de páginas muestra parte de esta experiencia." : "Ceniza connects the entire business operation, from the first inquiry and quote to production, equipment rental and financial follow-up. The team manages clients, schedules, resources and documents in one place, with reports and an AI assistant that helps retrieve information, analyze and act with context. The selected pages below offer a glimpse of this wider experience."}</p>
             </div>
-            <a className="ceniza-section-link is-demo" href={detail.demoUrl} target="_blank" rel="noreferrer">
-              <span>{detail.demoLabel}</span><Arrow diagonal />
-            </a>
+
           </div>
         </header>
-        <CenizaCrmPreview detail={detail} language={language} label={language === "es" ? "PÁGINAS DEL CRM" : "CRM PAGES"} />
-        <CenizaResponsiveCrm detail={detail} language={language} />
+        <CenizaCrmPreview detail={detail} language={language} label={language === "es" ? "ALGUNAS PÁGINAS DEL CRM" : "SELECTED CRM PAGES"} />
+        <div className="ceniza-metrics ceniza-summary-cards">
+          {(language === "es" ? [
+            ["CRM", "Toda la operación conectada", "Clientes, agenda, cotizaciones, equipos y finanzas comparten el mismo contexto."],
+            ["UX/UI", "Un sistema fácil de recorrer", "Cada área organiza la información y las acciones que el equipo necesita."],
+            ["AI", "Asistencia con control humano", "Consulta datos, genera reportes y prepara acciones para revisar y aprobar."],
+            ["AUTO", "Seguimiento que continúa", "La web y las automatizaciones conectan cada solicitud con su siguiente paso."]
+          ] : [
+            ["CRM", "One connected operation", "Clients, schedules, quotes, equipment and finance share the same context."],
+            ["UX/UI", "A clear system to navigate", "Each area organizes the information and actions the team needs."],
+            ["AI", "Assistance with human control", "Retrieve data, generate reports and prepare actions for review and approval."],
+            ["AUTO", "Follow-up that continues", "The website and automations connect every inquiry to its next step."]
+          ]).map(([value, label, note]) => <article key={value}><strong>{value}</strong><h3>{label}</h3><p>{note}</p></article>)}
+        </div>
+        <CenizaResponsiveCrm detail={{ ...detail, crmMobileCopy: language === "es" ? "La misma operación, información y asistencia con IA desde el celular, sin perder contexto." : "The same operations, information and AI assistance on mobile, without losing context." }} language={language} />
       </section>
 
-      <CenizaDecisionStrip language={language} />
 
       <CenizaAutomationBridge language={language} />
 
@@ -2637,15 +2680,7 @@ function CenizaCaseContent({ project, detail, language }) {
               </h2>
               <p>{language === "es" ? "El sitio web funciona como la primera capa del CRM: conecta el catálogo, las fichas de equipos y los proyectos con la captación comercial. Cuando una persona escribe por WhatsApp o completa el formulario, el sistema conserva la página de origen, el servicio consultado y sus datos de contacto. El equipo recibe un lead más completo y puede preparar la cotización sin reconstruir la conversación." : "The website works as the first layer of the CRM, connecting the catalog, equipment pages and projects with lead capture. When someone writes through WhatsApp or submits the form, the system preserves the source page, the service viewed and their contact details. The team receives a more complete lead and can prepare the quote without rebuilding the conversation."}</p>
 
-              <ul className="ceniza-web-capabilities" aria-label={language === "es" ? "Capacidades de la página web" : "Website capabilities"}>
-                <li>{language === "es" ? "Diseño web" : "Web design"}</li>
-                <li>UX/UI</li>
-                <li>{language === "es" ? "Conexión CRM" : "CRM connection"}</li>
-              </ul>
 
-              <a className="ceniza-section-link is-website ceniza-web-bridge-link" href="https://www.cenizaproducciones.com/" target="_blank" rel="noreferrer">
-                <span>{language === "es" ? "Ver página web" : "View website"}</span><Arrow diagonal />
-              </a>
             </div>
           </div>
 
@@ -2731,16 +2766,8 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
       </a>
       <section className="editorial-case-hero" aria-labelledby="case-title">
         <div className="editorial-case-copy">
-          {project.visual === "ceniza" || project.visual === "forty" ? (
-            <CenizaEyebrow text={`${text.caseStudy} · ${project.visual === "ceniza" ? "CENIZA" : "40+"}`} className="eyebrow" dot threshold={0.25} />
-          ) : (
-            <AnimatedEyebrow text={`${text.caseStudy} · ${project.visual === "naval" ? "NAVAL" : project.number}`} className="eyebrow" dot threshold={0.25} />
-          )}
-          <h1 id="case-title">{detail.title}</h1>
-          <p>{project.description}</p>
-          <ul className="editorial-case-tags" aria-label={text.projectScope}>
-            {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
-          </ul>
+          <CenizaEyebrow text="DIGITAL PRODUCT" className="eyebrow" dot threshold={0.25} />
+          <h1 id="case-title">{project.visual === "ceniza" ? (language === "es" ? <>CRM AI para <em>Ceniza.</em></> : <>CRM AI for <em>Ceniza.</em></>) : project.visual === "naval" ? (language === "es" ? <>ERP AI para <em>Naval.</em></> : <>ERP AI for <em>Naval.</em></>) : (language === "es" ? <>Comercio conectado para <em>40+.</em></> : <>Connected commerce for <em>40+.</em></>)}</h1>
         </div>
         <div className="editorial-case-visual" aria-hidden="true">
           <span className="editorial-visual-bubble" />
@@ -2749,25 +2776,26 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
         </div>
       </section>
 
-      <section className="editorial-case-intro" aria-labelledby="case-overview-title">
-        <dl className="case-facts">
-          <div><dt>{text.project}</dt><dd>{project.name}</dd></div>
-          <div><dt>{text.industry}</dt><dd>{project.industry}</dd></div>
-          <div><dt>{text.myRole}</dt><dd>{project.role}</dd></div>
-        </dl>
-        <div>
-          {project.visual === "ceniza" || project.visual === "forty" ? <CenizaEyebrow text={text.theProject} threshold={0.42} /> : <AnimatedEyebrow text={text.theProject} className="case-label" threshold={0.42} />}
-          <h2 id="case-overview-title">{detail.introTitle}</h2>
-          <p>{detail.intro}</p>
-        </div>
-      </section>
+          {project.visual === "ceniza" && <dl className="ceniza-hero-facts">
+            <div><dt>{language === "es" ? "CLIENTE" : "CLIENT"}</dt><dd>Ceniza Producciones</dd></div>
+            <div><dt>{language === "es" ? "PRODUCTO" : "PRODUCT"}</dt><dd>{language === "es" ? "CRM + IA + web conectada" : "CRM + AI + connected website"}</dd></div>
+            <div><dt>{text.myRole}</dt><dd>AI Product Developer · UX/UI · Full-stack</dd></div>
+          </dl>}
+
+      {project.visual !== "ceniza" && <dl className="ceniza-hero-facts expanded-hero-facts">
+        <div><dt>{text.project}</dt><dd>{project.name}</dd></div>
+        <div><dt>{text.industry}</dt><dd>{project.industry}</dd></div>
+        <div><dt>{text.myRole}</dt><dd>{project.role}</dd></div>
+      </dl>}
+
+
 
       {project.visual === "ceniza" ? (<>
-        <CaseNarrative detail={detail} language={language} />
+        <CaseNarrative detail={detail} language={language} ceniza />
         <CenizaCaseContent project={project} detail={detail} language={language} />
       </>
       ) : (<>
-        <CaseNarrative detail={detail} language={language} compact={project.visual === "naval"} />
+        <CaseNarrative detail={detail} language={language} compact />
         <ExpandedCaseContent project={project} language={language} />
       </>)}
 
@@ -3139,14 +3167,10 @@ function App() {
           </div>
 
           <ul className="tools-constellation" aria-label={text.toolsAria}>
-            {workflowTools.map((tool) => {
+            {["openai", "figma", "react", "tailwind", "supabase", "postgresql", "n8n", "make", "typescript", "github", "docker", "vercel"].map(slug => {
+              const tool = workflowTools.find(item => item.slug === slug);
               const ToolIcon = tool.icon;
-              return (
-                <li key={tool.slug} style={{ "--brand-color": tool.color }}>
-                  <span className="tool-orb" aria-hidden="true"><ToolIcon /></span>
-                  <span>{tool.name}</span>
-                </li>
-              );
+              return <li key={tool.slug} style={{ "--brand-color": tool.color }}><span className="tool-orb" aria-hidden="true"><ToolIcon /></span><span>{tool.name}</span></li>;
             })}
           </ul>
         </section>
@@ -3157,17 +3181,7 @@ function App() {
             <h2 id="contact-title">{text.contactTitle}</h2>
           </div>
           <div className="contact-actions">
-            <p aria-label={text.contactCopy}>
-              <TypewriterText
-                text={text.contactCopy}
-                threshold={0.35}
-                rootMargin="0px 0px -5% 0px"
-                characterDelay={24}
-                startDelay={80}
-                mobileCharacterDelay={22}
-                mobileStartDelay={60}
-              />
-            </p>
+            <p>{text.contactCopy}</p>
             <div className="contact-cta-row">
               <SoftButton href={CONTACT_WHATSAPP_URL} primary external>
                 {text.getInTouch} <Arrow diagonal />
