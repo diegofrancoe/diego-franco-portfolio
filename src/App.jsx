@@ -1,3 +1,5 @@
+import { productCatalog } from "./productCatalog";
+import { ProductCatalog, ProductPage } from "./ProductPages";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
@@ -165,7 +167,7 @@ const projectTranslationsEs = {
 
 const copy = {
   en: {
-    navProjects: "Projects",
+    navProjects: "Products",
     navAbout: "About",
     navContact: "Contact",
     backHome: "Diego Franco, back to home",
@@ -223,7 +225,7 @@ const copy = {
     documentCase: "Digital Product",
   },
   es: {
-    navProjects: "Projects",
+    navProjects: "Productos",
     navAbout: "About",
     navContact: "Contact",
     backHome: "Diego Franco, volver al inicio",
@@ -433,6 +435,8 @@ function CenizaEyebrow({ text, className = "case-label", dot = false, threshold 
 }
 
 const projectVisualAssets = {
+  demo: "/project-demo-d-velvet.png",
+  bernardo: "/project-bernardo-b-velvet.png",
   naval: "/project-naval-n-v3.webp",
   forty: "/project-40-4-v3.webp",
   ceniza: "/project-ceniza-c-v3.webp",
@@ -1107,7 +1111,7 @@ function ProjectGrid({ children }) {
       });
     }, { threshold: 0.12 });
     cards.forEach((card, index) => {
-      card.style.setProperty("--project-delay", `${index * 240}ms`);
+      card.style.setProperty("--project-delay", `${(index % 3) * 160}ms`);
       card.classList.add("reveal-ready");
       observer.observe(card);
     });
@@ -1146,13 +1150,13 @@ function ProjectGrid({ children }) {
   return <div className="projects-grid" ref={gridRef}>{children}</div>;
 }
 
-function ProjectVisual({ visual }) {
+function ProjectVisual({ visual, label, mark }) {
   const folderContents = (
     <>
       <span className="folder-surface" aria-hidden="true">
         <img src="/project-folder-glass-cropped-v2.webp" alt="" />
       </span>
-      <span className="folder-label">{projectFolderLabels[visual]}</span>
+      <span className="folder-label">{label || projectFolderLabels[visual]}</span>
       {(
         <span className="folder-arrow" aria-hidden="true"><svg viewBox="0 0 36 36" focusable="false"><path d="M6 30 30 6M14 6h16v16" /></svg></span>
       )}
@@ -1161,8 +1165,8 @@ function ProjectVisual({ visual }) {
   );
 
   return (
-    <div className={`project-visual ${visual}`}>
-      <img src={projectVisualAssets[visual]} alt="" loading="lazy" decoding="async" />
+    <div className={`project-visual ${visual || "independent"}`}>
+      {projectVisualAssets[visual] ? <img src={projectVisualAssets[visual]} alt="" loading="lazy" decoding="async" /> : <span className="product-letter" aria-hidden="true">{mark}</span>}
       <div className="project-folder" aria-hidden="true">{folderContents}</div>
     </div>
   );
@@ -3211,16 +3215,17 @@ function App() {
   }, [currentPath, language]);
 
   const activeProject = localizedProjects.find((project) => project.path === currentPath);
-  const isNotFound = currentPath !== "/" && !activeProject;
+  const catalogProduct = productCatalog.find(product => currentPath === `/productos/${product.id}`);
+  const isNotFound = currentPath !== "/" && !activeProject && !catalogProduct;
 
   useEffect(() => {
     document.documentElement.lang = language;
-    const pageTitle = activeProject
+    const pageTitle = catalogProduct ? `${catalogProduct.name} | Diego Franco` : activeProject
       ? `${activeProject.name} · ${text.documentCase} | Diego Franco`
       : isNotFound
         ? `${language === "es" ? "Página no encontrada" : "Page not found"} | Diego Franco`
         : text.documentPortfolio;
-    const pageDescription = activeProject
+    const pageDescription = catalogProduct ? catalogProduct.summary[language] : activeProject
       ? activeProject.description
       : isNotFound
         ? language === "es"
@@ -3252,7 +3257,7 @@ function App() {
     document.querySelector('meta[name="twitter:image"]')?.setAttribute("content", socialImage);
     document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute("content", socialImageAlt);
     document.querySelector('link[rel="canonical"]')?.setAttribute("href", canonicalUrl);
-  }, [activeProject, currentPath, isNotFound, language, text]);
+  }, [activeProject, catalogProduct, currentPath, isNotFound, language, text]);
 
   function navigate(event, path) {
     event.preventDefault();
@@ -3306,7 +3311,9 @@ function App() {
         </div>
       </header>
 
-      {activeProject ? (
+      {catalogProduct ? (
+        <ProductPage key={catalogProduct.id} product={catalogProduct} language={language} navigate={navigate} />
+      ) : activeProject ? (
         <ProjectDetailPage project={activeProject} projectsList={localizedProjects} onNavigate={navigate} language={language} />
       ) : isNotFound ? (
         <NotFoundPage language={language} onNavigate={navigate} />
@@ -3332,7 +3339,7 @@ function App() {
               <p>{text.heroDescription}</p>
             </div>
             <div className="hero-actions">
-              <SoftButton href="/proyectos/ceniza" primary onClick={(event) => navigate(event, "/proyectos/ceniza")}>
+              <SoftButton href="/#trabajo" primary onClick={(event) => navigate(event, "/#trabajo")}>
                 {text.viewCases} <Arrow diagonal />
               </SoftButton>
               <SoftButton href={CENIZA_DEMO_URL} external className="hero-demo-button">
@@ -3358,38 +3365,7 @@ function App() {
           </p>
         </section>
 
-        <section className="projects-section" id="trabajo" aria-labelledby="projects-title">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow" aria-label={text.projects}><span className="availability-dot" /><TypewriterText text={text.projects} /></p>
-              <h2 id="projects-title">{text.projectsTitle}</h2>
-            </div>
-            <p className="section-note" aria-label={text.caseStudies}><TypewriterText text={text.caseStudies} /></p>
-          </div>
-
-          <ProjectGrid>
-            {localizedProjects.map((project) => (
-              <a
-                className="project-card"
-                href={project.path}
-                onClick={(event) => navigate(event, project.path)}
-                aria-label={`${text.viewCase} ${project.name}`}
-                key={project.name}
-              >
-                <ProjectVisual visual={project.visual} />
-                <div className="project-meta">
-                  <span>{project.number}</span>
-                  <p>{project.type}</p>
-                </div>
-                <div className="project-footer">
-                  <ul aria-label={text.disciplines}>
-                    {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
-                  </ul>
-                </div>
-              </a>
-            ))}
-          </ProjectGrid>
-        </section>
+        <ProductCatalog language={language} navigate={navigate} Grid={ProjectGrid} Visual={ProjectVisual} />
 
         <ProfileTechnicalSection
           language={language}

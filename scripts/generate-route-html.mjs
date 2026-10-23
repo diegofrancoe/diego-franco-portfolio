@@ -1,3 +1,4 @@
+import { productCatalog } from "../src/productCatalog.js";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
@@ -19,7 +20,7 @@ const routes = [
     output: "proyectos/naval.html",
     path: "/proyectos/naval",
     title: "Naval · Business System Digital Product | Diego Franco",
-    description: "A production B2B catalog and ERP connecting demand, production, purchasing, inventory, quality and reporting.",
+    description: "Private ERP in development, with production, purchasing, inventory and quality interfaces.",
     image: "/case-naval-desktop.webp",
     imageAlt: "Naval business system and ERP digital product by Diego Franco",
   },
@@ -76,6 +77,15 @@ function routeHtml(route) {
   html = replaceMeta(html, 'name="twitter:image:alt"', route.imageAlt);
   return html;
 }
+
+routes.push(...productCatalog.map(product => ({
+  output: `productos/${product.id}.html`,
+  path: `/productos/${product.id}`,
+  title: `${product.name} | Diego Franco`,
+  description: product.summary.en,
+  image: product.image || "/hero-mint-cloud.webp",
+  imageAlt: `${product.name} by Diego Franco`,
+})));
 
 for (const route of routes) {
   const output = resolve(dist, route.output);
