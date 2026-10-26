@@ -1,0 +1,88 @@
+{
+  "artwork": {
+    "ceniza": {
+      "src": "/optimized/project-ceniza-c-v3-960.webp",
+      "srcSet": "/optimized/project-ceniza-c-v3-480.webp 480w, /optimized/project-ceniza-c-v3-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "number-2": {
+      "src": "/optimized/category-agent-2-velvet-960.webp",
+      "srcSet": "/optimized/category-agent-2-velvet-480.webp 480w, /optimized/category-agent-2-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-web-z": {
+      "src": "/optimized/catalog-web-z-velvet-960.webp",
+      "srcSet": "/optimized/catalog-web-z-velvet-480.webp 480w, /optimized/catalog-web-z-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "number-3": {
+      "src": "/optimized/category-agent-3-velvet-960.webp",
+      "srcSet": "/optimized/category-agent-3-velvet-480.webp 480w, /optimized/category-agent-3-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-erp-p": {
+      "src": "/optimized/category-erp-p-velvet-960.webp",
+      "srcSet": "/optimized/category-erp-p-velvet-480.webp 480w, /optimized/category-erp-p-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "naval": {
+      "src": "/optimized/project-naval-n-v3-960.webp",
+      "srcSet": "/optimized/project-naval-n-v3-480.webp 480w, /optimized/project-naval-n-v3-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-commerce-f": {
+      "src": "/optimized/category-commerce-f-velvet-960.webp",
+      "srcSet": "/optimized/category-commerce-f-velvet-480.webp 480w, /optimized/category-commerce-f-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-demo-d": {
+      "src": "/optimized/catalog-demo-d-velvet-960.webp",
+      "srcSet": "/optimized/catalog-demo-d-velvet-480.webp 480w, /optimized/catalog-demo-d-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "number-4": {
+      "src": "/optimized/catalog-commerce-4-velvet-960.webp",
+      "srcSet": "/optimized/catalog-commerce-4-velvet-480.webp 480w, /optimized/catalog-commerce-4-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-bernardo-b": {
+      "src": "/optimized/catalog-bernardo-b-velvet-960.webp",
+      "srcSet": "/optimized/catalog-bernardo-b-velvet-480.webp 480w, /optimized/catalog-bernardo-b-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "number-5": {
+      "src": "/optimized/category-chat-5-velvet-960.webp",
+      "srcSet": "/optimized/category-chat-5-velvet-480.webp 480w, /optimized/category-chat-5-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-sophia-s": {
+      "src": "/optimized/catalog-sophia-s-velvet-960.webp",
+      "srcSet": "/optimized/catalog-sophia-s-velvet-480.webp 480w, /optimized/catalog-sophia-s-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "forty": {
+      "src": "/optimized/project-40-4-v3-960.webp",
+      "srcSet": "/optimized/project-40-4-v3-480.webp 480w, /optimized/project-40-4-v3-960.webp 960w",
+      "width": 960,
+      "height": 960
+    }
+  },
+  "hero": {
+    "src": "/optimized/diego-franco-hero-original-v6-960.webp",
+    "srcSet": "/optimized/diego-franco-hero-original-v6-480.webp 480w, /optimized/diego-franco-hero-original-v6-960.webp 960w",
+    "width": 960,
+    "height": 1280
+  }
+}

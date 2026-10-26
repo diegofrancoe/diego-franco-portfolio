@@ -1,3 +1,4 @@
+import { productVisualAssets as projectVisualAssets, productArtwork, heroArtwork, PRODUCT_ARTWORK_SIZES } from "./productVisuals";
 import { productCatalog } from "./productCatalog";
 import { ProductCatalog, ProductPage } from "./ProductPages";
 import { Fragment, useEffect, useRef, useState } from "react";
@@ -14,7 +15,6 @@ const CONTACT_CV_URLS = {
   en: "/Diego_Franco_CV_EN.pdf",
   es: "/Diego_Franco_CV_ES.pdf",
 };
-const CENIZA_DEMO_URL = "https://ceniza-crm.vercel.app/";
 const CONTACT_WHATSAPP_MESSAGE = "Hola Diego 👋, vi tu portafolio y me gustaría conversar contigo sobre una idea o una oportunidad de trabajo. ¿Te cuento un poco más?";
 const CONTACT_WHATSAPP_URL = CONTACT_WHATSAPP_NUMBER
   ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`
@@ -434,13 +434,7 @@ function CenizaEyebrow({ text, className = "case-label", dot = false, threshold 
   return <AnimatedEyebrow text={text} className={`${className} ceniza-section-eyebrow${internal ? "" : " is-section-eyebrow"}`} dot={dot} threshold={threshold} />;
 }
 
-const projectVisualAssets = {
-  demo: "/project-demo-d-velvet.png",
-  bernardo: "/project-bernardo-b-velvet.png",
-  naval: "/project-naval-n-v3.webp",
-  forty: "/project-40-4-v3.webp",
-  ceniza: "/project-ceniza-c-v3.webp",
-};
+
 
 const projectFolderLabels = {
   naval: "Naval",
@@ -1107,11 +1101,14 @@ function ProjectGrid({ children }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("is-revealed", entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.12 });
     cards.forEach((card, index) => {
-      card.style.setProperty("--project-delay", `${(index % 3) * 160}ms`);
+      card.style.setProperty("--project-delay", `${(index % 3) * 55}ms`);
       card.classList.add("reveal-ready");
       observer.observe(card);
     });
@@ -1132,31 +1129,57 @@ function ProjectGrid({ children }) {
     };
     let frame = 0;
     const schedule = () => {
+      if (!touchViewport.matches) return;
       if (!frame) frame = requestAnimationFrame(() => { frame = 0; updateOpenFolder(); });
+    };
+    const handlePointerChange = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      updateOpenFolder();
     };
     updateOpenFolder();
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
-    touchViewport.addEventListener("change", schedule);
+    touchViewport.addEventListener("change", handlePointerChange);
     return () => {
       observer.disconnect();
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
-      touchViewport.removeEventListener("change", schedule);
+      touchViewport.removeEventListener("change", handlePointerChange);
     };
   }, []);
 
   return <div className="projects-grid" ref={gridRef}>{children}</div>;
 }
 
+function FolderLabel({ children }) {
+  const labelRef = useRef(null);
+  useEffect(() => {
+    const el = labelRef.current;
+    const fit = () => {
+      el.style.fontSize = "";
+      const base = parseFloat(getComputedStyle(el).fontSize);
+      if (el.scrollWidth > el.clientWidth) el.style.fontSize = `${base * el.clientWidth / el.scrollWidth * .97}px`;
+    };
+    const observer = new ResizeObserver(fit);
+    observer.observe(el);
+    document.fonts.ready.then(fit);
+    return () => observer.disconnect();
+  }, [children]);
+  const stacked = typeof children === "string" && (children.startsWith("Portafolio ") || children === "Agente Marketing");
+  return <span ref={labelRef} className={`folder-label${stacked ? " is-portfolio-label" : ""}`}>
+    {stacked ? <span>{children.split(" ")[0]}<br />{children.slice(children.indexOf(" ") + 1)}</span> : children}
+  </span>;
+}
+
 function ProjectVisual({ visual, label, mark }) {
   const folderContents = (
     <>
       <span className="folder-surface" aria-hidden="true">
-        <img src="/project-folder-glass-cropped-v2.webp" alt="" />
+        <img src="/project-folder-glass-cropped-v2.webp" width="1036" height="912" alt="" loading="lazy" decoding="async" />
       </span>
-      <span className="folder-label">{label || projectFolderLabels[visual]}</span>
+      <FolderLabel>{label || projectFolderLabels[visual]}</FolderLabel>
       {(
         <span className="folder-arrow" aria-hidden="true"><svg viewBox="0 0 36 36" focusable="false"><path d="M6 30 30 6M14 6h16v16" /></svg></span>
       )}
@@ -1165,8 +1188,8 @@ function ProjectVisual({ visual, label, mark }) {
   );
 
   return (
-    <div className={`project-visual ${visual || "independent"}`}>
-      {projectVisualAssets[visual] ? <img src={projectVisualAssets[visual]} alt="" loading="lazy" decoding="async" /> : <span className="product-letter" aria-hidden="true">{mark}</span>}
+    <div className={`project-visual ${visual || "independent"}${visual?.startsWith("agent-") ? " agent" : ""}`}>
+      {projectVisualAssets[visual] ? <img src={projectVisualAssets[visual]} srcSet={productArtwork[visual]?.srcSet} sizes={PRODUCT_ARTWORK_SIZES} width={productArtwork[visual]?.width} height={productArtwork[visual]?.height} alt="" loading="lazy" decoding="async" /> : <span className="product-letter" aria-hidden="true">{mark}</span>}
       <div className="project-folder" aria-hidden="true">{folderContents}</div>
     </div>
   );
@@ -2990,7 +3013,7 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
         </div>
         <div className="editorial-case-visual" aria-hidden="true">
           <span className="editorial-visual-bubble" />
-          <img src={projectVisualAssets[project.visual]} alt="" />
+          <img src={projectVisualAssets[project.visual]} srcSet={productArtwork[project.visual]?.srcSet} sizes="(max-width: 680px) 110px, 275px" width={productArtwork[project.visual]?.width} height={productArtwork[project.visual]?.height} alt="" decoding="async" />
           <span className="editorial-case-index">{project.number} / 03</span>
         </div>
       </section>
@@ -3214,6 +3237,27 @@ function App() {
     };
   }, [currentPath, language]);
 
+  useEffect(() => {
+    const nodes = [...document.querySelectorAll('.loading-dot, .live-demo-dot, .editorial-case-visual > img')];
+    const visible = new Map(nodes.map(node => [node, false]));
+    const sync = node => node.classList.toggle('motion-out-of-view', document.hidden || !visible.get(node));
+    nodes.forEach(sync);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(({ target, isIntersecting }) => {
+        visible.set(target, isIntersecting);
+        sync(target);
+      });
+    }, { threshold: 0.01 });
+    nodes.forEach(node => observer.observe(node));
+    const handleVisibility = () => nodes.forEach(sync);
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibility);
+      nodes.forEach(node => node.classList.remove('motion-out-of-view'));
+    };
+  }, [currentPath, language]);
+
   const activeProject = localizedProjects.find((project) => project.path === currentPath);
   const catalogProduct = productCatalog.find(product => currentPath === `/productos/${product.id}`);
   const isNotFound = currentPath !== "/" && !activeProject && !catalogProduct;
@@ -3339,19 +3383,22 @@ function App() {
               <p>{text.heroDescription}</p>
             </div>
             <div className="hero-actions">
-              <SoftButton href="/#trabajo" primary onClick={(event) => navigate(event, "/#trabajo")}>
-                {text.viewCases} <Arrow diagonal />
-              </SoftButton>
-              <SoftButton href={CENIZA_DEMO_URL} external className="hero-demo-button">
+              <SoftButton href="/#trabajo" className="hero-demo-button" onClick={(event) => navigate(event, "/#trabajo")}>
                 <span className="live-demo-dot" aria-hidden="true" />
-                Live Demo <Arrow diagonal />
+                {text.viewCases} <Arrow diagonal />
               </SoftButton>
             </div>
           </div>
 
           <figure className="hero-portrait">
             <img
-              src="/diego-franco-hero-original-v6.png"
+              src={heroArtwork.src}
+              srcSet={heroArtwork.srcSet}
+              sizes="(max-width: 680px) 80vw, (max-width: 980px) 45vw, 36vw"
+              width={heroArtwork.width}
+              height={heroArtwork.height}
+              fetchPriority="high"
+              decoding="async"
               alt={language === "es" ? "Retrato de Diego Franco" : "Portrait of Diego Franco"}
             />
           </figure>

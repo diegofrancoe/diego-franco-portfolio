@@ -1,0 +1,18 @@
+{
+  "artwork": {
+    "ceniza": "/project-ceniza-c-v3.webp",
+    "number-2": "/category-agent-2-velvet.png",
+    "letter-web-z": "/catalog-web-z-velvet.png",
+    "number-3": "/category-agent-3-velvet.png",
+    "letter-erp-p": "/category-erp-p-velvet.png",
+    "naval": "/project-naval-n-v3.webp",
+    "letter-commerce-f": "/category-commerce-f-velvet.png",
+    "letter-demo-d": "/catalog-demo-d-velvet.png",
+    "number-4": "/catalog-commerce-4-velvet.png",
+    "letter-bernardo-b": "/catalog-bernardo-b-velvet.png",
+    "number-5": "/category-chat-5-velvet.png",
+    "letter-sophia-s": "/catalog-sophia-s-velvet.png",
+    "forty": "/project-40-4-v3.webp"
+  },
+  "hero": "/diego-franco-hero-original-v6.png"
+}

@@ -5265,9 +5265,9 @@ main.editorial-case.case-study-forty .expanded-intro-visit > span:first-child { 
 /* Local project interactions: staggered arrival and hinged folder fronts. */
 .project-card.reveal-ready {
   opacity: 0;
-  translate: 0 100px;
-  scale: .94;
-  transition: opacity 950ms ease var(--project-delay), translate 1100ms cubic-bezier(.16,1,.3,1) var(--project-delay), scale 1100ms cubic-bezier(.16,1,.3,1) var(--project-delay), transform 220ms ease;
+  translate: 0 18px;
+  scale: 1;
+  transition: opacity 320ms ease var(--project-delay), translate 420ms cubic-bezier(.16,1,.3,1) var(--project-delay), transform 220ms ease;
 }
 .project-card.reveal-ready.is-revealed { opacity: 1; translate: 0 0; scale: 1; }
 .project-visual { perspective: 1000px; }
@@ -5277,13 +5277,13 @@ main.editorial-case.case-study-forty .expanded-intro-visit > span:first-child { 
 }
 .folder-arrow { transition: transform 450ms cubic-bezier(.16,1,.3,1), color 240ms ease; }
 #trabajo .project-card:focus-visible .project-folder {
-  transform: rotateX(-38deg) translateY(-2px);
+  transform: rotateX(-16deg) translateY(-1px);
 }
-#trabajo .project-card:focus-visible .project-visual > img { transform: translateY(-16%) scale(1.045); }
+#trabajo .project-card:focus-visible .project-visual > img { transform: translateY(-14%) scale(1.025); }
 #trabajo .project-card:focus-visible .folder-arrow { transform: translate(10px,-10px); color: var(--mint-deep); }
 @media (hover: hover) and (pointer: fine) {
-  #trabajo .project-card:hover .project-folder { transform: rotateX(-38deg) translateY(-2px); }
-  #trabajo .project-card:hover .project-visual > img { transform: translateY(-16%) scale(1.045); }
+  #trabajo .project-card:hover .project-folder { transform: rotateX(-16deg) translateY(-1px); }
+  #trabajo .project-card:hover .project-visual > img { transform: translateY(-14%) scale(1.025); }
   #trabajo .project-card:hover .folder-arrow { transform: translate(10px,-10px); color: var(--mint-deep); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -5440,18 +5440,18 @@ dialog.case-image-preview::backdrop { background: rgba(20,27,23,.75); }
 }
 
 /* Touch devices open the folder nearest the center while scrolling. */
-#trabajo .project-card.is-scroll-open .project-folder { transform: rotateX(-38deg) translateY(-2px); }
-#trabajo .project-card.is-scroll-open .project-visual > img { transform: translateY(-16%) scale(1.045); }
+#trabajo .project-card.is-scroll-open .project-folder { transform: rotateX(-16deg) translateY(-1px); }
+#trabajo .project-card.is-scroll-open .project-visual > img { transform: translateY(-14%) scale(1.025); }
 #trabajo .project-card.is-scroll-open .folder-arrow { transform: translate(10px,-10px); color: var(--mint-deep); }
 .project-card { position: relative; }
 @media (max-width: 1024px), (hover: none), (pointer: coarse) {
   .project-card.reveal-ready {
-    translate: 0 24px;
-    scale: .985;
-    transition: opacity 350ms ease var(--project-compact-delay, 0ms), translate 450ms cubic-bezier(.16,1,.3,1) var(--project-compact-delay, 0ms), scale 450ms ease var(--project-compact-delay, 0ms), transform 220ms ease;
+    translate: 0 10px;
+    scale: 1;
+    transition: opacity 240ms ease var(--project-compact-delay, 0ms), translate 300ms ease var(--project-compact-delay, 0ms), transform 220ms ease;
   }
-  .project-card.reveal-ready:nth-child(2) { --project-compact-delay: 60ms; }
-  .project-card.reveal-ready:nth-child(3) { --project-compact-delay: 120ms; }
+  .project-card.reveal-ready:nth-child(2) { --project-compact-delay: 35ms; }
+  .project-card.reveal-ready:nth-child(3) { --project-compact-delay: 70ms; }
   .project-card.reveal-ready.is-revealed { translate: 0 0; scale: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -5486,7 +5486,7 @@ dialog.case-image-preview::backdrop { background: rgba(20,27,23,.75); }
 .catalog-product-copy > p:not(.catalog-product-type) { color: var(--muted); font-size: .86rem; line-height: 1.65; margin: 0; }
 .catalog-product-link { margin-top: 20px; display: flex; justify-content: space-between; font-size: .73rem; font-weight: 650; }
 .product-letter { position: absolute; inset: 4% 0 0; display: grid; place-items: center; font-size: clamp(10rem,20vw,22rem); font-weight: 800; line-height: 1; color: #c6d9cc; text-shadow: 3px 5px 0 #adbfaf, 10px 16px 20px rgba(74,95,78,.18), -3px -3px 0 #edf4ed; transition: transform 650ms cubic-bezier(.16,.8,.2,1); }
-#trabajo .project-card:hover .product-letter, #trabajo .project-card:focus-visible .product-letter, #trabajo .project-card.is-scroll-open .product-letter { transform: translateY(-12%) rotate(-3deg); }
+#trabajo .project-card:hover .product-letter, #trabajo .project-card:focus-visible .product-letter, #trabajo .project-card.is-scroll-open .product-letter { transform: translateY(-14%) rotate(-1deg); }
 .product-detail { padding: 32px clamp(8px,4vw,60px) 60px; }
 .product-detail-hero { display: grid; grid-template-columns: 1fr auto; gap: 30px; padding: 60px 0 35px; align-items: center; }
 .product-detail-hero h1 { margin: 24px 0; font-size: clamp(3rem,7vw,6.5rem); letter-spacing: -.065em; line-height: 1; }
@@ -5594,3 +5594,210 @@ dialog.case-image-preview::backdrop { background: rgba(20,27,23,.75); }
 @media (max-width: 680px) {
  .product-catalog .catalog-filters button { gap: 4px; padding: 9px 5px; }
 }
+
+/* Keep every product name inside the raised folder tab. */
+.product-catalog .folder-label {
+  top: 8%; left: 7.5%; width: 42%; max-width: 42%; height: 11%;
+  display: flex; align-items: center; white-space: nowrap; text-wrap: nowrap;
+  font-size: clamp(.65rem,.95vw,.92rem); line-height: 1; letter-spacing: -.035em;
+}
+@media (min-width: 981px) { .product-catalog .projects-grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 680px) { .product-catalog .folder-label { font-size: clamp(.62rem,2.5vw,.8rem); } }
+.product-status.is-documenting { background: #e9e8e0; color: #77796a; }
+
+/* Two short lines keep portfolio names clear of the tab's sloping edge. */
+.product-catalog .folder-label.is-portfolio-label {
+  top: 3.5%; width: 31%; max-width: 31%; height: 15%;
+  white-space: normal; text-wrap: initial; align-items: center;
+  font-size: clamp(.6rem,.84vw,.8rem); line-height: 1.08;
+}
+.product-catalog .folder-label.is-portfolio-label > span { display: block; }
+@media (max-width: 680px) {
+ .product-catalog .folder-label.is-portfolio-label { font-size: clamp(.62rem,2.35vw,.78rem); }
+}
+
+/* New product cases inherit the established editorial case-study rhythm. */
+.new-product-case { padding: 0; }
+.new-product-case .editorial-case-hero { min-height: 280px; margin-top: 20px; }
+.new-product-case .editorial-case-copy h1 { font-size: clamp(2.8rem,5vw,5rem); }
+.new-product-case .editorial-case-visual { max-height: 240px; }
+.new-product-case .editorial-case-visual > img { max-height: 240px; object-fit: contain; }
+.new-product-case .ceniza-hero-facts { margin: 32px 0; }
+.new-product-case .new-case-story { width: 100%; margin: 0 0 50px; }
+.new-product-case .new-case-story h2 { font-size: clamp(1.4rem,1.8vw,1.9rem); }
+.new-case-overview, .new-case-scope { padding: clamp(30px,4vw,55px); margin: 25px 0 45px; border-radius: 24px; background: var(--hero-surface); }
+.new-case-overview { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: end; }
+.new-case-overview h2, .new-case-scope h2 { margin: 20px 0; }
+.new-case-overview > p, .new-case-scope > p { margin: 0; color: #62675f; line-height: 1.8; font-size: 1rem; max-width: 780px; }
+.new-case-gallery > header, .new-case-flow > header { margin: 45px 0 30px; max-width: 850px; }
+.new-case-gallery .product-shot { margin: 0 0 35px; }
+.new-case-browser { display: flex; align-items: center; gap: 6px; padding: 13px 18px; background: #e1e4da; border-radius: 16px 16px 0 0; }
+.new-case-browser i { width: 6px; height: 6px; border-radius: 50%; background: #b4bdb0; }
+.new-case-browser span { margin-left: 10px; font-size: .65rem; color: #6b7565; }
+.new-case-browser b { margin-left: auto; font-weight: 400; }
+.new-case-gallery .product-shot img { border-radius: 0 0 16px 16px; max-height: none; }
+.new-product-case .product-feature-section { padding: 35px 0 55px; }
+.new-case-flow { padding: clamp(25px,4vw,50px); margin-bottom: 45px; background: var(--case-dark); color: #f4f3eb; border-radius: 24px; }
+.new-case-flow > header { margin-top: 0; }
+.new-case-flow .eyebrow { color: var(--case-accent); }
+.new-case-path { padding: 0; margin: 40px 0 10px; list-style: none; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 26px; }
+.new-case-path li { position: relative; border-top: 1px solid color-mix(in srgb,var(--case-accent) 45%,transparent); padding: 24px 15px 20px 0; }
+.new-case-path li > span { color: var(--case-accent); font-family: var(--mono); font-size: .7rem; }
+.new-case-path strong { display: block; margin-top: 18px; font-size: 1.15rem; line-height: 1.35; }
+.new-case-path b { position: absolute; right: -15px; top: 45px; color: var(--case-accent); font-size: 1.4rem; }
+.new-case-pending { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(80,100,75,.18); }
+.new-case-pending h3 { font-size: 1.2rem; }
+.new-case-pending ul { columns: 2; padding-left: 20px; color: #62675f; }
+.new-case-pending li { margin: 12px 20px 12px 0; line-height: 1.6; break-inside: avoid; }
+.new-product-case .editorial-case-outcome { padding-inline: 0; }
+@media (max-width: 980px) {
+ .new-case-overview { grid-template-columns: 1fr; gap: 12px; }
+ .new-product-case .new-case-story { gap: 22px; }
+ .new-case-path { grid-template-columns: repeat(2,minmax(0,1fr)); }
+ .new-case-path li:nth-child(2) b { display: none; }
+}
+@media (max-width: 680px) {
+ .new-product-case .editorial-case-hero { min-height: 235px; }
+ .new-product-case .editorial-case-copy h1 { font-size: clamp(2.3rem,10vw,3rem); }
+ .new-product-case .new-case-story { grid-template-columns: 1fr; padding: 26px; }
+ .new-product-case .new-case-story article { min-height: 0; }
+ .new-product-case .new-case-story article::after { display: none; }
+ .new-product-case .new-case-story h2 { min-height: 0; }
+ .new-case-path { grid-template-columns: 1fr; gap: 8px; }
+ .new-case-path li { padding-bottom: 24px; }
+ .new-case-path li b { display: none; }
+ .new-case-pending ul { columns: 1; }
+ .new-case-overview, .new-case-scope { padding: 25px; }
+}
+.new-product-case .editorial-case-hero { min-height: 0; grid-template-columns: minmax(0,1fr) 170px; gap: 28px; padding: 34px; }
+.new-product-case .editorial-case-visual { width: 170px; height: 170px; min-height: 0; }
+.new-product-case .editorial-case-visual > img { width: 170px; height: 170px; }
+.new-product-case .editorial-visual-bubble { width: 190px; }
+.new-product-case .editorial-case-index { display: none; }
+.new-product-case .editorial-case-copy h1 { font-size: clamp(2.5rem,4.5vw,4.5rem); margin-bottom: 10px; }
+@media(max-width:680px) {
+ .new-product-case .editorial-case-hero { grid-template-columns: minmax(0,1fr) 78px; gap: 10px; padding: 24px 18px; }
+ .new-product-case .editorial-case-visual, .new-product-case .editorial-case-visual > img { width: 78px; height: 86px; min-height: 0; }
+ .new-product-case .editorial-visual-bubble { width: 95px; }
+ .new-product-case .editorial-case-copy h1 { font-size: clamp(1.7rem,6.5vw,2.4rem); }
+ .new-product-case .editorial-case-copy > .eyebrow { font-size: .52rem; }
+}
+
+/* Match the original Ceniza case proportions, scoped to new product pages. */
+.new-product-case .editorial-case-hero { padding: clamp(30px,2.5vw,40px) 40px; margin-top: 0; border-radius: 32px; }
+.new-product-case .editorial-case-copy h1 { margin: 0 0 15px; font-size: clamp(2rem,3.65vw,4rem); line-height: .94; }
+.new-product-case .editorial-case-copy > .eyebrow { margin: 0 0 26px; font-size: .65rem; }
+.new-product-case .editorial-visual-bubble { display: none; }
+.new-product-case .editorial-case-visual { height: 165px; }
+.new-product-case > .ceniza-hero-facts { margin: 0; padding: clamp(40px,5vw,68px) 40px; border: 0; }
+.new-product-case > .ceniza-hero-facts dd { font-size: 1rem; color: #30352d; }
+.new-product-case > .new-case-story { width: calc(100% - 40px); margin: 0 20px 54px; padding: 0; gap: 44px; background: transparent; border: 0; box-shadow: none; }
+.new-product-case > .new-case-story article { padding: 28px 24px; border-radius: 24px; background: var(--case-dark); min-height: 235px; }
+.new-product-case > .new-case-story article:not(:last-child)::after { right: -42px; width: 40px; }
+.new-product-case > .new-case-story h2 { margin: 18px 0 12px; font-size: clamp(1.2rem,1.55vw,1.7rem); line-height: 1.1; }
+.new-product-case > .new-case-story article > p:last-child { font-size: .82rem; line-height: 1.6; }
+.new-product-case .new-case-overview { padding: clamp(30px,4vw,55px); }
+.new-product-case h2 { font-size: clamp(1.8rem,2.8vw,3rem); line-height: 1.1; }
+.new-product-case .product-feature-section { padding-inline: 40px; }
+@media(max-width:980px) {
+ .new-product-case > .new-case-story { gap: 16px; margin-inline: 0; width: 100%; }
+ .new-product-case > .new-case-story article { padding: 24px 18px; }
+ .new-product-case > .new-case-story article:not(:last-child)::after { display: none; }
+}
+@media(max-width:680px) {
+ .new-product-case .editorial-case-hero { padding: 24px 18px; border-radius: 24px; }
+ .new-product-case .editorial-case-copy h1 { font-size: clamp(1.7rem,6.5vw,2.4rem); line-height: 1.06; }
+ .new-product-case .editorial-case-copy > .eyebrow { font-size: .52rem; margin-bottom: 18px; }
+ .new-product-case .editorial-case-visual { height: 86px; }
+ .new-product-case > .ceniza-hero-facts { padding: 28px 18px; }
+ .new-product-case > .new-case-story { grid-template-columns: 1fr; gap: 14px; margin-bottom: 30px; }
+ .new-product-case > .new-case-story article { min-height: 0; padding: 24px; }
+ .new-product-case > .new-case-story h2 { font-size: 1.4rem; }
+ .new-product-case .product-feature-section { padding-inline: 18px; }
+}
+
+/* Agent mascots peek above the folder while keeping their faces visible. */
+.catalog-product .project-visual.agent > img { position: absolute; width: 78%; height: 78%; left: 11%; top: -10%; object-fit: contain; transform: translateY(4%); }
+#trabajo .project-card:focus-visible .project-visual.agent > img,
+#trabajo .project-card.is-scroll-open .project-visual.agent > img { transform: translateY(-14%) scale(1.025); }
+@media (hover: hover) and (pointer: fine) {
+ #trabajo .project-card:hover .project-visual.agent > img { transform: translateY(-14%) scale(1.025); }
+}
+@media (prefers-reduced-motion: reduce) {
+ #trabajo .project-card .project-visual.agent > img { transform: none; }
+}
+
+/* Keep mascot folders aligned with the square letter artwork. */
+.catalog-product .project-visual.agent { aspect-ratio: 1; flex: 0 0 auto; }
+
+/* Quieter product catalog: concise copy and smaller, gently moving mascots. */
+.catalog-product .project-visual.agent > img { width: 68%; height: 68%; left: 16%; top: -4%; filter: saturate(.62) brightness(1.04); }
+.catalog-product .project-visual.agent-chatbot > img { filter: saturate(.38) brightness(1.12); }
+#trabajo .catalog-product:hover { transform: translateY(-2px); }
+#trabajo .catalog-product:focus-visible .project-visual > img,
+#trabajo .catalog-product.is-scroll-open .project-visual > img { transform: translateY(-4%) scale(1.01); }
+#trabajo .catalog-product:focus-visible .project-folder,
+#trabajo .catalog-product.is-scroll-open .project-folder { transform: rotateX(-8deg); }
+.catalog-product-copy > p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (hover: hover) and (pointer: fine) {
+ #trabajo .catalog-product:hover .project-visual > img { transform: translateY(-4%) scale(1.01); }
+ #trabajo .catalog-product:hover .project-folder { transform: rotateX(-8deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+ #trabajo .catalog-product .project-visual > img,
+ #trabajo .catalog-product .project-folder { transform: none; }
+}
+
+/* Category silhouettes share a consistent folder footprint. */
+.catalog-product .project-visual:is(.system,.website) { aspect-ratio: 1; flex: 0 0 auto; }
+.catalog-product .project-visual.system > img { position: absolute; width: 66%; height: 72%; left: 17%; top: -17%; object-fit: contain; filter: saturate(.7); }
+.catalog-product .project-visual.website > img { position: absolute; width: 82%; height: 78%; left: 9%; top: -11%; object-fit: contain; filter: saturate(.7); }
+.catalog-product .project-visual.agent-chatbot > img { filter: saturate(.8); }
+
+/* Naval rests inside the folder; interaction reveals a little more of its face. */
+.catalog-product .project-visual.agent-naval > img { top: 9%; }
+#trabajo .catalog-product:focus-visible .project-visual.agent > img,
+#trabajo .catalog-product.is-scroll-open .project-visual.agent > img { transform: translateY(-4%) scale(1.01); }
+@media (hover: hover) and (pointer: fine) {
+ #trabajo .catalog-product:hover .project-visual.agent > img { transform: translateY(-4%) scale(1.01); }
+}
+@media (prefers-reduced-motion: reduce) {
+ #trabajo .catalog-product .project-visual.agent > img { transform: none; }
+}
+/* Give the ERP glyph an olive-slate tint distinct from Bernardo's powder blue. */
+.project-visual.letter-erp-e > img { filter: hue-rotate(-150deg) saturate(.6) brightness(.92); }
+
+/* A restrained velvet palette: lower saturation and deeper, softer tones. */
+.catalog-product .project-visual > img,
+.editorial-case-visual > img { filter: saturate(.42) brightness(.98) contrast(.98); }
+.catalog-product .project-visual:is(.letter-assistant-a,.letter-operations-r,.letter-marketing-m,.letter-chat-h) > img,
+.new-product-case:is([data-visual="letter-assistant-a"],[data-visual="letter-operations-r"],[data-visual="letter-marketing-m"],[data-visual="letter-chat-h"]) .editorial-case-visual > img { filter: saturate(.4) brightness(1.2) contrast(.86); }
+
+/* Category preview: a little more of each velvet glyph is visible. */
+.catalog-product .project-visual { aspect-ratio: 1; flex: 0 0 auto; }
+.catalog-product .project-visual > img { transform: translateY(-6%); }
+#trabajo .catalog-product:focus-visible .project-visual > img,
+#trabajo .catalog-product.is-scroll-open .project-visual > img { transform: translateY(-12%) scale(1.01); }
+@media (hover: hover) and (pointer: fine) {
+ #trabajo .catalog-product:hover .project-visual > img { transform: translateY(-12%) scale(1.01); }
+}
+.catalog-product .project-visual.ceniza > img { filter: saturate(.25) brightness(1.15) contrast(.9); }
+.catalog-product .project-visual.letter-erp-e > img { filter: saturate(.32) brightness(1.16) contrast(.88); }
+@media (prefers-reduced-motion: reduce) {
+ #trabajo .catalog-product .project-visual > img { transform: translateY(-6%); }
+}
+
+/* More visible lift on interaction, while the folder keeps a small opening. */
+#trabajo .catalog-product:focus-visible .project-visual > img,
+#trabajo .catalog-product.is-scroll-open .project-visual > img { transform: translateY(-22%) scale(1.025); }
+@media (hover: hover) and (pointer: fine) {
+ #trabajo .catalog-product:hover .project-visual > img { transform: translateY(-22%) scale(1.025); }
+}
+@media (prefers-reduced-motion: reduce) {
+ #trabajo .catalog-product .project-visual > img { transform: translateY(-6%); }
+}
+
+/* Idle decorative motion does no work outside the viewport or hidden tab. */
+.motion-out-of-view,
+.motion-out-of-view::before,
+.motion-out-of-view::after { animation-play-state: paused !important; }
