@@ -87,6 +87,7 @@ Object.assign(productCaseDetails, {
       t(['EL CONTROL','La decisión sigue en manos del equipo.','Las propuestas y las acciones sensibles se separan; los cambios requieren revisión y aprobación.'],['THE CONTROL','The decision stays with the team.','Proposals and sensitive actions are separated; changes require review and approval.']),
     ],
     gallery: [['/ceniza-assistant-home-real.png',t('Asistente Ceniza · Resumen del negocio','Ceniza Assistant · Business overview')],['/ceniza-assistant-report-real.png',t('Asistente Ceniza · Reporte comercial','Ceniza Assistant · Commercial report')]],
+    mobileGallery: [['/case-ceniza-crm-mobile-assistant.webp', t('Asistente · Consultas y prioridades', 'Assistant · Queries and priorities')], ['conversation', t('Conversación · Vista adaptada del reporte', 'Conversation · Adapted report view')]],
     journey: t(['Hacer una consulta','Recuperar el contexto','Revisar la propuesta','Aprobar el siguiente paso'],['Ask a question','Retrieve context','Review the proposal','Approve the next step']),
     outcome: t('Del contexto a una acción revisable.','From context to a reviewable action.'),
   },

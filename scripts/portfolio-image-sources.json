@@ -12,7 +12,11 @@
     "letter-bernardo-b": "/catalog-bernardo-b-velvet.png",
     "number-5": "/category-chat-5-velvet.png",
     "letter-sophia-s": "/catalog-sophia-s-velvet.png",
-    "forty": "/project-40-4-v3.webp"
+    "forty": "/project-40-4-v3.webp",
+    "letter-assistant-a": "/catalog-assistant-a-velvet.png",
+    "letter-operations-r": "/catalog-operations-r-velvet.png",
+    "letter-marketing-m": "/catalog-marketing-m-velvet.png",
+    "letter-chat-h": "/catalog-chat-h-velvet.png"
   },
   "hero": "/diego-franco-hero-original-v6.png"
 }

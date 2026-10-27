@@ -1,3 +1,6 @@
+import CaseArtworkFilters from './CaseArtworkFilters';
+import { productThemeStyle } from './productThemes';
+import { getCaseHeaderArtwork } from './caseHeaderArtwork';
 import { productVisualAssets as projectVisualAssets, productArtwork, heroArtwork, PRODUCT_ARTWORK_SIZES } from "./productVisuals";
 import { productCatalog } from "./productCatalog";
 import { ProductCatalog, ProductPage } from "./ProductPages";
@@ -447,8 +450,6 @@ const caseStudyDetails = {
     accent: "#efbe00",
     dark: "#080808",
     wash: "#eee7d5",
-    demoUrl: "https://ceniza-crm.vercel.app/",
-    demoLabel: "Live Demo",
     title: <>The operation,<br />visible in <em>one place.</em></>,
     introTitle: "A digital product built around Ceniza's real operation.",
     intro:
@@ -639,7 +640,6 @@ const caseStudyDetails = {
 
 const caseStudyDetailsEs = {
   ceniza: {
-    demoLabel: "Live Demo",
     title: <>La operación,<br />visible en <em>un solo lugar.</em></>,
     introTitle: "Un producto digital construido alrededor de la operación real de Ceniza.",
     intro:
@@ -1099,19 +1099,6 @@ function ProjectGrid({ children }) {
   useEffect(() => {
     const cards = [...gridRef.current.querySelectorAll(".project-card")];
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-revealed");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    cards.forEach((card, index) => {
-      card.style.setProperty("--project-delay", `${(index % 3) * 55}ms`);
-      card.classList.add("reveal-ready");
-      observer.observe(card);
-    });
     const touchViewport = window.matchMedia("(hover: none), (pointer: coarse)");
     const updateOpenFolder = () => {
       let closest = null;
@@ -1142,7 +1129,6 @@ function ProjectGrid({ children }) {
     window.addEventListener("resize", schedule);
     touchViewport.addEventListener("change", handlePointerChange);
     return () => {
-      observer.disconnect();
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
@@ -2995,14 +2981,17 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
   const projectIndex = projectsList.findIndex((item) => item.path === project.path);
   const nextProject = projectsList[(projectIndex + 1) % projectsList.length];
   const detail = localizeCaseDetail(caseStudyDetails[project.visual], project.visual, language);
+  const headerArtwork = getCaseHeaderArtwork(project.visual === 'forty' ? 'website' : 'fullstack', {ceniza:'ceniza-crm',naval:'naval-erp',forty:'40plus-commerce'}[project.visual]);
   const caseStyle = {
     "--case-accent": detail.accent,
     "--case-dark": detail.dark,
     "--case-wash": detail.wash,
+    ...productThemeStyle({ceniza:"ceniza-crm",naval:"naval-erp",forty:"40plus-commerce"}[project.visual]),
   };
 
   return (
     <main ref={caseRef} className={`case-study editorial-case case-study-${project.visual}`} style={caseStyle}>
+      <CaseArtworkFilters/>
       <a className="case-back-link editorial-case-back-link" href="/#trabajo" onClick={(event) => onNavigate(event, "/#trabajo")}>
         <span aria-hidden="true">←</span> {text.allProjects}
       </a>
@@ -3013,7 +3002,7 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
         </div>
         <div className="editorial-case-visual" aria-hidden="true">
           <span className="editorial-visual-bubble" />
-          <img src={projectVisualAssets[project.visual]} srcSet={productArtwork[project.visual]?.srcSet} sizes="(max-width: 680px) 110px, 275px" width={productArtwork[project.visual]?.width} height={productArtwork[project.visual]?.height} alt="" decoding="async" />
+          <img className="case-category-art" style={{filter:headerArtwork.filter}} src={headerArtwork.src} srcSet={headerArtwork.srcSet} sizes="(max-width: 680px) 110px, 275px" width={headerArtwork.width} height={headerArtwork.height} alt="" decoding="async" />
           <span className="editorial-case-index">{project.number} / 03</span>
         </div>
       </section>
@@ -3356,7 +3345,7 @@ function App() {
       </header>
 
       {catalogProduct ? (
-        <ProductPage key={catalogProduct.id} product={catalogProduct} language={language} navigate={navigate} />
+        <ProductPage key={catalogProduct.id} product={catalogProduct} language={language} navigate={navigate} contactHref={CONTACT_WHATSAPP_URL} />
       ) : activeProject ? (
         <ProjectDetailPage project={activeProject} projectsList={localizedProjects} onNavigate={navigate} language={language} />
       ) : isNotFound ? (

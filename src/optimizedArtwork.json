@@ -77,6 +77,30 @@
       "srcSet": "/optimized/project-40-4-v3-480.webp 480w, /optimized/project-40-4-v3-960.webp 960w",
       "width": 960,
       "height": 960
+    },
+    "letter-assistant-a": {
+      "src": "/optimized/catalog-assistant-a-velvet-960.webp",
+      "srcSet": "/optimized/catalog-assistant-a-velvet-480.webp 480w, /optimized/catalog-assistant-a-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-operations-r": {
+      "src": "/optimized/catalog-operations-r-velvet-960.webp",
+      "srcSet": "/optimized/catalog-operations-r-velvet-480.webp 480w, /optimized/catalog-operations-r-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-marketing-m": {
+      "src": "/optimized/catalog-marketing-m-velvet-960.webp",
+      "srcSet": "/optimized/catalog-marketing-m-velvet-480.webp 480w, /optimized/catalog-marketing-m-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
+    },
+    "letter-chat-h": {
+      "src": "/optimized/catalog-chat-h-velvet-960.webp",
+      "srcSet": "/optimized/catalog-chat-h-velvet-480.webp 480w, /optimized/catalog-chat-h-velvet-960.webp 960w",
+      "width": 960,
+      "height": 960
     }
   },
   "hero": {

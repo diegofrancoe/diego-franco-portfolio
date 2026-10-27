@@ -1,9 +1,9 @@
 const p = (es, en) => ({ es, en });
 const catalog = [
-  { id: 'ceniza-crm', category: 'fullstack', casePath: '/proyectos/ceniza', name: 'Ceniza CRM', family: 'Ceniza', status: 'demo', visual: 'ceniza', mark: 'C', type: 'CRM · APPLIED AI', url: 'https://ceniza-crm.vercel.app/', repo: 'ceniza.crm', image: '/ceniza-current-dashboard.png', legacy: '/proyectos/ceniza',
+  { id: 'ceniza-crm', category: 'fullstack', casePath: '/proyectos/ceniza', name: 'Ceniza CRM', family: 'Ceniza', status: 'live', visual: 'ceniza', mark: 'C', type: 'CRM · APPLIED AI', repo: 'ceniza.crm', image: '/ceniza-current-dashboard.png', legacy: '/proyectos/ceniza',
     summary: p('Clientes, cotizaciones, alquileres y operación en un mismo espacio, con asistencia contextual de IA.', 'Clients, quotes, rentals and operations in one workspace, with contextual AI assistance.'),
     features: p(['Pipeline comercial y seguimiento de clientes', 'Cotizaciones, producciones, alquileres e inventario', 'Finanzas vinculadas a la operación', 'Asistente Ceniza: contexto, reportes y acciones con revisión humana'], ['Commercial pipeline and customer follow-up', 'Quotes, productions, rentals and inventory', 'Finance linked to operations', 'Ceniza Assistant: context, reports and human-reviewed actions']),
-    scope: p('La demostración y el entorno privado de la empresa se presentan por separado. Las capacidades del demo no prueban por sí solas todas las integraciones de producción.', 'The demonstration and private business environment are separate. Demo capabilities alone do not verify every production integration.') },
+    scope: p('CRM privado de Ceniza Producciones, con acceso restringido al equipo. La demostración pública se presenta por separado en Demo CRM AI.', 'Ceniza Producciones’ private CRM, with access restricted to the team. The public demonstration is presented separately in Demo CRM AI.') },
   { id: 'ceniza-web', category: 'website', name: 'Ceniza Web', family: 'Ceniza', status: 'live', visual: 'ceniza', mark: 'C', type: 'WEB · PRODUCT DESIGN', url: 'https://www.cenizaproducciones.com/', repo: 'ceniza-digital-platform', image: '/case-ceniza-web-desktop-v2.png',
     summary: p('Una experiencia visual para descubrir el estudio, sus proyectos, servicios y equipos, y solicitar una cotización.', 'A visual experience to discover the studio, its projects, services and equipment, and request a quote.'),
     features: p(['Portafolio visual y presentación del estudio', 'Descubrimiento de servicios y equipos', 'Captación comercial con validación del servidor', 'Experiencia responsive independiente del CRM'], ['Visual portfolio and studio presentation', 'Service and equipment discovery', 'Commercial intake with server-side validation', 'A responsive experience independent of the CRM']),
@@ -39,10 +39,10 @@ const catalog = [
     features: p(['Calendario y borradores de campañas', 'Edición y vista previa por canal', 'Preparación de propuestas con revisión humana', 'Integración de IA que requiere configuración'], ['Campaign calendar and drafts', 'Editing and channel-specific previews', 'Proposal preparation with human review', 'AI integration requiring configuration']),
     pending: p(['Verificación de la IA en el entorno configurado', 'Conexión con canales y ejecución de envíos', 'Conexión con fuentes reales de clientes'], ['Verify AI in the configured environment', 'Channel connections and message delivery', 'Connect real customer sources']),
     scope: p('La versión local incluye integración de IA que requiere credenciales; no se ha verificado aquí su conexión. El asistente no tiene herramientas de envío ni aprobación. Las listas de clientes siguen siendo de ejemplo.', 'The local version includes an AI integration requiring credentials; its connection has not been verified here. The assistant has no sending or approval tools. Customer lists remain examples.') },
-  { id: 'ceniza-agent', category: 'agents', name: 'Agente Ceniza', family: 'Ceniza', status: 'demo', visual: 'agent', mark: 'C', type: 'AI AGENT · CRM',
+  { id: 'ceniza-agent', category: 'agents', name: 'Agente Ceniza', family: 'Ceniza', status: 'live', visual: 'agent', mark: 'C', type: 'AI AGENT · CRM',
     summary: p('Asistencia contextual dentro del CRM: consultas, reportes y propuestas con revisión humana.', 'Contextual CRM assistance: queries, reports and proposals with human review.'),
     features: p(['Consulta contextual del CRM', 'Reportes y propuestas con aprobación'], ['Contextual CRM queries', 'Reports and proposals with approval']),
-    scope: p('Agente integrado al CRM Ceniza. Comparte el alcance de su demostración.', 'An agent integrated into Ceniza CRM, sharing its demo scope.') },
+    scope: p('Agente integrado al CRM privado de Ceniza, con acceso restringido al equipo. La demo pública es un producto independiente: Demo CRM AI.', 'An agent integrated into Ceniza’s private CRM, with access restricted to the team. The public demo is a separate product: Demo CRM AI.') },
   { id: 'chatbot', category: 'agents', name: 'Chatbot', family: 'Naval', status: 'live', visual: 'agent-chatbot', mark: 'C', type: 'CONVERSATIONAL AI',
     summary: p('Chatbot comercial de Naval: orientación de productos, consultas técnicas y solicitudes comerciales.', 'Naval’s commercial chatbot: product guidance, technical questions and commercial inquiries.'),
     features: p(['Consulta del catálogo y documentación técnica', 'Orientación y preparación de solicitudes comerciales'], ['Catalog and technical documentation queries', 'Guidance and commercial inquiry preparation']),
@@ -105,20 +105,20 @@ const cardSummaries = {
 };
 const catalogArtwork = {
   "ceniza-agent": [
-    "number-2",
-    "2"
+    "letter-assistant-a",
+    "A"
   ],
   "naval-erp-agent": [
-    "number-3",
-    "3"
+    "letter-operations-r",
+    "R"
   ],
   "naval-campaigns": [
-    "number-4",
-    "4"
+    "letter-marketing-m",
+    "M"
   ],
   "chatbot": [
-    "number-5",
-    "5"
+    "letter-chat-h",
+    "H"
   ],
   "naval-erp": [
     "letter-erp-p",
@@ -154,4 +154,4 @@ export const productCatalog = productOrder.map(id => {
   const artwork = catalogArtwork[id];
   return { ...product, ...(artwork ? { visual: artwork[0], mark: artwork[1] } : {}), cardSummary: cardSummaries[id] };
 });
-export const statusLabels = { documenting: p('Por documentar', 'To document'), live: p('Disponible', 'Available'), demo: p('Demo', 'Demo'), development: p('En desarrollo', 'In development'), prototype: p('Prototipo', 'Prototype') };
+export const statusLabels = { private: p('Privado', 'Private'), documenting: p('Por documentar', 'To document'), live: p('Disponible', 'Available'), demo: p('Demo', 'Demo'), development: p('En desarrollo', 'In development'), prototype: p('Prototipo', 'Prototype') };
