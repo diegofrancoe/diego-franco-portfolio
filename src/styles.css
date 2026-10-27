@@ -6142,6 +6142,35 @@ dialog.case-image-preview::backdrop { background: rgba(20,27,23,.75); }
   .new-product-case[data-product="ceniza-agent"] .agent-workflow-compact { margin-bottom: 32px; }
 }
 
+.agent-capability-details { margin-top: 36px; padding-top: 28px; border-top: 1px solid #d8ddcf; }
+.agent-capability-details > header .eyebrow { color: var(--case-accent); font-size: .6rem; }
+.agent-capability-details > header h3 { margin: 10px 0 26px; font-size: clamp(1.4rem,2.4vw,2rem); letter-spacing: -.045em; }
+.agent-capability-layout { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 38px; }
+.agent-capability-label { display: flex; align-items: center; gap: 10px; }
+.agent-capability-label > svg { width: 23px; height: 23px; flex-shrink: 0; color: #738b70; stroke-width: 1.6; }
+.agent-capability-label h4 { margin: 0; font-size: 1rem; letter-spacing: -.025em; }
+.agent-capability-label > span { margin-left: auto; font-family: var(--mono); font-size: .58rem; color: #73816a; white-space: nowrap; }
+.agent-capability-details article > p { margin: 12px 0 0; color: #697061; font-size: .78rem; line-height: 1.7; }
+.agent-reports-overview dl { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; margin: 22px 0; }
+.agent-reports-overview dl > div { border-top: 1px solid #dce0d4; padding-top: 10px; }
+.agent-reports-overview dt { font-weight: 600; font-size: .78rem; }
+.agent-reports-overview dd { margin: 5px 0 0; font-size: .72rem; line-height: 1.55; color: #717769; }
+.agent-reports-overview blockquote { display: flex; align-items: center; gap: 10px; margin: 0; padding: 12px 15px; border-radius: 10px; background: #e5eadd; font-size: .75rem; color: #485c44; }
+.agent-reports-overview blockquote svg { width: 18px; height: 18px; flex-shrink: 0; }
+.agent-capability-side { display: grid; gap: 26px; padding-left: 30px; border-left: 1px solid #d8ddcf; align-content: start; }
+.agent-capability-side article:first-child svg { color: #8995ad; }
+.agent-capability-side article:last-child svg { color: #a3906d; }
+.agent-capability-side small { display: block; margin-top: 14px; color: #73816a; font-size: .68rem; line-height: 1.6; }
+@media (max-width: 800px) {
+  .agent-capability-layout { grid-template-columns: 1fr; gap: 28px; }
+  .agent-capability-side { padding: 24px 0 0; border-left: 0; border-top: 1px solid #d8ddcf; grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .agent-capability-side { grid-template-columns: 1fr; }
+  .agent-reports-overview dl { gap: 16px; }
+  .agent-capability-label { flex-wrap: wrap; }
+}
+
 /* Shared closing for all new product case studies. */
 .product-closing { display: grid; grid-template-columns: minmax(0,1.9fr) minmax(190px,.8fr); align-items: center; gap: 46px 60px; margin: 58px 0 52px; padding: clamp(36px,4.8vw,64px); }
 .product-closing-summary { max-width: 780px; }
