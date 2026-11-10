@@ -5,6 +5,8 @@ import { productArtwork } from './productVisuals';
 
 const value = (item, language) => item?.[language] || item?.es;
 const connections = {
+  'my-garage-platform': ['my-garage-ai'],
+  'my-garage-ai': ['my-garage-platform'],
   'ceniza-agent': ['ceniza-crm','ceniza-web'],
   'ceniza-web': ['ceniza-crm','ceniza-agent'],
   'naval-erp-agent': ['naval-erp','naval-campaigns'],

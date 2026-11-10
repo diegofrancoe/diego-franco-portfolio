@@ -1,5 +1,12 @@
 {
   "artwork": {
+    "8noventa": {
+      "src": "/optimized/catalog-eight-v3-fixed.png",
+      "width": 627,
+      "height": 627,
+      "catalogSrc": "/optimized/catalog-eight-v3-fixed-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-eight-v3-fixed-catalog-480.webp 480w, /optimized/catalog-eight-v3-fixed-catalog-960.webp 960w"
+    },
     "ceniza": {
       "src": "/optimized/project-ceniza-c-v3-960.webp",
       "srcSet": "/optimized/project-ceniza-c-v3-480.webp 480w, /optimized/project-ceniza-c-v3-960.webp 960w",
@@ -28,13 +35,17 @@
       "src": "/optimized/category-erp-p-velvet-960.webp",
       "srcSet": "/optimized/category-erp-p-velvet-480.webp 480w, /optimized/category-erp-p-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/category-erp-p-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/category-erp-p-velvet-960-catalog-480.webp 480w, /optimized/category-erp-p-velvet-960-catalog-960.webp 960w"
     },
     "naval": {
       "src": "/optimized/project-naval-n-v3-960.webp",
       "srcSet": "/optimized/project-naval-n-v3-480.webp 480w, /optimized/project-naval-n-v3-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/project-naval-n-v3-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/project-naval-n-v3-960-catalog-480.webp 480w, /optimized/project-naval-n-v3-960-catalog-960.webp 960w"
     },
     "letter-commerce-f": {
       "src": "/optimized/category-commerce-f-velvet-960.webp",
@@ -52,13 +63,17 @@
       "src": "/optimized/catalog-commerce-4-velvet-960.webp",
       "srcSet": "/optimized/catalog-commerce-4-velvet-480.webp 480w, /optimized/catalog-commerce-4-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-commerce-4-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-commerce-4-velvet-960-catalog-480.webp 480w, /optimized/catalog-commerce-4-velvet-960-catalog-960.webp 960w"
     },
     "letter-bernardo-b": {
       "src": "/optimized/catalog-bernardo-b-velvet-960.webp",
       "srcSet": "/optimized/catalog-bernardo-b-velvet-480.webp 480w, /optimized/catalog-bernardo-b-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-bernardo-b-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-bernardo-b-velvet-960-catalog-480.webp 480w, /optimized/catalog-bernardo-b-velvet-960-catalog-960.webp 960w"
     },
     "number-5": {
       "src": "/optimized/category-chat-5-velvet-960.webp",
@@ -70,7 +85,9 @@
       "src": "/optimized/catalog-sophia-s-velvet-960.webp",
       "srcSet": "/optimized/catalog-sophia-s-velvet-480.webp 480w, /optimized/catalog-sophia-s-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-sophia-s-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-sophia-s-velvet-960-catalog-480.webp 480w, /optimized/catalog-sophia-s-velvet-960-catalog-960.webp 960w"
     },
     "forty": {
       "src": "/optimized/project-40-4-v3-960.webp",
@@ -82,25 +99,54 @@
       "src": "/optimized/catalog-assistant-a-velvet-960.webp",
       "srcSet": "/optimized/catalog-assistant-a-velvet-480.webp 480w, /optimized/catalog-assistant-a-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-assistant-a-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-assistant-a-velvet-960-catalog-480.webp 480w, /optimized/catalog-assistant-a-velvet-960-catalog-960.webp 960w"
     },
     "letter-operations-r": {
       "src": "/optimized/catalog-operations-r-velvet-960.webp",
       "srcSet": "/optimized/catalog-operations-r-velvet-480.webp 480w, /optimized/catalog-operations-r-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-operations-r-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-operations-r-velvet-960-catalog-480.webp 480w, /optimized/catalog-operations-r-velvet-960-catalog-960.webp 960w"
     },
     "letter-marketing-m": {
       "src": "/optimized/catalog-marketing-m-velvet-960.webp",
       "srcSet": "/optimized/catalog-marketing-m-velvet-480.webp 480w, /optimized/catalog-marketing-m-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-marketing-m-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-marketing-m-velvet-960-catalog-480.webp 480w, /optimized/catalog-marketing-m-velvet-960-catalog-960.webp 960w"
     },
     "letter-chat-h": {
       "src": "/optimized/catalog-chat-h-velvet-960.webp",
       "srcSet": "/optimized/catalog-chat-h-velvet-480.webp 480w, /optimized/catalog-chat-h-velvet-960.webp 960w",
       "width": 960,
-      "height": 960
+      "height": 960,
+      "catalogSrc": "/optimized/catalog-chat-h-velvet-960-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-chat-h-velvet-960-catalog-480.webp 480w, /optimized/catalog-chat-h-velvet-960-catalog-960.webp 960w"
+    },
+    "letter-garage-g": {
+      "src": "/optimized/catalog-garage-g-fixed.png",
+      "width": 627,
+      "height": 627,
+      "catalogSrc": "/optimized/catalog-garage-g-fixed-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-garage-g-fixed-catalog-480.webp 480w, /optimized/catalog-garage-g-fixed-catalog-960.webp 960w"
+    },
+    "letter-ceniza-w": {
+      "src": "/optimized/catalog-ceniza-w-fixed.png",
+      "width": 627,
+      "height": 627,
+      "catalogSrc": "/optimized/catalog-ceniza-w-fixed-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-ceniza-w-fixed-catalog-480.webp 480w, /optimized/catalog-ceniza-w-fixed-catalog-960.webp 960w"
+    },
+    "letter-erp-e": {
+      "src": "/optimized/catalog-erp-e-fixed.png",
+      "width": 627,
+      "height": 627,
+      "catalogSrc": "/optimized/catalog-erp-e-fixed-catalog-960.webp",
+      "catalogSrcSet": "/optimized/catalog-erp-e-fixed-catalog-480.webp 480w, /optimized/catalog-erp-e-fixed-catalog-960.webp 960w"
     }
   },
   "hero": {

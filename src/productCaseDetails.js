@@ -1,5 +1,25 @@
 const t = (es, en) => ({ es, en });
 export const productCaseDetails = {
+  'my-garage-platform': {
+    role: 'Product Design · Full-stack Development',
+    story: [
+      t(['EL RETO', 'Dar continuidad a la posventa.', 'El conductor necesita saber qué requiere su vehículo después de la entrega.'], ['THE CHALLENGE', 'Support drivers after delivery.', 'Drivers need to know what their vehicle requires after delivery.']),
+      t(['EL SISTEMA', 'Un garaje por conductor.', 'La cuenta reúne vehículos, kilometraje, mantenimiento y próximas visitas.'], ['THE SYSTEM', 'A garage for each driver.', 'The account brings together vehicles, mileage, maintenance and upcoming visits.']),
+      t(['EL VALOR', 'Consultar y actuar desde el mismo lugar.', 'El conductor puede explorar su carro en 3D, consultar a Mia o agendar una visita de prueba.'], ['THE VALUE', 'Check and act in one place.', 'Drivers can explore their car in 3D, ask Mia or book a test appointment.']),
+    ],
+    journey: t(['Activa tu garaje', 'Selecciona tu vehículo', 'Consulta su estado', 'Agenda una visita de prueba'], ['Activate your garage', 'Select your vehicle', 'Check its status', 'Book a test appointment']),
+    outcome: t('La posventa, desde tu propio garaje.', 'Aftersales from your own garage.'),
+  },
+  'my-garage-ai': {
+    role: 'Product Design · Full-stack · AI Integration',
+    story: [
+      t(['EL RETO', 'Saber qué necesita tu carro.', 'El mantenimiento, el seguro y los accesorios suelen consultarse por separado.'], ['THE CHALLENGE', 'Know what your car needs.', 'Maintenance, insurance and accessories are often handled separately.']),
+      t(['EL PRODUCTO', 'Un asistente dentro de tu garaje.', 'Mia usa el vehículo seleccionado y su kilometraje para orientar la conversación.'], ['THE PRODUCT', 'An assistant inside your garage.', 'Mia uses the selected vehicle and its mileage to guide the conversation.']),
+      t(['EL VALOR', 'Pasar de la duda al siguiente paso.', 'El conductor puede consultar una recomendación y confirmar una cita de prueba.'], ['THE VALUE', 'Go from a question to the next step.', 'Drivers can review a recommendation and confirm a test appointment.']),
+    ],
+    journey: t(['Selecciona tu vehículo', 'Consulta a Mia', 'Revisa la orientación', 'Confirma si quieres agendar'], ['Select your vehicle', 'Ask Mia', 'Review the guidance', 'Confirm if you want to book']),
+    outcome: t('Orientación según tu vehículo.', 'Guidance based on your vehicle.'),
+  },
   'atlas-crm': {
     accent: '#858dc1', dark: '#202535', role: 'Product Design · Full-stack · Applied AI',
     story: [
@@ -29,16 +49,41 @@ export const productCaseDetails = {
       t(['LA PROPUESTA', 'Un agente dentro del ERP.', 'El recorrido previsto conecta consulta, contexto autorizado, propuesta y revisión humana.'], ['THE PROPOSAL', 'An agent inside the ERP.', 'The intended journey connects queries, authorized context, proposals and human review.']),
       t(['EL ESTADO', 'Arquitectura prevista, integración pendiente.', 'El agente interno todavía no está implementado ni conectado a modelos de IA o datos operativos.'], ['THE STATUS', 'Planned architecture, integration pending.', 'The internal agent is not yet implemented or connected to AI models or operational data.']),
     ],
+    gallery: [
+      ['/case-naval-erp-assistant-fullscreen.webp', t('Prototipo del asistente en Naval ERP', 'Assistant prototype in Naval ERP'), t('Asistente', 'Assistant')],
+      ['/case-naval-erp-production-overview.webp', t('Dashboard de producción de Naval ERP', 'Naval ERP production dashboard'), t('Producción', 'Production')],
+      ['/case-naval-financial-report-v1.webp', t('Informe financiero ejecutivo de Naval ERP', 'Naval ERP executive financial report'), t('Finanzas', 'Finance')],
+    ],
     journey: t(['Consulta del equipo', 'Contexto autorizado', 'Propuesta del agente', 'Aprobación humana'], ['Team query', 'Authorized context', 'Agent proposal', 'Human approval']),
     planned: true,
     outcome: t('Primero el contexto. Después, una acción revisable.', 'Context first. Then, a reviewable action.'),
   },
   'naval-campaigns': {
+    mobileTitle: t('Prepara y revisa desde el celular.', 'Prepare and review on your phone.'),
+    mobileCopy: t('Define canal, objetivo y destinatarios. Revisa el mensaje y abre la edición de la campaña desde una pantalla pequeña.', 'Define the channel, goal and recipients. Review the message and open campaign editing from a smaller screen.'),
+    gallery: [
+      ['/case-pia-workspace.webp', t('Espacio real de campaña con una solicitud escrita al asistente.', 'Actual campaign workspace with a request entered in the assistant.')],
+      ['/case-pia-assistant.webp', t('Detalle del brief y la conversación de Pía.', 'Detail of the brief and Pía conversation.')],
+      ['/case-pia-preview-desktop.webp', t('Vista previa de WhatsApp con un borrador de ejemplo editado en la app.', 'WhatsApp preview with an example draft edited in the app.')],
+      ['/case-pia-brief-mobile.webp', t('Brief de campaña', 'Campaign brief'), 'mobile'],
+      ['/case-pia-preview-mobile.webp', t('Revisión de WhatsApp', 'WhatsApp review'), 'mobile'],
+    ],
+    capabilities: t([
+      {value:'BRIEF',label:'Objetivo y audiencia',note:'Canal, contenido, destinatarios y fechas en un mismo recorrido.'},
+      {value:'IA',label:'Propuestas con contexto',note:'Texto e imágenes con catálogo, referencias y documentos aprobados.'},
+      {value:'EDIT',label:'Revisión por canal',note:'Edición manual y aprobación independiente para WhatsApp y correo.'},
+      {value:'PLAN',label:'Calendario comercial',note:'Borradores y programación para organizar la revisión del equipo.'}
+    ], [
+      {value:'BRIEF',label:'Goal and audience',note:'Channel, content, recipients and dates in one journey.'},
+      {value:'AI',label:'Contextual proposals',note:'Text and images grounded in catalog, references and approved documents.'},
+      {value:'EDIT',label:'Channel review',note:'Manual editing and independent approval for WhatsApp and email.'},
+      {value:'PLAN',label:'Commercial calendar',note:'Drafts and scheduling to organize team review.'}
+    ]),
     accent: '#c6bd80', dark: '#172723', role: 'Product Design · AI Experience · Full-stack',
     story: [
       t(['EL RETO', 'Preparar campañas sin perder el control.', 'Coordinar brief, contenido, calendario y revisión en una experiencia clara para el equipo comercial.'], ['THE CHALLENGE', 'Prepare campaigns while staying in control.', 'Coordinate briefs, content, calendar and review in a clear commercial team experience.']),
-      t(['EL PRODUCTO', 'Un espacio de trabajo para marketing.', 'La versión local combina campañas de WhatsApp y correo, edición manual y una integración de IA que requiere configuración.'], ['THE PRODUCT', 'A marketing workspace.', 'The local version combines WhatsApp and email campaigns, manual editing and an AI integration that requires configuration.']),
-      t(['EL CONTROL', 'Preparar no significa enviar.', 'El asistente propone contenido para el canal activo; no dispone de herramientas de envío ni aprobación.'], ['THE CONTROL', 'Preparing does not mean sending.', 'The assistant proposes content for the active channel; it has no sending or approval tools.']),
+      t(['EL PRODUCTO', 'Un espacio de trabajo para marketing.', 'Combina brief, conversación y edición para preparar mensajes y piezas con contexto del catálogo y documentos aprobados.'], ['THE PRODUCT', 'A marketing workspace.', 'Combines briefs, conversation and editing to prepare messages and creative assets grounded in the catalog and approved documents.']),
+      t(['EL CONTROL', 'Cada canal pasa por revisión.', 'El equipo ajusta y aprueba cada propuesta. WhatsApp y correo conservan sus propios mensajes, piezas e historial.'], ['THE CONTROL', 'Each channel goes through review.', 'The team refines and approves each proposal. WhatsApp and email keep their own messages, creative assets and history.']),
     ],
     journey: t(['Definir el brief', 'Preparar la propuesta', 'Editar y revisar', 'Organizar el calendario'], ['Define the brief', 'Prepare the proposal', 'Edit and review', 'Organize the calendar']),
     outcome: t('Una campaña se construye antes de enviarse.', 'A campaign is built before it is sent.'),
@@ -64,7 +109,13 @@ Object.assign(productCaseDetails, {
       t(['EL PRODUCTO', 'Descubrimiento y contacto en un mismo recorrido.', 'Una web visual organiza proyectos y catálogo, con formularios y solicitudes protegidas del lado del servidor.'], ['THE PRODUCT', 'Discovery and contact in one journey.', 'A visual website organizes projects and catalog, with server-protected forms and inquiries.']),
       t(['EL VALOR', 'Una conversación empieza con contexto.', 'El visitante puede entender la oferta y elegir cómo continuar; la web tiene identidad y recorrido propios.'], ['THE VALUE', 'A conversation starts with context.', 'Visitors can understand the offer and choose how to continue; the website has its own identity and journey.']),
     ],
-    gallery: [['/case-ceniza-web-desktop-v2.png',t('Web Ceniza · Experiencia de escritorio','Ceniza website · Desktop experience')],['/case-ceniza-web-mobile-v2.png',t('Contacto · Experiencia móvil','Contact · Mobile experience')]],
+    gallery: [
+      ['/case-ceniza-site-studio-desktop.jpg', t('Studio · Escritorio', 'Studio · Desktop')],
+      ['/case-ceniza-site-catalog-desktop.jpg', t('Catálogo · Escritorio', 'Catalog · Desktop')],
+      ['/case-ceniza-site-project-form-mobile.jpg', t('01 · Formulario de contacto', '01 · Contact form'), 'mobile'],
+      ['/case-ceniza-site-softbox-mobile.jpg', t('02 · Softbox de estudio', '02 · Studio softbox'), 'mobile'],
+      ['/case-ceniza-site-podcast-mobile.jpg', t('03 · Combo de iluminación', '03 · Lighting bundle'), 'mobile'],
+    ],
     journey: t(['Descubrir el estudio','Explorar servicios y equipos','Definir la necesidad','Enviar una solicitud'],['Discover the studio','Explore services and equipment','Define the need','Submit an inquiry']),
     outcome: t('Del trabajo creativo a una solicitud concreta.','From creative work to a concrete inquiry.'),
   },
@@ -75,7 +126,26 @@ Object.assign(productCaseDetails, {
       t(['EL PRODUCTO','La web comercial de Naval.','Navegación de catálogo, información técnica y asistencia comercial dentro de una experiencia pública independiente.'],['THE PRODUCT','Naval’s commercial website.','Catalog navigation, technical information and commercial assistance in an independent public experience.']),
       t(['EL VALOR','Encontrar el producto y continuar.','El recorrido ayuda a convertir una necesidad de limpieza en una consulta o solicitud con contexto.'],['THE VALUE','Find the product and continue.','The journey helps turn a cleaning need into a contextual question or inquiry.']),
     ],
-    gallery: [['/case-naval-web-chatbot-real.webp',t('Catálogo Naval · Web y asistencia comercial','Naval catalog · Website and commercial assistance')]],
+    gallery: [
+      ['/case-naval-site-home-wide.jpg', t('Portada · Limpieza profesional', 'Home · Professional cleaning')],
+      ['/case-naval-web-chatbot-real.webp', t('Catálogo · Asistencia comercial', 'Catalog · Commercial assistance')],
+      ['/case-naval-site-products-mobile.jpg', t('Catálogo de productos', 'Product catalog'), 'mobile'],
+      ['/case-naval-site-training-mobile.jpg', t('Capacitaciones', 'Training'), 'mobile'],
+      ['/case-naval-site-assistant-mobile.jpg', t('Asistente Naval', 'Naval assistant'), 'mobile'],
+    ],
+    capabilities: t([
+      { value: 'UX', label: 'Catálogo por necesidad', note: 'Los filtros organizan los productos por línea y sector.' },
+      { value: 'UI', label: 'Fichas claras', note: 'Cada ficha reúne presentaciones, usos y documentación técnica.' },
+      { value: 'B2B', label: 'Asesoría comercial', note: 'La web orienta consultas de producto, capacitación y cotización.' },
+      { value: 'IA', label: 'Asistente de catálogo', note: 'La conversación ayuda a comparar opciones y encontrar el siguiente paso.' },
+    ], [
+      { value: 'UX', label: 'Catalog by need', note: 'Filters organize products by line and industry.' },
+      { value: 'UI', label: 'Clear product pages', note: 'Each page gathers sizes, uses and technical documentation.' },
+      { value: 'B2B', label: 'Sales guidance', note: 'The website guides product, training and quote inquiries.' },
+      { value: 'AI', label: 'Catalog assistant', note: 'The conversation helps visitors compare options and find the next step.' },
+    ]),
+    mobileTitle: t('Naval en tu celular.', 'Naval on your phone.'),
+    mobileCopy: t('Consulta productos, explora las capacitaciones y pide orientación al asistente desde el celular.', 'Browse products, explore training and ask the assistant for guidance from your phone.'),
     journey: t(['Explorar por necesidad','Consultar el producto','Revisar documentación','Solicitar orientación'],['Explore by need','Inspect the product','Review documentation','Request guidance']),
     outcome: t('Información técnica al servicio de la decisión.','Technical information that supports a decision.'),
   },

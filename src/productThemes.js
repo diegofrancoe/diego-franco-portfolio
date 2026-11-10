@@ -10,6 +10,8 @@ export const productThemes = {
   'naval-b2b': theme('#7c9b8e','#202d27','#e7eeea',90,.75,.82),
   '40plus-commerce': theme('#ae8b80','#302521','#f2e8e2',320,.65,.86),
   'atlas-crm': theme('#9390b3','#272634','#eceaf3',190,.75),
+  'my-garage-platform': theme('#8192a9','#232a35','#e8edf4',155,.75),
+  'my-garage-ai': theme('#76999b','#202b2c','#e4eeee',135,.8),
   'naval-campaigns': theme('#a087b7','#2b2333','#eee8f3',195,.85),
   'bernardo-portfolio': theme('#a18e70','#2c281f','#eee9df',0,.4),
   chatbot: theme('#b29b70','#2d281f','#f0eadf',0,.55),

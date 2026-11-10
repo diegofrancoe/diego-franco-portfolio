@@ -1,3 +1,4 @@
+import WebsiteSearchPanel from "./WebsiteSearchPanel";
 import CaseArtworkFilters from './CaseArtworkFilters';
 import { productThemeStyle } from './productThemes';
 import { getCaseHeaderArtwork } from './caseHeaderArtwork';
@@ -8,7 +9,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalculator, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuSend, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
-import { SiShopify, SiGoogleanalytics, SiGooglesearchconsole, SiGoogleads, SiDocker, SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiPostgresql, SiReact, SiStripe, SiSupabase, SiTailwindcss, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, SiZoom } from "react-icons/si";
+import { SiShopify, SiGoogleanalytics, SiGooglesearchconsole, SiGoogleads, SiDocker, SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiPostgresql, SiReact, SiStripe, SiSupabase, SiPython, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, SiZoom } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
 const CONTACT_WHATSAPP_NUMBER = "573113964114";
@@ -295,7 +296,7 @@ const workflowTools = [
   { name: "OpenAI", icon: BsOpenai, color: "#10A37F", slug: "openai" },
   { name: "React", icon: SiReact, color: "#149ECA", slug: "react" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6", slug: "typescript" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", slug: "tailwind" },
+  { name: "Python", icon: SiPython, color: "#3776AB", slug: "python" },
   { name: "Supabase", icon: SiSupabase, color: "#3ECF8E", slug: "supabase" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", slug: "postgresql" },
   { name: "Figma", icon: FigmaBrandMark, color: "#F24E1E", slug: "figma" },
@@ -537,7 +538,7 @@ const caseStudyDetails = {
       { icon: "✓", title: "Finance", meta: "Collect · pay · trace", status: "ANTICIPATES" },
       { icon: "✦", title: "Best next action", meta: "Summary · alert · decision", status: "RECOMMENDS", statusType: "next" },
     ],
-    futureLabel: "FINAL SYSTEM · IN DEVELOPMENT",
+    futureLabel: "FINAL SYSTEM",
     futureTitle: "Built now with the finished system in view.",
     futureCopy:
       "These capabilities are part of the product direction and are shown as the intended final state — not as live production features yet.",
@@ -727,7 +728,7 @@ const caseStudyDetailsEs = {
       { icon: "✓", title: "Finanzas", meta: "Cobrar · pagar · trazar", status: "ANTICIPA" },
       { icon: "✦", title: "Mejor siguiente acción", meta: "Resumen · alerta · decisión", status: "RECOMIENDA", statusType: "next" },
     ],
-    futureLabel: "SISTEMA FINAL · EN DESARROLLO",
+    futureLabel: "SISTEMA FINAL",
     futureTitle: "Construido hoy pensando en el sistema terminado.",
     futureCopy:
       "Estas capacidades hacen parte de la dirección del producto y se muestran como el estado final esperado; todavía no se presentan como funciones activas en producción.",
@@ -843,12 +844,12 @@ const expandedCaseDetails = {
         { value: "AUTO", label: "Connected follow-up", note: "Forms, delivery and internal records continue through an automated workflow." },
       ],
       mobileLabel: "RESPONSIVE PRODUCT EXPERIENCE",
-      mobileTitle: "The complete journey, designed for the phone first.",
-      mobileCopy: "The mobile version keeps the product, proof, content and calls to action legible and comfortable. It is not a reduced desktop page; it is the same decision journey adapted to a smaller screen.",
+      mobileTitle: "40+ on mobile.",
+      mobileCopy: "Explore the product, see how to use it and start an order from your phone.",
       mobileImages: [
         { src: "/case-40plus-mobile-1.webp", label: "Home", benefit: "Brand promise and primary action without visual noise." },
         { src: "/case-40plus-mobile-2.webp", label: "Product", benefit: "Practical information arranged for quick comparison." },
-        { src: "/case-40plus-mobile-3.webp", label: "Daily ritual", benefit: "Educational content that makes the product easier to adopt." },
+        { src: "/case-40plus-ritual-phone.jpg", label: "Daily ritual", benefit: "Educational content that makes the product easier to adopt." },
       ],
       benefitsLabel: "PRODUCT VALUE",
       benefitsTitle: "Design is doing the commercial work before the conversation begins.",
@@ -978,12 +979,12 @@ const expandedCaseDetails = {
         { value: "AUTO", label: "Seguimiento conectado", note: "Formulario, entrega y registro interno continúan mediante un flujo automatizado." },
       ],
       mobileLabel: "EXPERIENCIA DE PRODUCTO RESPONSIVE",
-      mobileTitle: "El recorrido completo, diseñado primero para el celular.",
-      mobileCopy: "La versión móvil mantiene legibles y cómodos el producto, la prueba, el contenido y los llamados a la acción. No es una página de escritorio reducida: es el mismo recorrido de decisión adaptado a una pantalla menor.",
+      mobileTitle: "40+ en tu celular.",
+      mobileCopy: "Conoce el producto, descubre cómo tomarlo e inicia tu pedido desde el celular.",
       mobileImages: [
         { src: "/case-40plus-mobile-1.webp", label: "Inicio", benefit: "Promesa de marca y acción principal sin ruido visual." },
         { src: "/case-40plus-mobile-2.webp", label: "Producto", benefit: "Información práctica ordenada para comparar con rapidez." },
-        { src: "/case-40plus-mobile-3.webp", label: "Ritual diario", benefit: "Contenido educativo que facilita adoptar el producto." },
+        { src: "/case-40plus-ritual-phone.jpg", label: "Ritual diario", benefit: "Contenido educativo que facilita adoptar el producto." },
       ],
       benefitsLabel: "VALOR DEL PRODUCTO",
       benefitsTitle: "El diseño hace el trabajo comercial antes de iniciar la conversación.",
@@ -1100,6 +1101,7 @@ function ProjectGrid({ children }) {
     const cards = [...gridRef.current.querySelectorAll(".project-card")];
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const touchViewport = window.matchMedia("(hover: none), (pointer: coarse)");
+    let openCard = null;
     const updateOpenFolder = () => {
       let closest = null;
       let distance = Infinity;
@@ -1112,7 +1114,10 @@ function ProjectGrid({ children }) {
           distance = delta;
         }
       });
-      cards.forEach((card) => card.classList.toggle("is-scroll-open", card === closest));
+      if (closest === openCard) return;
+      openCard?.classList.remove("is-scroll-open");
+      closest?.classList.add("is-scroll-open");
+      openCard = closest;
     };
     let frame = 0;
     const schedule = () => {
@@ -1133,6 +1138,7 @@ function ProjectGrid({ children }) {
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       touchViewport.removeEventListener("change", handlePointerChange);
+      openCard?.classList.remove("is-scroll-open");
     };
   }, []);
 
@@ -1175,7 +1181,7 @@ function ProjectVisual({ visual, label, mark }) {
 
   return (
     <div className={`project-visual ${visual || "independent"}${visual?.startsWith("agent-") ? " agent" : ""}`}>
-      {projectVisualAssets[visual] ? <img src={projectVisualAssets[visual]} srcSet={productArtwork[visual]?.srcSet} sizes={PRODUCT_ARTWORK_SIZES} width={productArtwork[visual]?.width} height={productArtwork[visual]?.height} alt="" loading="lazy" decoding="async" /> : <span className="product-letter" aria-hidden="true">{mark}</span>}
+      {projectVisualAssets[visual] ? <img src={productArtwork[visual]?.catalogSrc || projectVisualAssets[visual]} srcSet={productArtwork[visual]?.catalogSrcSet || productArtwork[visual]?.srcSet} sizes={PRODUCT_ARTWORK_SIZES} width={productArtwork[visual]?.width} height={productArtwork[visual]?.height} alt="" loading="lazy" decoding="async" /> : <span className="product-letter" aria-hidden="true">{mark}</span>}
       <div className="project-folder" aria-hidden="true">{folderContents}</div>
     </div>
   );
@@ -2054,7 +2060,7 @@ function ExpandedScreenVisual({ screen, project }) {
 }
 
 function ExpandedSystemPreview({ project, content, language }) {
-  const selectedScreens = (project.visual === "naval" ? [0, 2, 4, 8] : [0, 1, 3, 4]).map(index => content.screens[index]);
+  const selectedScreens = (project.visual === "naval" ? [0, 2, 4, 8] : [0, 3]).map(index => content.screens[index]);
   const metrics = project.visual === "naval" ? (language === "es" ? [
     { value: "ERP", label: "Toda la operación conectada", note: "Comercial, producción, compras, transporte y finanzas comparten el mismo contexto." },
     { value: "UX/UI", label: "Claridad para operar", note: "Cada área organiza sus datos, prioridades y acciones dentro de una experiencia común." },
@@ -2074,7 +2080,6 @@ function ExpandedSystemPreview({ project, content, language }) {
           <div className="ceniza-crm-heading-copy">
             <h2 id={`${project.visual}-system-title`}>{content.systemTitle}</h2>
             <p>{content.systemCopy}</p>
-            {project.visual === "forty" && content.webUrl && <a className="ceniza-section-link is-website expanded-intro-visit" href={content.webUrl} target="_blank" rel="noreferrer"><span>{content.webCta}</span><Arrow diagonal /></a>}
           </div>
 
         </div>
@@ -2405,11 +2410,11 @@ function FortyIntegrationsSection({ language }) {
   ];
 
   return (
-    <section className="forty-integrations-section" aria-labelledby="forty-integrations-title">
+    <section className="forty-integrations-section ceniza-web-integrations" aria-labelledby="forty-integrations-title">
       <header>
         <CenizaEyebrow text={isEs ? "APIS + ECOSISTEMA DE CRECIMIENTO" : "APIS + GROWTH ECOSYSTEM"} />
         <h2 id="forty-integrations-title">
-          {isEs ? "La web puede conectar todo el recorrido del cliente." : "The website can connect the entire customer journey."}
+          {isEs ? "Cómo se conecta 40+." : "How 40+ connects."}
         </h2>
         <p>
           {isEs
@@ -2419,17 +2424,25 @@ function FortyIntegrationsSection({ language }) {
       </header>
       <div className="forty-integrations-map">
         <section className="is-connected">
-          <div className="forty-integration-status"><span aria-hidden="true" />{isEs ? "CONECTADO HOY" : "CONNECTED TODAY"}</div>
+          <div className="forty-integration-status"><span aria-hidden="true" />{isEs ? "CONECTADO" : "CONNECTED"}</div>
           <ul>
-            {connected.map(({ icon: Icon, title, text }) => (
+            {connected.filter(({ title }) => !["Search Console", "Google Analytics"].includes(title)).map(({ icon: Icon, title, text }) => (
               <li key={title}><span aria-hidden="true"><Icon /></span><div><strong>{title}</strong><p>{text}</p></div></li>
+            ))}
+          </ul>
+        </section>
+        <section className="is-measurement">
+          <div className="forty-integration-status"><span aria-hidden="true" />{isEs ? "MEDICIÓN Y CAMPAÑAS" : "MEASUREMENT AND CAMPAIGNS"}</div>
+          <ul>
+            {[...connected.filter(({ title }) => ["Search Console", "Google Analytics"].includes(title)), available.find(({ title }) => title === "Google Ads")].map(({ icon: Icon, title, text }) => (
+              <li key={title}><span aria-hidden="true"><Icon /></span><div><strong>{title}</strong><p>{title === "Google Ads" ? (isEs ? "Opción para futuras campañas." : "An option for future campaigns.") : text}</p></div></li>
             ))}
           </ul>
         </section>
         <section className="is-available">
           <div className="forty-integration-status"><span aria-hidden="true" />{isEs ? "LISTO PARA CONECTAR" : "READY TO CONNECT"}</div>
           <ul>
-            {available.map(({ icon: Icon, title, text }) => (
+            {available.filter(({ title }) => title !== "Google Ads").map(({ icon: Icon, title, text }) => (
               <li key={title}><span aria-hidden="true"><Icon /></span><div><strong>{title}</strong><p>{text}</p></div></li>
             ))}
           </ul>
@@ -2598,9 +2611,9 @@ function ExpandedCaseContent({ project, language }) {
       <ExpandedSystemPreview project={project} content={content} language={language} />
       {project.visual === "naval" ? <NavalProductionSection language={language} /> : null}
       {project.visual === "naval" ? <NavalFinancialIntelligence language={language} /> : null}
-      <ExpandedBenefits project={project} content={content} />
+      {project.visual !== "forty" && <ExpandedBenefits project={project} content={content} />}
       {project.visual === "naval" ? <NavalAutomationBridge content={content} language={language} /> : <ExpandedAutomation project={project} content={content} language={language} />}
-      {project.visual === "forty" ? <FortyIntegrationsSection language={language} /> : null}
+      {project.visual === "forty" ? <><FortyIntegrationsSection language={language} /><WebsiteSearchPanel productId="40plus-commerce" language={language} /></> : null}
       <ExpandedAssistant project={project} content={content} language={language} />
       {project.visual !== "forty" ? <ExpandedWebSection project={project} content={content} language={language} /> : null}
       {project.visual === "naval" ? <NavalSecuritySection language={language} /> : null}
@@ -3247,8 +3260,10 @@ function App() {
     };
   }, [currentPath, language]);
 
-  const activeProject = localizedProjects.find((project) => project.path === currentPath);
-  const catalogProduct = productCatalog.find(product => currentPath === `/productos/${product.id}`);
+  const requestedProduct = productCatalog.find(product => currentPath === `/productos/${product.id}` || currentPath === product.casePath);
+  const projectPath = requestedProduct?.category === "fullstack" ? requestedProduct.casePath || currentPath : currentPath;
+  const activeProject = localizedProjects.find(project => project.path === projectPath);
+  const catalogProduct = activeProject && requestedProduct?.category === "fullstack" ? undefined : requestedProduct;
   const isNotFound = currentPath !== "/" && !activeProject && !catalogProduct;
 
   useEffect(() => {
@@ -3325,7 +3340,7 @@ function App() {
         </a>
 
         <nav aria-label={text.mainNavigation}>
-          <a href="/#trabajo" aria-current={activeProject || (currentPath === "/" && currentHash === "#trabajo") ? "page" : undefined} onClick={(event) => navigate(event, "/#trabajo")}>{text.navProjects}</a>
+          <a href="/#trabajo" aria-current={activeProject || catalogProduct || (currentPath === "/" && currentHash === "#trabajo") ? "page" : undefined} onClick={(event) => navigate(event, "/#trabajo")}>{text.navProjects}</a>
           <a href="/#proceso" aria-current={currentPath === "/" && currentHash === "#proceso" ? "page" : undefined} onClick={(event) => navigate(event, "/#proceso")}>{text.navAbout}</a>
           <a href="/#contacto" aria-current={currentPath === "/" && currentHash === "#contacto" ? "page" : undefined} onClick={(event) => navigate(event, "/#contacto")}>{text.navContact}</a>
         </nav>
@@ -3345,7 +3360,19 @@ function App() {
       </header>
 
       {catalogProduct ? (
-        <ProductPage key={catalogProduct.id} product={catalogProduct} language={language} navigate={navigate} contactHref={CONTACT_WHATSAPP_URL} />
+        <ProductPage
+          key={catalogProduct.id}
+          product={catalogProduct}
+          language={language}
+          navigate={navigate}
+          contactHref={CONTACT_WHATSAPP_URL}
+          commerceDetails={catalogProduct.id === "40plus-commerce" ? {
+            ...expandedCaseDetails[language].forty,
+            story: localizeCaseDetail(caseStudyDetails.forty, "forty", language).story,
+          } : undefined}
+          commerceAutomation={catalogProduct.id === "40plus-commerce" && <FortyConnectedAutomation content={expandedCaseDetails[language].forty} language={language} />}
+          commerceIntegrations={catalogProduct.id === "40plus-commerce" && <FortyIntegrationsSection language={language} />}
+        />
       ) : activeProject ? (
         <ProjectDetailPage project={activeProject} projectsList={localizedProjects} onNavigate={navigate} language={language} />
       ) : isNotFound ? (
@@ -3421,7 +3448,7 @@ function App() {
           </div>
 
           <ul className="tools-constellation" aria-label={text.toolsAria}>
-            {["openai", "figma", "react", "tailwind", "supabase", "postgresql", "n8n", "make", "typescript", "github", "docker", "vercel"].map(slug => {
+            {["openai", "figma", "react", "python", "supabase", "postgresql", "n8n", "make", "typescript", "github", "docker", "vercel"].map(slug => {
               const tool = workflowTools.find(item => item.slug === slug);
               const ToolIcon = tool.icon;
               return <li key={tool.slug} style={{ "--brand-color": tool.color }}><span className="tool-orb" aria-hidden="true"><ToolIcon /></span><span>{tool.name}</span></li>;

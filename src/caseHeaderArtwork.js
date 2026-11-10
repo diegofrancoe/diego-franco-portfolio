@@ -22,6 +22,12 @@ const productHeaders = {
   'bernardo-portfolio': responsive('case-website-browser-contrast-v3', 'hue-rotate(-55deg) saturate(.5)'),
   'sophia-portfolio': responsive('case-website-browser-contrast-v3', 'hue-rotate(150deg) saturate(.65)'),
   'ceniza-agent': headers.agents,
+  'my-garage-ai': {
+    src: '/optimized/case-agent-mia-640.png',
+    srcSet: '/optimized/case-agent-mia-320.png 320w, /optimized/case-agent-mia-640.png 640w',
+    width: 640,
+    height: 640,
+  },
   'naval-erp-agent': responsive('case-agent-naval-v2'),
   'naval-campaigns': responsive('case-agent-marketing-v2'),
   chatbot: responsive('case-agent-chatbot-v2'),
