@@ -94,10 +94,19 @@ for (const route of routes) {
 }
 
 const notFoundTitle = "Page not found | Diego Franco";
-const notFoundDescription = "The page you requested could not be found. Explore Diego Franco's AI solutions and product digital products.";
+const notFoundDescription = "The page you requested could not be found. Explore Diego Franco's AI solutions and digital products.";
 let notFoundHtml = baseHtml
   .replace(/<title>[^<]*<\/title>/i, `<title>${notFoundTitle}</title>`)
   .replace(/<link rel="canonical" href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${siteUrl}/" />`);
 notFoundHtml = replaceMeta(notFoundHtml, 'name="description"', notFoundDescription);
 notFoundHtml = replaceMeta(notFoundHtml, 'name="robots"', "noindex, nofollow");
 await writeFile(resolve(dist, "404.html"), notFoundHtml);
+
+// Keep search discovery synchronized with the published project routes.
+const sitemapPaths = ["/", ...new Set(routes.map(route => route.path))];
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapPaths.map(path => `  <url><loc>${siteUrl}${path}</loc></url>`).join("\n")}
+</urlset>
+`;
+await writeFile(resolve(dist, "sitemap.xml"), sitemap);
