@@ -3487,7 +3487,7 @@ function App() {
       <footer>
         <a className="wordmark" href="/" onClick={(event) => navigate(event, "/")}>DIEGO <span>FRANCO</span></a>
         <p className="footer-portfolio" aria-label={text.ideasIntoSystems}><TypewriterText text={text.ideasIntoSystems} threshold={0.15} rootMargin="0px 0px 8% 0px" /></p>
-        <p className="footer-copyright">© {new Date().getFullYear()}</p>
+        <p className="footer-copyright">© 2025</p>
       </footer>
     </div>
   );
