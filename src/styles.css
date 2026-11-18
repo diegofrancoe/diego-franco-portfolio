@@ -6647,21 +6647,117 @@ main.editorial-case.case-study > .editorial-case-back-link {
 }
 
 [data-product="naval-campaigns"] .ceniza-site-desktop {
-  width: min(100%, 960px);
+  width: min(100%, 900px);
   margin-inline: auto;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
   align-items: start;
 }
-[data-product="naval-campaigns"] .ceniza-site-desktop > .product-shot:nth-child(2) {
-  width: min(100%, 230px);
-  justify-self: center;
+[data-product="naval-campaigns"] .product-shot img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
-[data-product="naval-campaigns"] .product-shot img { height: auto; aspect-ratio: auto; object-fit: contain; }
-[data-product="naval-campaigns"] .category-capabilities { margin-top: 38px; }
-@media(max-width:680px) { [data-product="naval-campaigns"] .ceniza-site-desktop { grid-template-columns: 1fr; } }
+[data-product="naval-campaigns"] .category-capabilities { margin-top: 28px; }
+@media (max-width: 680px) {
+  [data-product="naval-campaigns"] .ceniza-site-desktop {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 400px;
+  }
+}
 
-[data-product="naval-campaigns"] .ceniza-site-desktop > .product-shot:nth-child(3) { grid-column: 1 / -1; max-width: 760px; width: 100%; margin-inline: auto; }
-[data-product="naval-campaigns"] .ceniza-site-phones { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 460px; gap: 24px; }
+[data-product="naval-campaigns"] .ceniza-site-phones { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 540px; gap: 20px; }
 [data-product="naval-campaigns"] .ceniza-site-phones .product-shot img { width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; }
-[data-product="naval-campaigns"] .ceniza-site-mobile { margin-top: 40px; }
+[data-product="naval-campaigns"] .ceniza-site-mobile { margin-top: 28px; }
 @media (max-width:680px) { [data-product="naval-campaigns"] .ceniza-site-phones { gap: 16px; } }
+
+/* Keep the public chatbot showcase at the same compact scale as the agent cases. */
+[data-product="chatbot"] .ceniza-site-desktop { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:960px; margin-inline:auto; gap:24px; align-items:start; }
+[data-product="chatbot"] .ceniza-site-desktop .product-shot img { width:100%; aspect-ratio: 4 / 3; object-fit:cover; object-position:top; }
+[data-product="chatbot"] .ceniza-site-phones { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:570px; gap:20px; }
+[data-product="chatbot"] .ceniza-site-phones .product-shot img { aspect-ratio:390/844; object-fit:cover; object-position:top; }
+[data-product="chatbot"] .ceniza-site-mobile { margin-top:32px; }
+@media(max-width:680px) { [data-product="chatbot"] .ceniza-site-desktop { grid-template-columns:1fr; max-width:480px; } [data-product="chatbot"] .ceniza-site-phones { gap:12px; } }
+
+[data-product="chatbot"] .ceniza-site-desktop { max-width:1040px; gap:24px; }
+[data-product="chatbot"] .ceniza-site-desktop .product-shot img { aspect-ratio:1440/1000; object-fit:contain; background:#f8fafb; }
+[data-product="chatbot"] .ceniza-site-capabilities { grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+[data-product="chatbot"] .ceniza-site-capabilities article p { font-size:.85rem; line-height:1.6; }
+[data-product="chatbot"] .agent-tool-strip li p { font-size:.8rem; line-height:1.5; }
+@media(max-width:850px) { [data-product="chatbot"] .ceniza-site-capabilities { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { [data-product="chatbot"] .ceniza-site-capabilities { grid-template-columns:1fr; } [data-product="chatbot"] .ceniza-site-desktop { max-width:320px; } }
+
+/* Responsive release checks: keep navigation and product previews usable. */
+@media (max-width: 1100px) {
+  .new-product-case > .new-case-story article::after { display: none; }
+  .new-product-case > .new-case-story article { min-width: 0; overflow-wrap: anywhere; }
+  .agent-tool-strip li { overflow-wrap: anywhere; }
+}
+@media (max-width: 680px) {
+  .site-nav { display: flex; flex-wrap: wrap; }
+  .site-nav nav {
+    display: flex;
+    order: 3;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  .site-nav nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 8px; font-size: .65rem; }
+  .new-product-case .ceniza-site-desktop { grid-template-columns: minmax(0, 1fr); }
+  .new-product-case .ceniza-site-phones {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(78vw, 220px);
+    justify-content: start;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    gap: 18px;
+    padding: 6px 4px 20px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+  .new-product-case .ceniza-site-phones > figure { min-width: 0; margin: 0; scroll-snap-align: start; }
+  .new-product-case .ceniza-site-mobile { min-width: 0; }
+}
+@media (max-width: 1100px) {
+  main.editorial-case.new-product-case > .case-narrative.is-ceniza.new-case-story article:not(:last-child)::after { display: none; }
+}
+
+.ceniza-site-phone-gallery { min-width: 0; }
+.mobile-gallery-hint { display: none; }
+@media (max-width: 680px) {
+  .new-product-case .mobile-gallery-hint { display: block; margin: 16px 0 8px; font-size: .7rem; color: #50574b; }
+}
+
+/* Shared project galleries: two desktop views followed by three phones. */
+.new-product-case .ceniza-site-desktop {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 32px);
+  align-items: start;
+}
+.new-product-case .ceniza-site-desktop .product-shot img {
+  width: 100%;
+  aspect-ratio: 1.4;
+  object-fit: contain;
+  object-position: top;
+  background: #f8f7f2;
+}
+.new-product-case .ceniza-site-phones {
+  width: min(100%, 730px);
+  gap: clamp(14px, 2vw, 28px);
+}
+.new-product-case .ceniza-site-phones .product-shot img {
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  object-position: top;
+}
+@media (max-width: 680px) {
+  .new-product-case .ceniza-site-desktop { grid-template-columns: minmax(0, 1fr); }
+  .new-product-case .ceniza-site-phones { width: 100%; grid-template-columns: repeat(3, 220px); }
+}

@@ -9,7 +9,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { BsOpenai } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { LuArrowRight, LuArrowUpRight, LuBoxes, LuCalculator, LuCalendarCheck, LuCircleDollarSign, LuClipboardList, LuDatabase, LuFactory, LuFileText, LuFlaskConical, LuGlobe, LuPackageCheck, LuSend, LuShieldCheck, LuShoppingCart, LuSparkles, LuTarget, LuTrendingUp, LuUserCheck, LuUsers } from "react-icons/lu";
-import { SiShopify, SiGoogleanalytics, SiGooglesearchconsole, SiGoogleads, SiDocker, SiDropbox, SiGithub, SiGmail, SiGooglecalendar, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiPostgresql, SiReact, SiStripe, SiSupabase, SiPython, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, SiZoom } from "react-icons/si";
+import { SiShopify, SiGoogleanalytics, SiGooglesearchconsole, SiGoogleads, SiDocker, SiGithub, SiGmail, SiGoogledrive, SiGooglemaps, SiInstagram, SiMake, SiMercadopago, SiMeta, SiN8N, SiPostgresql, SiReact, SiStripe, SiSupabase, SiPython, SiTiktok, SiTypescript, SiVercel, SiWhatsapp, } from "react-icons/si";
 
 const CONTACT_EMAIL = "diegofrancoecheverri@gmail.com";
 const CONTACT_WHATSAPP_NUMBER = "573113964114";
@@ -2991,8 +2991,9 @@ function ProjectDetailPage({ project, projectsList, onNavigate, language }) {
   }, [preview]);
 
   const text = copy[language];
-  const projectIndex = projectsList.findIndex((item) => item.path === project.path);
-  const nextProject = projectsList[(projectIndex + 1) % projectsList.length];
+  const projectIndex = productCatalog.findIndex((item) => item.casePath === project.path);
+  const nextProduct = productCatalog[(projectIndex + 1) % productCatalog.length];
+  const nextProject = { path: nextProduct.casePath || `/productos/${nextProduct.id}`, name: nextProduct.cardName || nextProduct.name };
   const detail = localizeCaseDetail(caseStudyDetails[project.visual], project.visual, language);
   const headerArtwork = getCaseHeaderArtwork(project.visual === 'forty' ? 'website' : 'fullstack', {ceniza:'ceniza-crm',naval:'naval-erp',forty:'40plus-commerce'}[project.visual]);
   const caseStyle = {
@@ -3486,7 +3487,7 @@ function App() {
       <footer>
         <a className="wordmark" href="/" onClick={(event) => navigate(event, "/")}>DIEGO <span>FRANCO</span></a>
         <p className="footer-portfolio" aria-label={text.ideasIntoSystems}><TypewriterText text={text.ideasIntoSystems} threshold={0.15} rootMargin="0px 0px 8% 0px" /></p>
-        <p className="footer-copyright">© 2025</p>
+        <p className="footer-copyright">© {new Date().getFullYear()}</p>
       </footer>
     </div>
   );

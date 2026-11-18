@@ -1,7 +1,8 @@
 import { LuArrowRight, LuHammer, LuClipboardList, LuSearch, LuShieldCheck, LuWorkflow } from 'react-icons/lu';
 import { BsOpenai } from 'react-icons/bs';
-import { SiNodedotjs, SiJavascript } from 'react-icons/si';
+import { SiNodedotjs, SiWhatsapp, SiReact } from 'react-icons/si';
 import CenizaWebIntegrations from "./CenizaWebIntegrations";
+import EightNoventaIntegrations from './EightNoventaIntegrations';
 import WebsiteSearchPanel from './WebsiteSearchPanel';
 import CenizaWebWorkflow from './CenizaWebWorkflow';
 import CenizaWebAutomation from './CenizaWebAutomation';
@@ -17,9 +18,35 @@ import { productCatalog, statusLabels } from './productCatalog';
 
 
 const websiteWorkflow = {
+  '8noventa': {
+    es: ['Explora seis piezas y filtra la colección por perros o gatos.', 'Consulta fotografías, construcción y medidas. Selecciona los colores y tamaños disponibles en cada producto.', 'Comprueba las variantes elegidas, ajusta cantidades y revisa el subtotal. La selección se conserva entre visitas.', 'Completa los datos de contacto y entrega. La API registra la solicitud para gestionarla en el taller.'],
+    en: ['Explore six pieces and filter the collection by dogs or cats.', 'Review photographs, construction and dimensions. Select the available colors and sizes for each product.', 'Check selected variants, adjust quantities and review the subtotal. Selections persist between visits.', 'Complete contact and delivery details. The API records the request for management in the workshop.'],
+  },
+  'my-garage-platform': {
+    es: ['Crea una cuenta o inicia sesión. El servidor mantiene privados los vehículos y datos de cada conductor.', 'Selecciona un carro y explora sus zonas en 3D. Consulta motor, aceite, llantas, frenos, seguro y accesorios.', 'Actualiza el kilometraje, revisa historial y recomendaciones o conversa con Mia. La agenda consulta los horarios disponibles.', 'Revisa vehículo, servicio y horario antes de confirmar. La reserva queda guardada y el sistema evita duplicados y doble ocupación.'],
+    en: ['Create an account or sign in. The server keeps each driver’s vehicles and data private.', 'Select a car and explore its 3D areas. Check the engine, oil, tires, brakes, insurance and accessories.', 'Update mileage, review history and recommendations or talk to Mia. The calendar checks available time slots.', 'Review the vehicle, service and time before confirming. The booking is saved and the system prevents duplicates and double-booking.'],
+  },
+  'my-garage-ai': {
+    es: ['La sesión identifica el vehículo autorizado y el componente seleccionado para mantener la conversación en contexto.', 'Mia consulta vehículo, historial y recomendaciones mediante herramientas del servidor. Para agendar, comprueba reservas y disponibilidad.', 'Prepara una propuesta con el servicio y el horario disponibles. La conversación orienta, sin sustituir una revisión mecánica.', 'El conductor confirma desde la interfaz. Ante fallas graves, las reglas de seguridad registran un caso prioritario para atención humana.'],
+    en: ['The session identifies the authorized vehicle and selected component to keep the conversation in context.', 'Mia queries vehicle details, history and recommendations through server tools. For bookings, it checks existing reservations and availability.', 'It prepares a proposal using an available service and time slot. The conversation offers guidance without replacing a mechanical inspection.', 'Drivers confirm through the interface. For serious faults, safety rules record a priority case for human support.'],
+  },
+  chatbot: {
+    es: [
+      'El visitante pide una recomendación, cotización o capacitación, consulta una entrega o reporta una queja. El asistente pregunta lo necesario para entender el caso.',
+      'Relaciona la necesidad con productos, presentaciones, usos y diluciones. Facilita fichas técnicas, documentos de seguridad y enlaces para navegar por la web.',
+      'Guía la cotización, la capacitación o el reporte y reúne cantidades, ubicación y datos de contacto. El visitante revisa y confirma la información antes de enviarla.',
+      'Abre el contacto directo con un asesor por WhatsApp y canaliza las solicitudes mediante Make para continuar el seguimiento comercial en el ecosistema de Naval.'
+    ],
+    en: [
+      'Visitors request a recommendation, quote or training, ask about delivery or report an issue. The assistant asks the questions needed to understand each case.',
+      'It matches the need with products, package sizes, uses and dilutions. It provides technical sheets, safety documents and links to navigate the website.',
+      'It guides the quote, training inquiry or issue report and gathers quantities, location and contact details. Visitors review and confirm the information before submitting.',
+      'It opens direct contact with a human advisor on WhatsApp and routes inquiries through Make to continue commercial follow-up within Naval’s ecosystem.'
+    ],
+  },
   'naval-campaigns': {
-    es: ['Elige canal, objetivo, audiencia y fechas.', 'Usa el catálogo y los documentos aprobados como contexto para el mensaje y la pieza.', 'Ajusta el contenido y revisa cada canal de forma independiente.', 'Conserva borradores y organiza las fechas de revisión en el calendario.'],
-    en: ['Choose channel, goal, audience and dates.', 'Use the catalog and approved documents as context for messages and creative.', 'Refine content and review each channel independently.', 'Keep drafts and organize review dates in the calendar.'],
+    es: ['Reúne contactos, segmentos y datos comerciales desde Excel en OneDrive o SharePoint.', 'Define objetivo, canal y contenido. La IA ayuda a preparar mensajes con el contexto del catálogo.', 'Edita y revisa cada mensaje y organiza campañas, visitas y seguimientos en la agenda.', 'Coordina envíos por WhatsApp Business API y Outlook y consulta las respuestas para continuar el seguimiento.'],
+    en: ['Bring together contacts, segments and sales data from Excel in OneDrive or SharePoint.', 'Define the goal, channel and content. AI helps prepare messages using catalog context.', 'Edit and review each message and organize campaigns, visits and follow-ups in the calendar.', 'Coordinate delivery through WhatsApp Business API and Outlook and check replies to continue follow-up.'],
   },
   '40plus-commerce': {
     es: ['La portada presenta el colágeno y su lugar en la rutina diaria.', 'El sitio muestra cómo prepararlo y qué incluye cada presentación.', 'La ficha reúne imágenes, precio y cantidad para preparar el pedido.', 'El producto elegido y la intención de compra pasan a la conversación de WhatsApp.'],
@@ -161,7 +188,7 @@ export function ProductPage({ product, language, navigate, contactHref, commerce
               <h3>{commerceDetails?.mobileTitle || value(profile?.mobileTitle, language) || (es ? 'Del equipo a la cotización.' : 'From equipment to quote.')}</h3>
               <p>{commerceDetails?.mobileCopy || value(profile?.mobileCopy, language) || (es ? 'Cuéntanos qué necesitas en el formulario, cotiza un equipo desde su ficha o descubre qué incluyen los combos de iluminación.' : 'Tell us what you need in the contact form, request a quote from an equipment page, or see what the lighting bundles include.')}</p>
             </div>
-            <div className="ceniza-site-phones">{mobileShots.map(renderShot)}</div>
+            <div className="ceniza-site-phone-gallery"><p className="mobile-gallery-hint">{es ? "Desliza para ver las pantallas →" : "Swipe to explore the screens →"}</p><div className="ceniza-site-phones">{mobileShots.map(renderShot)}</div></div>
           </div>}
         </div>}
         {(!website || gallery.length === 0) && <section className="category-capabilities" aria-labelledby="case-capabilities-title">
@@ -173,16 +200,25 @@ export function ProductPage({ product, language, navigate, contactHref, commerce
       {website && <WebsiteSearchPanel productId={product.id} language={language} />}
       {agent && <section className="agent-value-panel">
         <div><p className="eyebrow">{es ? 'POR QUÉ UN AGENTE' : 'WHY AN AGENT'}</p><h2>{outcome}</h2></div>
-        <div><h3>{es ? 'Estado y alcance' : 'Status and scope'}</h3><p>{value(product.scope, language)}</p></div>
+        <div><h3>{product.id === 'chatbot' ? (es ? 'Asesoría con contexto' : 'Contextual guidance') : (es ? 'Agenda y seguimiento' : 'Calendar and follow-up')}</h3><p>{value(product.scope, language)}</p></div>
+        {product.id === 'naval-campaigns' && <div><h3>{es ? 'Contenido con contexto' : 'Content with context'}</h3><p>{es ? 'La IA utiliza el catálogo y los documentos de la empresa para preparar mensajes y piezas por canal. El equipo ajusta y revisa cada campaña antes de programarla.' : 'AI uses the company catalog and documents to prepare messages and creative for each channel. The team refines and reviews each campaign before scheduling it.'}</p></div>}
+        {product.id === 'chatbot' && <div><h3>{es ? 'Una solicitud lista para continuar' : 'An inquiry ready for follow-up'}</h3><p>{es ? 'Los recorridos guiados reúnen los datos de cotizaciones, capacitaciones y quejas. El visitante revisa la solicitud antes de enviarla. Make canaliza la información para dar continuidad comercial y conectar el seguimiento con el ecosistema de ERP y marketing de Naval.' : 'Guided flows collect quote, training and complaint details. Visitors review the inquiry before submitting it. Make routes the information for sales follow-up and continuity within Naval’s ERP and marketing ecosystem.'}</p></div>}
         {product.pending && <div><h3>{es ? 'Próxima etapa' : 'Next stage'}</h3><p>{value(product.pending, language).join(' · ')}</p></div>}
       </section>}
       {cenizaWeb ? <CenizaWebWorkflow es={es}><CenizaWebAutomation es={es} setZoom={setZoom} /></CenizaWebWorkflow> : <section className={`agent-workflow agent-workflow-compact${website ? ' website-workflow' : ''}`} aria-labelledby="category-workflow-title">
-        <header><p className="eyebrow">WORKFLOW</p><h2 id="category-workflow-title">{commerceDetails ? (es ? 'Del descubrimiento al pedido.' : 'From discovery to order.') : (es ? 'De la intención al siguiente paso.' : 'From intent to the next step.')}</h2><p>{value(product.scope, language)}</p></header>
+        <header><p className="eyebrow">WORKFLOW</p><h2 id="category-workflow-title">{product.id === 'chatbot' ? (es ? 'De la consulta a la atención comercial.' : 'From inquiry to commercial support.') : commerceDetails ? (es ? 'Del descubrimiento al pedido.' : 'From discovery to order.') : (es ? 'De la intención al siguiente paso.' : 'From intent to the next step.')}</h2><p>{product.id === 'chatbot' ? (es ? 'Asesoría de productos, documentos y navegación, con solicitudes guiadas y atención humana para dar continuidad a cada conversación.' : 'Product guidance, documents and website navigation, with guided inquiries and human support to keep every conversation moving.') : value(product.scope, language)}</p></header>
         <ol className="agent-workflow-steps">{journey.map((step, index) => {
           const Icon = workflowIcons[index % workflowIcons.length];
           return <li key={step}><div className="agent-step-icon"><Icon aria-hidden="true" /></div><span className="agent-step-number">{String(index + 1).padStart(2, '0')}</span><h3>{step}</h3>{workflowDetails?.[index] && <p>{workflowDetails[index]}</p>}{index < journey.length - 1 && <LuArrowRight className="agent-step-arrow" aria-hidden="true" />}</li>;
         })}</ol>
-        {product.id === 'naval-campaigns' && <div className="agent-tool-strip"><p>{es ? 'HERRAMIENTAS UTILIZADAS' : 'TOOLS USED'}</p><ul>{[[BsOpenai,'OpenAI',es ? 'Texto e imágenes' : 'Text and images'],[SiNodedotjs,'Node.js',es ? 'API del asistente' : 'Assistant API'],[SiJavascript,'JavaScript',es ? 'Interfaz y estado por canal' : 'Interface and channel state']].map(([Icon,name,copy])=><li key={name}><Icon aria-hidden="true"/><div><strong>{name}</strong><p>{copy}</p></div></li>)}</ul><p>{es ? 'El equipo revisa y aprueba. La conexión de destinatarios y proveedores de envío sigue pendiente.' : 'The team reviews and approves. Recipient and delivery-provider connections remain pending.'}</p></div>}
+        {product.id === 'naval-campaigns' && <div className="agent-tool-strip"><p>{es ? 'HERRAMIENTAS UTILIZADAS' : 'TOOLS USED'}</p><ul>{[[BsOpenai,'OpenAI',es ? 'Texto e imágenes' : 'Text and images'],[SiNodedotjs,'Node.js',es ? 'API del asistente' : 'Assistant API'],[SiWhatsapp,'WhatsApp Business API',es ? 'Mensajes y respuestas' : 'Messages and replies'],[LuClipboardList,'Excel · Microsoft Graph',es ? 'Contactos y datos comerciales' : 'Contacts and sales data'],[LuWorkflow,'Outlook',es ? 'Campañas por correo' : 'Email campaigns']].map(([Icon,name,copy])=><li key={name}><Icon aria-hidden="true"/><div><strong>{name}</strong><p>{copy}</p></div></li>)}</ul><p>{es ? 'Excel aporta los datos, la agenda organiza el trabajo y WhatsApp y Outlook conectan al equipo con sus clientes.' : 'Excel supplies the data, the calendar organizes the work, and WhatsApp and Outlook connect the team with customers.'}</p></div>}
+        {['my-garage-platform', 'my-garage-ai'].includes(product.id) && <div className="agent-tool-strip"><p>{es ? 'HERRAMIENTAS Y CONEXIONES' : 'TOOLS AND CONNECTIONS'}</p><ul>{[
+          ['Python', es ? 'API, permisos y reglas de negocio' : 'API, permissions and business rules'],
+          ['JavaScript', es ? 'Interfaz y visor 3D' : 'Interface and 3D viewer'],
+          ['SQLite · PostgreSQL', es ? 'Cuentas, historial y reservas' : 'Accounts, history and bookings'],
+          ['OpenAI', es ? 'Mia y herramientas de consulta' : 'Mia and query tools']
+        ].map(([name, copy]) => <li key={name}><LuWorkflow aria-hidden="true"/><div><strong>{name}</strong><p>{copy}</p></div></li>)}</ul></div>}
+        {product.id === 'chatbot' && <div className="agent-tool-strip"><p>{es ? 'HERRAMIENTAS Y CONEXIONES' : 'TOOLS AND CONNECTIONS'}</p><ul>{[[SiReact,'React',es ? 'Interfaz conversacional' : 'Conversational interface'],[LuClipboardList,es ? 'Catálogo y documentos' : 'Catalog and documents',es ? 'Productos, fichas técnicas y seguridad' : 'Products, technical sheets and safety'],[LuShieldCheck,'API',es ? 'Validación de solicitudes' : 'Request validation'],[SiWhatsapp,'WhatsApp',es ? 'Contacto directo con un asesor humano' : 'Direct contact with a human advisor'],[LuWorkflow,'Make',es ? 'Solicitudes y continuidad comercial' : 'Inquiries and commercial follow-up']].map(([Icon,name,copy])=><li key={name}><Icon aria-hidden="true"/><div><strong>{name}</strong><p>{copy}</p></div></li>)}</ul></div>}
         {navalWeb && <div className="agent-tool-strip">
           <p>{es ? 'CANALES DE ATENCIÓN' : 'SUPPORT CHANNELS'}</p>
           <ul>
@@ -194,11 +230,12 @@ export function ProductPage({ product, language, navigate, contactHref, commerce
         {commerceAutomation}
       </section>}
       {(cenizaWeb || navalWeb) && <CenizaWebIntegrations language={language} naval={navalWeb} />}
+      {product.id === '8noventa' && <EightNoventaIntegrations es={es} />}
       {commerceIntegrations}
     </>}
     <ProductClosing product={product} profile={commerceDetails ? { outcome: { [language]: outcome } } : profile} language={language} navigate={navigate} contactHref={contactHref}/>
-    <a className="case-next" href={next.casePath||'/productos/'+next.id} onClick={e=>navigate(e,next.casePath||'/productos/'+next.id)}><span>{es?'Siguiente producto':'Next product'}</span><strong>{next.name}</strong><span className="arrow-icon" aria-hidden="true">→</span></a>
     <dialog ref={dialogRef} className="case-image-preview" aria-label={es?'Captura ampliada':'Enlarged screenshot'} onCancel={()=>setZoom(false)} onClose={()=>setZoom(false)} onClick={e=>{if(e.target===e.currentTarget)setZoom(false);}}>{zoom&&<><button type="button" autoFocus className="case-preview-close" aria-label={es?'Cerrar captura':'Close screenshot'} onClick={()=>setZoom(false)}>✕</button><figure><img src={zoom.src} alt={zoom.caption}/><figcaption>{zoom.caption}</figcaption></figure></>}</dialog>
     </>}
+    <a className="case-next" href={next.casePath||'/productos/'+next.id} onClick={e=>navigate(e,next.casePath||'/productos/'+next.id)}><span>{es?'Siguiente producto':'Next product'}</span><strong>{next.name}</strong><span className="arrow-icon" aria-hidden="true">→</span></a>
   </main>;
 }

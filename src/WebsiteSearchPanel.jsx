@@ -1,6 +1,7 @@
 import { LuMessageSquare, LuSearch } from 'react-icons/lu';
 
 const examples = {
+  '8noventa': ['Tallas, materiales, cuidados y diferencias entre camas, refugios y muebles para mascotas.', 'Sizes, materials, care and differences between pet beds, shelters and furniture.'],
   'ceniza-web': ['Alquiler de iluminación en Bogotá, equipos y datos necesarios para cotizar.', 'Lighting rentals in Bogotá, equipment and what to include in a quote request.'],
   '40plus-commerce': ['Qué es el producto, cómo incorporarlo a la rutina y cómo hacer un pedido.', 'What the product is, how to use it and how to place an order.'],
   'naval-b2b': ['Para qué sirve cada producto, dónde se aplica y cómo consultar su ficha técnica.', 'What each product does, where it is used and how to find its technical documentation.'],
@@ -24,7 +25,7 @@ export default function WebsiteSearchPanel({ productId, language }) {
         <h3>{es ? 'SEO · Descubrimiento e indexación' : 'SEO · Discovery and indexing'}</h3>
         <p>{planned
           ? (es ? 'Al publicar, el plan es usar títulos descriptivos, enlaces internos y un sitemap para facilitar el descubrimiento de los proyectos.' : 'At launch, descriptive titles, internal links and a sitemap can help search engines discover the projects.')
-          : (es ? 'El sitemap y los enlaces ayudan a los buscadores a descubrir las páginas. Los títulos descriptivos aclaran qué encontrará la persona en cada resultado.' : 'The sitemap and links help search engines discover pages. Descriptive titles tell people what to expect from each result.')}</p>
+          : productId === '8noventa' ? (es ? 'Las páginas de producto, los títulos descriptivos y los enlaces de la colección facilitan descubrir cada pieza y entender su propuesta.' : 'Product pages, descriptive titles and collection links help visitors discover each piece and understand its purpose.') : (es ? 'El sitemap y los enlaces ayudan a los buscadores a descubrir las páginas. Los títulos descriptivos aclaran qué encontrará la persona en cada resultado.' : 'The sitemap and links help search engines discover pages. Descriptive titles tell people what to expect from each result.')}</p>
       </div>
       <div>
         <LuMessageSquare aria-hidden="true" />

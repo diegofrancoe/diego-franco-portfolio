@@ -1,32 +1,17 @@
 import { LuTimer, LuChartNoAxesCombined } from 'react-icons/lu';
-import { useState } from 'react';
 import AgentCenizaWorkflow from './AgentCenizaWorkflow';
 import AgentCenizaCapabilities from './AgentCenizaCapabilities';
 const value = (item, language) => item?.[language] || item?.es;
 
 export default function AgentCenizaExperience({ profile, language, setZoom, naval = false, pending }) {
   const es = language === 'es';
-  const [view, setView] = useState(0);
-  const [src,caption] = profile.gallery[view];
-  const labels = naval ? profile.gallery.map(([, , label]) => value(label, language)) : [es ? 'Inicio' : 'Home', es ? 'Conversación' : 'Conversation'];
+  const renderShot = ([src, caption], mobile = false) => <figure className="product-shot" data-device={mobile ? 'mobile' : 'desktop'} key={src}><button type="button" aria-label={(es ? 'Ampliar captura: ' : 'Enlarge screenshot: ') + value(caption, language)} onClick={() => setZoom({src, caption:value(caption, language)})}>{!mobile && <div className="new-case-browser" aria-hidden="true"><i/><i/><i/><span>{naval ? 'Naval ERP' : 'Asistente Ceniza'}</span><b>↗</b></div>}<img src={src} alt={value(caption, language)} loading="lazy" decoding="async" /></button><figcaption>{value(caption, language)}</figcaption></figure>;
   return <>
     <section className="agent-integrated" aria-labelledby="agent-experience-title">
       <header><div><p className="eyebrow">{naval ? (es ? 'PROTOTIPO EN EL ERP' : 'ERP PROTOTYPE') : (es ? 'EL AGENTE EN ACCIÓN' : 'THE AGENT IN ACTION')}</p><h2 id="agent-experience-title">{naval ? (es ? 'La operación de Naval, en contexto.' : 'Naval operations in context.') : (es ? 'Tu operación, en una conversación.':'Your operations, in one conversation.')}</h2></div><p>{naval ? (es ? 'El prototipo toma como referencia las pantallas de producción y finanzas del ERP. La conexión a datos operativos y modelos de IA está pendiente.' : 'The prototype uses the ERP production and finance screens as context. Connections to operational data and AI models are pending.') : es?'Consulta lo que pasa en el negocio, entiende qué necesita atención y prepara el siguiente paso con información del CRM.':'Ask what is happening in the business, understand what needs attention and prepare the next step using CRM information.'}</p></header>
-      <div className="agent-device-stage">
-        <div className="agent-desktop-demo">
-          <div className="agent-view-switch" role="group" aria-label={es?'Vista del agente':'Agent view'}>{labels.map((label,i)=><button key={label} type="button" aria-pressed={view===i} onClick={()=>setView(i)}>{label}</button>)}<span>DESKTOP</span></div>
-          <figure><button type="button" aria-label={(es?'Ampliar captura: ':'Enlarge screenshot: ')+value(caption,language)} onClick={()=>setZoom({src,caption:value(caption,language)})}><div className="new-case-browser" aria-hidden="true"><i/><i/><i/><span>{naval ? 'Naval ERP' : 'Asistente Ceniza'}</span><b>↗</b></div><img src={src} width={naval ? undefined : 3136} height={naval ? undefined : 2124} alt={value(caption,language)} loading="lazy" decoding="async"/></button><figcaption>{naval ? value(caption, language) : view===0?(es?'Prioridades y resumen del negocio.':'Business overview and priorities.'):(es?'Una pregunta se convierte en un reporte comercial.':'A question becomes a sales report.')}</figcaption></figure>
-        </div>
-{naval ? <div className="naval-agent-context">
-          <p className="eyebrow">{es ? 'CONTEXTO DEL ERP' : 'ERP CONTEXT'}</p>
-          {profile.gallery.slice(1).map(([image, label]) => <figure key={image}>
-            <button type="button" aria-label={(es ? 'Ampliar captura: ' : 'Enlarge screenshot: ') + value(label, language)} onClick={() => setZoom({ src: image, caption: value(label, language) })}>
-              <img src={image} alt={value(label, language)} loading="lazy" decoding="async" />
-            </button>
-            <figcaption>{value(label, language)}</figcaption>
-          </figure>)}
-        </div> : <div className="agent-compact-mobile"><div className="agent-mobile-pair">{profile.mobileGallery.map(([src,caption])=><figure key={src}>{src==='conversation'?<div className="agent-phone agent-conversation-phone"><span className="agent-phone-speaker" aria-hidden="true"/><div className="agent-conversation-screen" role="img" aria-label={es?'Vista móvil adaptada de la conversación y el reporte comercial de Ceniza':'Adapted mobile view of the Ceniza conversation and sales report'}><div className="agent-chat-top"><span>✦</span><div><strong>Asistente Ceniza</strong><small>{es?'CONTEXTO DEL CRM':'CRM CONTEXT'}</small></div></div><div className="agent-chat-body"><small>{es?'TÚ':'YOU'}</small><p className="agent-user-message">{es?'Muéstrame el pipeline comercial.':'Report sales pipeline.'}</p><small>ASISTENTE CENIZA</small><div className="agent-report-message"><span>{es?'REPORTE COMERCIAL':'SALES REPORT'}</span><strong>{es?'Pipeline de ventas':'Sales pipeline'}</strong><p>{es?'6 oportunidades abiertas':'6 open opportunities'}</p><b>$6.168.300 <small>COP</small></b><p>{es?'Ventas potenciales':'Potential sales'}</p><div className="agent-report-bars"><span>{es?'Propuesta':'Proposal'} <i/></span><span>{es?'Negociación':'Negotiation'} <i/></span></div><p className="agent-report-note">{es?'El pipeline ponderado no representa ingresos confirmados.':'Weighted pipeline is not confirmed revenue.'}</p></div></div><div className="agent-chat-composer">{es?'Pregunta o pide una acción…':'Ask a question…'}<span>↗</span></div></div></div>:<button type="button" className="agent-phone" aria-label={(es?'Ampliar captura: ':'Enlarge screenshot: ')+value(caption,language)} onClick={()=>setZoom({src,caption:value(caption,language)})}><span className="agent-phone-speaker" aria-hidden="true"/><img src={src} alt={value(caption,language)} width="390" height="844" loading="lazy" decoding="async" /></button>}<figcaption>{value(caption,language)}</figcaption></figure>)}</div></div>}
-
+      <div className="agent-device-stage ceniza-site-stage">
+        <div className="ceniza-site-desktop">{profile.gallery.slice(0,2).map(shot => renderShot(shot))}</div>
+        <div className="ceniza-site-mobile"><div><p className="eyebrow">{es ? 'EXPERIENCIA MÓVIL' : 'MOBILE EXPERIENCE'}</p><h3>{naval ? (es ? 'El ERP, también en tu celular.' : 'The ERP, on your phone too.') : (es ? 'El contexto, contigo.' : 'Your context, with you.')}</h3><p>{naval ? (es ? 'Consulta el prototipo del asistente y las vistas de producción y finanzas del ERP.' : 'Explore the assistant prototype and the ERP production and finance views.') : (es ? 'Consulta prioridades y revisa la agenda y el inventario que dan contexto al asistente.' : 'Check priorities and explore the calendar and inventory that provide the assistant with context.')}</p></div><div className="ceniza-site-phone-gallery"><p className="mobile-gallery-hint">{es ? 'Desliza para ver las pantallas →' : 'Swipe to explore the screens →'}</p><div className="ceniza-site-phones">{profile.mobileGallery.map(shot => renderShot(shot, true))}</div></div></div>
       </div>
       <AgentCenizaCapabilities language={language} naval={naval} pending={pending} />
     </section>
