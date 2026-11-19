@@ -1146,23 +1146,7 @@ function ProjectGrid({ children }) {
 }
 
 function FolderLabel({ children }) {
-  const labelRef = useRef(null);
-  useEffect(() => {
-    const el = labelRef.current;
-    const fit = () => {
-      el.style.fontSize = "";
-      const base = parseFloat(getComputedStyle(el).fontSize);
-      if (el.scrollWidth > el.clientWidth) el.style.fontSize = `${base * el.clientWidth / el.scrollWidth * .97}px`;
-    };
-    const observer = new ResizeObserver(fit);
-    observer.observe(el);
-    document.fonts.ready.then(fit);
-    return () => observer.disconnect();
-  }, [children]);
-  const stacked = typeof children === "string" && (children.startsWith("Portafolio ") || children === "Agente Marketing");
-  return <span ref={labelRef} className={`folder-label${stacked ? " is-portfolio-label" : ""}`}>
-    {stacked ? <span>{children.split(" ")[0]}<br />{children.slice(children.indexOf(" ") + 1)}</span> : children}
-  </span>;
+  return <span className="folder-label">{children}</span>;
 }
 
 function ProjectVisual({ visual, label, mark }) {
